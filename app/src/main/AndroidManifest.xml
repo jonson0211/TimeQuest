@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.question.Achievement"
+            android:label="@string/title_activity_achievement"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".ui.question.QuestionPage"
             android:label="@string/title_activity_question_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CustomiseActivity" />
         <activity
             android:name=".MainActivity"
