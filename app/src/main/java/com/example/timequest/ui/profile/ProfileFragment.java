@@ -1,4 +1,4 @@
-package com.example.timequest.ui.notifications;
+package com.example.timequest.ui.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,16 +14,16 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.timequest.R;
 
-public class NotificationsFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private ProfileViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
+                ViewModelProviders.of(this).get(ProfileViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        final TextView textView = root.findViewById(R.id.tvProfileName);
         notificationsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
