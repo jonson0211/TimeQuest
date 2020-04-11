@@ -1,6 +1,7 @@
 package com.example.timequest.Entities;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -9,14 +10,17 @@ import java.util.ArrayList;
 @Entity
 public class User {
 
-    @PrimaryKey
-    @NonNull
+    @PrimaryKey(autoGenerate = true)
     private String userName;
+
+    //database cannot read arraylists, need to convert
     ArrayList<String> head;
     ArrayList<String> body;
     ArrayList<String> hand;
 
     //progress shown in profile
+
+    @ColumnInfo(name = "progress")
     private double progress;
 
     public User(String userName, ArrayList<String> head, ArrayList<String> body, ArrayList<String> hand, double progress) {

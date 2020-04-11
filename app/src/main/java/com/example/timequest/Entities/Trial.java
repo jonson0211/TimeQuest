@@ -1,6 +1,7 @@
 package com.example.timequest.Entities;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -8,12 +9,25 @@ import androidx.room.PrimaryKey;
 public class Trial {
 
 
-    @PrimaryKey
-    @NonNull
+    @PrimaryKey(autoGenerate = true)
     private int questionNumber;
+
+    @ColumnInfo(name = "question")
     private String question;
-    private String option1, option2, option3, option4;
+
+    @ColumnInfo(name = "option1")
+    private String option1;
+    @ColumnInfo(name = "option2")
+    private String option2;
+    @ColumnInfo(name = "option3")
+    private String option3;
+    @ColumnInfo(name = "option4")
+    private String option4;
+
+    @ColumnInfo(name = "answer_number")
     private int answerNumber;
+
+    @ColumnInfo(name = "quiz_background")
     private String quizBackground;
 
     public Trial(int questionNumber, String question, String option1, String option2, String option3, String option4, int answerNumber, String quizBackground) {

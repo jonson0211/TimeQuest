@@ -1,23 +1,27 @@
 package com.example.timequest.Entities;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
 public class Era {
 
-    @PrimaryKey
-    @NonNull
+    @PrimaryKey(autoGenerate = true)
     private int eraID;
 
+    @ColumnInfo(name = "era_name")
     private String eraName;
 
+    @ColumnInfo(name = "era_banner")
     private String eraBanner;
 
+    @ColumnInfo(name = "era_background")
     private String eraBackground;
 
-    //"Uncompleted", "Completed", "Perfect"
+    @ColumnInfo(name = "era_completed")
+    //"Incomplete", "Complete", "Perfect"
     private String eraCompleted;
 
     public Era(int eraID, String eraName, String eraBanner, String eraBackground, String eraCompleted) {
