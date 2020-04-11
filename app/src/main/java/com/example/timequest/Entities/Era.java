@@ -17,10 +17,10 @@ public class Era {
 
     private String eraBackground;
 
-    //0 = uncompleted, 1 = completed, 2 = completed perfectly
-    private int eraCompleted;
+    //"Uncompleted", "Completed", "Perfect"
+    private String eraCompleted;
 
-    public Era(int eraID, String eraName, String eraBanner, String eraBackground, int eraCompleted) {
+    public Era(int eraID, String eraName, String eraBanner, String eraBackground, String eraCompleted) {
         this.eraID = eraID;
         this.eraName = eraName;
         this.eraBanner = eraBanner;
@@ -60,11 +60,11 @@ public class Era {
         this.eraBackground = eraBackground;
     }
 
-    public int getEraCompleted() {
+    public String getEraCompleted() {
         return eraCompleted;
     }
 
-    public void setEraCompleted(int eraCompleted) {
+    public void setEraCompleted(String eraCompleted) {
         this.eraCompleted = eraCompleted;
     }
 }
