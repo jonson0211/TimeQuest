@@ -19,7 +19,6 @@ public class User {
     ArrayList<String> hand;
 
     //progress shown in profile
-
     @ColumnInfo(name = "progress")
     private double progress;
 

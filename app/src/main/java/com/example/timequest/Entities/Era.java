@@ -24,6 +24,7 @@ public class Era {
     //"Incomplete", "Complete", "Perfect"
     private String eraCompleted;
 
+
     public Era(int eraID, String eraName, String eraBanner, String eraBackground, String eraCompleted) {
         this.eraID = eraID;
         this.eraName = eraName;
