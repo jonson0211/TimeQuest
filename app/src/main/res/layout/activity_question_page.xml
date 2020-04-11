@@ -52,49 +52,16 @@
         android:layout_marginLeft="36dp"
         android:layout_marginBottom="456dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/tvQuestion"
         app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        tools:ignore="UnknownId" />
 
-    <Button
-        android:id="@+id/buttonA"
-        android:layout_width="333dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="128dp"
-        android:background="@drawable/quiz_button"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/buttonB"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonB"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <Button
-        android:id="@+id/buttonC"
-        android:layout_width="333dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="120dp"
-        android:background="@drawable/quiz_button"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/buttonConfirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonB"
-        android:layout_width="333dp"
-        android:layout_height="46dp"
-        android:background="@drawable/quiz_button"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/buttonC"
-        app:layout_constraintEnd_toEndOf="@+id/buttonC"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/buttonC"
-        app:layout_constraintTop_toBottomOf="@+id/buttonA"
-        app:layout_constraintVertical_bias="0.508" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -117,5 +84,40 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/step_view" />
+
+    <RadioGroup
+        android:layout_width="357dp"
+        android:layout_height="288dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion"
+        app:layout_constraintVertical_bias="0.586">
+
+        <RadioButton
+            android:id="@+id/aButton"
+            android:layout_width="313dp"
+            android:layout_height="53dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/quiz_button"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/bButton"
+            android:layout_width="313dp"
+            android:layout_height="53dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/quiz_button"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/cButton"
+            android:layout_width="313dp"
+            android:layout_height="53dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/quiz_button"
+            android:text="RadioButton" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
