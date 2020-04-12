@@ -80,12 +80,12 @@
         android:layout_marginRight="17dp"
         android:text="Learnings:"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/notesButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAccuracy" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/notesButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="123dp"

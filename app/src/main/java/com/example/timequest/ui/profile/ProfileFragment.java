@@ -1,9 +1,11 @@
 package com.example.timequest.ui.profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -16,14 +18,30 @@ import com.example.timequest.R;
 
 public class ProfileFragment extends Fragment {
 
+    Button notesButton;
+
     private ProfileViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
+
         notificationsViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
         final TextView textView = root.findViewById(R.id.tvProfileName);
+        final Button notesButton = root.findViewById(R.id.notesButton);
+
+        notesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(getActivity(), ReadActivity.class);
+                //startActivity(intent);
+            }
+        });
+
         notificationsViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -31,5 +49,9 @@ public class ProfileFragment extends Fragment {
             }
         });
         return root;
+
+
+
+
     }
 }
