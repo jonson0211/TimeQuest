@@ -5,6 +5,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
+
 @Entity
 public class NPC {
 
@@ -87,4 +89,21 @@ public class NPC {
     public void setNpcAvatar(String npcAvatar) {
         this.npcAvatar = npcAvatar;
     }
+
+    public static ArrayList<NPC> addNPCData(){
+        ArrayList<NPC> npcs = new ArrayList<>();
+        npcs.add(new NPC(1, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(2, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(3, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(4, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(1, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(5, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(6, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(7, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(8, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(9, "Spartan", "xxx", "xxx","xxx", "avatar1"));
+
+        return npcs;
+    }
+
 }
