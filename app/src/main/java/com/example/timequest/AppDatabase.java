@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-
+/**
 import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.Entities.Notes;
@@ -29,3 +29,4 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
 }
+**/

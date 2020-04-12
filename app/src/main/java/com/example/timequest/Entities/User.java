@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
-
+/**
 @Entity
 public class User {
 
@@ -70,3 +70,4 @@ public class User {
         this.progress = progress;
     }
 }
+**/

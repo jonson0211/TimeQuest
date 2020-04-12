@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.timequest.LearningReadActivity;
 import com.example.timequest.R;
 
 public class ProfileFragment extends Fragment {
@@ -37,12 +38,12 @@ public class ProfileFragment extends Fragment {
         notesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(getActivity(), ReadActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(getActivity(), LearningReadActivity.class);
+                startActivity(intent);
             }
         });
 
-        notificationsViewModel.getText().observe(this, new Observer<String>() {
+        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

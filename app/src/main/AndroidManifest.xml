@@ -12,10 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LearningReadActivity"></activity>
+        <activity android:name=".LearningIntroActivity" />
         <activity
             android:name=".ui.question.Achievement"
             android:label="@string/title_activity_achievement"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.question.QuestionPage"
             android:label="@string/title_activity_question_page"

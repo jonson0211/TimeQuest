@@ -5,7 +5,7 @@
     android:id="@+id/speechNext"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Learning1">
+    tools:context=".LearningIntroActivity">
 
     <ImageView
         android:id="@+id/enemyCharacter"
