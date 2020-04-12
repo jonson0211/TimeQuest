@@ -5,6 +5,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
+
 @Entity
 public class Era {
 
@@ -72,4 +74,22 @@ public class Era {
     public void setEraCompleted(String eraCompleted) {
         this.eraCompleted = eraCompleted;
     }
+
+    public static ArrayList<Era> addEraData(){
+        ArrayList<Era> eras = new ArrayList<>();
+        eras.add(new Era(1, "Spartan Army", "banner1", "background1","Incomplete"));
+        eras.add(new Era(2, "North Sentinel Islanders", "banner2", "background2","Incomplete"));
+        eras.add(new Era(3, "Roman Legionnaire", "banner3", "background3","Incomplete"));
+        eras.add(new Era(4, "Ancient Athenian", "banner4", "background4","Incomplete"));
+        eras.add(new Era(5, "Normans", "banner5", "background5","Incomplete"));
+        eras.add(new Era(6, "Cossack Warriors", "banner6", "background6","Incomplete"));
+        eras.add(new Era(7, "Neanderthals", "banner7", "background7","Incomplete"));
+        eras.add(new Era(8, "Qing Dynasty", "banner8", "background8","Incomplete"));
+        eras.add(new Era(9, "Vikings", "banner9", "background9","Incomplete"));
+
+        return eras;
+    }
+
+
+
 }
