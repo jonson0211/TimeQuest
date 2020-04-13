@@ -124,8 +124,6 @@ public class QuestionPage extends AppCompatActivity {
         countDownTimeLeftMillis = COUNTDOWN_IN_MILLIS;
         startCountdown();
 
-
-
     }
 
     //Start countdown once activity is alive
