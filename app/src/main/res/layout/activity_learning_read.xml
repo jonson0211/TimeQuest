@@ -43,9 +43,9 @@
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
+
+
         android:layout_width="match_parent"
-
-
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
@@ -58,9 +58,15 @@
 
             <TextView
                 android:id="@+id/learningText"
+                style="@style/TextAppearance.AppCompat.Display2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="10dp"
+                android:paddingEnd="15dp"
+                android:paddingRight="10dp"
                 android:text="TextView"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.046"
@@ -70,14 +76,14 @@
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                 android:id="@+id/youtube_player_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
 
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 app:autoPlay="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/learningText"
-                app:useWebUi="true"
-               />
+                app:useWebUi="true" />
 
             <VideoView
                 android:id="@+id/videoView"
@@ -92,6 +98,8 @@
                 android:id="@+id/takeTrial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/buttons"
                 android:text="TAKE TRIAL"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
