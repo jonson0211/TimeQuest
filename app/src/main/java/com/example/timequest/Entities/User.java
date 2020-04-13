@@ -6,28 +6,25 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
-/**
+
 @Entity
 public class User {
 
     @PrimaryKey(autoGenerate = true)
     private String userName;
 
-    //database cannot read arraylists, need to convert
-    ArrayList<String> head;
-    ArrayList<String> body;
-    ArrayList<String> hand;
-
     //progress shown in profile
     @ColumnInfo(name = "progress")
     private double progress;
 
-    public User(String userName, ArrayList<String> head, ArrayList<String> body, ArrayList<String> hand, double progress) {
+    //progress shown in profile
+    @ColumnInfo(name = "accuracy")
+    private double accuracy;
+
+    public User(String userName, double progress, double accuracy) {
         this.userName = userName;
-        this.head = head;
-        this.body = body;
-        this.hand = hand;
         this.progress = progress;
+        this.accuracy = accuracy;
     }
 
     public String getUserName() {
@@ -38,30 +35,6 @@ public class User {
         this.userName = userName;
     }
 
-    public ArrayList<String> getHead() {
-        return head;
-    }
-
-    public void setHead(ArrayList<String> head) {
-        this.head = head;
-    }
-
-    public ArrayList<String> getBody() {
-        return body;
-    }
-
-    public void setBody(ArrayList<String> body) {
-        this.body = body;
-    }
-
-    public ArrayList<String> getHand() {
-        return hand;
-    }
-
-    public void setHand(ArrayList<String> hand) {
-        this.hand = hand;
-    }
-
     public double getProgress() {
         return progress;
     }
@@ -69,5 +42,12 @@ public class User {
     public void setProgress(double progress) {
         this.progress = progress;
     }
+
+    public double getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(double accuracy) {
+        this.accuracy = accuracy;
+    }
 }
-**/

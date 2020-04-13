@@ -7,29 +7,22 @@ import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 
-@Entity
 public class NPC {
 
-    @PrimaryKey(autoGenerate = true)
     private int npcID;
 
-    @ColumnInfo(name = "npc_name")
     private String npcName;
 
     //what the NPC greets the user with
-    @ColumnInfo(name = "welcome_speech")
     private String welcomeSpeech;
 
     //what the NPC says to the user if they beat the trial
-    @ColumnInfo(name = "ending_speech")
     private String endingSpeech;
 
     //what the NPC says to the user if they fail the trial
-    @ColumnInfo(name = "fail_speech")
     private String failSpeech;
 
     //what they look like
-    @ColumnInfo(name = "npc_avatar")
     private String npcAvatar;
 
 
