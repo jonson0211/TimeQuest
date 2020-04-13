@@ -13,9 +13,10 @@
         android:id="@+id/tvTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Qing Dynasty"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/medievalsharp"
+        android:text="Qing Dynasty"
+        android:textColor="#9F5A06"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,8 +40,8 @@
         android:id="@+id/ivActor"
         android:layout_width="91dp"
         android:layout_height="85dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTopic"
         tools:ignore="UnknownId"
@@ -50,22 +51,27 @@
         android:id="@+id/tvQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="72dp"
         android:text="tvQuestion"
         android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioG"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivActor"
-        app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTopic"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvCounter"
         android:layout_width="63dp"
         android:layout_height="30dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="28dp"
         android:text="00:30"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/radioG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
 
@@ -73,12 +79,10 @@
         android:id="@+id/radioG"
         android:layout_width="357dp"
         android:layout_height="288dp"
+        android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonConfirm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuestion"
-        app:layout_constraintVertical_bias="0.586">
+        app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/buttonA"
