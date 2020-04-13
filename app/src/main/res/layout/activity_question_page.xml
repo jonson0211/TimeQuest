@@ -9,17 +9,6 @@
     tools:context=".ui.question.QuestionPage">
 
 
-    <com.baoyachi.stepview.HorizontalStepView
-        android:id="@+id/step_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
-
     <TextView
         android:id="@+id/tvTopic"
         android:layout_width="wrap_content"
@@ -60,31 +49,28 @@
         tools:ignore="UnknownId" />
 
 
-
     <TextView
         android:id="@+id/tvQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="208dp"
         android:layout_marginRight="208dp"
         android:text="tvQuestion"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view" />
+        tools:layout_editor_absoluteY="212dp" />
 
     <TextView
         android:id="@+id/tvCounter"
         android:layout_width="63dp"
         android:layout_height="30dp"
-        android:layout_marginTop="28dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
         android:text="00:30"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view" />
+        tools:layout_editor_absoluteY="140dp" />
 
     <RadioGroup
         android:id="@+id/radioG"
