@@ -17,8 +17,7 @@
         android:text="Qing Dynasty"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent
-"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +25,7 @@
         android:id="@+id/buttonConfirm"
         android:layout_width="408dp"
         android:layout_height="63dp"
-        android:background="#FAEDCA"
+        android:background="@drawable/quiz_button"
         android:text="CONFIRM"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -34,43 +33,40 @@
         app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <ImageView
         android:id="@+id/ivActor"
         android:layout_width="91dp"
         android:layout_height="85dp"
         android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginBottom="456dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvQuestion"
-        app:layout_constraintHorizontal_bias="0.228"
+        android:layout_marginTop="104dp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:src="@tools:sample/avatars"
-        tools:ignore="UnknownId" />
-
+        app:layout_constraintTop_toBottomOf="@+id/tvTopic"
+        tools:ignore="UnknownId"
+        tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="208dp"
-        android:layout_marginRight="208dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="132dp"
         android:text="tvQuestion"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="212dp" />
+        app:layout_constraintStart_toEndOf="@+id/ivActor"
+        app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
 
     <TextView
         android:id="@+id/tvCounter"
         android:layout_width="63dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="36dp"
         android:text="00:30"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="140dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
 
     <RadioGroup
         android:id="@+id/radioG"
