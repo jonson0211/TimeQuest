@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -89,28 +90,37 @@ public class LearningReadActivity extends AppCompatActivity {
             }
 
         });
-
-        /** VIDEO PLAYING FROM YOUTUBE DOES NOT WORK WELL USING VIDEO VIEW
-        //Video Player
-        String videoURL ="https://m.www.youtube.com/watch?v=BIqWKPA83V0";
-        //videoView.setVideoURI(Uri.parse(videoURL));
-        videoView.setVideoPath(videoURL);
-        mediaController = new MediaController(this);
-        mediaController.setAnchorView(videoView);
-        videoView.setMediaController(mediaController);
-
-        //videoView.start();
-        //videoView.setOnPreparedListener(mediaPlayer -> videoView.start());
-
-        videoView.setOnTouchListener(
-                (v, event) -> {
-                    videoView.start();
-                    videoView.requestFocus();
-                    return false;
-                }
-        );
-
-         **/
+        /**
+        takeTrial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LearningReadActivity.class);
+                startActivity(intent);
+            }
+        });
+**/
     }
 
 }
+
+/** VIDEO PLAYING FROM YOUTUBE DOES NOT WORK WELL USING VIDEO VIEW
+ //Video Player
+ String videoURL ="https://m.www.youtube.com/watch?v=BIqWKPA83V0";
+ //videoView.setVideoURI(Uri.parse(videoURL));
+ videoView.setVideoPath(videoURL);
+ mediaController = new MediaController(this);
+ mediaController.setAnchorView(videoView);
+ videoView.setMediaController(mediaController);
+
+ //videoView.start();
+ //videoView.setOnPreparedListener(mediaPlayer -> videoView.start());
+
+ videoView.setOnTouchListener(
+ (v, event) -> {
+ videoView.start();
+ videoView.requestFocus();
+ return false;
+ }
+ );
+
+ **/

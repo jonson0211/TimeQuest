@@ -14,12 +14,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.timequest.CustomiseActivity;
 import com.example.timequest.LearningReadActivity;
 import com.example.timequest.R;
 
 public class ProfileFragment extends Fragment {
 
     Button notesButton;
+    Button customiseButton;
 
     private ProfileViewModel notificationsViewModel;
 
@@ -34,11 +36,20 @@ public class ProfileFragment extends Fragment {
 
         final TextView textView = root.findViewById(R.id.tvProfileName);
         final Button notesButton = root.findViewById(R.id.notesButton);
+        customiseButton = root.findViewById(R.id.customiseButton);
 
         notesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), LearningReadActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        customiseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CustomiseActivity.class);
                 startActivity(intent);
             }
         });
@@ -50,6 +61,7 @@ public class ProfileFragment extends Fragment {
             }
         });
         return root;
+
 
 
 

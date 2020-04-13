@@ -10,10 +10,11 @@
         android:id="@+id/ivCharacter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="78dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
@@ -21,34 +22,33 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivCharacter">
 
         <Button
             android:id="@+id/headNextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="300dp"
             android:layout_marginTop="30dp"
-            android:text="Next" />
+            android:background="@drawable/ic_chevron_right_black_24dp" />
 
         <Button
             android:id="@+id/headBackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="Back" />
+            android:background="@drawable/ic_chevron_left_black_24dp" />
 
         <TextView
             android:id="@+id/tvHead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="175dp"
+            android:layout_marginLeft="180dp"
             android:text="Head" />
 
         <ImageView
@@ -56,7 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="165dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"
             app:srcCompat="@mipmap/ic_launcher_round" />
 
     </androidx.cardview.widget.CardView>
@@ -64,38 +65,35 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <Button
             android:id="@+id/item1NextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="300dp"
             android:layout_marginTop="30dp"
-            android:text="Next" />
+            android:background="@drawable/ic_chevron_right_black_24dp" />
 
         <Button
             android:id="@+id/item1BackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="Back" />
+            android:background="@drawable/ic_chevron_left_black_24dp" />
 
         <TextView
             android:id="@+id/tvItem1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="175dp"
+            android:layout_marginLeft="180dp"
             android:text="Item 1" />
 
         <ImageView
@@ -103,41 +101,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="165dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"
             app:srcCompat="@mipmap/ic_launcher_round" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
         <Button
             android:id="@+id/item2NextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="300dp"
             android:layout_marginTop="30dp"
-            android:text="Next" />
+            android:background="@drawable/ic_chevron_right_black_24dp" />
 
         <Button
             android:id="@+id/item2BackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="Back" />
+            android:background="@drawable/ic_chevron_left_black_24dp" />
 
         <TextView
             android:id="@+id/tvItem2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="175dp"
+            android:layout_marginLeft="180dp"
             android:text="Item 2" />
 
         <ImageView
@@ -145,7 +143,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="165dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"
             app:srcCompat="@mipmap/ic_launcher_round" />
 
     </androidx.cardview.widget.CardView>
@@ -154,9 +153,8 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="20dp"
         android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3" />
