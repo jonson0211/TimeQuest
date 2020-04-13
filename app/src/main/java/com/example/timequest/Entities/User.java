@@ -21,6 +21,15 @@ public class User {
     @ColumnInfo(name = "accuracy")
     private double accuracy;
 
+    @ColumnInfo(name = "user_head_item")
+    private String userHeadItem;
+
+    @ColumnInfo(name = "user_hand_item")
+    private String userHandItem;
+
+    @ColumnInfo(name = "user_body_item")
+    private String userBodyItem;
+
     public User(String userName, double progress, double accuracy) {
         this.userName = userName;
         this.progress = progress;
