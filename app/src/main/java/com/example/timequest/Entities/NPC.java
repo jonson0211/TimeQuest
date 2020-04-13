@@ -96,7 +96,6 @@ public class NPC {
         npcs.add(new NPC(2, "Spartan", "xxx", "xxx","xxx", "avatar1"));
         npcs.add(new NPC(3, "Spartan", "xxx", "xxx","xxx", "avatar1"));
         npcs.add(new NPC(4, "Spartan", "xxx", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(1, "Spartan", "xxx", "xxx","xxx", "avatar1"));
         npcs.add(new NPC(5, "Spartan", "xxx", "xxx","xxx", "avatar1"));
         npcs.add(new NPC(6, "Spartan", "xxx", "xxx","xxx", "avatar1"));
         npcs.add(new NPC(7, "Spartan", "xxx", "xxx","xxx", "avatar1"));
