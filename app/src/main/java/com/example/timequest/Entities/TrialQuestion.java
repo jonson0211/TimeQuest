@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class TrialQuestion {
 
 
-    private int questionNumber;
+    private Integer questionNumber;
 
     private String question;
 
@@ -21,11 +21,11 @@ public class TrialQuestion {
 
     private String option3;
 
-    private int answerNumber;
+    private Integer answerNumber;
 
     private String quizBackground;
 
-    public TrialQuestion(int questionNumber, String question, String option1, String option2, String option3, int answerNumber, String quizBackground) {
+    public TrialQuestion(Integer questionNumber, String question, String option1, String option2, String option3, Integer answerNumber, String quizBackground) {
         this.questionNumber = questionNumber;
         this.question = question;
         this.option1 = option1;

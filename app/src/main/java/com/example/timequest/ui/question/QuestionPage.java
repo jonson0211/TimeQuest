@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.example.timequest.Entities.TrialQuestion;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.timequest.R;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Timer;
 
@@ -81,8 +83,11 @@ public class QuestionPage extends AppCompatActivity {
 
         //Need to talk to database to get questions based on the topic
 
-
-
+        ArrayList<TrialQuestion> nsl = TrialQuestion.nslTrial();
+        questionTV.setText(nsl.get(1).getQuestion());
+        aButton.setText(nsl.get(1).getOption1());
+        bButton.setText(nsl.get(1).getOption2());
+        cButton.setText(nsl.get(1).getOption3());
 
 
 
@@ -123,8 +128,6 @@ public class QuestionPage extends AppCompatActivity {
         //3.
         countDownTimeLeftMillis = COUNTDOWN_IN_MILLIS;
         startCountdown();
-
-
 
     }
 
@@ -172,6 +175,11 @@ public class QuestionPage extends AppCompatActivity {
         RadioButton selectedAnswer = findViewById(questionRg.getCheckedRadioButtonId());
 
         int answer = questionRg.indexOfChild(selectedAnswer) + 1;
+        if(answer == TrialQuestion.nslTrial().get(1).getAnswerNumber()){
+            Toast.makeText(QuestionPage.this, "Good job Jonson", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(QuestionPage.this, "Wrong", Toast.LENGTH_SHORT).show();
+        }
     }
 }
 
