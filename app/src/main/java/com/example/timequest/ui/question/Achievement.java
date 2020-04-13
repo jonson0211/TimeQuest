@@ -73,8 +73,6 @@ public class Achievement extends AppCompatActivity {
 
         }
 
-
-
     }
     public static int randomValue(){
         return RANDOM.nextInt(6)+1;
