@@ -30,10 +30,13 @@ public class User {
     @ColumnInfo(name = "user_body_item")
     private String userBodyItem;
 
-    public User(String userName, double progress, double accuracy) {
+    public User(String userName, double progress, double accuracy, String userHeadItem, String userHandItem, String userBodyItem) {
         this.userName = userName;
         this.progress = progress;
         this.accuracy = accuracy;
+        this.userHeadItem = userHeadItem;
+        this.userHandItem = userHandItem;
+        this.userBodyItem = userBodyItem;
     }
 
     public String getUserName() {
@@ -58,5 +61,29 @@ public class User {
 
     public void setAccuracy(double accuracy) {
         this.accuracy = accuracy;
+    }
+
+    public String getUserHeadItem() {
+        return userHeadItem;
+    }
+
+    public void setUserHeadItem(String userHeadItem) {
+        this.userHeadItem = userHeadItem;
+    }
+
+    public String getUserHandItem() {
+        return userHandItem;
+    }
+
+    public void setUserHandItem(String userHandItem) {
+        this.userHandItem = userHandItem;
+    }
+
+    public String getUserBodyItem() {
+        return userBodyItem;
+    }
+
+    public void setUserBodyItem(String userBodyItem) {
+        this.userBodyItem = userBodyItem;
     }
 }
