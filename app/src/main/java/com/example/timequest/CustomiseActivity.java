@@ -52,16 +52,18 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
 
     }
 
+
+    //grab current outfit from database (replace the manual counter starting from =1)
     int headCounter = 1;
-    int item1Counter = 1;
-    int item2Counter = 1;
+    int bodyCounter = 1;
+    int itemCounter = 1;
 
     @Override
     public void onClick(View v) {
 
-        int headid = getResources().getIdentifier("item" + headCounter,"drawable", getPackageName());
-        int item1id = getResources().getIdentifier("item" + headCounter,"drawable", getPackageName());
-        int item2id = getResources().getIdentifier("item" + headCounter,"drawable", getPackageName());
+        int headid = getResources().getIdentifier("head" + headCounter,"drawable", getPackageName());
+        int bodyid = getResources().getIdentifier("body" + bodyCounter,"drawable", getPackageName());
+        int itemid = getResources().getIdentifier("item" + itemCounter,"drawable", getPackageName());
 
         switch (v.getId()) {
 
@@ -87,19 +89,41 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.item1NextButton:
-                // do your code
+                if(bodyCounter < 6) {
+                    bodyCounter++;
+                }else if
+                (bodyCounter == 6){
+                    bodyCounter = 1;
+                }
+                ivItem1.setImageResource(bodyid);
                 break;
 
             case R.id.item1BackButton:
-                // do your code
+                if(bodyCounter > 1) {
+                    bodyCounter--;
+                }else if(bodyCounter == 1) {
+                    bodyCounter= 6;
+                }
+                ivItem1.setImageResource(bodyid);
                 break;
 
             case R.id.item2NextButton:
-                // do your code
+                if(itemCounter < 6) {
+                    itemCounter++;
+                }else if
+                (itemCounter == 6){
+                    itemCounter = 1;
+                }
+                ivItem2.setImageResource(itemid);
                 break;
 
             case R.id.item2BackButton:
-                // do your code
+                if(itemCounter > 1) {
+                    itemCounter--;
+                }else if(itemCounter == 1) {
+                    itemCounter= 6;
+                }
+                ivItem2.setImageResource(itemid);
                 break;
 
             default:
