@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.timequest.R;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Timer;
 
@@ -51,10 +52,13 @@ public class QuestionPage extends AppCompatActivity {
     private TextView questionTV, countdownTV, topicTv;
     private RadioButton aButton, bButton, cButton;
     private Button confirmButton;
+    private TrialQuestion currentQuestion;
     private ColorStateList defaultColourButton, defaultColourCounter;
     private boolean answered;
     private RadioGroup questionRg;
     private CountDownTimer countDownTimer;
+    private int questionCount, questionCountTotal, score;
+    private List<TrialQuestion> questionList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,10 +129,29 @@ public class QuestionPage extends AppCompatActivity {
         //2.
         questionRg.clearCheck();
 
-        //3.
-        countDownTimeLeftMillis = COUNTDOWN_IN_MILLIS;
-        startCountdown();
+        if(questionCount < questionCountTotal){
+            //questionCounter is the integer
+            currentQuestion = questionList.get(questionCount);
+            //set the textView based on the current question
+            questionTV.setText(currentQuestion.getQuestion());
+            aButton.setText(currentQuestion.getOption1());
+            bButton.setText(currentQuestion.getOption2());
+            cButton.setText(currentQuestion.getOption3());
 
+            questionCount++;
+
+            answered = false;
+            //3.
+            countDownTimeLeftMillis = COUNTDOWN_IN_MILLIS;
+            startCountdown();
+        } else{
+
+            Intent rsIntent = new Intent();
+            rsIntent.putExtra(EXTRA_SCORE, score);
+            setResult(RESULT_OK,rsIntent);
+            finish();
+
+        }
     }
 
     //Start countdown once activity is alive
@@ -175,11 +198,31 @@ public class QuestionPage extends AppCompatActivity {
         RadioButton selectedAnswer = findViewById(questionRg.getCheckedRadioButtonId());
 
         int answer = questionRg.indexOfChild(selectedAnswer) + 1;
-        if(answer == TrialQuestion.nslTrial().get(1).getAnswerNumber()){
-            Toast.makeText(QuestionPage.this, "Good job Jonson", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(QuestionPage.this, "Wrong", Toast.LENGTH_SHORT).show();
+        if(answer == currentQuestion.getAnswerNumber()){
+            score++;
+
         }
+        displaySolution();
     }
+
+    private void displaySolution(){
+        aButton.setBackgroundColor(Color.RED);
+        bButton.setBackgroundColor(Color.RED);
+        cButton.setBackgroundColor(Color.RED);
+
+    if(currentQuestion.getAnswerNumber() == 1){
+        aButton.setBackgroundColor(Color.GREEN);
+    } else if (currentQuestion.getAnswerNumber() == 2){
+        bButton.setBackgroundColor(Color.GREEN);
+
+    } else cButton.setBackgroundColor(Color.GREEN);
+        if(questionCount < 10){
+             confirmButton.setText("Next question");
+        }else {
+            confirmButton.setText("Finish");
+        }
+
+    }
+
 }
 
