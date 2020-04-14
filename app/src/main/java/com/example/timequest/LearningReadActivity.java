@@ -59,7 +59,8 @@ public class LearningReadActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 String string = (response.substring(response.lastIndexOf("extract")+10,response.length()-5));
-                string = string.replace("\\n", "\n\n");
+                //string = string.replace("\\n", "\n\n");
+                string = string.replace("\n", "\n\n");
                 string = string.replaceAll("\\(.*?\\)", "");
                 learningText.setText(string);
                 System.out.println(string);

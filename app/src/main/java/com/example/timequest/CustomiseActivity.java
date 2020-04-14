@@ -48,6 +48,8 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
 
         saveButton = findViewById(R.id.saveButton);
 
+        ivCharacter.setImageResource(R.drawable.npcviking);
+
     }
 
     int headCounter = 1;
