@@ -7,20 +7,20 @@ import androidx.room.Query;
 public interface UserDAO {
 
     @Query("UPDATE user SET user_hand_item = :handItemName")
-    void changeHandItem(String handItemName);
+    public void changeHandItem(String handItemName);
 
     @Query("UPDATE user SET user_head_item = :headItemName")
-    void changeHeadItem(String headItemName);
+    public void changeHeadItem(String headItemName);
 
     @Query("UPDATE user SET user_body_item = :bodyItemName")
-    void changeBodyItem(String bodyItemName);
+    public void changeBodyItem(String bodyItemName);
 
     @Query("UPDATE user SET progress = :newProgress")
-    void changeProgress(double newProgress);
+    public void changeProgress(double newProgress);
 
 
     @Query("UPDATE user SET accuracy = :newAccuracy")
-    void changeAccuracy(double newAccuracy);
+    public void changeAccuracy(double newAccuracy);
 
 
 }
