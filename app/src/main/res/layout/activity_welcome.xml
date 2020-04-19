@@ -7,6 +7,7 @@
     tools:context=".Welcome">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.8"
@@ -16,10 +17,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="54dp"
+            android:layout_height="91dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginEnd="289dp"
+            android:layout_marginBottom="86dp"
+            android:alpha="0.2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/romanwelcome" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="59dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="221dp"
+            android:alpha="0.2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/china" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="54dp"
+            android:layout_height="86dp"
+            android:layout_marginStart="40dp"
+
+            android:layout_marginTop="53dp"
+            android:layout_marginEnd="36dp"
+            android:alpha="0.2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/sphinx" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/npcCharacter"
         android:layout_width="59dp"
         android:layout_height="58dp"
         android:layout_marginTop="184dp"
@@ -28,18 +66,6 @@
         app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:srcCompat="@drawable/china" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="59dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="36dp"
-        android:alpha="0.2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/china" />
 
     <ImageView
@@ -67,18 +93,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pyramids" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="54dp"
-        android:layout_height="86dp"
-        android:layout_marginTop="120dp"
-        android:alpha="0.2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView7"
-        app:layout_constraintHorizontal_bias="0.314"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:srcCompat="@drawable/sphinx" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -149,18 +163,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/romanwelcome" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="54dp"
-        android:layout_height="91dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginLeft="104dp"
-        android:layout_marginTop="32dp"
-        android:alpha="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/romanwelcome" />
 
     <TextView

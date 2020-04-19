@@ -3,6 +3,7 @@ package com.example.timequest.ui.question;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.timequest.Entities.NPC;
 import com.example.timequest.MainActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -10,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,64 +19,98 @@ import android.widget.TextView;
 
 import com.example.timequest.R;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Achievement extends AppCompatActivity {
 
+    public static final String ARG_ITEM_ID = "EXTRA_SCORE";
+    public static final String ARG_NPC_ID = "LEARNING";
+    private static final String TAG = "Message";
+
+
     private TextView outcomeTv;
     private Button homeB;
+    private ImageView npcCharacter;
     private ImageView prizeIv;
-    private static final Random RANDOM = new Random();
+    //private static final Random RANDOM = new Random();
+    private NPC mNPC;
+    private ArrayList<NPC> npcs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
 
+        String civilisation = getIntent().getStringExtra("LEARNING");
+        System.out.println(civilisation);
+        Log.d(TAG, "on getIntent(): SUCCESS");
+
+
+        for(NPC npc : npcs){
+            if(npc.getNpcName().equals(civilisation)){
+                mNPC = npc;
+                System.out.println(mNPC);
+            }}
+        //mNPC.getEndingSpeech();
+        //return mNPC
+
+        Integer score = getIntent().getIntExtra("EXTRA_SCORE",0);
+        System.out.println(score);
+        //Integer scoreValue = Integer.valueOf(score);
         outcomeTv = findViewById(R.id.tvOutcome);
         homeB = findViewById(R.id.bHome);
         prizeIv = findViewById(R.id.ivPrize);
 
+            //civilisation.toLowerCase()
+        int npcCharacterid = getResources().getIdentifier("npcspartan","drawable","com.example.timequest");
+
+        npcCharacter = findViewById(R.id.npcCharacter);
+        npcCharacter.setImageResource(npcCharacterid);
+
+
         homeB.setOnClickListener(v -> startActivity(new Intent(Achievement.this, MainActivity.class)));
+        int value1 = 1;
 
-        int value1 = randomValue();
+        /** can use if else statements to manually assign the integer in get(0).getEnding speech
+        int npcValue = 0;
 
-        if(QuestionPage.EXTRA_SCORE == "5") {
-            outcomeTv.setText("Congratulations! You passed the test. Here is your prize.");
+            if (civilisation.equals("Spartan")) {
+            }else if {civilisation.equals()
+        }       ;
+
+
+        {
+        }
+         **/
+        //for (Integer i = 1; i < npcs.size(); i++){
+        for (Integer i = 1; i < 8; i++){
+            if (mNPC.addNPCData().get(i).getNpcName() == civilisation){
+                mNPC = mNPC.addNPCData().get(i);
+            }
+        }
+
+
+        if(score > 7) {
+            outcomeTv.setText("Congratulations Adventurer!\n You passed the test. Here is something for your troubles.");
+            outcomeTv.setText(mNPC.addNPCData().get(5).getEndingSpeech()); //change "5" to be the variable NPC civilisation
+            Log.d(TAG, "on setText(): SUCCESS");
+
+            //outcomeTv.setText(mNPC.getEndingSpeech()); //doesn't work, use the above if can't figure out^
+            //Log.d(TAG, "on setText(): SUCCESS");
+
             int prize = getResources().getIdentifier("item"+ value1, "drawable", "com.example.timequest");
+            Log.d(TAG, "on getResourceID(): SUCCESS");
             prizeIv.setImageResource(prize);
+            //to do: immediately add item to user's collection in database
 
-        }else if (QuestionPage.EXTRA_SCORE == "6") {
-            outcomeTv.setText("Congratulations! You passed the test. Here is your prize.");
-            int prize = getResources().getIdentifier("item"+ value1, "drawable", "com.example.timequest");
-            prizeIv.setImageResource(prize);
-
-        }else if (QuestionPage.EXTRA_SCORE == "7") {
-            outcomeTv.setText("Congratulations! You passed the test. Here is your prize.");
-            int prize = getResources().getIdentifier("item"+ value1, "drawable", "com.example.timequest");
-            prizeIv.setImageResource(prize);
-
-        }else if (QuestionPage.EXTRA_SCORE == "8") {
-            outcomeTv.setText("Congratulations! You passed the test. Here is your prize.");
-            int prize = getResources().getIdentifier("item"+ value1, "drawable", "com.example.timequest");
-            prizeIv.setImageResource(prize);
-
-        }else if (QuestionPage.EXTRA_SCORE == "9") {
-            outcomeTv.setText("Congratulations! You passed the test. Here is your prize.");
-            int prize = getResources().getIdentifier("item"+ value1, "drawable", "com.example.timequest");
-            prizeIv.setImageResource(prize);
-
-        }else if (QuestionPage.EXTRA_SCORE == "10") {
-            outcomeTv.setText("Congratulations! You passed the test. Here is your prize.");
-            int prize = getResources().getIdentifier("item"+ value1, "drawable", "com.example.timequest");
-            prizeIv.setImageResource(prize);
         } else{
             outcomeTv.setText("Oh no. You did not pass the quiz. Revise the content and try again to win a prize!");
 
         }
 
     }
-    public static int randomValue(){
-        return RANDOM.nextInt(6)+1;
-    }
+
 }
+

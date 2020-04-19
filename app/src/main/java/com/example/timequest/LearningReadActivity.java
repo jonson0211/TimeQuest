@@ -37,8 +37,6 @@ public class LearningReadActivity extends AppCompatActivity {
     private TextView learningText;
     private Button takeTrial;
     private VideoView videoView;
-
-
     private MediaController mediaController;
 
     @SuppressLint("ClickableViewAccessibility")

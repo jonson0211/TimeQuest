@@ -99,7 +99,7 @@ public class NPC {
         npcs.add(new NPC(3, "Roman",
                 "Welcome to Rome, heart of the glorious Roman Empire.\n" +
                         "...\n" +
-                        "You want to see the emperor? A peasant like you can't possible imagine seeing our emperor!\n" +
+                        "You want to see the emperor? A peasant like you can't possibly imagine seeing our emperor!\n" +
                         "I see you're looking for trouble...how about this - if you conquer this challenge, I'll let you keep your head! ",
                 "xxx","xxx", "npcroman"));
         npcs.add(new NPC(4, "Athenian",
