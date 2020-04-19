@@ -86,7 +86,7 @@ public class LearningReadActivity extends AppCompatActivity {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
                 String videoId = "BIqWKPA83V0";
-                youTubePlayer.loadVideo(videoId, 0f);
+                youTubePlayer.cueVideo(videoId, 0f);
 
             }
 

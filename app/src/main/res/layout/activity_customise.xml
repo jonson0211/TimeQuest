@@ -51,7 +51,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
-            android:text="Head" />
+            android:text="Head"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark" />
 
         <ImageView
             android:id="@+id/ivHead"
@@ -96,7 +98,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
-            android:text="Item 1" />
+            android:text="Item 1"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark" />
 
         <ImageView
             android:id="@+id/ivItem1"
@@ -138,7 +142,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
-            android:text="Item 2" />
+            android:text="Item 2"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark" />
 
         <ImageView
             android:id="@+id/ivItem2"
