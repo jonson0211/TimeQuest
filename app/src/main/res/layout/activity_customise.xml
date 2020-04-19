@@ -168,4 +168,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
+    <ImageView
+        android:id="@+id/userHead"
+        android:layout_width="49dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/ivCharacter"
+        app:layout_constraintTop_toTopOf="@+id/ivCharacter"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <ImageView
+        android:id="@+id/userBody"
+        android:layout_width="52dp"
+        android:layout_height="43dp"
+        app:layout_constraintEnd_toEndOf="@+id/userHead"
+        app:layout_constraintTop_toBottomOf="@+id/userHead"
+        app:srcCompat="@drawable/amazonian" />
+
+    <ImageView
+        android:id="@+id/userHand"
+        android:layout_width="19dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toEndOf="@+id/ivCharacter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/buttons" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,9 +16,7 @@ import com.example.timequest.Entities.BodyItems;
 import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.HandItems;
 import com.example.timequest.Entities.HeadItems;
-import com.example.timequest.Entities.NPC;
 import com.example.timequest.Entities.Notes;
-import com.example.timequest.Entities.TrialQuestion;
 import com.example.timequest.Entities.User;
 
 @Database(entities = {Era.class, Notes.class, User.class, BodyItems.class, HandItems.class, HeadItems.class}, version = 1)
@@ -39,7 +37,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase getInstance(Context context) {
 
         if(instance == null) {
-            instance = Room.databaseBuilder(context, AppDatabase.class, "timeQuestDatabase").fallbackToDestructiveMigration()
+            instance = Room.databaseBuilder(context, AppDatabase.class, "TimeQuestDB").allowMainThreadQueries()
                     .build();
         }
         return instance;
