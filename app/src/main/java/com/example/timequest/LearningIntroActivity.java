@@ -54,13 +54,10 @@ public class LearningIntroActivity extends AppCompatActivity {
 
 
 
-        bContinue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LearningReadActivity.class);
-                intent.putExtra("LEARNING", "Legionary"); //change from hardcode "Legionary" to variable intent from RecyclerView
-                startActivity(intent);
-            }
+        bContinue.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), LearningReadActivity.class);
+            intent.putExtra("LEARNING", "Spartan"); //change from hardcode "Legionary" to variable intent from RecyclerView
+            startActivity(intent);
         });
 
     }

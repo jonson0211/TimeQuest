@@ -91,6 +91,42 @@ public class TrialQuestion {
         this.quizBackground = quizBackground;
     }
 
+    public static ArrayList<TrialQuestion> getTrialQuiz(String civilisation) {
+        ArrayList<TrialQuestion> trialQuiz = new ArrayList<>();
+        switch (civilisation) {
+            case "Spartan":
+                trialQuiz.add(new TrialQuestion(1, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(2, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(3, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(4, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(5, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(6, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(7, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(8, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(9, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(10, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                break;
+
+            case "Roman":
+                trialQuiz.add(new TrialQuestion(1, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(2, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(3, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(4, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(5, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(6, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(7, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(8, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(9, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+                trialQuiz.add(new TrialQuestion(10, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
+
+        }
+                return trialQuiz;
+
+    }
+}
+
+
+    /**
     public static ArrayList<TrialQuestion> spartanTrial(){
         ArrayList<TrialQuestion> spartanQuestions = new ArrayList<>();
         spartanQuestions.add(new TrialQuestion(1, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
@@ -229,4 +265,4 @@ public class TrialQuestion {
 
 
 
-}
+} **/

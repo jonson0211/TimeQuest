@@ -45,6 +45,8 @@ public class QuestionPage extends AppCompatActivity {
     //7. display next question --> condition; if question counter is less than the total amount of questions
     //8. On last question --> take them to quiz page (implicit intent)
 
+    public static final String ARG_ITEM_ID = "LEARNING";
+
     public static final String EXTRA_SCORE = "extraScore";
     private static final long COUNTDOWN_IN_MILLIS = 30000;
     private long countDownTimeLeftMillis;
@@ -60,10 +62,14 @@ public class QuestionPage extends AppCompatActivity {
     private int questionCount, questionCountTotal, score;
     private List<TrialQuestion> questionList;
 
+    private TrialQuestion mTrialQuestion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
+
+
 
         //Declaring XML variables and connecting to the layout
         topicTv = findViewById(R.id.tvTopic);
@@ -80,19 +86,33 @@ public class QuestionPage extends AppCompatActivity {
         defaultColourCounter = countdownTV.getTextColors();
 
         //Retrieving the question Topic
-        Intent explicitIntent = getIntent();
-        String topic = explicitIntent.getStringExtra("topic");
-        System.out.println(topic);
-        topicTv.setText(topic);
+        //Intent explicitIntent = getIntent();
+       // String topic = explicitIntent.getStringExtra("topic");
+        //System.out.println(topic);
+        //topicTv.setText(topic);
 
         //Need to talk to database to get questions based on the topic
-
+        /**
         ArrayList<TrialQuestion> nsl = TrialQuestion.nslTrial();
         questionTV.setText(nsl.get(1).getQuestion());
         aButton.setText(nsl.get(1).getOption1());
         bButton.setText(nsl.get(1).getOption2());
         cButton.setText(nsl.get(1).getOption3());
+        **/
+        //get intent from reading page
+        String testContent = getIntent().getStringExtra("LEARNING");
 
+        System.out.println(testContent);
+        topicTv.setText(testContent);
+
+        //ArrayList<TrialQuestion> questionList = TrialQuestion.nslTrial();
+        ArrayList<TrialQuestion> questionList = TrialQuestion.getTrialQuiz(testContent);
+        System.out.println(questionList);
+
+        questionTV.setText(questionList.get(1).getQuestion());
+        aButton.setText(questionList.get(1).getOption1());
+        bButton.setText(questionList.get(1).getOption2());
+        cButton.setText(questionList.get(1).getOption3());
 
 
         //When the confirm button is clicked, need to check whether an answer has been selected
@@ -104,7 +124,7 @@ public class QuestionPage extends AppCompatActivity {
                     if (aButton.isChecked() || bButton.isChecked() || cButton.isChecked()) {
                         markAnswer();
                     } else {
-                        Toast.makeText(QuestionPage.this, "Please selected an answer", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(QuestionPage.this, "Please select an answer", Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     nextQuestion();

@@ -108,6 +108,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/learningText" />
 
             <Button
+
                 android:id="@+id/takeTrial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

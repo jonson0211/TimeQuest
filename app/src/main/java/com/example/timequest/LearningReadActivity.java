@@ -24,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.timequest.ui.question.QuestionPage;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
@@ -37,6 +38,7 @@ public class LearningReadActivity extends AppCompatActivity {
     private Button takeTrial;
     private VideoView videoView;
 
+
     private MediaController mediaController;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -49,6 +51,7 @@ public class LearningReadActivity extends AppCompatActivity {
 
         learningText = findViewById(R.id.learningText);
         videoView = findViewById(R.id.videoView);
+        Button takeTrial = findViewById(R.id.takeTrial);
 
         final String wikiUrl =
                 //"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary"
@@ -98,15 +101,13 @@ public class LearningReadActivity extends AppCompatActivity {
             }
 
         });
-        /**
-        takeTrial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LearningReadActivity.class);
-                startActivity(intent);
-            }
+
+        takeTrial.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), QuestionPage.class);
+            intent.putExtra("LEARNING", learningContent); //change from hardcode "Legionary" to variable intent from RecyclerView
+            startActivity(intent);
         });
-**/
+
     }
 
 }
