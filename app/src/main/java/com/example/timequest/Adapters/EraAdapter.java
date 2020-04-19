@@ -2,7 +2,9 @@ package com.example.timequest.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.AdaptiveIconDrawable;
 import android.media.Image;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.timequest.Entities.Era;
 import com.example.timequest.Learning1;
+import com.example.timequest.LearningReadActivity;
 import com.example.timequest.R;
+import com.example.timequest.ui.home.HomeFragment;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -25,77 +29,74 @@ import static android.content.ContentValues.TAG;
 
 public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
 
-    private List<Era> mEra;
-    private RecyclerViewClickListener mListener;
+    private List<Era> mEraSet;
+    private Era mEra;
 
-   public void setData(ArrayList<Era>mEra){
+
+   public void setData(ArrayList<Era> eraToAdapt) {
        Log.d(TAG, "setData: setting data");
-       this.mEra = mEra;
+       this.mEraSet = eraToAdapt;
        Log.d(TAG, "setData: done");
    }
-
-    public interface RecyclerViewClickListener{
-        //Behaviour
-        void onClick(View view, int position);
-    }
-
-    public static class EraViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView titleTv, yearTv;
-        public ImageView iconIv;
-        public View view;
-        private RecyclerViewClickListener mListener;
-
-
-        public EraViewHolder(@NonNull View itemView) {
-            super(itemView);
-        }
-
-        @Override
-        public void onClick(View v) {
-
-
-        }
-    }
-
     @NonNull
     @Override
     public EraViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.d(TAG, "onCreateViewHolder: done");
         //Declare view elements
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.era_list_row, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.era_list_row, parent, false);
+        Log.d(TAG, "Inflater: done");
         EraViewHolder eraViewHolder = new EraViewHolder(view);
-
-    return eraViewHolder;
+        Log.d(TAG, "ViewHolder: done");
+        return eraViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull EraViewHolder holder, int position) {
-        final Era eraAtPosition = mEra.get(position);
-
-
+        final Era eraAtPosition = mEraSet.get(position);
+        Log.d(TAG, "eraPosition: done");
         holder.titleTv.setText(String.valueOf(eraAtPosition.getEraName()));
-        holder.yearTv.setText(String.valueOf(eraAtPosition.get));
-        holder.view.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Context context = view.getContext();
-                Intent intent = new Intent(context, Learning1.class);
-                intent.putExtra("eraName", eraAtPosition.getEraName());
-                context.startActivity(intent);
-            }
+        Log.d(TAG, "setTitle: done");
 
-        });
+        if (eraAtPosition.getEraName().contentEquals("Ancient Athenian")) {
+            holder.iconIv.setImageResource(R.drawable.npcathens);
+        } else if (eraAtPosition.getEraName().contentEquals("Roman Legionnaire")) {
+            holder.iconIv.setImageResource(R.drawable.npclegionary);
+        } else if (eraAtPosition.getEraName().contentEquals("Qing Dynasty")) {
+            holder.iconIv.setImageResource(R.drawable.npcqing);
+        } else if (eraAtPosition.getEraName().contentEquals("North Sentinel Islanders")) {
+            holder.iconIv.setImageResource(R.drawable.npcsentinel);
+        } else if (eraAtPosition.getEraName().contentEquals("Spartan Army")) {
+            holder.iconIv.setImageResource(R.drawable.npcspartan);
+        } else {
+        holder.iconIv.setImageResource(R.drawable.npcviking);
+        }
+/**
+        holder.view.setOnClickListener(view -> {
+            Context context = view.getContext();
+            Intent intent = new Intent(context, LearningReadActivity.class);
+            intent.putExtra("eraName", eraAtPosition.getEraName());
+            context.startActivity(intent);
+        });**/
         //populate view elements
-    }
-
-    public void getImage(ArrayList<Era>mEra){
-        Integer id =
-
-
-
     }
     @Override
     public int getItemCount() {
         //count items in array
-        return 0;
+        return mEraSet.size();
+    }
+    public static class EraViewHolder extends RecyclerView.ViewHolder{
+
+        public TextView titleTv;
+        public ImageView iconIv;
+        public View view;
+
+
+        public EraViewHolder(View v){
+            super(v);
+            Log.d(TAG, "EraViewHolderr: done");
+            titleTv = v.findViewById(R.id.tvTitle);
+            //   iconIv = v.findViewById(R.id.ivIcon);
+        }
     }
 }
