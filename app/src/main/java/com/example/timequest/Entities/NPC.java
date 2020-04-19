@@ -85,15 +85,15 @@ public class NPC {
 
     public static ArrayList<NPC> addNPCData(){
         ArrayList<NPC> npcs = new ArrayList<>();
-        npcs.add(new NPC(1, "Spartan", "I am Spartan", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(2, "North Sentinel Islanders", "I am Indian", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(3, "Roman", "I am roman", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(4, "Athenian", "I am athens", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(5, "Norman", "I am norman", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(6, "Cossack", "I am cossack", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(7, "Neanderthal", "I am monkey", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(8, "Qing", "I am chink", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(9, "Viking", "I am viking", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(1, "Spartan", "I am a Spartan", "xxx","You're no match for the might of Sparta!", "avatar1"));
+        npcs.add(new NPC(2, "North Sentinel Islanders", "Hey...what are you doing here?!", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(3, "Roman", "I am Roman", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(4, "Athenian", "I am Athenian", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(5, "Norman", "I am Norman", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(6, "Cossack", "I am Cossack", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(7, "Neanderthal", "I...caveman", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(8, "Qing", "Ni hao", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(9, "Viking", "I am a Viking!", "xxx","xxx", "avatar1"));
 
         return npcs;
     }
