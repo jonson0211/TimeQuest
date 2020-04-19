@@ -30,6 +30,8 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 public class LearningReadActivity extends AppCompatActivity {
 
+    public static final String ARG_ITEM_ID = "LEARNING";
+
     private ImageView eraBanner;
     private TextView learningText;
     private Button takeTrial;
@@ -43,16 +45,21 @@ public class LearningReadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_read);
 
+        String learningContent = getIntent().getStringExtra("LEARNING");
+
         learningText = findViewById(R.id.learningText);
         videoView = findViewById(R.id.videoView);
 
         final String wikiUrl =
-                "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary"
+                //"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary"
+                "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + learningContent
                 //+ PlanetActivity.name +"%20(planet)"
                 ;
 
         Context context = getApplicationContext();
         final RequestQueue requestQueue = Volley.newRequestQueue(context);
+
+
 
         //grabs string and cleans it removing bracketed text and any newline characters
         Response.Listener<String> responseListener = new Response.Listener<String>() {

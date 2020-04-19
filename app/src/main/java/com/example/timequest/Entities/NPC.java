@@ -85,15 +85,35 @@ public class NPC {
 
     public static ArrayList<NPC> addNPCData(){
         ArrayList<NPC> npcs = new ArrayList<>();
-        npcs.add(new NPC(1, "Spartan", "I am a Spartan", "xxx","You're no match for the might of Sparta!", "avatar1"));
-        npcs.add(new NPC(2, "North Sentinel Islanders", "Hey...what are you doing here?!", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(3, "Roman", "I am Roman", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(4, "Athenian", "I am Athenian", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(5, "Norman", "I am Norman", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(6, "Cossack", "I am Cossack", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(7, "Neanderthal", "I...caveman", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(8, "Qing", "Ni hao", "xxx","xxx", "avatar1"));
-        npcs.add(new NPC(9, "Viking", "I am a Viking!", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(1, "Spartan",
+                "You there! You seem like a fine soldier.\n" +
+                        "I'm a Spartan! If you beat me, I'll let you join our legendary ranks...\n" +
+                        "but I have to warn you...we're no common army. \n I'll leave you at the top of Mount Taygetus if you're not strong enough!",
+                "xxx","You're no match for the might of Sparta!", "npcspartan"));
+        npcs.add(new NPC(2, "North Sentinel Islanders",
+                "Hey...what are you doing here?!\n" +
+                        "Get off our island!!! \n" +
+                        "...what's that? You think you can beat me? I'd like to see you try!\n" +
+                        "I'll let you stay with us if you pass this test..." ,
+                "xxx","xxx", "npcsentinel"));
+        npcs.add(new NPC(3, "Roman",
+                "Welcome to Rome, heart of the glorious Roman Empire.\n" +
+                        "...\n" +
+                        "You want to see the emperor? A peasant like you can't possible imagine seeing our emperor!\n" +
+                        "I see you're looking for trouble...how about this - if you conquer this challenge, I'll let you keep your head! ",
+                "xxx","xxx", "npcroman"));
+        npcs.add(new NPC(4, "Athenian",
+                "I am Athenian", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(5, "Norman",
+                "I am Norman", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(6, "Cossack",
+                "I am Cossack", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(7, "Neanderthal",
+                "I...caveman", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(8, "Qing",
+                "Ni hao", "xxx","xxx", "avatar1"));
+        npcs.add(new NPC(9, "Viking",
+                "I am a Viking!", "xxx","xxx", "avatar1"));
 
         return npcs;
     }
