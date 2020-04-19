@@ -7,13 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.timequest.Entities.User;
+
 public class CustomiseActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView ivCharacter;
     private ImageView ivHead;
     private ImageView ivItem1;
     private ImageView ivItem2;
-
+    private ImageView userHead;
+    private ImageView userBody;
+    private ImageView userHand;
     private Button headNextButton;
     private Button headBackButton;
     private Button item1NextButton;
@@ -23,15 +27,38 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
 
     private Button saveButton;
 
+
+
+
+    public static AppDatabase mdb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customise);
 
+        mdb = AppDatabase.getInstance(getApplicationContext());
+        try{
+            mdb.userDAO().insertUser(new User(1,"s", 1, 1, "china", "china", "china"));
+        } catch (Exception e){
+            System.out.println("!");
+        }
+
+
         ivCharacter = findViewById(R.id.ivCharacter);
         ivHead = findViewById(R.id.ivHead);
         ivItem1 = findViewById(R.id.ivItem1);
         ivItem2 = findViewById(R.id.ivItem2);
+
+        userHead = findViewById(R.id.userHead);
+        userBody = findViewById(R.id.userBody);
+        userHand = findViewById(R.id.userHand);
+
+        userHead.setImageResource(getResources().getIdentifier(mdb.userDAO().getHeadItem(),"drawable", getPackageName()));
+        userBody.setImageResource(getResources().getIdentifier(mdb.userDAO().getBodyItem(),"drawable", getPackageName()));
+        userHand.setImageResource(getResources().getIdentifier(mdb.userDAO().getHandItem(),"drawable", getPackageName()));
+
+
 
         headNextButton = findViewById(R.id.headNextButton);
         headNextButton.setOnClickListener(this);
@@ -76,6 +103,8 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                     headCounter = 1;
             }
                 ivHead.setImageResource(headid);
+                userHead.setImageResource(headid);
+                mdb.userDAO().changeHeadItem(String.valueOf(headid));
                 break;
 
             case R.id.headBackButton:
@@ -86,6 +115,8 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                     headCounter= 6;
         }
                 ivHead.setImageResource(headid);
+                userHead.setImageResource(headid);
+                mdb.userDAO().changeHeadItem(String.valueOf(headid));
                 break;
 
             case R.id.item1NextButton:
@@ -96,6 +127,8 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                     bodyCounter = 1;
                 }
                 ivItem1.setImageResource(bodyid);
+                userBody.setImageResource(bodyid);
+                mdb.userDAO().changeBodyItem(String.valueOf(bodyid));
                 break;
 
             case R.id.item1BackButton:
@@ -105,6 +138,8 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                     bodyCounter= 6;
                 }
                 ivItem1.setImageResource(bodyid);
+                userBody.setImageResource(bodyid);
+                mdb.userDAO().changeBodyItem(String.valueOf(bodyid));
                 break;
 
             case R.id.item2NextButton:
@@ -115,6 +150,8 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                     itemCounter = 1;
                 }
                 ivItem2.setImageResource(itemid);
+                userHand.setImageResource(itemid);
+                mdb.userDAO().changeHandItem(String.valueOf(itemid));
                 break;
 
             case R.id.item2BackButton:
@@ -124,6 +161,8 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                     itemCounter= 6;
                 }
                 ivItem2.setImageResource(itemid);
+                userHand.setImageResource(itemid);
+                mdb.userDAO().changeHandItem(String.valueOf(itemid));
                 break;
 
             default:

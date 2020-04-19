@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         //getSupportActionBar().setHomeAsUpIndicator(R.mipmap.logo);// set TimeQuest icon
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
     }
 
 }

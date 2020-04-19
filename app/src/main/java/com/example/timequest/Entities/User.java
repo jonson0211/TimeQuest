@@ -12,6 +12,10 @@ public class User {
 
     @PrimaryKey
     @NonNull
+    private int userID;
+
+    //progress
+    @ColumnInfo(name = "user_name")
     private String userName;
 
     //progress shown in profile
@@ -31,13 +35,23 @@ public class User {
     @ColumnInfo(name = "user_body_item")
     private String userBodyItem;
 
-    public User(String userName, double progress, double accuracy, String userHeadItem, String userHandItem, String userBodyItem) {
+
+    public User(int userID, String userName, double progress, double accuracy, String userHeadItem, String userHandItem, String userBodyItem) {
+        this.userID = userID;
         this.userName = userName;
         this.progress = progress;
         this.accuracy = accuracy;
         this.userHeadItem = userHeadItem;
         this.userHandItem = userHandItem;
         this.userBodyItem = userBodyItem;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getUserName() {
