@@ -8,11 +8,11 @@ public interface EraDAO {
 
     //method to update completion status if the user gets passes the trial
     @Query("UPDATE era SET era_completed = 'Complete' WHERE era_completed = 'Incomplete'")
-    void updateToCompleted();
+    public void updateToCompleted();
 
     //method to update completion status if the user gets completes the trial perfectly
     @Query("UPDATE era SET era_completed = 'Perfect'")
-    void updateToPerfect();
+    public void updateToPerfect();
 
 
 
