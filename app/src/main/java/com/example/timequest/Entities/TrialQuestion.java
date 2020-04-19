@@ -95,9 +95,9 @@ public class TrialQuestion {
         ArrayList<TrialQuestion> trialQuiz = new ArrayList<>();
         switch (civilisation) {
             case "Spartan":
-                trialQuiz.add(new TrialQuestion(1, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
-                trialQuiz.add(new TrialQuestion(2, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
-                trialQuiz.add(new TrialQuestion(3, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
+                trialQuiz.add(new TrialQuestion(1, "What is my huge dick doing here?", "Turkey slappin", "Destruction", "Da fei ji", 1, "d"));
+                trialQuiz.add(new TrialQuestion(2, "If Spartans had dicks, how big would it be?", "10 cm", "3 inch", "My size", 3, "d"));
+                trialQuiz.add(new TrialQuestion(3, "What is the world's largest titty", "Your girlfriends", "My girlfriends", "Your mums", 3, "d"));
                 trialQuiz.add(new TrialQuestion(4, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
                 trialQuiz.add(new TrialQuestion(5, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
                 trialQuiz.add(new TrialQuestion(6, "Spartan Army", "banner1", "background1", "Incomplete", 1, "d"));
