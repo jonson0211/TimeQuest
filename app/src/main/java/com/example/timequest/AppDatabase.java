@@ -21,7 +21,7 @@ import com.example.timequest.Entities.Notes;
 import com.example.timequest.Entities.TrialQuestion;
 import com.example.timequest.Entities.User;
 
-@Database(entities = {Era.class, Notes.class, User.class, TrialQuestion.class, BodyItems.class, HandItems.class, HeadItems.class}, version = 1)
+@Database(entities = {Era.class, Notes.class, User.class, BodyItems.class, HandItems.class, HeadItems.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     //public abstract call daos

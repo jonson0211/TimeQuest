@@ -10,7 +10,8 @@ import java.util.ArrayList;
 @Entity
 public class User {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
+    @NonNull
     private String userName;
 
     //progress shown in profile
