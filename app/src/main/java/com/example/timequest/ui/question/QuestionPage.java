@@ -54,15 +54,22 @@ public class QuestionPage extends AppCompatActivity {
     private TextView questionTV, countdownTV, topicTv;
     private RadioButton aButton, bButton, cButton;
     private Button confirmButton;
-    private TrialQuestion currentQuestion;
+
     private ColorStateList defaultColourButton, defaultColourCounter;
     private boolean answered;
     private RadioGroup questionRg;
     private CountDownTimer countDownTimer;
-    private int questionCount, questionCountTotal, score;
-    private List<TrialQuestion> questionList;
+    //private int questionCount, questionCountTotal, score;
 
-    private TrialQuestion mTrialQuestion;
+    private int questionCount = 0;
+    private int questionCountTotal = 0;
+    private int score = 0;
+    private int correctCount;
+
+    private ArrayList<TrialQuestion> questionSet;
+    private TrialQuestion currentQuestion;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,35 +92,24 @@ public class QuestionPage extends AppCompatActivity {
         defaultColourButton = aButton.getTextColors();
         defaultColourCounter = countdownTV.getTextColors();
 
-        //Retrieving the question Topic
-        //Intent explicitIntent = getIntent();
-       // String topic = explicitIntent.getStringExtra("topic");
-        //System.out.println(topic);
-        //topicTv.setText(topic);
-
-        //Need to talk to database to get questions based on the topic
-        /**
-        ArrayList<TrialQuestion> nsl = TrialQuestion.nslTrial();
-        questionTV.setText(nsl.get(1).getQuestion());
-        aButton.setText(nsl.get(1).getOption1());
-        bButton.setText(nsl.get(1).getOption2());
-        cButton.setText(nsl.get(1).getOption3());
-        **/
-        //get intent from reading page
+        //get topic intent from reading page e.g. "Spartan"
         String testContent = getIntent().getStringExtra("LEARNING");
 
         System.out.println(testContent);
         topicTv.setText(testContent);
 
-        //ArrayList<TrialQuestion> questionList = TrialQuestion.nslTrial();
-        ArrayList<TrialQuestion> questionList = TrialQuestion.getTrialQuiz(testContent);
-        System.out.println(questionList);
+        questionSet = TrialQuestion.getTrialQuiz(testContent);
+        questionCountTotal = questionSet.size();
+        System.out.println(questionSet);
 
-        questionTV.setText(questionList.get(1).getQuestion());
-        aButton.setText(questionList.get(1).getOption1());
-        bButton.setText(questionList.get(1).getOption2());
-        cButton.setText(questionList.get(1).getOption3());
-
+        //Start quiz, next question
+        nextQuestion();
+//test
+        /**
+        Integer answer = questionSet.get(0).getAnswerNumber();
+        Integer answer1 = questionSet.get(1).getAnswerNumber();
+        System.out.println(answer);
+        System.out.println(answer1); **/
 
         //When the confirm button is clicked, need to check whether an answer has been selected
         //Mark answer if correct
@@ -146,15 +142,21 @@ public class QuestionPage extends AppCompatActivity {
         bButton.setTextColor(defaultColourButton);
         cButton.setTextColor(defaultColourButton);
 
+
         //2.
         questionRg.clearCheck();
+        aButton.setBackgroundResource(R.drawable.buttons);
+        bButton.setBackgroundResource(R.drawable.buttons);
+        cButton.setBackgroundResource(R.drawable.buttons);
 
         if(questionCount < questionCountTotal){
             //questionCounter is the integer
-            currentQuestion = questionList.get(questionCount);
+            currentQuestion = questionSet.get(questionCount);
+            System.out.println("Current Question: " + currentQuestion);
+
             //set the textView based on the current question
-            questionTV.setText(currentQuestion.getQuestion());
-            aButton.setText(currentQuestion.getOption1());
+            questionTV.setText(currentQuestion.getQuestion()); System.out.println(currentQuestion.getQuestion());
+            aButton.setText(currentQuestion.getOption1()); System.out.println(currentQuestion.getOption1());
             bButton.setText(currentQuestion.getOption2());
             cButton.setText(currentQuestion.getOption3());
 
@@ -163,6 +165,7 @@ public class QuestionPage extends AppCompatActivity {
             answered = false;
             //3.
             countDownTimeLeftMillis = COUNTDOWN_IN_MILLIS;
+
             startCountdown();
         } else{
 
@@ -170,6 +173,8 @@ public class QuestionPage extends AppCompatActivity {
             rsIntent.putExtra(EXTRA_SCORE, score);
             setResult(RESULT_OK,rsIntent);
             finish();
+
+            //Start new activity - achievement page
 
         }
     }
@@ -191,6 +196,7 @@ public class QuestionPage extends AppCompatActivity {
             public void onFinish() {
                 countDownTimeLeftMillis = 0;
                 changeCountDownText();
+
                 markAnswer();
 
             }
@@ -213,12 +219,16 @@ public class QuestionPage extends AppCompatActivity {
     }
     //To fix once the database is setup
     private void markAnswer(){
-        answered = true;
 
+        answered = true;
+        countDownTimer.cancel();
         RadioButton selectedAnswer = findViewById(questionRg.getCheckedRadioButtonId());
 
         int answer = questionRg.indexOfChild(selectedAnswer) + 1;
-        if(answer == currentQuestion.getAnswerNumber()){
+        //if(answer == currentQuestion.getAnswerNumber()){
+        System.out.println(answer);
+        if(answer == currentQuestion.getQuestionNumber()){
+            System.out.println(answer + "*");
             score++;
 
         }
