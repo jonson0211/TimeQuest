@@ -27,7 +27,8 @@ public class LearningIntroActivity extends AppCompatActivity {
         actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
 
         //get Intent from RecyclerView for civilisation
-        //String learningContent = getIntent().getStringExtra("LEARNING");
+
+        String learningContent = getIntent().getStringExtra("LEARNING");
 
         Button bContinue = findViewById(R.id.bContinue);
         ImageView npcCharacter = findViewById(R.id.npcCharacter);
