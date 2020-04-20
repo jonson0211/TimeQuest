@@ -42,7 +42,7 @@
             app:srcCompat="@drawable/china" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/scrollArrow"
             android:layout_width="54dp"
             android:layout_height="86dp"
             android:layout_marginStart="40dp"

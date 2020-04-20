@@ -13,7 +13,9 @@
         android:id="@+id/tvTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="15dp"
         android:fontFamily="@font/medievalsharp"
         android:text="Qing Dynasty"
         android:textColor="#9F5A06"
@@ -53,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="72dp"
+        android:layout_marginEnd="50dp"
         android:text="tvQuestion"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/radioG"
@@ -90,7 +93,10 @@
             android:layout_height="53dp"
             android:layout_margin="20dp"
             android:background="@drawable/quiz_button"
-            android:text="RadioButton" />
+            android:text="Option 1"
+            android:button="@null"
+            android:gravity="center"
+        />
 
         <RadioButton
             android:id="@+id/buttonB"
@@ -98,7 +104,10 @@
             android:layout_height="53dp"
             android:layout_margin="20dp"
             android:background="@drawable/quiz_button"
-            android:text="RadioButton" />
+            android:text="Option 2"
+            android:button="@null"
+
+            android:gravity="center"/>
 
         <RadioButton
             android:id="@+id/buttonC"
@@ -106,7 +115,9 @@
             android:layout_height="53dp"
             android:layout_margin="20dp"
             android:background="@drawable/quiz_button"
-            android:text="RadioButton" />
+            android:text="Option 3"
+            android:button="@null"
+            android:gravity="center"/>
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

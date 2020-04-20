@@ -57,7 +57,6 @@ public class Achievement extends AppCompatActivity {
         homeB = findViewById(R.id.bHome);
         prizeIv = findViewById(R.id.ivPrize);
 
-        //civilisation.toLowerCase()
         int npcCharacterid = getResources().getIdentifier("npc" + civilisation.toLowerCase(),"drawable","com.example.timequest");
 
         npcCharacter = findViewById(R.id.npcCharacter);
@@ -67,18 +66,7 @@ public class Achievement extends AppCompatActivity {
         homeB.setOnClickListener(v -> startActivity(new Intent(Achievement.this, MainActivity.class)));
         int value1 = 1;
 
-        /** can use if else statements to manually assign the integer in get(0).getEnding speech
-        int npcValue = 0;
-
-            if (civilisation.equals("Spartan")) {
-            }else if {civilisation.equals()
-        }       ;
-
-
-        {
-        }
-         **/;
-        //for (Integer i = 1; i < npcs.size(); i++){
+        //Match civilisation from intent to specific NPC array from NPC to get image and item data
         for (int i = 0; i < 8; i++){
 
             if (NPC.addNPCData().get(i).getNpcName().equals(civilisation)){
@@ -87,18 +75,13 @@ public class Achievement extends AppCompatActivity {
                 Log.d(TAG, "on match NPC: SUCCESS");
                 break;
             }
-
         }
-
-
+        //Determine if user gets prize or fails
         if(score > 7) {
-            outcomeTv.setText("Congratulations Adventurer!\n You passed the test. Here is something for your troubles.");
+            //outcomeTv.setText("Congratulations Adventurer!\n You passed the test. Here is something for your troubles.");
             //outcomeTv.setText(mNPC.addNPCData().get(5).getEndingSpeech()); //change "5" to be the variable NPC civilisation
             outcomeTv.setText(mNPC.getEndingSpeech());
             Log.d(TAG, "on setText(): SUCCESS");
-
-            //outcomeTv.setText(mNPC.getEndingSpeech()); //doesn't work, use the above if can't figure out^
-            //Log.d(TAG, "on setText(): SUCCESS");
 
             int prize = getResources().getIdentifier("item"+ value1, "drawable", "com.example.timequest");
             Log.d(TAG, "on getResourceID(): SUCCESS");
@@ -106,8 +89,8 @@ public class Achievement extends AppCompatActivity {
             //to do: immediately add item to user's collection in database
 
         } else{
-            outcomeTv.setText("Oh no. You did not pass the quiz. Revise the content and try again to win a prize!");
-
+            //outcomeTv.setText("Oh no. You did not pass the quiz. Revise the content and try again to win a prize!");
+            outcomeTv.setText(mNPC.getFailSpeech());
         }
 
     }

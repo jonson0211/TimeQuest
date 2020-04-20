@@ -108,7 +108,7 @@ public class NPC {
                 "Did you really think you could beat an elite Roman like myself? \n" +
                          "The Emperor will never see you at this rate. Come back when you've properly trained!", "npcroman"));
         npcs.add(new NPC(4, "Athenian",
-                "I am Athenian", "xxx","xxx", "avatar1"));
+                "Welcome wandering traveller.", "xxx","xxx", "avatar1"));
         npcs.add(new NPC(5, "Norman",
                 "I am Norman", "xxx","xxx", "avatar1"));
         npcs.add(new NPC(6, "Cossack",
