@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.timequest.Adapters.EraAdapter;
 import com.example.timequest.Entities.Era;
+import com.example.timequest.LearningIntroActivity;
 import com.example.timequest.LearningReadActivity;
 import com.example.timequest.MainActivity;
 import com.example.timequest.R;
@@ -33,14 +34,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 import static com.example.timequest.Entities.Era.addEraData;
 import static com.example.timequest.R.menu.bottom_nav_menu;
 
 public class HomeFragment extends Fragment {
     private RecyclerView mRvList;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Era> mEraArrayList;
     private List<Era> mEraList;
-    private EraAdapter mEraAdapter;
 
     /**
      * Connect to the XML layout
@@ -71,19 +74,24 @@ public class HomeFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(v.getContext());
         mRvList.setLayoutManager(layoutManager);
+        EraAdapter.RecyclerViewClickListener listener = new EraAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                launchLearningIntroActivity(position);
+            }
+        };
 
-        EraAdapter mEraAdapter = new EraAdapter();
+        EraAdapter mEraAdapter = new EraAdapter(Era.addEraData(), listener);
         mEraAdapter.setData(Era.addEraData());
         mRvList.setAdapter(mEraAdapter);
 
         mRvList = v.findViewById(R.id.rvList);
-        mRvList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         return v;
+    }
+    private void launchLearningIntroActivity(int position){
+        Intent intent = new Intent(getActivity(), LearningIntroActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, position);
+        startActivity(intent);
     }
 }
