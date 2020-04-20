@@ -22,7 +22,8 @@ public class LearningIntroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_learning_intro);
 
         //get Intent from RecyclerView for civilisation
-        //String learningContent = getIntent().getStringExtra("LEARNING");
+
+        String learningContent = getIntent().getStringExtra("LEARNING");
 
         Button bContinue = findViewById(R.id.bContinue);
         ImageView npcCharacter = findViewById(R.id.npcCharacter);

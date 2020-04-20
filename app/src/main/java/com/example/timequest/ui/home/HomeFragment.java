@@ -25,7 +25,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.timequest.Adapters.EraAdapter;
 import com.example.timequest.Entities.Era;
-import com.example.timequest.Learning1;
 import com.example.timequest.LearningReadActivity;
 import com.example.timequest.MainActivity;
 import com.example.timequest.R;
@@ -52,6 +51,7 @@ public class HomeFragment extends Fragment {
     public HomeFragment(){
 
     }
+
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();

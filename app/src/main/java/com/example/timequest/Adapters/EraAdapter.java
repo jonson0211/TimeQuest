@@ -8,6 +8,7 @@ import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.timequest.Entities.Era;
-import com.example.timequest.Learning1;
 import com.example.timequest.LearningReadActivity;
 import com.example.timequest.R;
 import com.example.timequest.ui.home.HomeFragment;
@@ -33,6 +33,12 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
     private Era mEra;
 
 
+    private int[] images;
+
+    public EraAdapter(){
+
+    }
+
    public void setData(ArrayList<Era> eraToAdapt) {
        Log.d(TAG, "setData: setting data");
        this.mEraSet = eraToAdapt;
@@ -46,6 +52,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.era_list_row, parent, false);
         Log.d(TAG, "Inflater: done");
+
         EraViewHolder eraViewHolder = new EraViewHolder(view);
         Log.d(TAG, "ViewHolder: done");
         return eraViewHolder;
@@ -57,27 +64,36 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
         Log.d(TAG, "eraPosition: done");
         holder.titleTv.setText(String.valueOf(eraAtPosition.getEraName()));
         Log.d(TAG, "setTitle: done");
+/**
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, LearningReadActivity.class);
+                intent.putExtra("LEARNING", eraAtPosition.getEraName());
+                context.startActivity(intent);
+            }
+        });**/
 
-        if (eraAtPosition.getEraName().contentEquals("Ancient Athenian")) {
+        if(eraAtPosition.getEraName().contentEquals("Ancient Athenian")){
+            holder.iconIv.setImageResource(R.drawable.npcathens);
+        } else if (eraAtPosition.getEraName().contentEquals("Ancient Athenian")) {
             holder.iconIv.setImageResource(R.drawable.npcathens);
         } else if (eraAtPosition.getEraName().contentEquals("Roman Legionnaire")) {
-            holder.iconIv.setImageResource(R.drawable.npclegionary);
+            holder.iconIv.setImageResource(R.drawable.npcroman);
         } else if (eraAtPosition.getEraName().contentEquals("Qing Dynasty")) {
             holder.iconIv.setImageResource(R.drawable.npcqing);
         } else if (eraAtPosition.getEraName().contentEquals("North Sentinel Islanders")) {
             holder.iconIv.setImageResource(R.drawable.npcsentinel);
         } else if (eraAtPosition.getEraName().contentEquals("Spartan Army")) {
             holder.iconIv.setImageResource(R.drawable.npcspartan);
-        } else {
+        } else if (eraAtPosition.getEraName().contentEquals("Vikings")){
         holder.iconIv.setImageResource(R.drawable.npcviking);
+        } else{
+            holder.iconIv.setImageResource(R.drawable.npcneanderthal);
         }
-/**
-        holder.view.setOnClickListener(view -> {
-            Context context = view.getContext();
-            Intent intent = new Intent(context, LearningReadActivity.class);
-            intent.putExtra("eraName", eraAtPosition.getEraName());
-            context.startActivity(intent);
-        });**/
+
+
         //populate view elements
     }
     @Override
@@ -96,7 +112,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
             super(v);
             Log.d(TAG, "EraViewHolderr: done");
             titleTv = v.findViewById(R.id.tvTitle);
-            //   iconIv = v.findViewById(R.id.ivIcon);
+            iconIv = v.findViewById(R.id.ivIcon);
         }
     }
 }
