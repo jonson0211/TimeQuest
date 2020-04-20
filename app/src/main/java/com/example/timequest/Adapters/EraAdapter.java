@@ -76,9 +76,9 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
         });**/
 
         if(eraAtPosition.getEraName().contentEquals("Ancient Athenian")){
-            holder.iconIv.setImageResource(R.drawable.npcathens);
+            holder.iconIv.setImageResource(R.drawable.npcathenian);
         } else if (eraAtPosition.getEraName().contentEquals("Ancient Athenian")) {
-            holder.iconIv.setImageResource(R.drawable.npcathens);
+            holder.iconIv.setImageResource(R.drawable.npcathenian);
         } else if (eraAtPosition.getEraName().contentEquals("Roman Legionnaire")) {
             holder.iconIv.setImageResource(R.drawable.npcroman);
         } else if (eraAtPosition.getEraName().contentEquals("Qing Dynasty")) {
