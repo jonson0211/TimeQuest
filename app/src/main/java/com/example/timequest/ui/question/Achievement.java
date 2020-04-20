@@ -5,14 +5,10 @@ import android.os.Bundle;
 
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.MainActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,8 +16,6 @@ import android.widget.TextView;
 import com.example.timequest.R;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class Achievement extends AppCompatActivity {
 
@@ -47,12 +41,12 @@ public class Achievement extends AppCompatActivity {
         System.out.println(civilisation);
         Log.d(TAG, "on getIntent(): SUCCESS");
 
-
+        /**
         for(NPC npc : npcs){
             if(npc.getNpcName().equals(civilisation)){
                 mNPC = npc;
                 System.out.println(mNPC);
-            }}
+            }}**/
         //mNPC.getEndingSpeech();
         //return mNPC
 
@@ -63,8 +57,8 @@ public class Achievement extends AppCompatActivity {
         homeB = findViewById(R.id.bHome);
         prizeIv = findViewById(R.id.ivPrize);
 
-            //civilisation.toLowerCase()
-        int npcCharacterid = getResources().getIdentifier("npcspartan","drawable","com.example.timequest");
+        //civilisation.toLowerCase()
+        int npcCharacterid = getResources().getIdentifier("npc" + civilisation.toLowerCase(),"drawable","com.example.timequest");
 
         npcCharacter = findViewById(R.id.npcCharacter);
         npcCharacter.setImageResource(npcCharacterid);
@@ -83,18 +77,24 @@ public class Achievement extends AppCompatActivity {
 
         {
         }
-         **/
+         **/;
         //for (Integer i = 1; i < npcs.size(); i++){
-        for (Integer i = 1; i < 8; i++){
-            if (mNPC.addNPCData().get(i).getNpcName() == civilisation){
-                mNPC = mNPC.addNPCData().get(i);
+        for (int i = 0; i < 8; i++){
+
+            if (NPC.addNPCData().get(i).getNpcName().equals(civilisation)){
+                mNPC = NPC.addNPCData().get(i);
+                System.out.println(mNPC);
+                Log.d(TAG, "on match NPC: SUCCESS");
+                break;
             }
+
         }
 
 
         if(score > 7) {
             outcomeTv.setText("Congratulations Adventurer!\n You passed the test. Here is something for your troubles.");
-            outcomeTv.setText(mNPC.addNPCData().get(5).getEndingSpeech()); //change "5" to be the variable NPC civilisation
+            //outcomeTv.setText(mNPC.addNPCData().get(5).getEndingSpeech()); //change "5" to be the variable NPC civilisation
+            outcomeTv.setText(mNPC.getEndingSpeech());
             Log.d(TAG, "on setText(): SUCCESS");
 
             //outcomeTv.setText(mNPC.getEndingSpeech()); //doesn't work, use the above if can't figure out^

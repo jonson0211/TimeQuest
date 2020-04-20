@@ -89,19 +89,24 @@ public class NPC {
                 "You there! You seem like a fine soldier.\n" +
                         "I'm a Spartan! If you beat me, I'll let you join our legendary ranks...\n" +
                         "but I have to warn you...we're no common army. \n I'll leave you at the top of Mount Taygetus if you're not strong enough!",
-                "xxx","You're no match for the might of Sparta!", "npcspartan"));
+                "I admit defeat.\n You're truly a warror worthy of our army. Here is a token of our battle...may it bring you good fortune in your travels!",
+                "You're no match for the might of Sparta!", "npcspartan"));
         npcs.add(new NPC(2, "North Sentinel Islanders",
                 "Hey...what are you doing here?!\n" +
                         "Get off our island!!! \n" +
                         "...what's that? You think you can beat me? I'd like to see you try!\n" +
                         "I'll let you stay with us if you pass this test..." ,
-                "xxx","xxx", "npcsentinel"));
+                "...I guess you can stay on this island.\n Here, take this. This will prove you're one of us now!",
+                "That was flimsy. Come back to me when you're ready to try again.", "npcsentinel"));
         npcs.add(new NPC(3, "Roman",
                 "Welcome to Rome, heart of the glorious Roman Empire.\n" +
                         "...\n" +
                         "You want to see the emperor? A peasant like you can't possibly imagine seeing our emperor!\n" +
                         "I see you're looking for trouble...how about this - if you conquer this challenge, I'll let you keep your head! ",
-                "xxx","xxx", "npcroman"));
+                "You really did it! What a turn of events!\n" +
+                        "Maybe you aren't looking for trouble after all. Here, this will prove you're part of the empire now!",
+                "Did you really think you could beat an elite Roman like myself? \n" +
+                         "The Emperor will never see you at this rate. Come back when you've properly trained!", "npcroman"));
         npcs.add(new NPC(4, "Athenian",
                 "I am Athenian", "xxx","xxx", "avatar1"));
         npcs.add(new NPC(5, "Norman",
