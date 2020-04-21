@@ -6,6 +6,7 @@
     android:layout_margin="8dp"
     android:id="@+id/cv"
     android:background="@drawable/era_list"
+    app:cardCornerRadius="15dp"
     android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +39,8 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivIcon"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.504" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

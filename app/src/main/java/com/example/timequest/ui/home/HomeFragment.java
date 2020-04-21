@@ -39,6 +39,7 @@ import static com.example.timequest.Entities.Era.addEraData;
 import static com.example.timequest.R.menu.bottom_nav_menu;
 
 public class HomeFragment extends Fragment {
+    public static final String EXTRA_MESSAGE = "LEARNING";
     private RecyclerView mRvList;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;

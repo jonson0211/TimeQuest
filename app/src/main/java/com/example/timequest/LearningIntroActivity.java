@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.timequest.Entities.NPC;
+import com.example.timequest.ui.home.HomeFragment;
 
 public class LearningIntroActivity extends AppCompatActivity {
 
@@ -28,7 +29,10 @@ public class LearningIntroActivity extends AppCompatActivity {
 
         //get Intent from RecyclerView for civilisation
 
-        String learningContent = getIntent().getStringExtra("LEARNING");
+
+        Intent intent = getIntent();
+        //Position is going to equal to the value derived from the recyclerview list
+        int position = intent.getIntExtra(HomeFragment.EXTRA_MESSAGE, 0);
 
         Button bContinue = findViewById(R.id.bContinue);
         ImageView npcCharacter = findViewById(R.id.npcCharacter);
@@ -40,7 +44,7 @@ public class LearningIntroActivity extends AppCompatActivity {
 
         //This grabs the civilisation from RV and retrieves from our NPC class.
         // Change hardcoded "0" to variable position based on recyclerview
-        mNPC = mNPC.addNPCData().get(0);
+        mNPC = mNPC.addNPCData().get(position);
 
 
 
@@ -62,9 +66,9 @@ public class LearningIntroActivity extends AppCompatActivity {
 
 
         bContinue.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), LearningReadActivity.class);
-            intent.putExtra("LEARNING", "Spartan"); //change from hardcode "Legionary" to variable intent from RecyclerView
-            startActivity(intent);
+            Intent intentRead = new Intent(getApplicationContext(), LearningReadActivity.class);
+            intent.putExtra("LEARNING", position); //change from hardcode "Legionary" to variable intent from RecyclerView
+            startActivity(intentRead);
         });
 
     }
