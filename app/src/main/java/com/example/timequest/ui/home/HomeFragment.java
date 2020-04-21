@@ -39,7 +39,7 @@ import static com.example.timequest.Entities.Era.addEraData;
 import static com.example.timequest.R.menu.bottom_nav_menu;
 
 public class HomeFragment extends Fragment {
-    public static final String EXTRA_MESSAGE = "LEARNING";
+    public static final Integer EXTRA_MESSAGE = 0;
     private RecyclerView mRvList;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -92,7 +92,7 @@ public class HomeFragment extends Fragment {
     }
     private void launchLearningIntroActivity(int position){
         Intent intent = new Intent(getActivity(), LearningIntroActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, position);
+        intent.putExtra(String.valueOf(EXTRA_MESSAGE), position);
         startActivity(intent);
     }
 }

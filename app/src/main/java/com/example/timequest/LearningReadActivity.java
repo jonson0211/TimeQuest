@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 public class LearningReadActivity extends AppCompatActivity {
 
     public static final String ARG_ITEM_ID = "LEARNING";
+    private static final String TAG = "LearningReadActivity";
 
     private ImageView eraBanner;
     private TextView learningText;
@@ -41,11 +43,13 @@ public class LearningReadActivity extends AppCompatActivity {
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_read);
 
+
         String learningContent = getIntent().getStringExtra("LEARNING");
+               Log.d(TAG, "on getIntent success:" + learningContent);
 
         learningText = findViewById(R.id.learningText);
         videoView = findViewById(R.id.videoView);
@@ -53,7 +57,7 @@ public class LearningReadActivity extends AppCompatActivity {
 
         final String wikiUrl =
                 //"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary"
-                "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + learningContent
+               "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + learningContent
                 //+ PlanetActivity.name +"%20(planet)"
                 ;
 
@@ -100,9 +104,11 @@ public class LearningReadActivity extends AppCompatActivity {
 
         });
 
+
         takeTrial.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), QuestionPage.class);
-            intent.putExtra("LEARNING", learningContent); //change from hardcode "Legionary" to variable intent from RecyclerView
+            intent.putExtra("LEARNING", learningContent);
+            Log.d(TAG, "on putExtra Intent success:" + learningContent);
             startActivity(intent);
         });
 

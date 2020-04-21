@@ -75,7 +75,8 @@ public class QuestionPage extends AppCompatActivity {
 
         //Progress bar set up - assign image icon to thumb, set progress
         SeekBar seekBar = findViewById(R.id.seekBar);
-        Drawable wbThumb = getResources().getDrawable(R.mipmap.logo);
+        //Drawable wbThumb = getResources().getDrawable(R.mipmap.logo);
+        Drawable wbThumb = getResources().getDrawable(R.drawable.ic_chevron_right_black_24dp);
         seekBar.setThumb(wbThumb);
         seekBar.setProgress(0);
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,7 +18,8 @@ import com.example.timequest.ui.home.HomeFragment;
 public class LearningIntroActivity extends AppCompatActivity {
 
     private NPC mNPC;
-
+    private static final String TAG = "LearningIntroActivity";
+    public static final String ARG_ITEM_ID = "LEARNING";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +29,12 @@ public class LearningIntroActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
 
-        //get Intent from RecyclerView for civilisation
-
 
         Intent intent = getIntent();
-        //Position is going to equal to the value derived from the recyclerview list
-        int position = intent.getIntExtra(HomeFragment.EXTRA_MESSAGE, 0);
+        //Position is going to equal to the value derived from the recyclerview list (integer)
+        int position = intent.getIntExtra(String.valueOf(HomeFragment.EXTRA_MESSAGE), 0);
 
+        Log.d(TAG, "on getIntent success:"  +position);
         Button bContinue = findViewById(R.id.bContinue);
         ImageView npcCharacter = findViewById(R.id.npcCharacter);
         ImageView userCharacter = findViewById(R.id.userCharacter);
@@ -44,8 +45,8 @@ public class LearningIntroActivity extends AppCompatActivity {
 
         //This grabs the civilisation from RV and retrieves from our NPC class.
         // Change hardcoded "0" to variable position based on recyclerview
-        mNPC = mNPC.addNPCData().get(position);
-
+        mNPC = NPC.addNPCData().get(position);
+        String civilisation = mNPC.getNpcName();
 
 
         //Set all objects based on NPC class and RV intent
@@ -66,10 +67,18 @@ public class LearningIntroActivity extends AppCompatActivity {
 
 
         bContinue.setOnClickListener(v -> {
-            Intent intentRead = new Intent(getApplicationContext(), LearningReadActivity.class);
-            intent.putExtra("LEARNING", position); //change from hardcode "Legionary" to variable intent from RecyclerView
-            startActivity(intentRead);
+            launchLearningReadActivity(civilisation);
+            Log.d(TAG, "on launch activity success:" + civilisation);
+
         });
 
+    }
+
+    private void launchLearningReadActivity(String civilisation){
+        Intent intent1 = new Intent(this, LearningReadActivity.class);
+        intent1.putExtra("LEARNING", civilisation);
+        Log.d(TAG, "on putExtra Learning success:"  + civilisation);
+        startActivity(intent1);
+        Log.d(TAG, "on startRead activity success:"  + intent1);
     }
 }
