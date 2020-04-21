@@ -3,30 +3,27 @@ package com.example.timequest.ui.question;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.example.timequest.Entities.TrialQuestion;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.timequest.R;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
-import java.util.Timer;
 
 public class QuestionPage extends AppCompatActivity {
 
@@ -64,17 +61,23 @@ public class QuestionPage extends AppCompatActivity {
     private int questionCount = 0;
     private int questionCountTotal = 0;
     private int score = 0;
-    private int correctCount;
+    //private int correctCount = 0;
 
     private ArrayList<TrialQuestion> questionSet;
     private TrialQuestion currentQuestion;
-
-
+    private SeekBar seekbar;
+//Just use go(stepNumber, true)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
+
+        //Progress bar set up - assign image icon to thumb, set progress
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        Drawable wbThumb = getResources().getDrawable(R.mipmap.logo);
+        seekBar.setThumb(wbThumb);
+        seekBar.setProgress(0);
 
 
 
@@ -104,12 +107,6 @@ public class QuestionPage extends AppCompatActivity {
 
         //Start quiz, next question
         nextQuestion();
-//test
-        /**
-        Integer answer = questionSet.get(0).getAnswerNumber();
-        Integer answer1 = questionSet.get(1).getAnswerNumber();
-        System.out.println(answer);
-        System.out.println(answer1); **/
 
         //When the confirm button is clicked, need to check whether an answer has been selected
         //Mark answer if correct
@@ -129,6 +126,31 @@ public class QuestionPage extends AppCompatActivity {
             }
         });
 
+        //handle button colours when selected
+        aButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                bButton.setBackgroundResource(R.drawable.buttons);
+                cButton.setBackgroundResource(R.drawable.buttons);
+            }
+        });
+        bButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                aButton.setBackgroundResource(R.drawable.buttons);
+                cButton.setBackgroundResource(R.drawable.buttons);
+            }
+        });
+        cButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                aButton.setBackgroundResource(R.drawable.buttons);
+                bButton.setBackgroundResource(R.drawable.buttons);
+            }
+        });
 
     }
     //1. Set the colors back to default
@@ -169,14 +191,34 @@ public class QuestionPage extends AppCompatActivity {
             startCountdown();
         } else{
 
-            Intent rsIntent = new Intent();
-            rsIntent.putExtra(EXTRA_SCORE, score);
-            setResult(RESULT_OK,rsIntent);
-            finish();
+            Intent rsIntent = new Intent(getApplicationContext(),Achievement.class);
+            String testContent = getIntent().getStringExtra("LEARNING");
+            rsIntent.putExtra("LEARNING", testContent);
+            rsIntent.putExtra("EXTRA_SCORE", score);
 
-            //Start new activity - achievement page
+            setResult(RESULT_OK,rsIntent);
+            //finish();
+            //finishQuiz();
+
+            startActivity(rsIntent);
+
 
         }
+    }
+
+    private void finishQuiz() {
+        confirmButton.setOnClickListener(v -> {
+            confirmButton.setText("Finish");
+
+            String testContent = getIntent().getStringExtra("LEARNING");
+            Intent intent = new Intent(getApplicationContext(), Achievement.class);
+            Intent intent1 = new Intent(getApplicationContext(), Achievement.class);
+            intent.putExtra("LEARNING", testContent);
+            intent1.putExtra("EXTRA_SCORE", score);
+            startActivity(intent);
+        });
+
+        //Start new activity - achievement page
     }
 
     //Start countdown once activity is alive
@@ -207,11 +249,12 @@ public class QuestionPage extends AppCompatActivity {
         int minutes = (int) (countDownTimeLeftMillis/1000) / 60;
         int seconds = (int) (countDownTimeLeftMillis/1000) % 60;
 
-        String time = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        String time = String.format(Locale.getDefault(), "%02d", seconds);
         countdownTV.setText(time);
 
         if(countDownTimeLeftMillis<10000){
             countdownTV.setTextColor(Color.RED);
+            countdownTV.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake));
         }else{
             countdownTV.setTextColor(defaultColourCounter);
         }
@@ -219,20 +262,28 @@ public class QuestionPage extends AppCompatActivity {
     }
     //To fix once the database is setup
     private void markAnswer(){
-
+        countdownTV.clearAnimation();
         answered = true;
         countDownTimer.cancel();
         RadioButton selectedAnswer = findViewById(questionRg.getCheckedRadioButtonId());
 
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        seekBar.setProgress(questionCount);
+
         int answer = questionRg.indexOfChild(selectedAnswer) + 1;
         //if(answer == currentQuestion.getAnswerNumber()){
         System.out.println(answer);
-        if(answer == currentQuestion.getQuestionNumber()){
+        if(answer == currentQuestion.getAnswerNumber()){
             System.out.println(answer + "*");
             score++;
+            System.out.println(score);
 
         }
+        //else { - change image to red X for wrong answers
+        //Drawable wbThumb = getResources().getDrawable(R.drawable.ic_close);
+        //seekBar.setThumb(wbThumb);}
         displaySolution();
+        System.out.println("Current score: " + score);
     }
 
     private void displaySolution(){

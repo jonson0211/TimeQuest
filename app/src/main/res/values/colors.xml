@@ -6,7 +6,19 @@
     <color name ="colorBackground">#FAEDCA</color>
     <color name ="colorBackgroundAlt">#F2C078</color>
     <color name="colorPrimaryDarkOrange">#E55A04</color>
+    <color name="colorPrimaryWhite">#FFFFFF</color>
+
+    <color name="colorAltPrimary">#FBBD75</color>
 
 
 
+    <color name="stepview_line_done">@android:color/white</color>
+    <color name="stepview_line_next">#26ffffff</color>
+    <color name="stepview_text_next">#40ffffff</color>
+    <color name="stepview_text_done">#40ffffff</color>
+    <color name="stepview_text_selected">@android:color/white</color>
+    <color name="stepview_circle_done">@android:color/white</color>
+    <color name="stepview_circle_selected">@android:color/white</color>
+    <color name="stepview_selected_number">#25448a</color>
+    <color name="stepview_mark">@color/stepview_selected_number</color>
 </resources>

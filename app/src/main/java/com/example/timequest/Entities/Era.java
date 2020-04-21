@@ -77,7 +77,7 @@ public class Era {
 
     public static ArrayList<Era> addEraData(){
         ArrayList<Era> eras = new ArrayList<>();
-        eras.add(new Era(1, "Spartan Army", "banner1", "background1","Incomplete"));
+        eras.add(new Era(1, "Spartan Army", "banner1", "npcathens","Incomplete"));
         eras.add(new Era(2, "North Sentinel Islanders", "banner2", "background2","Incomplete"));
         eras.add(new Era(3, "Roman Legionnaire", "banner3", "background3","Incomplete"));
         eras.add(new Era(4, "Ancient Athenian", "banner4", "background4","Incomplete"));
