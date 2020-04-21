@@ -6,6 +6,10 @@
     <color name ="colorBackground">#FAEDCA</color>
     <color name ="colorBackgroundAlt">#F2C078</color>
     <color name="colorPrimaryDarkOrange">#E55A04</color>
+    <color name="colorPrimaryWhite">#FFFFFF</color>
+
+    <color name="colorAltPrimary">#FBBD75</color>
+
 
 
     <color name="stepview_line_done">@android:color/white</color>

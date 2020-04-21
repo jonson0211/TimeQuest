@@ -16,6 +16,7 @@ import com.example.timequest.ui.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -29,6 +30,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity.class";
+
     //link to recyclerview and cardviews
     private EraAdapter mEra;
     private FragmentManager FragmentManager;
@@ -65,6 +67,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
+        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionbar.setCustomView(R.layout.abs_layout);
+        //getSupportActionBar().setDisplayOptions(
+                //ActionBar.DISPLAY_SHOW_HOME |
+               // ActionBar.DISPLAY_SHOW_TITLE |
+                       // ActionBar.DISPLAY_HOME_AS_UP |
+                       // ActionBar.DISPLAY_USE_LOGO);
+       // actionbar.setIcon(R.drawable.logotqicon);
+
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         bottomNav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
