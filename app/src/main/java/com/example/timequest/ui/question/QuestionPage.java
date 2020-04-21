@@ -3,21 +3,27 @@ package com.example.timequest.ui.question;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.example.timequest.Entities.TrialQuestion;
+import com.example.timequest.StepView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,13 +74,19 @@ public class QuestionPage extends AppCompatActivity {
 
     private ArrayList<TrialQuestion> questionSet;
     private TrialQuestion currentQuestion;
-
-
+    private SeekBar seekbar;
+//Just use go(stepNumber, true)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
+
+        //Progress bar set up
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        Drawable wbThumb = getResources().getDrawable(R.mipmap.logo);
+        seekBar.setThumb(wbThumb);
+        seekBar.setProgress(0);
 
 
 
@@ -246,11 +258,12 @@ public class QuestionPage extends AppCompatActivity {
         int minutes = (int) (countDownTimeLeftMillis/1000) / 60;
         int seconds = (int) (countDownTimeLeftMillis/1000) % 60;
 
-        String time = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+        String time = String.format(Locale.getDefault(), "%02d", seconds);
         countdownTV.setText(time);
 
         if(countDownTimeLeftMillis<10000){
             countdownTV.setTextColor(Color.RED);
+            countdownTV.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake));
         }else{
             countdownTV.setTextColor(defaultColourCounter);
         }
@@ -258,10 +271,13 @@ public class QuestionPage extends AppCompatActivity {
     }
     //To fix once the database is setup
     private void markAnswer(){
-
+        countdownTV.clearAnimation();
         answered = true;
         countDownTimer.cancel();
         RadioButton selectedAnswer = findViewById(questionRg.getCheckedRadioButtonId());
+
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        seekBar.setProgress(questionCount);
 
         int answer = questionRg.indexOfChild(selectedAnswer) + 1;
         //if(answer == currentQuestion.getAnswerNumber()){
