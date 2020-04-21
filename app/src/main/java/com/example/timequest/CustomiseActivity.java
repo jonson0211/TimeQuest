@@ -8,7 +8,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.timequest.Entities.BodyItems;
+import com.example.timequest.Entities.HandItems;
+import com.example.timequest.Entities.HeadItems;
 import com.example.timequest.Entities.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomiseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,6 +34,18 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
 
     private Button saveButton;
 
+    public List<String> headItems;
+    public List<String> bodyItems;
+    public List<String> handItems;
+
+
+    int headCounter = 0;
+    int bodyCounter = 0;
+    int handCounter = 0;
+    List<Integer> headIDList = new ArrayList<Integer>();
+    List<Integer> bodyIDList = new ArrayList<Integer>();
+    List<Integer> handIDList = new ArrayList<Integer>();
+
 
 
 
@@ -40,10 +58,28 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
 
         mdb = AppDatabase.getInstance(getApplicationContext());
         try{
+            //sample test data
             mdb.userDAO().insertUser(new User(1,"s", 1, 1, "china", "china", "china"));
+            mdb.headItemsDAO().insertHeadItem(new HeadItems("head1"));
+            mdb.headItemsDAO().insertHeadItem(new HeadItems("head2"));
+            mdb.headItemsDAO().insertHeadItem(new HeadItems("head3"));
+            mdb.headItemsDAO().insertHeadItem(new HeadItems("head4"));
+            mdb.bodyItemsDAO().insertBodyItem(new BodyItems("body1"));
+            mdb.bodyItemsDAO().insertBodyItem(new BodyItems("body2"));
+            mdb.bodyItemsDAO().insertBodyItem(new BodyItems("body5"));
+            mdb.handItemsDAO().insertHandItem(new HandItems("item1"));
+            mdb.handItemsDAO().insertHandItem(new HandItems("item2"));
+            mdb.handItemsDAO().insertHandItem(new HandItems("item3"));
+
+
         } catch (Exception e){
             System.out.println("!");
         }
+
+        //fill arraylists with database items
+        headItems = mdb.headItemsDAO().getHeadItems();
+        bodyItems = mdb.bodyItemsDAO().getBodyItems();
+        handItems = mdb.handItemsDAO().getHandItems();
 
 
         ivCharacter = findViewById(R.id.ivCharacter);
@@ -55,12 +91,13 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         userBody = findViewById(R.id.userBody);
         userHand = findViewById(R.id.userHand);
 
-        userHead.setImageResource(getResources().getIdentifier(mdb.userDAO().getHeadItem(),"drawable", getPackageName()));
-        userBody.setImageResource(getResources().getIdentifier(mdb.userDAO().getBodyItem(),"drawable", getPackageName()));
-        userHand.setImageResource(getResources().getIdentifier(mdb.userDAO().getHandItem(),"drawable", getPackageName()));
-        ivHead.setImageResource(getResources().getIdentifier(mdb.userDAO().getHeadItem(),"drawable", getPackageName()));
-        ivBody.setImageResource(getResources().getIdentifier(mdb.userDAO().getBodyItem(),"drawable", getPackageName()));
-        ivHand.setImageResource(getResources().getIdentifier(mdb.userDAO().getHandItem(),"drawable", getPackageName()));
+        //set images based on what user is currently wearing
+        userHead.setImageResource(getResources().getIdentifier(mdb.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
+        userBody.setImageResource(getResources().getIdentifier(mdb.userDAO().getBodyItem(),"drawable","com.example.timequest"));
+        userHand.setImageResource(getResources().getIdentifier(mdb.userDAO().getHandItem(),"drawable", "com.example.timequest"));
+        ivHead.setImageResource(getResources().getIdentifier(mdb.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
+        ivBody.setImageResource(getResources().getIdentifier(mdb.userDAO().getBodyItem(),"drawable","com.example.timequest"));
+        ivHand.setImageResource(getResources().getIdentifier(mdb.userDAO().getHandItem(),"drawable", "com.example.timequest"));
 
 
 
@@ -88,93 +125,109 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         });
 
 
+        //fill arraylists of identifiers
+        for(int i = 0; i < headItems.size(); i++)
+        {
+            int headID = getResources().getIdentifier(String.valueOf(headItems.get(i)), "drawable", getPackageName());
+            headIDList.add(headID);
+        }
+
+        for(int i = 0; i < bodyItems.size(); i++)
+        {
+            int bodyID = getResources().getIdentifier(String.valueOf(bodyItems.get(i)), "drawable", getPackageName());
+            bodyIDList.add(bodyID);
+        }
+
+        for(int i = 0; i < handItems.size(); i++)
+        {
+            int handID = getResources().getIdentifier(String.valueOf(handItems.get(i)), "drawable", getPackageName());
+            handIDList.add(handID);
+        }
+
+
 
     }
 
 
-    //grab current outfit from database (replace the manual counter starting from =1)
-    int headCounter = 1;
-    int bodyCounter = 1;
-    int itemCounter = 1;
 
     @Override
     public void onClick(View v) {
-
-        int headid = getResources().getIdentifier("head" + headCounter,"drawable", getPackageName());
-        int bodyid = getResources().getIdentifier("body" + bodyCounter,"drawable", getPackageName());
-        int itemid = getResources().getIdentifier("item" + itemCounter,"drawable", getPackageName());
 
         switch (v.getId()) {
 
             case R.id.headNextButton:
 
-                if(headCounter < 6) {
+                if(headCounter < headItems.size()-1) {
                     headCounter++;
                 }else if
-               (headCounter == 6){
-                    headCounter = 1;
+               (headCounter == headItems.size()-1){
+                    headCounter = 0;
             }
-                ivHead.setImageResource(headid);
-                userHead.setImageResource(headid);
-                mdb.userDAO().changeHeadItem(String.valueOf(headid));
+
+                //set images
+                ivHead.setImageResource(headIDList.get(headCounter));
+                userHead.setImageResource(headIDList.get(headCounter));
+
+                //update user entity
+                mdb.userDAO().changeHeadItem(String.valueOf(headIDList.get(headCounter)));
                 break;
 
             case R.id.headBackButton:
 
-                if(headCounter > 1) {
+                if(headCounter > 0) {
                     headCounter--;
-                }else if(headCounter == 1) {
-                    headCounter= 6;
+                }else if(headCounter == 0) {
+                    headCounter = headIDList.size()-1;
         }
-                ivHead.setImageResource(headid);
-                userHead.setImageResource(headid);
-                mdb.userDAO().changeHeadItem(String.valueOf(headid));
+                ivHead.setImageResource(headIDList.get(headCounter));
+                userHead.setImageResource(headIDList.get(headCounter));
+                mdb.userDAO().changeHeadItem(String.valueOf(headIDList.get(headCounter)));
                 break;
 
             case R.id.bodyNextButton:
-                if(bodyCounter < 6) {
+                if(bodyCounter < bodyIDList.size()-1) {
                     bodyCounter++;
                 }else if
-                (bodyCounter == 6){
-                    bodyCounter = 1;
+                (bodyCounter == bodyIDList.size()-1){
+                    bodyCounter = 0;
                 }
-                ivBody.setImageResource(bodyid);
-                userBody.setImageResource(bodyid);
-                mdb.userDAO().changeBodyItem(String.valueOf(bodyid));
+                ivBody.setImageResource(bodyIDList.get(bodyCounter));
+                userBody.setImageResource(bodyIDList.get(bodyCounter));
+                mdb.userDAO().changeBodyItem(String.valueOf(bodyIDList.get(bodyCounter)));
                 break;
 
             case R.id.bodyBackButton:
-                if(bodyCounter > 1) {
+                if(bodyCounter > 0) {
                     bodyCounter--;
-                }else if(bodyCounter == 1) {
-                    bodyCounter= 6;
+                }else if(bodyCounter == 0) {
+                    bodyCounter= bodyIDList.size()-1;
                 }
-                ivBody.setImageResource(bodyid);
-                userBody.setImageResource(bodyid);
-                mdb.userDAO().changeBodyItem(String.valueOf(bodyid));
+                ivBody.setImageResource(bodyIDList.get(bodyCounter));
+                userBody.setImageResource(bodyIDList.get(bodyCounter));
+                mdb.userDAO().changeBodyItem(String.valueOf(bodyIDList.get(bodyCounter)));
                 break;
 
             case R.id.handNextButton:
-                if(itemCounter < 6) {
-                    itemCounter++;
+                if(handCounter < handIDList.size()-1) {
+                    handCounter++;
                 }else if
-                (itemCounter == 6){
-                    itemCounter = 1;
+                (handCounter == handIDList.size()-1){
+                    handCounter = 0;
                 }
-                ivHand.setImageResource(itemid);
-                userHand.setImageResource(itemid);
-                mdb.userDAO().changeHandItem(String.valueOf(itemid));
+                ivHand.setImageResource(handIDList.get(handCounter));
+                userHand.setImageResource(handIDList.get(handCounter));
+                mdb.userDAO().changeHandItem(String.valueOf(handIDList.get(handCounter)));
                 break;
 
             case R.id.handBackButton:
-                if(itemCounter > 1) {
-                    itemCounter--;
-                }else if(itemCounter == 1) {
-                    itemCounter= 6;
+                if(handCounter > 0) {
+                    handCounter--;
+                }else if(handCounter == 0) {
+                    handCounter = handIDList.size()-1;
                 }
-                ivHand.setImageResource(itemid);
-                userHand.setImageResource(itemid);
-                mdb.userDAO().changeHandItem(String.valueOf(itemid));
+                ivHand.setImageResource(handIDList.get(handCounter));
+                userHand.setImageResource(handIDList.get(handCounter));
+                mdb.userDAO().changeHandItem(String.valueOf(handIDList.get(handCounter)));
                 break;
 
             default:
