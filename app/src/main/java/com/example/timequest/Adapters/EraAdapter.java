@@ -31,12 +31,40 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
 
     private List<Era> mEraSet;
     private Era mEra;
-
-
+    private RecyclerViewClickListener mListener;
     private int[] images;
 
-    public EraAdapter(){
+    public EraAdapter(ArrayList<Era> eras, RecyclerViewClickListener listener){
+        mEraSet = eras;
+        mListener = listener;
 
+    }
+
+    public interface RecyclerViewClickListener{
+        void onClick(View view, int position);
+    }
+
+    public static class EraViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        public TextView titleTv;
+        public ImageView iconIv;
+        public View view;
+        private RecyclerViewClickListener mListener;
+
+
+        public EraViewHolder(View v, RecyclerViewClickListener listener) {
+            super(v);
+            mListener = listener;
+            v.setOnClickListener(this);
+            Log.d(TAG, "EraViewHolderr: done");
+            titleTv = v.findViewById(R.id.tvTitle);
+            iconIv = v.findViewById(R.id.ivIcon);
+        }
+
+        @Override
+        public void onClick(View view) {
+            mListener.onClick(view, getAdapterPosition());
+        }
     }
 
    public void setData(ArrayList<Era> eraToAdapt) {
@@ -46,16 +74,16 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
    }
     @NonNull
     @Override
-    public EraViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public EraAdapter.EraViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d(TAG, "onCreateViewHolder: done");
         //Declare view elements
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.era_list_row, parent, false);
         Log.d(TAG, "Inflater: done");
 
-        EraViewHolder eraViewHolder = new EraViewHolder(view);
+      //  EraViewHolder eraViewHolder = new EraViewHolder(view);
         Log.d(TAG, "ViewHolder: done");
-        return eraViewHolder;
+        return new EraViewHolder(view ,mListener);
     }
 
     @Override
@@ -101,18 +129,5 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
         //count items in array
         return mEraSet.size();
     }
-    public static class EraViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView titleTv;
-        public ImageView iconIv;
-        public View view;
-
-
-        public EraViewHolder(View v){
-            super(v);
-            Log.d(TAG, "EraViewHolderr: done");
-            titleTv = v.findViewById(R.id.tvTitle);
-            iconIv = v.findViewById(R.id.ivIcon);
-        }
-    }
 }
