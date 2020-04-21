@@ -12,6 +12,7 @@ import com.example.timequest.Entities.Era;
 import com.example.timequest.ui.Fragments.Test1;
 import com.example.timequest.ui.Fragments.Test2;
 import com.example.timequest.ui.home.HomeFragment;
+import com.example.timequest.ui.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -50,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction2.commit();
                     return true;
                 case R.id.navigation_notifications:
-                    Test2 test2 = new Test2();
+                    ProfileFragment profileFragment = new ProfileFragment();
                     FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction3.replace(R.id.fragment_container, test2, "FragmentName");
+                    fragmentTransaction3.replace(R.id.fragment_container, profileFragment, "FragmentName");
                     fragmentTransaction3.commit();
                     return true;
             }

@@ -1,5 +1,6 @@
 package com.example.timequest;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,10 +17,14 @@ public class LearningIntroActivity extends AppCompatActivity {
 
     private NPC mNPC;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_intro);
+
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
 
         //get Intent from RecyclerView for civilisation
 
@@ -36,6 +41,7 @@ public class LearningIntroActivity extends AppCompatActivity {
         //This grabs the civilisation from RV and retrieves from our NPC class.
         // Change hardcoded "0" to variable position based on recyclerview
         mNPC = mNPC.addNPCData().get(0);
+
 
 
         //Set all objects based on NPC class and RV intent

@@ -64,7 +64,7 @@ public class QuestionPage extends AppCompatActivity {
     private int questionCount = 0;
     private int questionCountTotal = 0;
     private int score = 0;
-    private int correctCount;
+    //private int correctCount = 0;
 
     private ArrayList<TrialQuestion> questionSet;
     private TrialQuestion currentQuestion;
@@ -104,12 +104,6 @@ public class QuestionPage extends AppCompatActivity {
 
         //Start quiz, next question
         nextQuestion();
-//test
-        /**
-        Integer answer = questionSet.get(0).getAnswerNumber();
-        Integer answer1 = questionSet.get(1).getAnswerNumber();
-        System.out.println(answer);
-        System.out.println(answer1); **/
 
         //When the confirm button is clicked, need to check whether an answer has been selected
         //Mark answer if correct
@@ -129,6 +123,31 @@ public class QuestionPage extends AppCompatActivity {
             }
         });
 
+        //handle button colours when selected
+        aButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                bButton.setBackgroundResource(R.drawable.buttons);
+                cButton.setBackgroundResource(R.drawable.buttons);
+            }
+        });
+        bButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                aButton.setBackgroundResource(R.drawable.buttons);
+                cButton.setBackgroundResource(R.drawable.buttons);
+            }
+        });
+        cButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                aButton.setBackgroundResource(R.drawable.buttons);
+                bButton.setBackgroundResource(R.drawable.buttons);
+            }
+        });
 
     }
     //1. Set the colors back to default
@@ -169,14 +188,34 @@ public class QuestionPage extends AppCompatActivity {
             startCountdown();
         } else{
 
-            Intent rsIntent = new Intent();
-            rsIntent.putExtra(EXTRA_SCORE, score);
-            setResult(RESULT_OK,rsIntent);
-            finish();
+            Intent rsIntent = new Intent(getApplicationContext(),Achievement.class);
+            String testContent = getIntent().getStringExtra("LEARNING");
+            rsIntent.putExtra("LEARNING", testContent);
+            rsIntent.putExtra("EXTRA_SCORE", score);
 
-            //Start new activity - achievement page
+            setResult(RESULT_OK,rsIntent);
+            //finish();
+            //finishQuiz();
+
+            startActivity(rsIntent);
+
 
         }
+    }
+
+    private void finishQuiz() {
+        confirmButton.setOnClickListener(v -> {
+            confirmButton.setText("Finish");
+
+            String testContent = getIntent().getStringExtra("LEARNING");
+            Intent intent = new Intent(getApplicationContext(), Achievement.class);
+            Intent intent1 = new Intent(getApplicationContext(), Achievement.class);
+            intent.putExtra("LEARNING", testContent);
+            intent1.putExtra("EXTRA_SCORE", score);
+            startActivity(intent);
+        });
+
+        //Start new activity - achievement page
     }
 
     //Start countdown once activity is alive
@@ -227,12 +266,14 @@ public class QuestionPage extends AppCompatActivity {
         int answer = questionRg.indexOfChild(selectedAnswer) + 1;
         //if(answer == currentQuestion.getAnswerNumber()){
         System.out.println(answer);
-        if(answer == currentQuestion.getQuestionNumber()){
+        if(answer == currentQuestion.getAnswerNumber()){
             System.out.println(answer + "*");
             score++;
+            System.out.println(score);
 
         }
         displaySolution();
+        System.out.println("Current score: " + score);
     }
 
     private void displaySolution(){
