@@ -7,15 +7,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import com.example.timequest.Entities.TrialQuestion;
-import com.example.timequest.StepView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 
 import android.os.CountDownTimer;
 import android.view.View;
@@ -30,9 +23,7 @@ import android.widget.Toast;
 import com.example.timequest.R;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
-import java.util.Timer;
 
 public class QuestionPage extends AppCompatActivity {
 
@@ -82,7 +73,7 @@ public class QuestionPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
 
-        //Progress bar set up
+        //Progress bar set up - assign image icon to thumb, set progress
         SeekBar seekBar = findViewById(R.id.seekBar);
         Drawable wbThumb = getResources().getDrawable(R.mipmap.logo);
         seekBar.setThumb(wbThumb);
@@ -288,6 +279,9 @@ public class QuestionPage extends AppCompatActivity {
             System.out.println(score);
 
         }
+        //else { - change image to red X for wrong answers
+        //Drawable wbThumb = getResources().getDrawable(R.drawable.ic_close);
+        //seekBar.setThumb(wbThumb);}
         displaySolution();
         System.out.println("Current score: " + score);
     }
