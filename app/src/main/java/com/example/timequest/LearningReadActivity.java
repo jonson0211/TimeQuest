@@ -85,8 +85,14 @@ public class LearningReadActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 String string = (response.substring(response.lastIndexOf("extract")+10,response.length()-5));
                 //string = string.replace("\\n", "\n\n");
-                string = string.replace("\n", "\n\n");
+                string = string.replace("\\n", "\n\n");
                 string = string.replaceAll("\\(.*?\\)", "");
+                string = string.replace("\\u","");
+                string = string.replace("\\","");
+                string = string.replace("alers, German: Neandertaler [ne02c8and0250ta02d0l0250]","");
+                string = string.replace("s)","s");
+                string = string.replace(":1202013143","\n");
+                string = string.replace("2013","-");
                 learningText.setText(string);
                 System.out.println(string);
 
