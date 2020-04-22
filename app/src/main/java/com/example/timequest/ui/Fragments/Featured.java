@@ -22,8 +22,8 @@ public class Featured extends Fragment {
 
     public static final String EXTRA_MESSAGE = "LEVEL";
 
-    private TextView tvMsg;
-    private Button continueB;
+    private TextView tvMsg, tvSelectedMode;
+    private Button startB;
     private Switch difficultySw;
 
 
@@ -54,37 +54,36 @@ public class Featured extends Fragment {
         View view = inflater.inflate(R.layout.fragment_featured, container, false);
         tvMsg = view.findViewById(R.id.msgTv);
         difficultySw = view.findViewById(R.id.switch3);
-        continueB = view.findViewById(R.id.msgTv);
-
+        startB = view.findViewById(R.id.bStart);
+        tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
 
         difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
                     //Talk to json file to get difficulty
-                    int level = 1;
+                    String level = "difficult";
+                    tvSelectedMode.setText(level);
 
-                    continueB.setOnClickListener(v -> {
-                        Intent intent = new Intent(getActivity(), WorldQuiz.class);
-                        intent.putExtra(EXTRA_MESSAGE, level);
-                        startActivity(intent);
-                    });
                 }else{
                     //Talk to json file to get easy
-                    int level = 0;
-                    continueB.setOnClickListener(v -> {
-                        Intent intent = new Intent(getActivity(), WorldQuiz.class);
-                        intent.putExtra(EXTRA_MESSAGE, level);
-                        startActivity(intent);
-                    });
+                    String level = "easy";
+                    tvSelectedMode.setText(level);
                 }
             }
         });
 
-
-
+        startB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), WorldQuiz.class);
+                intent.putExtra("LEVEL", tvSelectedMode.getText().toString());
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
+
 
 }
