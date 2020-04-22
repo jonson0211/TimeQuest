@@ -40,18 +40,22 @@ public class Achievement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
 
-        String civilisation = getIntent().getStringExtra("LEARNING");
-        System.out.println(civilisation);
+        Integer NPCID = getIntent().getIntExtra("LEARNING",0);
+        System.out.println("*"+ NPCID);
         Log.d(TAG, "on getIntent(): SUCCESS");
 
-        /**
-        for(NPC npc : npcs){
-            if(npc.getNpcName().equals(civilisation)){
-                mNPC = npc;
+        //Match civilisation from intent to specific NPC array from NPC to get image and item data
+        for (int i = 0; i < 8; i++){
+
+            if (NPC.addNPCData().get(i).getNpcID()==(NPCID)){
+                mNPC = NPC.addNPCData().get(i);
                 System.out.println(mNPC);
-            }}**/
-        //mNPC.getEndingSpeech();
-        //return mNPC
+                Log.d(TAG, "on match NPC: SUCCESS");
+                break;
+            }
+        }
+
+        String civilisation = mNPC.getNpcName();
 
         Integer score = getIntent().getIntExtra("EXTRA_SCORE",0);
         System.out.println(score);
@@ -69,16 +73,7 @@ public class Achievement extends AppCompatActivity {
         homeB.setOnClickListener(v -> startActivity(new Intent(Achievement.this, MainActivity.class)));
         int value1 = 1;
 
-        //Match civilisation from intent to specific NPC array from NPC to get image and item data
-        for (int i = 0; i < 8; i++){
 
-            if (NPC.addNPCData().get(i).getNpcName().equals(civilisation)){
-                mNPC = NPC.addNPCData().get(i);
-                System.out.println(mNPC);
-                Log.d(TAG, "on match NPC: SUCCESS");
-                break;
-            }
-        }
         //Determine if user gets prize or fails
         if(score > 7) {
             //outcomeTv.setText("Congratulations Adventurer!\n You passed the test. Here is something for your troubles.");

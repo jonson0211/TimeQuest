@@ -50,13 +50,13 @@ public class LearningReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_learning_read);
 
 
-        String learningContent = getIntent().getStringExtra("LEARNING");
-               Log.d(TAG, "on getIntent success:" + learningContent);
+        Integer NPCID = getIntent().getIntExtra("LEARNING",0);
+               Log.d(TAG, "on getIntent success:" + NPCID);
 
         //Match civilisation from intent to specific NPC array from NPC to get image and item data
         for (int i = 0; i < 10; i++){
 
-            if (NPC.addNPCData().get(i).getNpcName().equals(learningContent)){
+            if (NPC.addNPCData().get(i).getNpcID()==(NPCID)){
                 mNPC = NPC.addNPCData().get(i);
                 System.out.println(mNPC);
                 Log.d(TAG, "on match NPC: SUCCESS");
@@ -127,8 +127,8 @@ public class LearningReadActivity extends AppCompatActivity {
 
         takeTrial.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), QuestionPage.class);
-            intent.putExtra("LEARNING", learningContent);
-            Log.d(TAG, "on putExtra Intent success:" + learningContent);
+            intent.putExtra("LEARNING", NPCID);
+            Log.d(TAG, "on putExtra Intent success:" + NPCID);
             startActivity(intent);
         });
 

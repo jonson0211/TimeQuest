@@ -101,12 +101,12 @@ public class QuestionPage extends AppCompatActivity {
         defaultColourCounter = countdownTV.getTextColors();
 
         //get topic intent from reading page e.g. "Spartan"
-        String contentIntent = getIntent().getStringExtra("LEARNING");
+        Integer NPCID = getIntent().getIntExtra("LEARNING",0);
 
         //Match civilisation from intent to specific NPC array from NPC to get image and item data
         for (int i = 0; i < 10; i++){
 
-            if (NPC.addNPCData().get(i).getNpcName().equals(contentIntent)){
+            if (NPC.addNPCData().get(i).getNpcID()==(NPCID)){
                 mNPC = NPC.addNPCData().get(i);
                 System.out.println(mNPC);
                 Log.d(TAG, "on match NPC QP: SUCCESS");
@@ -209,8 +209,8 @@ public class QuestionPage extends AppCompatActivity {
         } else{
 
             Intent rsIntent = new Intent(getApplicationContext(),Achievement.class);
-            String testContent = getIntent().getStringExtra("LEARNING");
-            rsIntent.putExtra("LEARNING", testContent);
+            Integer NPCID = getIntent().getIntExtra("LEARNING",0);
+            rsIntent.putExtra("LEARNING", NPCID);
             rsIntent.putExtra("EXTRA_SCORE", score);
 
             setResult(RESULT_OK,rsIntent);
@@ -227,10 +227,10 @@ public class QuestionPage extends AppCompatActivity {
         confirmButton.setOnClickListener(v -> {
             confirmButton.setText("Finish");
 
-            String testContent = getIntent().getStringExtra("LEARNING");
+            Integer NPCID = getIntent().getIntExtra("LEARNING",0);
             Intent intent = new Intent(getApplicationContext(), Achievement.class);
             Intent intent1 = new Intent(getApplicationContext(), Achievement.class);
-            intent.putExtra("LEARNING", testContent);
+            intent.putExtra("LEARNING", NPCID);
             intent1.putExtra("EXTRA_SCORE", score);
             startActivity(intent);
         });
