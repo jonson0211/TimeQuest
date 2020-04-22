@@ -31,6 +31,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity.class";
 
+    public static AppDatabase db;
+
     //link to recyclerview and cardviews
     private EraAdapter mEra;
     private FragmentManager FragmentManager;

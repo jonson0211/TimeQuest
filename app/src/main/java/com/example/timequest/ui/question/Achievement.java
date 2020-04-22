@@ -3,6 +3,9 @@ package com.example.timequest.ui.question;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.timequest.Entities.BodyItems;
+import com.example.timequest.Entities.HandItems;
+import com.example.timequest.Entities.HeadItems;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.MainActivity;
 
@@ -82,13 +85,58 @@ public class Achievement extends AppCompatActivity {
             //outcomeTv.setText(mNPC.addNPCData().get(5).getEndingSpeech()); //change "5" to be the variable NPC civilisation
             outcomeTv.setText(mNPC.getEndingSpeech());
             Log.d(TAG, "on setText(): SUCCESS");
+                    switch(mNPC.getNpcName()){
+                        case "Spartan":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                        case "North Sentinel Islander":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                        case "Roman Legion":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                        case "Athenian Man":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                        case "Norman Crusader":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                        case "Cossack Warrior":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                        case "Neanderthal":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                        case "Qing Eunuch":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                        case "Viking":
+                            MainActivity.db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            MainActivity.db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
 
-            int prize = getResources().getIdentifier("item"+ value1, "drawable", "com.example.timequest");
+                    }
+
+                    if(score > 7 && score < 10){
+                        MainActivity.db.eraDAO().updateToCompleted();
+                    } else if(score == 10){
+                        MainActivity.db.eraDAO().updateToPerfect();
+                    }
+
+            int prize = getResources().getIdentifier(mNPC.getNpcName()+"item", "drawable", "com.example.timequest");
             Log.d(TAG, "on getResourceID(): SUCCESS");
             prizeIv.setImageResource(prize);
             //to do: immediately add item to user's collection in database
-
-        } else{
+        }
+        else{
             //outcomeTv.setText("Oh no. You did not pass the quiz. Revise the content and try again to win a prize!");
             outcomeTv.setText(mNPC.getFailSpeech());
         }
