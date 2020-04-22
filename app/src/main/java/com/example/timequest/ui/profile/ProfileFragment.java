@@ -20,7 +20,7 @@ import com.example.timequest.LearningReadActivity;
 import com.example.timequest.R;
 
 public class ProfileFragment extends Fragment {
-
+/**
     Button notesButton;
     Button customiseButton;
 
@@ -68,4 +68,5 @@ public class ProfileFragment extends Fragment {
 
 
     }
+ **/
 }

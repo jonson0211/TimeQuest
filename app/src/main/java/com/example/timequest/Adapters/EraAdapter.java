@@ -40,6 +40,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
 
     }
 
+    //interface for what it will do
     public interface RecyclerViewClickListener{
         void onClick(View view, int position);
     }
