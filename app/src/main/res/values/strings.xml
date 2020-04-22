@@ -19,7 +19,6 @@
     <string name="title_activity_read">ReadActivity</string>
 
 
-
     <string-array name="steps">
         <item>Beginning</item>
         <item>Intermediate\npage</item>
