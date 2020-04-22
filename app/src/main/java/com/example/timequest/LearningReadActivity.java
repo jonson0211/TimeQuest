@@ -25,6 +25,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.timequest.Entities.NPC;
 import com.example.timequest.ui.question.QuestionPage;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -35,6 +36,7 @@ public class LearningReadActivity extends AppCompatActivity {
     public static final String ARG_ITEM_ID = "LEARNING";
     private static final String TAG = "LearningReadActivity";
 
+    private NPC mNPC;
     private ImageView eraBanner;
     private TextView learningText;
     private Button takeTrial;
@@ -51,14 +53,25 @@ public class LearningReadActivity extends AppCompatActivity {
         String learningContent = getIntent().getStringExtra("LEARNING");
                Log.d(TAG, "on getIntent success:" + learningContent);
 
+        //Match civilisation from intent to specific NPC array from NPC to get image and item data
+        for (int i = 0; i < 10; i++){
+
+            if (NPC.addNPCData().get(i).getNpcName().equals(learningContent)){
+                mNPC = NPC.addNPCData().get(i);
+                System.out.println(mNPC);
+                Log.d(TAG, "on match NPC: SUCCESS");
+                break;
+            }
+        }
+
+
         learningText = findViewById(R.id.learningText);
         videoView = findViewById(R.id.videoView);
         Button takeTrial = findViewById(R.id.takeTrial);
 
         final String wikiUrl =
                 //"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary"
-               "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + learningContent
-                //+ PlanetActivity.name +"%20(planet)"
+               "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + mNPC.getSearchTerm()
                 ;
 
         Context context = getApplicationContext();
@@ -66,7 +79,7 @@ public class LearningReadActivity extends AppCompatActivity {
 
 
 
-        //grabs string and cleans it removing bracketed text and any newline characters
+        //Receive string, remove punctuation - wiki-specific newline characters and brackets
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -81,11 +94,11 @@ public class LearningReadActivity extends AppCompatActivity {
             }
         };
 
-        //best practice error hadling
+        //Error handling Volley
         Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
             public void onErrorResponse (VolleyError error) {
-                System.out.println(error.toString());
+                Log.d(TAG, "onErrorResponse Volley error:");
             }
         };
         StringRequest stringRequest = new StringRequest(Request.Method.GET, wikiUrl, responseListener, errorListener);
@@ -94,11 +107,18 @@ public class LearningReadActivity extends AppCompatActivity {
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player_view);
         getLifecycle().addObserver(youTubePlayerView);
 
+
+
+
+
+
+        String videoID = mNPC.getVideoID();
+
         youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                String videoId = "BIqWKPA83V0";
-                youTubePlayer.cueVideo(videoId, 0f);
+                //String videoId = "BIqWKPA83V0";
+                youTubePlayer.cueVideo(videoID, 0f);
 
             }
 

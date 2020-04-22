@@ -47,6 +47,7 @@ public class LearningIntroActivity extends AppCompatActivity {
         // Change hardcoded "0" to variable position based on recyclerview
         mNPC = NPC.addNPCData().get(position);
         String civilisation = mNPC.getNpcName();
+        Integer NPCID = mNPC.getNpcID();
 
 
         //Set all objects based on NPC class and RV intent
