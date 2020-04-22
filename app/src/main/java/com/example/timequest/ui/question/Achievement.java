@@ -131,7 +131,7 @@ public class Achievement extends AppCompatActivity {
                         MainActivity.db.eraDAO().updateToPerfect();
                     }
 
-            int prize = getResources().getIdentifier(mNPC.getNpcName()+"item", "drawable", "com.example.timequest");
+            int prize = getResources().getIdentifier(mNPC.getNpcName().replaceAll("\\s+","")+"item", "drawable", "com.example.timequest");
             Log.d(TAG, "on getResourceID(): SUCCESS");
             prizeIv.setImageResource(prize);
             //to do: immediately add item to user's collection in database
