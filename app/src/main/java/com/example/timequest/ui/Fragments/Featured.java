@@ -101,7 +101,7 @@ public class Featured extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_featured, container, false);
         //View view = rootView.getView();
-
+        updateUi();
         difficultySw = view.findViewById(R.id.switch3);
         buttonTrue = view.findViewById(R.id.buttonTrue);
         buttonFalse = view.findViewById(R.id.buttonFalse);

@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.timequest.Entities.Era;
-import com.example.timequest.Entities.Notes;
+
 import com.example.timequest.MainActivity;
 import com.example.timequest.R;
 
@@ -27,7 +27,7 @@ import static android.content.ContentValues.TAG;
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder>{
 
     public static ArrayList<Era> mNoteTitle;
-    private Notes note;
+
     private RecyclerViewClickListener mListener;
 
 

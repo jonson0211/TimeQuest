@@ -6,7 +6,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.timequest.Entities.BodyItems;
-import com.example.timequest.Entities.Notes;
 
 import java.util.List;
 

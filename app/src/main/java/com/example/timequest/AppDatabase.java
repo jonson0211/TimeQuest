@@ -17,7 +17,6 @@ import com.example.timequest.Entities.BodyItems;
 import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.HandItems;
 import com.example.timequest.Entities.HeadItems;
-import com.example.timequest.Entities.Notes;
 import com.example.timequest.Entities.User;
 
 @Database(entities = {Era.class, User.class, BodyItems.class, HandItems.class, HeadItems.class}, version = 4)
