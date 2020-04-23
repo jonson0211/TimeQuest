@@ -2,10 +2,12 @@ package com.example.timequest.ui.Fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +17,20 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.timequest.R;
+import com.example.timequest.TriviaEntities.Result;
+import com.example.timequest.TriviaEntities.Trivia;
 import com.example.timequest.TriviaEntities.WorldQuiz;
+import com.example.timequest.TriviaService;
+
+import java.io.IOException;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.android.volley.VolleyLog.TAG;
 
 
 public class Featured extends Fragment {
@@ -25,7 +40,7 @@ public class Featured extends Fragment {
     private TextView tvMsg, tvSelectedMode;
     private Button startB;
     private Switch difficultySw;
-
+    private Result mResult;
 
 
     public Featured() {
@@ -52,7 +67,6 @@ public class Featured extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_featured, container, false);
-        tvMsg = view.findViewById(R.id.msgTv);
         difficultySw = view.findViewById(R.id.switch3);
         startB = view.findViewById(R.id.bStart);
         tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
@@ -83,6 +97,35 @@ public class Featured extends Fragment {
         });
 
         return view;
+    }
+    private class GetQuestionTask extends AsyncTask<Void, Void, List<Result>> {
+
+        @Override
+        protected List<Result> doInBackground(Void... voids) {
+
+
+            Retrofit retrofit = new Retrofit.Builder().baseUrl("https://opentdb.com").addConverterFactory(GsonConverterFactory.create()).build();
+            TriviaService triviaService = retrofit.create(TriviaService.class);
+            Call<Trivia> triviasCall = triviaService.getEasyTrivia();
+            try {
+                Response<Trivia> triviasResponse = triviasCall.execute();
+                List<Result> results = triviasResponse.body().getResults();
+                return results;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Log.d(EXTRA_MESSAGE, "onresponse: loaded Retrofit");
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(List<Result> results){
+            for(Result result : results){
+                mResult = result;
+                updateUi();
+            }
+        }
     }
 
 
