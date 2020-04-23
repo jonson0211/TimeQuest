@@ -39,16 +39,15 @@ public class NotesDetail extends AppCompatActivity {
         saveNotesButton = findViewById(R.id.saveNotesButton);
 
         db = AppDatabase.getInstance(getApplicationContext());
-        //Intent from recyclerview notes activity (from profile)
-        Intent intent = getIntent();
-        int position = intent.getIntExtra(NotesActivity.EXTRA_MESSAGE, 0);
-        Log.d(TAG, "on match Era Name from Recyclerview: SUCCESS");
 
-        //Intent from learning read activity (from adventures), make sure it can still handle instances where it may be null
-        //e.g. if you only access it from the profile link/recyclerview
-        Intent readIntent = getIntent();
-        readIntent.getStringExtra("ERA");
-        String eraName = readIntent.getStringExtra("ERA");
+
+        //This if block checks and handles whether the intent is coming from recyclerview in Profile fragment (which would send an integer position)
+        // OR if it is coming from Learning Read Activity, which will send a String EraName intent
+        Intent intent = getIntent();
+
+        if(intent.hasExtra("ERA")){
+            intent.getStringExtra("ERA");
+            String eraName = intent.getStringExtra("ERA");
 
             for (int x = 0; x < Era.addEraData().size(); x++){
                 if (Era.addEraData().get(x).getEraName().equals(eraName)){
@@ -58,10 +57,18 @@ public class NotesDetail extends AppCompatActivity {
                     break;
                 }
             }
+        }else if(intent.hasExtra(NotesActivity.EXTRA_MESSAGE)) {
+            int position = intent.getIntExtra(NotesActivity.EXTRA_MESSAGE, 0);
+            Log.d(TAG, "on match Era Name from Recyclerview: SUCCESS");
+            mEra = Era.addEraData().get(position);
+        }
+
+        //Intent from learning read activity (from adventures), make sure it can still handle instances where it may be null
+        //e.g. if you only access it from the profile link/recyclerview
+        //Intent readIntent = getIntent();
 
 
 
-        //mEra = Era.addEraData().get(position);
         noteTitle.setText(mEra.getEraName());
 
 
