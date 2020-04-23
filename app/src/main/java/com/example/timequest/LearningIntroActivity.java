@@ -47,6 +47,7 @@ public class LearningIntroActivity extends AppCompatActivity {
         // Change hardcoded "0" to variable position based on recyclerview
         mNPC = NPC.addNPCData().get(position);
         String civilisation = mNPC.getNpcName();
+        Integer NPCID = mNPC.getNpcID();
 
 
         //Set all objects based on NPC class and RV intent
@@ -67,17 +68,17 @@ public class LearningIntroActivity extends AppCompatActivity {
 
 
         bContinue.setOnClickListener(v -> {
-            launchLearningReadActivity(civilisation);
-            Log.d(TAG, "on launch activity success:" + civilisation);
+            launchLearningReadActivity(NPCID);
+            Log.d(TAG, "on launch activity success:" + NPCID);
 
         });
 
     }
 
-    private void launchLearningReadActivity(String civilisation){
+    private void launchLearningReadActivity(Integer NPCID){
         Intent intent1 = new Intent(this, LearningReadActivity.class);
-        intent1.putExtra("LEARNING", civilisation);
-        Log.d(TAG, "on putExtra Learning success:"  + civilisation);
+        intent1.putExtra("LEARNING", NPCID);
+        Log.d(TAG, "on putExtra Learning success:"  + NPCID);
         startActivity(intent1);
         Log.d(TAG, "on startRead activity success:"  + intent1);
     }

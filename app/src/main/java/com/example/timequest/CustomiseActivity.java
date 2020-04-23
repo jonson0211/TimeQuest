@@ -47,29 +47,29 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
     List<Integer> handIDList = new ArrayList<Integer>();
 
 
+    public static AppDatabase db;
 
 
-    public static AppDatabase mdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customise);
 
-        mdb = AppDatabase.getInstance(getApplicationContext());
+        db = AppDatabase.getInstance(getApplicationContext());
         try{
             //sample test data
-            mdb.userDAO().insertUser(new User(1,"s", 1, 1, "china", "china", "china"));
-            mdb.headItemsDAO().insertHeadItem(new HeadItems("head1"));
-            mdb.headItemsDAO().insertHeadItem(new HeadItems("head2"));
-            mdb.headItemsDAO().insertHeadItem(new HeadItems("head3"));
-            mdb.headItemsDAO().insertHeadItem(new HeadItems("head4"));
-            mdb.bodyItemsDAO().insertBodyItem(new BodyItems("body1"));
-            mdb.bodyItemsDAO().insertBodyItem(new BodyItems("body2"));
-            mdb.bodyItemsDAO().insertBodyItem(new BodyItems("body5"));
-            mdb.handItemsDAO().insertHandItem(new HandItems("item1"));
-            mdb.handItemsDAO().insertHandItem(new HandItems("item2"));
-            mdb.handItemsDAO().insertHandItem(new HandItems("item3"));
+            db.userDAO().insertUser(new User(1,"s", 1, 1, "china", "china", "china"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("head1"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("head2"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("head3"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("head4"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("body1"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("body2"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("body5"));
+            db.handItemsDAO().insertHandItem(new HandItems("item1"));
+            db.handItemsDAO().insertHandItem(new HandItems("item2"));
+            db.handItemsDAO().insertHandItem(new HandItems("item3"));
 
 
         } catch (Exception e){
@@ -77,9 +77,9 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         }
 
         //fill arraylists with database items
-        headItems = mdb.headItemsDAO().getHeadItems();
-        bodyItems = mdb.bodyItemsDAO().getBodyItems();
-        handItems = mdb.handItemsDAO().getHandItems();
+        headItems = db.headItemsDAO().getHeadItems();
+        bodyItems = db.bodyItemsDAO().getBodyItems();
+        handItems = db.handItemsDAO().getHandItems();
 
 
         ivCharacter = findViewById(R.id.ivCharacter);
@@ -92,12 +92,12 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         userHand = findViewById(R.id.userHand);
 
         //set images based on what user is currently wearing
-        userHead.setImageResource(getResources().getIdentifier(mdb.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
-        userBody.setImageResource(getResources().getIdentifier(mdb.userDAO().getBodyItem(),"drawable","com.example.timequest"));
-        userHand.setImageResource(getResources().getIdentifier(mdb.userDAO().getHandItem(),"drawable", "com.example.timequest"));
-        ivHead.setImageResource(getResources().getIdentifier(mdb.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
-        ivBody.setImageResource(getResources().getIdentifier(mdb.userDAO().getBodyItem(),"drawable","com.example.timequest"));
-        ivHand.setImageResource(getResources().getIdentifier(mdb.userDAO().getHandItem(),"drawable", "com.example.timequest"));
+        userHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
+        userBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(),"drawable","com.example.timequest"));
+        userHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(),"drawable", "com.example.timequest"));
+        ivHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
+        ivBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(),"drawable","com.example.timequest"));
+        ivHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(),"drawable", "com.example.timequest"));
 
 
 
@@ -169,7 +169,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 userHead.setImageResource(headIDList.get(headCounter));
 
                 //update user entity
-                mdb.userDAO().changeHeadItem(String.valueOf(headIDList.get(headCounter)));
+                db.userDAO().changeHeadItem(String.valueOf(headIDList.get(headCounter)));
                 break;
 
             case R.id.headBackButton:
@@ -181,7 +181,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         }
                 ivHead.setImageResource(headIDList.get(headCounter));
                 userHead.setImageResource(headIDList.get(headCounter));
-                mdb.userDAO().changeHeadItem(String.valueOf(headIDList.get(headCounter)));
+                db.userDAO().changeHeadItem(String.valueOf(headIDList.get(headCounter)));
                 break;
 
             case R.id.bodyNextButton:
@@ -193,7 +193,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 }
                 ivBody.setImageResource(bodyIDList.get(bodyCounter));
                 userBody.setImageResource(bodyIDList.get(bodyCounter));
-                mdb.userDAO().changeBodyItem(String.valueOf(bodyIDList.get(bodyCounter)));
+                db.userDAO().changeBodyItem(String.valueOf(bodyIDList.get(bodyCounter)));
                 break;
 
             case R.id.bodyBackButton:
@@ -204,7 +204,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 }
                 ivBody.setImageResource(bodyIDList.get(bodyCounter));
                 userBody.setImageResource(bodyIDList.get(bodyCounter));
-                mdb.userDAO().changeBodyItem(String.valueOf(bodyIDList.get(bodyCounter)));
+                db.userDAO().changeBodyItem(String.valueOf(bodyIDList.get(bodyCounter)));
                 break;
 
             case R.id.handNextButton:
@@ -216,7 +216,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 }
                 ivHand.setImageResource(handIDList.get(handCounter));
                 userHand.setImageResource(handIDList.get(handCounter));
-                mdb.userDAO().changeHandItem(String.valueOf(handIDList.get(handCounter)));
+                db.userDAO().changeHandItem(String.valueOf(handIDList.get(handCounter)));
                 break;
 
             case R.id.handBackButton:
@@ -227,7 +227,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 }
                 ivHand.setImageResource(handIDList.get(handCounter));
                 userHand.setImageResource(handIDList.get(handCounter));
-                mdb.userDAO().changeHandItem(String.valueOf(handIDList.get(handCounter)));
+                db.userDAO().changeHandItem(String.valueOf(handIDList.get(handCounter)));
                 break;
 
             default:

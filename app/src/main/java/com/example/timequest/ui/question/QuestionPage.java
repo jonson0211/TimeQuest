@@ -6,11 +6,13 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import com.example.timequest.Entities.NPC;
 import com.example.timequest.Entities.TrialQuestion;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -41,7 +43,7 @@ public class QuestionPage extends AppCompatActivity {
     //6. Class checks database to determine right or wrong
     //7. display next question --> condition; if question counter is less than the total amount of questions
     //8. On last question --> take them to quiz page (implicit intent)
-
+    private static final String TAG = "QuestionPage";
     public static final String ARG_ITEM_ID = "LEARNING";
 
     public static final String EXTRA_SCORE = "extraScore";
@@ -66,7 +68,9 @@ public class QuestionPage extends AppCompatActivity {
     private ArrayList<TrialQuestion> questionSet;
     private TrialQuestion currentQuestion;
     private SeekBar seekbar;
-//Just use go(stepNumber, true)
+
+    private NPC mNPC;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +101,21 @@ public class QuestionPage extends AppCompatActivity {
         defaultColourCounter = countdownTV.getTextColors();
 
         //get topic intent from reading page e.g. "Spartan"
-        String testContent = getIntent().getStringExtra("LEARNING");
+        Integer NPCID = getIntent().getIntExtra("LEARNING",0);
 
-        System.out.println(testContent);
+        //Match civilisation from intent to specific NPC array from NPC to get image and item data
+        for (int i = 0; i < 10; i++){
+
+            if (NPC.addNPCData().get(i).getNpcID()==(NPCID)){
+                mNPC = NPC.addNPCData().get(i);
+                System.out.println(mNPC);
+                Log.d(TAG, "on match NPC QP: SUCCESS");
+                break;
+            }
+        }
+        String testContent = mNPC.getNpcName();
+
+        System.out.println("*" + testContent);
         topicTv.setText(testContent);
 
         questionSet = TrialQuestion.getTrialQuiz(testContent);
@@ -193,8 +209,8 @@ public class QuestionPage extends AppCompatActivity {
         } else{
 
             Intent rsIntent = new Intent(getApplicationContext(),Achievement.class);
-            String testContent = getIntent().getStringExtra("LEARNING");
-            rsIntent.putExtra("LEARNING", testContent);
+            Integer NPCID = getIntent().getIntExtra("LEARNING",0);
+            rsIntent.putExtra("LEARNING", NPCID);
             rsIntent.putExtra("EXTRA_SCORE", score);
 
             setResult(RESULT_OK,rsIntent);
@@ -211,10 +227,10 @@ public class QuestionPage extends AppCompatActivity {
         confirmButton.setOnClickListener(v -> {
             confirmButton.setText("Finish");
 
-            String testContent = getIntent().getStringExtra("LEARNING");
+            Integer NPCID = getIntent().getIntExtra("LEARNING",0);
             Intent intent = new Intent(getApplicationContext(), Achievement.class);
             Intent intent1 = new Intent(getApplicationContext(), Achievement.class);
-            intent.putExtra("LEARNING", testContent);
+            intent.putExtra("LEARNING", NPCID);
             intent1.putExtra("EXTRA_SCORE", score);
             startActivity(intent);
         });
