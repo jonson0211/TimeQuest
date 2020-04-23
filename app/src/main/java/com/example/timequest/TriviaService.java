@@ -26,7 +26,7 @@ public interface TriviaService {
           * @return*/
 
     //site: https://opentdb.com/api.php?amount=1&category=23&difficulty=medium
-    @GET("/api.php?amount=1&category=23&difficulty=easy")
+    @GET("/api.php?amount=1&category=23&difficulty=easy&type=boolean")
     Call<Trivia> getEasyTrivia();
     @GET("/api.php?amount=1&category=23&difficulty=difficult")
     Call<List<Result>> getDifficultTrivia();

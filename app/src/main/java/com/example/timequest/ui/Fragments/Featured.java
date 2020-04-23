@@ -2,17 +2,22 @@ package com.example.timequest.ui.Fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -41,6 +46,29 @@ public class Featured extends Fragment {
     private Button startB;
     private Switch difficultySw;
     private Result mResult;
+    TextView modeTv, questionTv;
+    public static final String ARG_ITEM_ID = "LEARNING";
+    private ScrollView scrollView1;
+
+    public static final String EXTRA_SCORE = "extraScore";
+    private static final long COUNTDOWN_IN_MILLIS = 30000;
+    private long countDownTimeLeftMillis;
+
+    private TextView questionTV, countdownTV, topicTv;
+    private RadioButton aButton, bButton, cButton, dButton;
+    private Button confirmButton;
+
+    private ColorStateList defaultColourButton, defaultColourCounter;
+    private boolean answered;
+    private RadioGroup questionRg;
+    private CountDownTimer countDownTimer;
+    //private int questionCount, questionCountTotal, score;
+
+    private int questionCount = 0;
+    private int questionCountTotal = 0;
+    private int score = 0;
+    private Result currentQuestion;
+    private List<Result> questionSet;
 
 
     public Featured() {
@@ -60,7 +88,8 @@ public class Featured extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {        }
+
+        new GetQuestionTask().execute();
     }
 
     @Override
@@ -70,6 +99,7 @@ public class Featured extends Fragment {
         difficultySw = view.findViewById(R.id.switch3);
         startB = view.findViewById(R.id.bStart);
         tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
+        questionTV = view.findViewById(R.id.tvWQQuestion);
 
         difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -84,15 +114,6 @@ public class Featured extends Fragment {
                     String level = "easy";
                     tvSelectedMode.setText(level);
                 }
-            }
-        });
-
-        startB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), WorldQuiz.class);
-                intent.putExtra("LEVEL", tvSelectedMode.getText().toString());
-                startActivity(intent);
             }
         });
 
@@ -115,7 +136,7 @@ public class Featured extends Fragment {
                 e.printStackTrace();
             }
 
-            Log.d(EXTRA_MESSAGE, "onresponse: loaded Retrofit");
+            Log.d(TAG, "onresponse: loaded Retrofit");
             return null;
         }
 
@@ -127,6 +148,17 @@ public class Featured extends Fragment {
             }
         }
     }
+    private void updateUi(){
+        View rootview = getView();
+        if(mResult != null){
+            ((TextView) rootview.findViewById(R.id.tvWQQuestion)).setText(mResult.getQuestion());
+
+        }
+    }
 
 
-}
+
+    }
+
+
+
