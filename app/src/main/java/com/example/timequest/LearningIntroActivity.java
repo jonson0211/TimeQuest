@@ -83,12 +83,14 @@ public class LearningIntroActivity extends AppCompatActivity {
         Intent intent1 = new Intent(this, LearningReadActivity.class);
         intent1.putExtra("LEARNING", NPCID);
 
+        Intent intent2 = new Intent(this, LearningReadActivity.class);
+        intent1.putExtra("ERA", eraName);
+
         Log.d(TAG, "on putExtra Learning success:"  + NPCID);
         startActivity(intent1);
         Log.d(TAG, "on startRead activity success:"  + intent1);
 
-        Intent intent2 = new Intent(this, LearningReadActivity.class);
-        intent1.putExtra("ERA", eraName);
+
 
     }
 }

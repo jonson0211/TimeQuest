@@ -62,7 +62,7 @@ public class LearningReadActivity extends AppCompatActivity {
         Log.d(TAG, "on getIntent success:" + eraName);
 
         //Match civilisation from intent to specific NPC array from NPC to get image and item data
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < NPC.addNPCData().size(); i++){
 
             if (NPC.addNPCData().get(i).getNpcID()==(NPCID)){
                 mNPC = NPC.addNPCData().get(i);
@@ -72,6 +72,15 @@ public class LearningReadActivity extends AppCompatActivity {
             }
         }
 
+        for (int x = 0; x < Era.addEraData().size(); x++){
+
+            if (Era.addEraData().get(x).getEraName().equals(eraName)){
+                mERA = Era.addEraData().get(x);
+                System.out.println(mERA);
+                Log.d(TAG, "on match Era Name: SUCCESS");
+                break;
+            }
+        }
 
         learningText = findViewById(R.id.learningText);
         videoView = findViewById(R.id.videoView);
@@ -83,14 +92,13 @@ public class LearningReadActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Context context = v.getContext();
-                Intent intent = new Intent(getApplicationContext(), NotesDetail.class);
-               //intent.putExtra("ERA", mERA.getEraName());
-                context.startActivity(intent);
+                Intent intentEra = new Intent(getApplicationContext(), NotesDetail.class);
+                intentEra.putExtra("ERA", mERA.getEraName().toString());
+                Log.d(TAG, "on match Era Name: SUCCESS" + mERA.getEraName());
+                context.startActivity(intentEra);
 
             }
         });
-
-
 
 
 

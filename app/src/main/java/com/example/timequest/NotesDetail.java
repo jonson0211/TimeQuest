@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +19,7 @@ import com.example.timequest.Entities.User;
 
 public class NotesDetail extends AppCompatActivity {
 
-
+    private static final String TAG = "NotesDetail Activity";
 
     private Era mEra;
     TextView noteTitle;
@@ -32,16 +33,35 @@ public class NotesDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_detail);
 
-        db = AppDatabase.getInstance(getApplicationContext());
-        Intent intent = getIntent();
-        int position = intent.getIntExtra(NotesActivity.EXTRA_MESSAGE, 0);
-
+        //Set up page elements
         noteTitle = findViewById(R.id.noteTitle2);
         editNotes = findViewById(R.id.editNotes);
         saveNotesButton = findViewById(R.id.saveNotesButton);
 
+        db = AppDatabase.getInstance(getApplicationContext());
+        //Intent from recyclerview notes activity (from profile)
+        Intent intent = getIntent();
+        int position = intent.getIntExtra(NotesActivity.EXTRA_MESSAGE, 0);
+        Log.d(TAG, "on match Era Name from Recyclerview: SUCCESS");
 
-        mEra = Era.addEraData().get(position);
+        //Intent from learning read activity (from adventures), make sure it can still handle instances where it may be null
+        //e.g. if you only access it from the profile link/recyclerview
+        Intent readIntent = getIntent();
+        readIntent.getStringExtra("ERA");
+        String eraName = readIntent.getStringExtra("ERA");
+
+            for (int x = 0; x < Era.addEraData().size(); x++){
+                if (Era.addEraData().get(x).getEraName().equals(eraName)){
+                    mEra = Era.addEraData().get(x);
+                    System.out.println(mEra);
+                    Log.d(TAG, "on match Era Name from LearningReadActivity: SUCCESS");
+                    break;
+                }
+            }
+
+
+
+        //mEra = Era.addEraData().get(position);
         noteTitle.setText(mEra.getEraName());
 
 
