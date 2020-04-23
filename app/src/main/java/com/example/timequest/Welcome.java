@@ -55,4 +55,6 @@ public class Welcome extends AppCompatActivity {
         //Talk to database to save name
     }
 
+    public static class NotesAdapter {
+    }
 }
