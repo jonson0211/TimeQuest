@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.ui.home.HomeFragment;
 
 public class LearningIntroActivity extends AppCompatActivity {
 
     private NPC mNPC;
+    private Era mERA;
     private static final String TAG = "LearningIntroActivity";
     public static final String ARG_ITEM_ID = "LEARNING";
 
@@ -45,9 +47,11 @@ public class LearningIntroActivity extends AppCompatActivity {
 
         //This grabs the civilisation from RV and retrieves from our NPC class.
         // Change hardcoded "0" to variable position based on recyclerview
+        mERA = Era.addEraData().get(position);
         mNPC = NPC.addNPCData().get(position);
         String civilisation = mNPC.getNpcName();
         Integer NPCID = mNPC.getNpcID();
+        String eraName = mERA.getEraName();
 
 
         //Set all objects based on NPC class and RV intent
@@ -68,18 +72,23 @@ public class LearningIntroActivity extends AppCompatActivity {
 
 
         bContinue.setOnClickListener(v -> {
-            launchLearningReadActivity(NPCID);
+            launchLearningReadActivity(NPCID, eraName);
             Log.d(TAG, "on launch activity success:" + NPCID);
 
         });
 
     }
 
-    private void launchLearningReadActivity(Integer NPCID){
+    private void launchLearningReadActivity(Integer NPCID, String eraName){
         Intent intent1 = new Intent(this, LearningReadActivity.class);
         intent1.putExtra("LEARNING", NPCID);
+
         Log.d(TAG, "on putExtra Learning success:"  + NPCID);
         startActivity(intent1);
         Log.d(TAG, "on startRead activity success:"  + intent1);
+
+        Intent intent2 = new Intent(this, LearningReadActivity.class);
+        intent1.putExtra("ERA", eraName);
+
     }
 }

@@ -10,10 +10,9 @@ import java.util.ArrayList;
 @Entity
 public class Era {
 
-    @PrimaryKey(autoGenerate = true)
-    private int eraID;
 
-    @ColumnInfo(name = "era_name")
+    @PrimaryKey
+    @NonNull
     private String eraName;
 
     @ColumnInfo(name = "era_banner")
@@ -26,21 +25,14 @@ public class Era {
     //"Incomplete", "Complete", "Perfect"
     private String eraCompleted;
 
+    private String eraNotes;
 
-    public Era(int eraID, String eraName, String eraBanner, String eraBackground, String eraCompleted) {
-        this.eraID = eraID;
+    public Era(String eraName, String eraBanner, String eraBackground, String eraCompleted, String eraNotes) {
         this.eraName = eraName;
         this.eraBanner = eraBanner;
         this.eraBackground = eraBackground;
         this.eraCompleted = eraCompleted;
-    }
-
-    public int getEraID() {
-        return eraID;
-    }
-
-    public void setEraID(int eraID) {
-        this.eraID = eraID;
+        this.eraNotes = eraNotes;
     }
 
     public String getEraName() {
@@ -75,17 +67,25 @@ public class Era {
         this.eraCompleted = eraCompleted;
     }
 
+    public String getEraNotes() {
+        return eraNotes;
+    }
+
+    public void setEraNotes(String eraNotes) {
+        this.eraNotes = eraNotes;
+    }
+
     public static ArrayList<Era> addEraData(){
         ArrayList<Era> eras = new ArrayList<>();
-        eras.add(new Era(1, "Spartan Army", "banner1", "npcathens","Incomplete"));
-        eras.add(new Era(2, "North Sentinel Islanders", "banner2", "background2","Incomplete"));
-        eras.add(new Era(3, "Roman Legionnaire", "banner3", "background3","Incomplete"));
-        eras.add(new Era(4, "Ancient Athenian", "banner4", "background4","Incomplete"));
-        eras.add(new Era(5, "Normans", "banner5", "background5","Incomplete"));
-        eras.add(new Era(6, "Cossack Warriors", "banner6", "background6","Incomplete"));
-        eras.add(new Era(7, "Neanderthals", "banner7", "background7","Incomplete"));
-        eras.add(new Era(8, "Qing Dynasty", "banner8", "background8","Incomplete"));
-        eras.add(new Era(9, "Vikings", "banner9", "background9","Incomplete"));
+        eras.add(new Era("Spartan Army", "banner1", "npcathens","Incomplete"," "));
+        eras.add(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " "));
+        eras.add(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " "));
+        eras.add(new Era("Ancient Athenian", "banner4", "background4","Incomplete", " "));
+        eras.add(new Era("Normans", "banner5", "background5","Incomplete", " "));
+        eras.add(new Era( "Cossack Warriors", "banner6", "background6","Incomplete", " "));
+        eras.add(new Era("Neanderthals", "banner7", "background7","Incomplete", " "));
+        eras.add(new Era("Qing Dynasty", "banner8", "background8","Incomplete", " "));
+        eras.add(new Era("Vikings", "banner9", "background9","Incomplete", " "));
 
         return eras;
     }
