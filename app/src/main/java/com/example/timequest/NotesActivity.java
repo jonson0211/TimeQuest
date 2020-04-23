@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,6 +16,7 @@ import java.util.List;
 public class NotesActivity extends AppCompatActivity {
 
 
+    public static final String EXTRA_MESSAGE = "TOPIC";
     private boolean mTwoPane;
     public static AppDatabase db;
     private RecyclerView notesList;
@@ -35,6 +37,7 @@ public class NotesActivity extends AppCompatActivity {
         NotesAdapter.RecyclerViewClickListener listener = new NotesAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
+                launchDetailActivity(position);
 
             }
         };
@@ -50,6 +53,12 @@ public class NotesActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(getApplicationContext());
  **/
+    }
+
+    private void launchDetailActivity(int position){
+        Intent intent = new Intent(this, NotesDetail.class);
+        intent.putExtra(EXTRA_MESSAGE, position);
+        startActivity(intent);
     }
 
 }
