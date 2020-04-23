@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.Notes;
 import com.example.timequest.MainActivity;
 import com.example.timequest.R;
@@ -25,15 +26,13 @@ import static android.content.ContentValues.TAG;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder>{
 
-    public static ArrayList<Notes> mNotesSet;
+    public static ArrayList<Era> mNoteTitle;
     private Notes note;
     private RecyclerViewClickListener mListener;
 
 
-
-
-    public NotesAdapter(ArrayList<Notes> notes, RecyclerViewClickListener listener){
-        mNotesSet = notes;
+    public NotesAdapter(ArrayList<Era> eras, RecyclerViewClickListener listener){
+        mNoteTitle = eras;
         mListener = listener;
 
     }
@@ -80,15 +79,15 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     @Override
     public void onBindViewHolder(@NonNull NotesAdapter.NotesViewHolder holder, int position) {
-        final Notes notesAtPosition = mNotesSet.get(position);
+        final Era notesAtPosition = mNoteTitle.get(position);
         Log.d(TAG, "eraPosition: done");
-        holder.noteTitle.setText(String.valueOf(notesAtPosition.getNoteTitle()));
+        holder.noteTitle.setText(String.valueOf(notesAtPosition.getEraName()));
         Log.d(TAG, "setTitle: done");
     }
     @Override
     public int getItemCount() {
         //count items in array
-        return mNotesSet.size();
+        return mNoteTitle.size();
     }
 
 }
