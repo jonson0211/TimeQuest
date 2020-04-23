@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -69,6 +70,7 @@ public class Featured extends Fragment {
     private Result currentQuestion;
     private List<Result> questionSet;
 
+    ImageView featuredIv, headIv, handIv;
 
     public Featured() {
         // Required empty public constructor
@@ -101,23 +103,25 @@ public class Featured extends Fragment {
         questionTV = view.findViewById(R.id.tvWQQuestion);
         falseB.setBackgroundResource(R.drawable.buttons);
         trueB.setBackgroundResource(R.drawable.buttons);
+        featuredIv = view.findViewById(R.id.ivNPCFeatured);
+        handIv = view.findViewById(R.id.ivHand);
+        headIv = view.findViewById(R.id.ivHead);
+/**
+ difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+@Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+if (isChecked) {
+//Talk to json file to get difficulty
+String level = "difficult";
+tvSelectedMode.setText(level);
 
-        difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    //Talk to json file to get difficulty
-                    String level = "difficult";
-                    tvSelectedMode.setText(level);
-
-                } else {
-                    //Talk to json file to get easy
-                    String level = "easy";
-                    tvSelectedMode.setText(level);
-                }
-            }
-        });
-
+} else {
+//Talk to json file to get easy
+String level = "easy";
+tvSelectedMode.setText(level);
+}
+}
+});
+ **/
         return view;
 
 
@@ -157,12 +161,17 @@ public class Featured extends Fragment {
         View rootview = getView();
         Log.d(TAG, "UPDATE UI: DONE");
         if (mResult != null) {
+            questionTV = rootview.findViewById(R.id.tvWQQuestion);
+
             ((TextView) rootview.findViewById(R.id.tvWQQuestion)).setText(mResult.getQuestion());
             Log.d(TAG, "UPDATE UI: DONE");
+
             falseB.setBackgroundResource(R.drawable.buttons);
             trueB.setBackgroundResource(R.drawable.buttons);
             String answer = mResult.getCorrectAnswer();
+
             Log.d(TAG, "ANSWER: " + mResult.getCorrectAnswer());
+
 
             System.out.print(mResult.getCorrectAnswer());
             trueB.setOnClickListener(new View.OnClickListener() {
@@ -171,6 +180,8 @@ public class Featured extends Fragment {
                     Log.d(TAG, "TRUE CLICKED");
                     String answer = mResult.getCorrectAnswer();
                     trueB.setBackgroundResource(R.drawable.buttons);
+                    trueB.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                    falseB.setBackgroundResource(R.drawable.buttons);
 
                     displaySolution();
                     new GetQuestionTask().execute();
@@ -183,6 +194,8 @@ public class Featured extends Fragment {
                     Log.d(TAG, "FALSE CLICKED");
                     String answer = mResult.getCorrectAnswer();
                     falseB.setBackgroundResource(R.drawable.buttons);
+                    falseB.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                    trueB.setBackgroundResource(R.drawable.buttons);
 
                     displaySolution();
                     new GetQuestionTask().execute();
@@ -227,11 +240,6 @@ public class Featured extends Fragment {
         }
     }
 
-    private boolean checkQuestion(int number) {
-        String answer = currentQuestion.getCorrectAnswer();
-        return answer.equals("true");
-    }
-
     private void nextQuestion() {
         trueB.setBackgroundColor(R.drawable.quiz_button);
         falseB.setBackgroundColor(R.drawable.quiz_button);
@@ -242,13 +250,24 @@ public class Featured extends Fragment {
 
     private void displaySolution() {
         String answer = mResult.getCorrectAnswer();
-        if (answer == "True") {
+        Log.d(TAG, "Gets string " + answer);
+
+        if (answer.equals("True")) {
+            Log.d(TAG, "if statement " + answer);
             trueB.setBackgroundColor(Color.GREEN);
-        } else {
+            falseB.setBackgroundColor(Color.RED);
+        } else if (answer.equals("False")) {
+            Log.d(TAG, "if statement " + answer);
             falseB.setBackgroundColor(Color.GREEN);
-        }
+            trueB.setBackgroundColor(Color.RED);
+        } else if (answer.equals("True"))
+            Log.d(TAG, "if statement " + answer);
+        trueB.setBackgroundColor(Color.GREEN);
+        falseB.setBackgroundColor(Color.RED);
+
     }
 }
+
 
 
 

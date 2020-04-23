@@ -193,7 +193,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/ivNPCFeatured"
                             android:layout_width="133dp"
                             android:layout_height="234dp"
                             android:layout_marginStart="12dp"
@@ -213,26 +213,26 @@
                             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                         <ImageView
-                            android:id="@+id/imageView8"
+                            android:id="@+id/ivHead"
                             android:layout_width="100dp"
                             android:layout_height="95dp"
                             android:layout_marginStart="16dp"
                             android:src="@drawable/head2"
-                            app:layout_constraintEnd_toStartOf="@+id/imageView14"
+                            app:layout_constraintEnd_toStartOf="@+id/ivBody"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
                         <ImageView
-                            android:id="@+id/imageView14"
+                            android:id="@+id/ivBody"
                             android:layout_width="100dp"
                             android:layout_height="95dp"
                             android:layout_marginEnd="16dp"
                             android:src="@drawable/body2"
-                            app:layout_constraintEnd_toStartOf="@+id/imageView16"
+                            app:layout_constraintEnd_toStartOf="@+id/ivHand"
                             app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
                         <ImageView
-                            android:id="@+id/imageView16"
+                            android:id="@+id/ivHand"
                             android:layout_width="100dp"
                             android:layout_height="95dp"
                             android:layout_marginEnd="28dp"
@@ -247,7 +247,7 @@
                             android:layout_marginStart="4dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/ivNPCFeatured"
                             app:layout_constraintTop_toBottomOf="@+id/textView12">
 
                             <LinearLayout
@@ -263,7 +263,7 @@
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="8dp"
                             android:text="Your Notes:"
-                            app:layout_constraintStart_toEndOf="@+id/imageView4"
+                            app:layout_constraintStart_toEndOf="@+id/ivNPCFeatured"
                             app:layout_constraintTop_toBottomOf="@+id/tvCivilisation" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
