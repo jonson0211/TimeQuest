@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction1.commit();
                     return true;
                 case R.id.navigation_dashboard:
-                    Test1 test1 = new Test1();
+                    Featured featured = new Featured();
                     FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction2.replace(R.id.fragment_container, test1, "FragmentName");
+                    fragmentTransaction2.replace(R.id.fragment_container, featured, "FragmentName");
                     fragmentTransaction2.commit();
                     return true;
                 case R.id.navigation_notifications:

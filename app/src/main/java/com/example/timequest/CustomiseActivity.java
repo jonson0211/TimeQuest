@@ -18,7 +18,7 @@ import java.util.List;
 
 public class CustomiseActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView ivCharacter;
+   // private ImageView ivCharacter;
     private ImageView ivHead;
     private ImageView ivBody;
     private ImageView ivHand;
@@ -60,16 +60,39 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         try{
             //sample test data
             db.userDAO().insertUser(new User(1,"s", 1, 1, "china", "china", "china"));
-            db.headItemsDAO().insertHeadItem(new HeadItems("head1"));
-            db.headItemsDAO().insertHeadItem(new HeadItems("head2"));
-            db.headItemsDAO().insertHeadItem(new HeadItems("head3"));
-            db.headItemsDAO().insertHeadItem(new HeadItems("head4"));
-            db.bodyItemsDAO().insertBodyItem(new BodyItems("body1"));
-            db.bodyItemsDAO().insertBodyItem(new BodyItems("body2"));
-            db.bodyItemsDAO().insertBodyItem(new BodyItems("body5"));
-            db.handItemsDAO().insertHandItem(new HandItems("item1"));
-            db.handItemsDAO().insertHandItem(new HandItems("item2"));
-            db.handItemsDAO().insertHandItem(new HandItems("item3"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headdefault"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headspartan"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headviking"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headroman"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headsentinel"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headanthenian"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headqing"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headnorman"));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headcossack"));
+
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodydefault"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyspartan"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyviking"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyroman"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodysentinel"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyanthenian"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyqing"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodynorman"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodycossack"));
+            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyneanderthal"));
+
+            db.handItemsDAO().insertHandItem(new HandItems("itemdefault"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemspartan"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemviking"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemroman"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemsentinel"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemanthenian"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemqing"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemnorman"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemcossack"));
+            db.handItemsDAO().insertHandItem(new HandItems("itemneanderthal"));
+
+
 
 
         } catch (Exception e){
@@ -82,7 +105,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         handItems = db.handItemsDAO().getHandItems();
 
 
-        ivCharacter = findViewById(R.id.ivCharacter);
+        //ivCharacter = findViewById(R.id.ivCharacter);
         ivHead = findViewById(R.id.ivHead);
         ivBody = findViewById(R.id.ivBody);
         ivHand = findViewById(R.id.ivHand);

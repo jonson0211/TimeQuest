@@ -12,6 +12,7 @@ import com.example.timequest.DAOs.HandItemsDAO;
 import com.example.timequest.DAOs.HeadItemsDAO;
 
 import com.example.timequest.DAOs.UserDAO;
+import com.example.timequest.DAOs.WorldQuizDAO;
 import com.example.timequest.Entities.BodyItems;
 import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.HandItems;
@@ -28,6 +29,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract HandItemsDAO handItemsDAO();
     public abstract HeadItemsDAO headItemsDAO();
     public abstract UserDAO userDAO();
+    public abstract WorldQuizDAO worldQuizDAO();
 
 
 
