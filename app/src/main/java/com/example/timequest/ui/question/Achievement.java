@@ -51,7 +51,6 @@ public class Achievement extends AppCompatActivity {
 
         //Match civilisation from intent to specific NPC array from NPC to get image and item data
         for (int i = 0; i < 8; i++){
-
             if (NPC.addNPCData().get(i).getNpcID()==(NPCID)){
                 mNPC = NPC.addNPCData().get(i);
                 System.out.println(mNPC);
@@ -61,15 +60,16 @@ public class Achievement extends AppCompatActivity {
         }
 
         String civilisation = mNPC.getNpcName();
+        String NPCAvatar = mNPC.getNpcAvatar();
 
         Integer score = getIntent().getIntExtra("EXTRA_SCORE",0);
-        System.out.println(score);
+        System.out.println("Score intent from quiz is: " + score);
         //Integer scoreValue = Integer.valueOf(score);
         outcomeTv = findViewById(R.id.tvOutcome);
         homeB = findViewById(R.id.bHome);
         prizeIv = findViewById(R.id.ivPrize);
 
-        int npcCharacterid = getResources().getIdentifier("npc" + civilisation.toLowerCase(),"drawable","com.example.timequest");
+        int npcCharacterid = getResources().getIdentifier(NPCAvatar,"drawable","com.example.timequest");
 
         npcCharacter = findViewById(R.id.npcCharacter);
         npcCharacter.setImageResource(npcCharacterid);
@@ -85,18 +85,20 @@ public class Achievement extends AppCompatActivity {
             //outcomeTv.setText(mNPC.addNPCData().get(5).getEndingSpeech()); //change "5" to be the variable NPC civilisation
             outcomeTv.setText(mNPC.getEndingSpeech());
             Log.d(TAG, "on setText(): SUCCESS");
-                    switch(mNPC.getNpcName()){
-                        case "Spartan":
-                            db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
-                            db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
-                            db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+            System.out.println(mNPC.getNpcName());
+                    switch(mNPC.getNpcName().toString()){
+                        case "Spartan Warrior":
+                            //db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            //db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            db.handItemsDAO().insertHandItem(new HandItems("item" + mNPC.getNpcName().toLowerCase().replaceAll("\\s+","")));
+                            System.out.println("item"+mNPC.getNpcName().toLowerCase().replaceAll("\\s+",""));
                         case "North Sentinel Islander":
                             db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
-                            db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
-                            db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            //db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            //db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
                         case "Roman Legion":
-                            db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
-                            db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            //db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
+                            //db.bodyItemsDAO().insertBodyItem(new BodyItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
                             db.handItemsDAO().insertHandItem(new HandItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
                         case "Athenian Man":
                             db.headItemsDAO().insertHeadItem(new HeadItems(mNPC.getNpcName().replaceAll("\\s+","")+"item"));
@@ -131,7 +133,7 @@ public class Achievement extends AppCompatActivity {
                         db.eraDAO().updateToPerfect();
                     }
 
-            int prize = getResources().getIdentifier(mNPC.getNpcName().replaceAll("\\s+","")+"item", "drawable", "com.example.timequest");
+            int prize = getResources().getIdentifier("item"+ mNPC.getNpcName().toLowerCase().replaceAll("\\s+",""), "drawable", "com.example.timequest");
             Log.d(TAG, "on getResourceID(): SUCCESS");
             prizeIv.setImageResource(prize);
             //to do: immediately add item to user's collection in database
