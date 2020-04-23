@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.timequest.Adapters.NotesAdapter;
 import com.example.timequest.Entities.Era;
@@ -20,10 +22,9 @@ public class NotesActivity extends AppCompatActivity {
     private boolean mTwoPane;
     public static AppDatabase db;
     private RecyclerView notesList;
-    public static List notes;
+
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-
 
 
     @Override
@@ -32,6 +33,10 @@ public class NotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes);
         notesList = findViewById(R.id.rvListNotes);
         notesList.setHasFixedSize(true);
+
+
+
+
         mLayoutManager = new LinearLayoutManager(this);
         notesList.setLayoutManager(mLayoutManager);
         NotesAdapter.RecyclerViewClickListener listener = new NotesAdapter.RecyclerViewClickListener() {

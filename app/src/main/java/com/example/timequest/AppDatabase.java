@@ -10,7 +10,7 @@ import com.example.timequest.DAOs.BodyItemsDAO;
 import com.example.timequest.DAOs.EraDAO;
 import com.example.timequest.DAOs.HandItemsDAO;
 import com.example.timequest.DAOs.HeadItemsDAO;
-import com.example.timequest.DAOs.NotesDAO;
+
 import com.example.timequest.DAOs.UserDAO;
 import com.example.timequest.Entities.BodyItems;
 import com.example.timequest.Entities.Era;
@@ -19,7 +19,7 @@ import com.example.timequest.Entities.HeadItems;
 import com.example.timequest.Entities.Notes;
 import com.example.timequest.Entities.User;
 
-@Database(entities = {Era.class, Notes.class, User.class, BodyItems.class, HandItems.class, HeadItems.class}, version = 2)
+@Database(entities = {Era.class, User.class, BodyItems.class, HandItems.class, HeadItems.class}, version = 4)
 public abstract class AppDatabase extends RoomDatabase {
 
     //public abstract call daos
@@ -27,7 +27,6 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract EraDAO eraDAO();
     public abstract HandItemsDAO handItemsDAO();
     public abstract HeadItemsDAO headItemsDAO();
-    public abstract NotesDAO notesDAO();
     public abstract UserDAO userDAO();
 
 
