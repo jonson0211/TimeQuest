@@ -101,6 +101,7 @@ public class Featured extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_featured, container, false);
         //View view = rootView.getView();
+        updateUi();
 
         difficultySw = view.findViewById(R.id.switch3);
         buttonTrue = view.findViewById(R.id.buttonTrue);
@@ -152,12 +153,13 @@ tvSelectedMode.setText(level);
                 Response<Trivia> triviasResponse = triviasCall.execute();
                 List<Result> results = triviasResponse.body().getResults();
                 return results;
+
             } catch (IOException e) {
                 e.printStackTrace();
+                return null;
+
             }
 
-            Log.d(TAG, "onresponse: loaded Retrofit");
-            return null;
         }
 
         @Override
@@ -172,7 +174,7 @@ tvSelectedMode.setText(level);
     private void updateUi() {
         View rootview = getView();
         Log.d(TAG, "UPDATE UI: DONE");
-        if (mResult != null) {
+        if (mResult != null && rootview != null) {
             questionTV = rootview.findViewById(R.id.tvWQQuestion);
 
             ((TextView) rootview.findViewById(R.id.tvWQQuestion)).setText(mResult.getQuestion());
