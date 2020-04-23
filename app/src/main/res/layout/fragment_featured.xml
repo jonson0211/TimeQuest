@@ -131,21 +131,24 @@
                             app:layout_constraintTop_toBottomOf="@+id/switch3" />
 
                         <Button
-                            android:id="@+id/b2"
+                            android:id="@+id/buttonFalse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="100dp"
-                            android:text="FALSE"
-                            app:layout_constraintBottom_toBottomOf="@+id/b1"
+                            android:layout_marginBottom="16dp"
+                            android:text="False"
+                            app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent" />
 
                         <Button
-                            android:id="@+id/b1"
+                            android:id="@+id/buttonTrue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="TRUE"
+                            android:layout_marginStart="98dp"
+                            android:layout_marginBottom="16dp"
+                            android:text="True"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/b2" />
+                            app:layout_constraintStart_toStartOf="parent" />
 
                         <TextView
                             android:id="@+id/tvWQQuestion"

@@ -42,7 +42,7 @@ public class Featured extends Fragment {
     public static final String EXTRA_MESSAGE = "LEVEL";
 
     private TextView tvMsg, tvSelectedMode;
-    private Button falseB, trueB;
+
     private Switch difficultySw;
     private Result mResult;
     TextView modeTv, questionTv;
@@ -58,6 +58,9 @@ public class Featured extends Fragment {
     private Button confirmButton;
     private String mAnswer;
 
+    private Button buttonTrue;
+    private Button buttonFalse;
+
     private ColorStateList defaultColourButton, defaultColourCounter;
     private boolean answered;
     private RadioGroup questionRg;
@@ -71,6 +74,7 @@ public class Featured extends Fragment {
     private List<Result> questionSet;
 
     ImageView featuredIv, headIv, handIv;
+
 
     public Featured() {
         // Required empty public constructor
@@ -96,16 +100,22 @@ public class Featured extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_featured, container, false);
+        //View view = rootView.getView();
+
         difficultySw = view.findViewById(R.id.switch3);
-        trueB = view.findViewById(R.id.b1);
-        falseB = view.findViewById(R.id.b2);
+        buttonTrue = view.findViewById(R.id.buttonTrue);
+        buttonFalse = view.findViewById(R.id.buttonFalse);
         tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
         questionTV = view.findViewById(R.id.tvWQQuestion);
-        falseB.setBackgroundResource(R.drawable.buttons);
-        trueB.setBackgroundResource(R.drawable.buttons);
+        buttonFalse.setBackgroundResource(R.drawable.buttons);
+        buttonTrue.setBackgroundResource(R.drawable.buttons);
         featuredIv = view.findViewById(R.id.ivNPCFeatured);
         handIv = view.findViewById(R.id.ivHand);
         headIv = view.findViewById(R.id.ivHead);
+
+
+        return view;
+    }
 /**
  difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -122,10 +132,12 @@ tvSelectedMode.setText(level);
 }
 });
  **/
-        return view;
 
 
-    }
+
+
+
+
 
     private class GetQuestionTask extends AsyncTask<Void, Void, List<Result>> {
 
@@ -166,36 +178,36 @@ tvSelectedMode.setText(level);
             ((TextView) rootview.findViewById(R.id.tvWQQuestion)).setText(mResult.getQuestion());
             Log.d(TAG, "UPDATE UI: DONE");
 
-            falseB.setBackgroundResource(R.drawable.buttons);
-            trueB.setBackgroundResource(R.drawable.buttons);
+            buttonFalse.setBackgroundResource(R.drawable.buttons);
+            buttonTrue.setBackgroundResource(R.drawable.buttons);
             String answer = mResult.getCorrectAnswer();
 
             Log.d(TAG, "ANSWER: " + mResult.getCorrectAnswer());
 
 
             System.out.print(mResult.getCorrectAnswer());
-            trueB.setOnClickListener(new View.OnClickListener() {
+            buttonTrue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.d(TAG, "TRUE CLICKED");
                     String answer = mResult.getCorrectAnswer();
-                    trueB.setBackgroundResource(R.drawable.buttons);
-                    trueB.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                    falseB.setBackgroundResource(R.drawable.buttons);
+                    buttonTrue.setBackgroundResource(R.drawable.buttons);
+                    buttonTrue.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                    buttonFalse.setBackgroundResource(R.drawable.buttons);
 
                     displaySolution();
                     new GetQuestionTask().execute();
                 }
 
             });
-            falseB.setOnClickListener(new View.OnClickListener() {
+            buttonFalse.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.d(TAG, "FALSE CLICKED");
                     String answer = mResult.getCorrectAnswer();
-                    falseB.setBackgroundResource(R.drawable.buttons);
-                    falseB.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                    trueB.setBackgroundResource(R.drawable.buttons);
+                    buttonFalse.setBackgroundResource(R.drawable.buttons);
+                    buttonFalse.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                    buttonFalse.setBackgroundResource(R.drawable.buttons);
 
                     displaySolution();
                     new GetQuestionTask().execute();
@@ -241,8 +253,8 @@ tvSelectedMode.setText(level);
     }
 
     private void nextQuestion() {
-        trueB.setBackgroundColor(R.drawable.quiz_button);
-        falseB.setBackgroundColor(R.drawable.quiz_button);
+        buttonTrue.setBackgroundColor(R.drawable.quiz_button);
+        buttonFalse.setBackgroundColor(R.drawable.quiz_button);
 
         new GetQuestionTask().execute();
 
@@ -250,9 +262,18 @@ tvSelectedMode.setText(level);
 
     private void displaySolution() {
         String answer = mResult.getCorrectAnswer();
-        Log.d(TAG, "Gets string " + answer);
+        Log.d(TAG, "Gets correct answer string " + answer);
 
-        if (answer.equals("True")) {
+        if(buttonTrue.getText().equals(answer)) {
+            buttonTrue.setBackgroundColor(Color.GREEN);
+            buttonFalse.setBackgroundColor(Color.RED);
+        }else if(buttonFalse.getText().equals(answer)){
+            buttonTrue.setBackgroundColor(Color.RED);
+            buttonFalse.setBackgroundColor(Color.GREEN);
+        }
+
+
+        /*if (answer.equals("True")) {
             Log.d(TAG, "if statement " + answer);
             trueB.setBackgroundColor(Color.GREEN);
             falseB.setBackgroundColor(Color.RED);
@@ -263,7 +284,7 @@ tvSelectedMode.setText(level);
         } else if (answer.equals("True"))
             Log.d(TAG, "if statement " + answer);
         trueB.setBackgroundColor(Color.GREEN);
-        falseB.setBackgroundColor(Color.RED);
+        falseB.setBackgroundColor(Color.RED);*/
 
     }
 }
