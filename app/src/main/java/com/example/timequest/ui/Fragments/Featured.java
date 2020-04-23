@@ -153,7 +153,7 @@ public class Featured extends Fragment {
     private void updateUi() {
         View rootview = getView();
         Log.d(TAG, "UPDATE UI: DONE");
-        if (mResult != null) {
+        if (mResult != null && rootview !=null) {
             ((TextView) rootview.findViewById(R.id.tvWQQuestion)).setText(mResult.getQuestion());
             Log.d(TAG, "UPDATE UI: DONE");
             falseB.setBackgroundResource(R.drawable.buttons);
@@ -167,10 +167,10 @@ public class Featured extends Fragment {
                 public void onClick(View view) {
                     Log.d(TAG, "TRUE CLICKED");
                     String answer = mResult.getCorrectAnswer();
-                    if(answer == "True"){
-                        trueB.setTextColor(Color.GREEN);
-                    }else if(answer =="False"){
-                        falseB.setTextColor(Color.RED);
+                    if(answer == "True" && trueB.isPressed()){
+                        trueB.setBackgroundColor(Color.GREEN);
+                    }else if (answer =="True" && falseB.isPressed()){
+                        falseB.setBackgroundColor(Color.GREEN);
                     }
                     new GetQuestionTask().execute();
                 }
@@ -181,9 +181,11 @@ public class Featured extends Fragment {
                 public void onClick(View view) {
                     Log.d(TAG, "FALSE CLICKED");
                     String answer = mResult.getCorrectAnswer();
-                    if(answer == "False"){
-                        trueB.setBackgroundColor(Color.GREEN);
-                    }else if(answer =="True"){
+
+                    for((answer == "False") && falseB.isPressed() {
+                            falseB.setBackgroundColor(Color.GREEN)
+                    }
+                    if (answer =="False" && falseB.isPressed()){
                         falseB.setBackgroundColor(Color.RED);
                     }
                     new GetQuestionTask().execute();
@@ -231,21 +233,7 @@ public class Featured extends Fragment {
 
         }
     }
-
-    private boolean checkQuestion(int number){
-        String answer = currentQuestion.getCorrectAnswer();
-        return answer.equals("true");
-    }
-
-    private void nextQuestion(){
-        trueB.setBackgroundColor(R.drawable.quiz_button);
-        falseB.setBackgroundColor(R.drawable.quiz_button);
-
-        new GetQuestionTask().execute();
-    }
-
-
-    }
+}
 
 
 
