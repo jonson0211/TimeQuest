@@ -75,7 +75,6 @@ public class Featured extends Fragment {
     }
 
 
-
     public static Featured newInstance(String param1, String param2) {
         Featured fragment = new Featured();
         Bundle args = new Bundle();
@@ -100,16 +99,18 @@ public class Featured extends Fragment {
         falseB = view.findViewById(R.id.b2);
         tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
         questionTV = view.findViewById(R.id.tvWQQuestion);
+        falseB.setBackgroundResource(R.drawable.buttons);
+        trueB.setBackgroundResource(R.drawable.buttons);
 
         difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     //Talk to json file to get difficulty
                     String level = "difficult";
                     tvSelectedMode.setText(level);
 
-                }else{
+                } else {
                     //Talk to json file to get easy
                     String level = "easy";
                     tvSelectedMode.setText(level);
@@ -121,6 +122,7 @@ public class Featured extends Fragment {
 
 
     }
+
     private class GetQuestionTask extends AsyncTask<Void, Void, List<Result>> {
 
         @Override
@@ -143,23 +145,24 @@ public class Featured extends Fragment {
         }
 
         @Override
-        protected void onPostExecute(List<Result> results){
-            for(Result result : results){
+        protected void onPostExecute(List<Result> results) {
+            for (Result result : results) {
                 mResult = result;
                 updateUi();
             }
         }
     }
+
     private void updateUi() {
         View rootview = getView();
         Log.d(TAG, "UPDATE UI: DONE");
-        if (mResult != null && rootview !=null) {
+        if (mResult != null) {
             ((TextView) rootview.findViewById(R.id.tvWQQuestion)).setText(mResult.getQuestion());
             Log.d(TAG, "UPDATE UI: DONE");
             falseB.setBackgroundResource(R.drawable.buttons);
             trueB.setBackgroundResource(R.drawable.buttons);
             String answer = mResult.getCorrectAnswer();
-            Log.d(TAG, "ANSWER: "+ mResult.getCorrectAnswer());
+            Log.d(TAG, "ANSWER: " + mResult.getCorrectAnswer());
 
             System.out.print(mResult.getCorrectAnswer());
             trueB.setOnClickListener(new View.OnClickListener() {
@@ -167,11 +170,9 @@ public class Featured extends Fragment {
                 public void onClick(View view) {
                     Log.d(TAG, "TRUE CLICKED");
                     String answer = mResult.getCorrectAnswer();
-                    if(answer == "True" && trueB.isPressed()){
-                        trueB.setBackgroundColor(Color.GREEN);
-                    }else if (answer =="True" && falseB.isPressed()){
-                        falseB.setBackgroundColor(Color.GREEN);
-                    }
+                    trueB.setBackgroundResource(R.drawable.buttons);
+
+                    displaySolution();
                     new GetQuestionTask().execute();
                 }
 
@@ -181,13 +182,9 @@ public class Featured extends Fragment {
                 public void onClick(View view) {
                     Log.d(TAG, "FALSE CLICKED");
                     String answer = mResult.getCorrectAnswer();
+                    falseB.setBackgroundResource(R.drawable.buttons);
 
-                    for((answer == "False") && falseB.isPressed() {
-                            falseB.setBackgroundColor(Color.GREEN)
-                    }
-                    if (answer =="False" && falseB.isPressed()){
-                        falseB.setBackgroundColor(Color.RED);
-                    }
+                    displaySolution();
                     new GetQuestionTask().execute();
 
                 }
@@ -195,42 +192,60 @@ public class Featured extends Fragment {
 
 
             /**
-            if (answer == "True") {
-                trueB.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        trueB.setBackgroundColor(Color.GREEN);
-                        new GetQuestionTask().execute();
-                    }
-                });
-            } else if (answer == "True") {
-                falseB.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        falseB.setBackgroundColor(Color.RED);
-                        new GetQuestionTask().execute();
-                    }
-                });
-            } else if (answer == "False") {
-                falseB.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        falseB.setBackgroundColor(Color.GREEN);
-                        new GetQuestionTask().execute();
-                    }
-                });
-            } else {
-                trueB.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        trueB.setBackgroundColor(Color.GREEN);
-                        new GetQuestionTask().execute();
-                    }
-                });
+             if (answer == "True") {
+             trueB.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+            trueB.setBackgroundColor(Color.GREEN);
+            new GetQuestionTask().execute();
+            }
+            });
+             } else if (answer == "True") {
+             falseB.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+            falseB.setBackgroundColor(Color.RED);
+            new GetQuestionTask().execute();
+            }
+            });
+             } else if (answer == "False") {
+             falseB.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+            falseB.setBackgroundColor(Color.GREEN);
+            new GetQuestionTask().execute();
+            }
+            });
+             } else {
+             trueB.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+            trueB.setBackgroundColor(Color.GREEN);
+            new GetQuestionTask().execute();
+            }
+            });
 
-            }**/
+             }**/
 
 
+        }
+    }
+
+    private boolean checkQuestion(int number) {
+        String answer = currentQuestion.getCorrectAnswer();
+        return answer.equals("true");
+    }
+
+    private void nextQuestion() {
+        trueB.setBackgroundColor(R.drawable.quiz_button);
+        falseB.setBackgroundColor(R.drawable.quiz_button);
+
+        new GetQuestionTask().execute();
+
+    }
+
+    private void displaySolution() {
+        String answer = mResult.getCorrectAnswer();
+        if (answer == "True") {
+            trueB.setBackgroundColor(Color.GREEN);
+        } else {
+            falseB.setBackgroundColor(Color.GREEN);
         }
     }
 }
