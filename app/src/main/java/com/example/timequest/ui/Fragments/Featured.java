@@ -1,8 +1,7 @@
 package com.example.timequest.ui.Fragments;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -24,7 +23,6 @@ import android.widget.TextView;
 import com.example.timequest.R;
 import com.example.timequest.TriviaEntities.Result;
 import com.example.timequest.TriviaEntities.Trivia;
-import com.example.timequest.TriviaEntities.WorldQuiz;
 import com.example.timequest.TriviaService;
 
 import java.io.IOException;
@@ -43,7 +41,7 @@ public class Featured extends Fragment {
     public static final String EXTRA_MESSAGE = "LEVEL";
 
     private TextView tvMsg, tvSelectedMode;
-    private Button startB;
+    private Button falseB, trueB;
     private Switch difficultySw;
     private Result mResult;
     TextView modeTv, questionTv;
@@ -57,6 +55,7 @@ public class Featured extends Fragment {
     private TextView questionTV, countdownTV, topicTv;
     private RadioButton aButton, bButton, cButton, dButton;
     private Button confirmButton;
+    private String mAnswer;
 
     private ColorStateList defaultColourButton, defaultColourCounter;
     private boolean answered;
@@ -97,7 +96,8 @@ public class Featured extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_featured, container, false);
         difficultySw = view.findViewById(R.id.switch3);
-        startB = view.findViewById(R.id.bStart);
+        trueB = view.findViewById(R.id.b1);
+        falseB = view.findViewById(R.id.b2);
         tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
         questionTV = view.findViewById(R.id.tvWQQuestion);
 
@@ -118,6 +118,8 @@ public class Featured extends Fragment {
         });
 
         return view;
+
+
     }
     private class GetQuestionTask extends AsyncTask<Void, Void, List<Result>> {
 
@@ -148,14 +150,99 @@ public class Featured extends Fragment {
             }
         }
     }
-    private void updateUi(){
+    private void updateUi() {
         View rootview = getView();
-        if(mResult != null){
+        Log.d(TAG, "UPDATE UI: DONE");
+        if (mResult != null) {
             ((TextView) rootview.findViewById(R.id.tvWQQuestion)).setText(mResult.getQuestion());
+            Log.d(TAG, "UPDATE UI: DONE");
+            falseB.setBackgroundResource(R.drawable.buttons);
+            trueB.setBackgroundResource(R.drawable.buttons);
+            String answer = mResult.getCorrectAnswer();
+            Log.d(TAG, "ANSWER: "+ mResult.getCorrectAnswer());
+
+            System.out.print(mResult.getCorrectAnswer());
+            trueB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d(TAG, "TRUE CLICKED");
+                    String answer = mResult.getCorrectAnswer();
+                    if(answer == "True"){
+                        trueB.setTextColor(Color.GREEN);
+                    }else if(answer =="False"){
+                        falseB.setTextColor(Color.RED);
+                    }
+                    new GetQuestionTask().execute();
+                }
+
+            });
+            falseB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d(TAG, "FALSE CLICKED");
+                    String answer = mResult.getCorrectAnswer();
+                    if(answer == "False"){
+                        trueB.setBackgroundColor(Color.GREEN);
+                    }else if(answer =="True"){
+                        falseB.setBackgroundColor(Color.RED);
+                    }
+                    new GetQuestionTask().execute();
+
+                }
+            });
+
+
+            /**
+            if (answer == "True") {
+                trueB.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        trueB.setBackgroundColor(Color.GREEN);
+                        new GetQuestionTask().execute();
+                    }
+                });
+            } else if (answer == "True") {
+                falseB.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        falseB.setBackgroundColor(Color.RED);
+                        new GetQuestionTask().execute();
+                    }
+                });
+            } else if (answer == "False") {
+                falseB.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        falseB.setBackgroundColor(Color.GREEN);
+                        new GetQuestionTask().execute();
+                    }
+                });
+            } else {
+                trueB.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        trueB.setBackgroundColor(Color.GREEN);
+                        new GetQuestionTask().execute();
+                    }
+                });
+
+            }**/
+
 
         }
     }
 
+    private boolean checkQuestion(int number){
+        String answer = currentQuestion.getCorrectAnswer();
+        return answer.equals("true");
+    }
+
+    private void nextQuestion(){
+        trueB.setBackgroundColor(R.drawable.quiz_button);
+        falseB.setBackgroundColor(R.drawable.quiz_button);
+
+        new GetQuestionTask().execute();
+    }
 
 
     }
