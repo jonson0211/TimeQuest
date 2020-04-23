@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.MediaController;
@@ -25,8 +26,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.ui.question.QuestionPage;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
@@ -42,6 +45,8 @@ public class LearningReadActivity extends AppCompatActivity {
     private Button takeTrial;
     private VideoView videoView;
     private MediaController mediaController;
+    private FloatingActionButton notesFloatingButton;
+    private Era mERA;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -52,6 +57,9 @@ public class LearningReadActivity extends AppCompatActivity {
 
         Integer NPCID = getIntent().getIntExtra("LEARNING",0);
                Log.d(TAG, "on getIntent success:" + NPCID);
+
+        String eraName = getIntent().getStringExtra("ERA");
+        Log.d(TAG, "on getIntent success:" + eraName);
 
         //Match civilisation from intent to specific NPC array from NPC to get image and item data
         for (int i = 0; i < 10; i++){
@@ -68,6 +76,23 @@ public class LearningReadActivity extends AppCompatActivity {
         learningText = findViewById(R.id.learningText);
         videoView = findViewById(R.id.videoView);
         Button takeTrial = findViewById(R.id.takeTrial);
+        notesFloatingButton = findViewById(R.id.notesFloatingButton);
+
+        notesFloatingButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Context context = v.getContext();
+                Intent intent = new Intent(getApplicationContext(), NotesDetail.class);
+               //intent.putExtra("ERA", mERA.getEraName());
+                context.startActivity(intent);
+
+            }
+        });
+
+
+
+
 
         final String wikiUrl =
                 //"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary"
