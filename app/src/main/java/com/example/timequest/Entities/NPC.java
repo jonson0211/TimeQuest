@@ -113,7 +113,7 @@ public class NPC {
                         "I'll let you stay with us if you pass this test..." ,
                 "...I guess you can stay on this island.\n Here, take this. This will prove you're one of us now!",
                 "That was flimsy. Come back to me when you're ready to try again.", "npcsentinel","Xk4gunNQVec"));
-        npcs.add(new NPC(3, "Roman Legion","legionary",
+        npcs.add(new NPC(3, "Roman Legionary","legionary",
                 "Welcome to Rome, heart of the glorious Roman Empire.\n" +
                         "...\n" +
                         "You want to see the emperor? A peasant like you can't possibly imagine seeing our emperor!\n" +
