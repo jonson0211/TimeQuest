@@ -19,7 +19,7 @@ public class Welcome extends AppCompatActivity {
      */
 
      private EditText nameEt;
-     private Button startB;
+     private Button startB, instructionsButton;
      private boolean answered;
      private String username;
 
@@ -31,6 +31,7 @@ public class Welcome extends AppCompatActivity {
 
         nameEt = findViewById(R.id.etName);
         startB = findViewById(R.id.bStart);
+        instructionsButton = findViewById(R.id.bInstructions);
 
         startB.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -46,6 +47,14 @@ public class Welcome extends AppCompatActivity {
                 } else {
                     startActivity(new Intent(Welcome.this, MainActivity.class));
                 }
+            }
+        });
+
+        instructionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Welcome.this, Instructions.class));
+
             }
         });
 
