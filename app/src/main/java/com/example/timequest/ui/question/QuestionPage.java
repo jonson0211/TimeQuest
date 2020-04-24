@@ -181,6 +181,10 @@ public class QuestionPage extends AppCompatActivity {
         bButton.setTextColor(defaultColourButton);
         cButton.setTextColor(defaultColourButton);
 
+        aButton.setClickable(true);
+        bButton.setClickable(true);
+        cButton.setClickable(true);
+
 
         //2.
         questionRg.clearCheck();
@@ -281,6 +285,11 @@ public class QuestionPage extends AppCompatActivity {
     private void markAnswer(){
         countdownTV.clearAnimation();
         answered = true;
+
+        aButton.setClickable(false);
+        bButton.setClickable(false);
+        cButton.setClickable(false);
+
         countDownTimer.cancel();
         RadioButton selectedAnswer = findViewById(questionRg.getCheckedRadioButtonId());
 
