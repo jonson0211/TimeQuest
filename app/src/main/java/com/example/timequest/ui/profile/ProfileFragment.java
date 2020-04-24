@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -14,7 +15,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.timequest.AppDatabase;
 import com.example.timequest.CustomiseActivity;
+import com.example.timequest.Entities.User;
 import com.example.timequest.R;
 import com.example.timequest.NotesActivity;
 
@@ -23,10 +26,15 @@ public class ProfileFragment extends Fragment {
     Button notesButton;
     Button customiseButton;
 
+
+    public static AppDatabase db;
+
     private ProfileViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
 
 
 
@@ -36,7 +44,13 @@ public class ProfileFragment extends Fragment {
 
         final TextView textView = root.findViewById(R.id.tvProfileName);
         final Button notesButton = root.findViewById(R.id.notesButton);
+        final ProgressBar accuracyBar = root.findViewById(R.id.accuracyBar);
         customiseButton = root.findViewById(R.id.customiseButton);
+
+//        db = AppDatabase.getInstance(getContext());
+//        //to do: get questions correct from DB, get questions total from DB
+//        Double accuracy = (questionsCorrect/questionsTotal)*100;
+//        Integer questionsCorrect = db.userDAO().changeAccuracy(accuracy);
 
         notesButton.setOnClickListener(new View.OnClickListener() {
             @Override
