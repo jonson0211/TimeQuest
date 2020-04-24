@@ -136,7 +136,7 @@ tvSelectedMode.setText(level);
 }
 }
 });**/
-showphotos();
+            showphotos();
 
         return view;
     }
