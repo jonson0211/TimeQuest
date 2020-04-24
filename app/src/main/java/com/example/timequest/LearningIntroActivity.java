@@ -37,15 +37,6 @@ public class LearningIntroActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(getApplicationContext());
 
-        try {
-            //sample test data
-            db.userDAO().insertUser(new User(1, "s", 1, 1, "headdefault", "itemdefault", "bodydefault",1,1));
-            db.headItemsDAO().insertHeadItem(new HeadItems("headdefault"));
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         Intent intent = getIntent();
         //Position is going to equal to the value derived from the recyclerview list (integer)
         int position = intent.getIntExtra(String.valueOf(HomeFragment.EXTRA_MESSAGE), 0);

@@ -87,14 +87,15 @@ public class Era {
     public static ArrayList<Era> addEraData(){
         ArrayList<Era> eras = new ArrayList<>();
         eras.add(new Era("Spartan Army", "banner1", "npcathens","Incomplete"," ", "750 BC - 146 BC"));
-        eras.add(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " ", "60 000 BC - Present"));
+        eras.add(new Era("Vikings", "banner9", "background9","Incomplete", " ","793 AD - 1066 AD"));
+
         eras.add(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " ", "150 BC - 120 BC "));
         eras.add(new Era("Ancient Athenians", "banner4", "background4","Incomplete", " ","508 BC - 322 BC "));
         eras.add(new Era("Normans", "banner5", "background5","Incomplete", " ","911 AD - 1167 AD"));
         eras.add(new Era( "Cossack Warriors", "banner6", "background6","Incomplete", " ","1676 AD - Present"));
         eras.add(new Era("Neanderthals", "banner7", "background7","Incomplete", " ","400 000 BC - 40 000 BC"));
         eras.add(new Era("Qing Dynasty", "banner8", "background8","Incomplete", " ","1636 AD- 1912 AD"));
-        eras.add(new Era("Vikings", "banner9", "background9","Incomplete", " ","793 AD - 1066 AD"));
+        eras.add(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " ", "60 000 BC - Present"));
         eras.add(new Era("Ancient Egyptians", "banner10", "background10","Incomplete", " ","3100 BC - 30 BC"));
 
         return eras;

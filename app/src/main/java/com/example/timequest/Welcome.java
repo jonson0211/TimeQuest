@@ -52,26 +52,18 @@ public class Welcome extends AppCompatActivity {
                     db.bodyItemsDAO().insertBodyItem(new BodyItems("bodydefault"));
                     db.handItemsDAO().insertHandItem(new HandItems("itemdefault"));
 
-                        db.eraDAO().insertEra(new Era("Spartan Army", "banner1", "npcathens","Incomplete","Spartan Notes","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", "NSL Notes","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", "Roman Notes","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("Ancient Athenian", "banner4", "background4","Incomplete", "Athens Notes","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("Normans", "banner5", "background5","Incomplete", "Norman","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("Cossack Warriors", "banner6", "background6","Incomplete", "Cossack Notes","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("Neanderthals", "banner7", "background7","Incomplete", "Neanderthal Notes","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("Qing Dynasty", "banner8", "background8","Incomplete", "Qing Notes","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("Vikings", "banner9", "background9","Incomplete", "Viking Notes","431 - 371 BC"));
-                        db.eraDAO().insertEra(new Era("Ancient Egyptians", "banner9", "background9","Incomplete", "Egypt Notes","431 - 371 BC"));
+
 
                         db.eraDAO().insertEra(new Era("Spartan Army", "banner1", "npcathens","Incomplete"," ", "750 BC - 146 BC"));
-                        db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " ", "60 000 BC - Present"));
+                    db.eraDAO().insertEra(new Era("Vikings", "banner9", "background9","Incomplete", " ","793 AD - 1066 AD"));
                         db.eraDAO().insertEra(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " ", "150 BC - 120 BC "));
                         db.eraDAO().insertEra(new Era("Ancient Athenians", "banner4", "background4","Incomplete", " ","508 BC - 322 BC "));
                         db.eraDAO().insertEra(new Era("Normans", "banner5", "background5","Incomplete", " ","911 AD - 1167 AD"));
                         db.eraDAO().insertEra(new Era( "Cossack Warriors", "banner6", "background6","Incomplete", " ","1676 AD - Present"));
                         db.eraDAO().insertEra(new Era("Neanderthals", "banner7", "background7","Incomplete", " ","400 000 BC - 40 000 BC"));
                         db.eraDAO().insertEra(new Era("Qing Dynasty", "banner8", "background8","Incomplete", " ","1636 AD- 1912 AD"));
-                        db.eraDAO().insertEra(new Era("Vikings", "banner9", "background9","Incomplete", " ","793 AD - 1066 AD"));
+
+                    db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " ", "60 000 BC - Present"));
                         db.eraDAO().insertEra(new Era("Ancient Egyptians", "banner10", "background10","Incomplete", " ","3100 BC - 30 BC"));
 
 
@@ -79,9 +71,10 @@ public class Welcome extends AppCompatActivity {
                     System.out.println("!");
                 }
 
-               Toast toast = Toast.makeText(getApplicationContext(), "Notes saved", Toast.LENGTH_SHORT);
+               Toast toast = Toast.makeText(getApplicationContext(), "Name saved.", Toast.LENGTH_SHORT);
                 toast.show();
                     startActivity(new Intent(Welcome.this, MainActivity.class));
+                    finish();
 
             }
         });

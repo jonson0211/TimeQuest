@@ -128,13 +128,8 @@ public class NPC {
                         "but I have to warn you...we're no common army. \n I'll leave you at the top of Mount Taygetus if you're not strong enough!",
                 "I admit defeat.\n You're truly a warror worthy of our army. Here is a token of our battle...may it bring you good fortune in your travels!",
                 "You're no match for the might of Sparta!", "npcspartan","pJJxWdJVpvU","pERFect"));
-        npcs.add(new NPC(2, "North Sentinel Islander","sentinelese"
-                ,"Hey...what are you doing here?!\n" +
-                        "Get off our island!!! \n" +
-                        "...what's that? You think you can beat me? I'd like to see you try!\n" +
-                        "I'll let you stay with us if you pass this test..." ,
-                "...I guess you can stay on this island.\n Here, take this. This will prove you're one of us now!",
-                "That was flimsy. Come back to me when you're ready to try again.", "npcsentinel","Xk4gunNQVec","pERFect"));
+        npcs.add(new NPC(2, "Viking","vikings",
+                "I am a Viking!", "xxx","xxx", "npcviking","FfLYCodzaBA","pERFect"));
         npcs.add(new NPC(3, "Roman Legionary","legionary",
                 "Welcome to Rome, heart of the glorious Roman Empire.\n" +
                         "...\n" +
@@ -154,8 +149,15 @@ public class NPC {
                 "I...caveman", "xxx","xxx", "npgneanderthal","G2i2vCu9WMo","pERFect"));
         npcs.add(new NPC(8, "Qing Eunuch","qing_dynasty",
                 "Ni hao", "xxx","xxx", "npcqing","mP5p4QbvPtc","pERFect"));
-        npcs.add(new NPC(9, "Viking","vikings",
-                "I am a Viking!", "xxx","xxx", "npcviking","FfLYCodzaBA","pERFect"));
+
+        npcs.add(new NPC(9, "North Sentinel Islander","sentinelese"
+                ,"Hey...what are you doing here?!\n" +
+                "Get off our island!!! \n" +
+                "...what's that? You think you can beat me? I'd like to see you try!\n" +
+                "I'll let you stay with us if you pass this test..." ,
+                "...I guess you can stay on this island.\n Here, take this. This will prove you're one of us now!",
+                "That was flimsy. Come back to me when you're ready to try again.", "npcsentinel","Xk4gunNQVec","pERFect"));
+
         npcs.add(new NPC(10, "Egyptian Man","ancient_egypt",
                 "I am a slave master!", "xxx","xxx", "npcegyptian","QYVZFWHKWKI&t","pERFect"));
         return npcs;
