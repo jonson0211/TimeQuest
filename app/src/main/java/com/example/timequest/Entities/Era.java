@@ -88,14 +88,14 @@ public class Era {
         ArrayList<Era> eras = new ArrayList<>();
         eras.add(new Era("Spartan Army", "banner1", "npcathens","Incomplete"," ", "431 - 371 BC"));
         eras.add(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " ", "Present"));
-        eras.add(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " ", " "));
-        eras.add(new Era("Ancient Athenians", "banner4", "background4","Incomplete", " "," "));
-        eras.add(new Era("Normans", "banner5", "background5","Incomplete", " "," "));
-        eras.add(new Era( "Cossack Warriors", "banner6", "background6","Incomplete", " "," "));
-        eras.add(new Era("Neanderthals", "banner7", "background7","Incomplete", " "," "));
-        eras.add(new Era("Qing Dynasty", "banner8", "background8","Incomplete", " "," "));
-        eras.add(new Era("Vikings", "banner9", "background9","Incomplete", " "," "));
-        eras.add(new Era("Ancient Egyptians", "banner10", "background10","Incomplete", " "," "));
+        eras.add(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " ", "150 - 120 BC "));
+        eras.add(new Era("Ancient Athenians", "banner4", "background4","Incomplete", " ","508 - 322 BC "));
+        eras.add(new Era("Normans", "banner5", "background5","Incomplete", " ","911 - 1167"));
+        eras.add(new Era( "Cossack Warriors", "banner6", "background6","Incomplete", " ","1676 -  "));
+        eras.add(new Era("Neanderthals", "banner7", "background7","Incomplete", " ","24,000 years ago "));
+        eras.add(new Era("Qing Dynasty", "banner8", "background8","Incomplete", " ","1636 - 1912"));
+        eras.add(new Era("Vikings", "banner9", "background9","Incomplete", " ","793 AD - 1066 "));
+        eras.add(new Era("Ancient Egyptians", "banner10", "background10","Incomplete", " ","3100 BC - 30 BC "));
 
         return eras;
     }
