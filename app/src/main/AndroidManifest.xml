@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TriviaEntities.WorldQuiz"></activity>
         <activity android:name=".LearningReadActivity" />
         <activity android:name=".LearningIntroActivity" />
+        <activity android:name=".NotesActivity" />
+        <activity android:name=".NotesDetail" />
         <activity
             android:name=".ui.question.Achievement"
             android:label="@string/title_activity_achievement"
