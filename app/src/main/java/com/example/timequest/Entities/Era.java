@@ -86,6 +86,7 @@ public class Era {
         eras.add(new Era("Neanderthals", "banner7", "background7","Incomplete", " "));
         eras.add(new Era("Qing Dynasty", "banner8", "background8","Incomplete", " "));
         eras.add(new Era("Vikings", "banner9", "background9","Incomplete", " "));
+        eras.add(new Era("Ancient Egyptian", "banner10", "background10","Incomplete", " "));
 
         return eras;
     }

@@ -123,18 +123,19 @@ public class NPC {
                 "Did you really think you could beat an elite Roman like myself? \n" +
                          "The Emperor will never see you at this rate. Come back when you've properly trained!", "npcroman","BIqWKPA83V0"));
         npcs.add(new NPC(4, "Athenian Man","Classical_Athens",
-                "Welcome wandering traveller.", "xxx","xxx", "avatar1","ar8S6virCwM"));
+                "Welcome wandering traveller.", "xxx","xxx", "npcathenian","ar8S6virCwM"));
         npcs.add(new NPC(5, "Norman Crusader","normans",
-                "I am Norman", "xxx","xxx", "avatar1","Owf5Uq4oFps"));
+                "I am Norman", "xxx","xxx", "npcnorman","Owf5Uq4oFps"));
         npcs.add(new NPC(6, "Cossack Warrior","cossacks",
-                "I am Cossack", "xxx","xxx", "avatar1","33cP54FcERA"));
+                "I am Cossack", "xxx","xxx", "npccossack","33cP54FcERA"));
         npcs.add(new NPC(7, "Neanderthal","neanderthal",
-                "I...caveman", "xxx","xxx", "avatar1","G2i2vCu9WMo"));
+                "I...caveman", "xxx","xxx", "npgneanderthal","G2i2vCu9WMo"));
         npcs.add(new NPC(8, "Qing Eunuch","qing_dynasty",
-                "Ni hao", "xxx","xxx", "avatar1","mP5p4QbvPtc"));
+                "Ni hao", "xxx","xxx", "npcqing","mP5p4QbvPtc"));
         npcs.add(new NPC(9, "Viking","vikings",
-                "I am a Viking!", "xxx","xxx", "avatar1","FfLYCodzaBA"));
-
+                "I am a Viking!", "xxx","xxx", "npcviking","FfLYCodzaBA"));
+        npcs.add(new NPC(10, "Ancient Egyptian","ancient_egypt",
+                "I am a slave master!", "xxx","xxx", "npcegyptian","QYVZFWHKWKI&t"));
         return npcs;
     }
 

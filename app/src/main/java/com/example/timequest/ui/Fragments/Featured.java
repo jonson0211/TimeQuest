@@ -273,21 +273,6 @@ tvSelectedMode.setText(level);
             buttonTrue.setBackgroundColor(Color.RED);
             buttonFalse.setBackgroundColor(Color.GREEN);
         }
-
-
-        /*if (answer.equals("True")) {
-            Log.d(TAG, "if statement " + answer);
-            trueB.setBackgroundColor(Color.GREEN);
-            falseB.setBackgroundColor(Color.RED);
-        } else if (answer.equals("False")) {
-            Log.d(TAG, "if statement " + answer);
-            falseB.setBackgroundColor(Color.GREEN);
-            trueB.setBackgroundColor(Color.RED);
-        } else if (answer.equals("True"))
-            Log.d(TAG, "if statement " + answer);
-        trueB.setBackgroundColor(Color.GREEN);
-        falseB.setBackgroundColor(Color.RED);*/
-
     }
 }
 
