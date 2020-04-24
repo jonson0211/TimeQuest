@@ -52,6 +52,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
 
         public TextView titleTv;
         public ImageView iconIv;
+        public TextView tvYear;
         public View view;
         private RecyclerViewClickListener mListener;
 
@@ -63,6 +64,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
             Log.d(TAG, "EraViewHolderr: done");
             titleTv = v.findViewById(R.id.tvTitle);
             iconIv = v.findViewById(R.id.ivIcon);
+            tvYear = v.findViewById(R.id.tvYear);
         }
 
         @Override
@@ -96,6 +98,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
         final Era eraAtPosition = mEraSet.get(position);
         Log.d(TAG, "eraPosition: done");
         holder.titleTv.setText(String.valueOf(eraAtPosition.getEraName()));
+        holder.tvYear.setText(String.valueOf(eraAtPosition.getEraYear()));
         Log.d(TAG, "setTitle: done");
 /**
         holder.view.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +162,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
             holder.iconIv.setImageResource(R.drawable.npcqing);
         } else if (eraAtPosition.getEraName().contentEquals("Vikings")){
         holder.iconIv.setImageResource(R.drawable.npcviking);
-        } else if (eraAtPosition.getEraName().contentEquals("Ancient Egyptian")) {
+        } else if (eraAtPosition.getEraName().contentEquals("Ancient Egyptians")) {
             holder.iconIv.setImageResource(R.drawable.npcegyptian);
         } else{
             holder.iconIv.setImageResource(R.drawable.headdefault);

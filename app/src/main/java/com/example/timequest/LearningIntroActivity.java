@@ -59,7 +59,7 @@ public class LearningIntroActivity extends AppCompatActivity {
         //Set all objects based on NPC class and RV intent
         tvWelcomeMessage.setText(mNPC.getWelcomeSpeech());
         tvWelcomeMessage.setMovementMethod(new ScrollingMovementMethod()); //scrolling
-        tvLearningTitle.setText(mNPC.getNpcName());
+        tvLearningTitle.setText(mERA.getEraName());
         tvYear.setText(mERA.getEraYear());
 
 

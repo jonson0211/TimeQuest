@@ -59,6 +59,7 @@
                     android:layout_width="391dp"
                     android:layout_height="184dp"
                     android:foregroundGravity="center_vertical|center_horizontal"
+                    app:cardBackgroundColor="@color/colorBackground"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView6">
@@ -66,7 +67,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout2"
                         android:layout_width="match_parent"
-                        android:layout_height="172dp">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/textView3"
@@ -75,7 +76,7 @@
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
                             android:fontFamily="@font/medievalsharp"
-                            android:text="Mini World Trivia"
+                            android:text="General History Trivia"
                             android:textColor="#131212"
                             android:textSize="22sp"
                             android:textStyle="bold"
@@ -84,27 +85,33 @@
 
                         <Button
                             android:id="@+id/buttonFalse"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="100dp"
+                            android:layout_width="76dp"
+                            android:layout_height="38dp"
+                            android:layout_marginEnd="116dp"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/medievalsharp"
                             android:text="False"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent" />
 
                         <Button
                             android:id="@+id/buttonTrue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="112dp"
+                            android:layout_width="76dp"
+                            android:layout_height="38dp"
+                            android:layout_marginStart="114dp"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/medievalsharp"
                             android:text="True"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/buttonFalse"
                             app:layout_constraintStart_toStartOf="parent" />
 
                         <TextView
                             android:id="@+id/tvWQQuestion"
-                            android:layout_width="315dp"
+                            android:layout_width="355dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/medievalsharp"
                             android:text="Loading..."
                             android:textAlignment="center"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -121,6 +128,7 @@
                     android:layout_height="419dp"
                     android:layout_marginTop="8dp"
                     android:foregroundGravity="center"
+                    app:cardBackgroundColor="@color/colorPrimaryWhite"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.526"
                     app:layout_constraintStart_toStartOf="parent"
@@ -163,6 +171,7 @@
                             android:text="Qing Dynasty"
                             android:textSize="16sp"
                             android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="@+id/textView10"
                             app:layout_constraintStart_toEndOf="@+id/textView12"
                             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -171,8 +180,10 @@
                             android:layout_width="100dp"
                             android:layout_height="95dp"
                             android:layout_marginStart="16dp"
+                            android:layout_marginTop="8dp"
                             android:src="@drawable/head2"
                             app:layout_constraintEnd_toStartOf="@+id/ivBody"
+                            app:layout_constraintHorizontal_bias="0.566"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
@@ -180,6 +191,7 @@
                             android:id="@+id/ivBody"
                             android:layout_width="100dp"
                             android:layout_height="95dp"
+                            android:layout_marginTop="8dp"
                             android:layout_marginEnd="16dp"
                             android:src="@drawable/body2"
                             app:layout_constraintEnd_toStartOf="@+id/ivHand"
@@ -189,6 +201,7 @@
                             android:id="@+id/ivHand"
                             android:layout_width="100dp"
                             android:layout_height="95dp"
+                            android:layout_marginTop="8dp"
                             android:layout_marginEnd="28dp"
                             android:src="@drawable/item2"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -207,12 +220,13 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical" >
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/featuredNotes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/medievalsharp"
                                     android:text="TextView" />
                             </LinearLayout>
                         </ScrollView>
@@ -223,6 +237,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="8dp"
+                            android:fontFamily="@font/medievalsharp"
                             android:text="Your Notes:"
                             app:layout_constraintStart_toEndOf="@+id/ivNPCFeatured"
                             app:layout_constraintTop_toBottomOf="@+id/tvCivilisation" />

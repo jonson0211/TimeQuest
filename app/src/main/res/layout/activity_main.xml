@@ -6,10 +6,9 @@
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_width="406dp"
-        android:layout_height="674dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_above="@id/nav_view"
-        android:paddingTop="?attr/actionBarSize"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
