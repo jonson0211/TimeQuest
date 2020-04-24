@@ -146,7 +146,7 @@ public class NPC {
         npcs.add(new NPC(6, "Cossack Warrior","cossacks",
                 "I am Cossack", "xxx","xxx", "npccossack","33cP54FcERA","pERFect"));
         npcs.add(new NPC(7, "Neanderthal","neanderthal",
-                "I...caveman", "xxx","xxx", "npgneanderthal","G2i2vCu9WMo","pERFect"));
+                "I...caveman", "xxx","xxx", "npcneanderthal","G2i2vCu9WMo","pERFect"));
         npcs.add(new NPC(8, "Qing Eunuch","qing_dynasty",
                 "Ni hao", "xxx","xxx", "npcqing","mP5p4QbvPtc","pERFect"));
 
