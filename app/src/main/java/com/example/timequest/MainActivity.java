@@ -1,6 +1,7 @@
 package com.example.timequest;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -70,6 +71,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences prefs = getSharedPreferences("prefs",MODE_PRIVATE);
+        boolean firstStart = prefs.getBoolean("firstStart",true);
+
+        if(firstStart){
+            introPage();
+        }
+
+
+
+
         ActionBar actionbar = getSupportActionBar();
         actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
         //actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -88,5 +99,15 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
         fragmentTransaction1.replace(R.id.fragment_container, homeFragment, "FragmentName");
         fragmentTransaction1.commit();
+    }
+
+    private void introPage() {
+
+        startActivity(new Intent(MainActivity.this, Welcome.class));
+
+        SharedPreferences prefs = getSharedPreferences("prefs",MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("firstStart",false);
+        editor.apply();
     }
 }
