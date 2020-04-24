@@ -8,6 +8,8 @@ import androidx.room.Query;
 import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.User;
 
+import java.util.List;
+
 @Dao
 public interface EraDAO {
 
@@ -29,6 +31,9 @@ public interface EraDAO {
 
     @Query("SELECT eraNotes FROM era WHERE eraName = :name")
     public String getEraNotes(String name);
+
+    @Query("SELECT eraName FROM era")
+    public List<String> getEraName();
 
 
 }

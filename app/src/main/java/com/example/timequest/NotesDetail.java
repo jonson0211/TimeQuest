@@ -77,15 +77,16 @@ public class NotesDetail extends AppCompatActivity {
         //set onclick listener to update eraNote
 
         try{
-            db.eraDAO().insertEra(new Era("Spartan Army", "banner1", "npcathens","Incomplete","sdfsdfsdfsdfsdf ss"));
-            db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " s"));
-            db.eraDAO().insertEra(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " s"));
-            db.eraDAO().insertEra(new Era("Ancient Athenian", "banner4", "background4","Incomplete", " s"));
-            db.eraDAO().insertEra(new Era("Normans", "banner5", "background5","Incomplete", " s"));
-            db.eraDAO().insertEra(new Era("Cossack Warriors", "banner6", "background6","Incomplete", " s"));
-            db.eraDAO().insertEra(new Era("Neanderthals", "banner7", "background7","Incomplete", "s "));
-            db.eraDAO().insertEra(new Era("Qing Dynasty", "banner8", "background8","Incomplete", " s"));
-            db.eraDAO().insertEra(new Era("Vikings", "banner9", "background9","Incomplete", "s "));
+            db.eraDAO().insertEra(new Era("Spartan Army", "banner1", "npcathens","Incomplete","Spartan Notes"));
+            db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", "NSL Notes"));
+            db.eraDAO().insertEra(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", "Roman Notes"));
+            db.eraDAO().insertEra(new Era("Ancient Athenian", "banner4", "background4","Incomplete", "Athens Notes"));
+            db.eraDAO().insertEra(new Era("Normans", "banner5", "background5","Incomplete", "Norman"));
+            db.eraDAO().insertEra(new Era("Cossack Warriors", "banner6", "background6","Incomplete", "Cossack Notes"));
+            db.eraDAO().insertEra(new Era("Neanderthals", "banner7", "background7","Incomplete", "Neanderthal Notes"));
+            db.eraDAO().insertEra(new Era("Qing Dynasty", "banner8", "background8","Incomplete", "Qing Notes"));
+            db.eraDAO().insertEra(new Era("Vikings", "banner9", "background9","Incomplete", "Viking Notes"));
+            db.eraDAO().insertEra(new Era("Ancient Egyptians", "banner9", "background9","Incomplete", "Egypt Notes"));
 
         } catch (Exception e){
             System.out.println("!");

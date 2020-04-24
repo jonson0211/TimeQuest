@@ -20,6 +20,7 @@ import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.timequest.AppDatabase;
 import com.example.timequest.Entities.Era;
 import com.example.timequest.R;
 import com.example.timequest.TriviaEntities.Result;
@@ -78,7 +79,11 @@ public class Featured extends Fragment {
     private List<Result> questionSet;
 
     ImageView featuredIv, headIv, handIv, bodyIv;
-    TextView civilisationTv;
+    TextView civilisationTv, featuredNotes;
+
+
+    public static AppDatabase db;
+    private List<String> mEra;
 
 
     public Featured() {
@@ -97,13 +102,33 @@ public class Featured extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         new GetQuestionTask().execute();
+
+        db = AppDatabase.getInstance(getContext());
+        try{
+            db.eraDAO().insertEra(new Era("Spartan Army", "banner1", "npcathens","Incomplete","Spartan Notes"));
+            db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", "NSL Notes"));
+            db.eraDAO().insertEra(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", "Roman Notes"));
+            db.eraDAO().insertEra(new Era("Ancient Athenian", "banner4", "background4","Incomplete", "Athens Notes"));
+            db.eraDAO().insertEra(new Era("Normans", "banner5", "background5","Incomplete", "Norman"));
+            db.eraDAO().insertEra(new Era("Cossack Warriors", "banner6", "background6","Incomplete", "Cossack Notes"));
+            db.eraDAO().insertEra(new Era("Neanderthals", "banner7", "background7","Incomplete", "Neanderthal Notes"));
+            db.eraDAO().insertEra(new Era("Qing Dynasty", "banner8", "background8","Incomplete", "Qing Notes"));
+            db.eraDAO().insertEra(new Era("Vikings", "banner9", "background9","Incomplete", "Viking Notes"));
+            db.eraDAO().insertEra(new Era("Ancient Egyptians", "banner9", "background9","Incomplete", "Egypt Notes"));
+
+        } catch (Exception e){
+            System.out.println("!");
+        }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
+
 
         View view = inflater.inflate(R.layout.fragment_featured, container, false);
         //View view = rootView.getView();
@@ -121,6 +146,7 @@ public class Featured extends Fragment {
         headIv = view.findViewById(R.id.ivHead);
         bodyIv = view.findViewById(R.id.ivBody);
         civilisationTv = view.findViewById(R.id.tvCivilisation);
+        featuredNotes = view.findViewById(R.id.featuredNotes);
 /**
  difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -141,12 +167,15 @@ tvSelectedMode.setText(level);
         return view;
     }
 
-    public static String shuffleNames(){
-        String[] names = new String[]{"spartan", "qing", "athenian","cossack", "roman", "sentinel", "viking", "neanderthal"};
+    public String shuffleNames(){
 
-        Collections.shuffle(Arrays.asList(names));
+        mEra = db.eraDAO().getEraName();
 
-        String name = (String) Array.get(names, 0);
+        //String[] names = new String[]{"spartan", "qing", "athenian","cossack", "roman", "sentinel", "viking", "neanderthal"};
+
+        Collections.shuffle(mEra);
+
+        String name = mEra.get(0);//(String) Array.get(mEra, 0);
         Log.d(TAG, name);
         return name;
         }
@@ -253,7 +282,7 @@ tvSelectedMode.setText(level);
 
     private void showphotos(){
         String value = shuffleNames();
-        int res1 = getResources().getIdentifier("head" + value, "drawable", "com.example.timequest");
+      /*  int res1 = getResources().getIdentifier("head" + value, "drawable", "com.example.timequest");
         Log.d(TAG, value);
         int res2 = getResources().getIdentifier("body" + value, "drawable", "com.example.timequest");
         Log.d(TAG, "body" +value);
@@ -266,9 +295,15 @@ tvSelectedMode.setText(level);
         headIv.setImageResource(res1);
         bodyIv.setImageResource(res2);
         handIv.setImageResource(res3);
-        featuredIv.setImageResource(res4);
+        featuredIv.setImageResource(res4);*/
 
-        if(value.equals("roman")){
+
+      civilisationTv.setText(value);
+      featuredNotes.setText(db.eraDAO().getEraNotes(value));
+
+
+
+       /* if(value.equals("roman")){
             civilisationTv.setText("Roman");
         } else if(value.equals("qing")){
             civilisationTv.setText("Qing Dynasty");
@@ -280,7 +315,7 @@ tvSelectedMode.setText(level);
             civilisationTv.setText("Spartan Warriors");
         }else if(value.equals("viking")){
             civilisationTv.setText("Viking");
-        }
+        }*/
 
     }
 
