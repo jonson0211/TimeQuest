@@ -22,11 +22,9 @@
             android:layout_width="54dp"
             android:layout_height="91dp"
             android:layout_marginStart="68dp"
-            android:layout_marginEnd="289dp"
-            android:layout_marginBottom="86dp"
+            android:layout_marginBottom="112dp"
             android:alpha="0.2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/romanwelcome" />
 
@@ -54,6 +52,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/sphinx" />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -197,6 +198,18 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="@+id/etName"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+    <Button
+        android:id="@+id/bInstructions"
+        android:layout_width="104dp"
+        android:layout_height="28dp"
+        android:alpha="0.8"
+        android:text="Instructions"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bStart"
+        app:layout_constraintStart_toStartOf="@+id/bStart"
+        app:layout_constraintTop_toBottomOf="@+id/bStart" />
 
     <EditText
         android:id="@+id/etName"
