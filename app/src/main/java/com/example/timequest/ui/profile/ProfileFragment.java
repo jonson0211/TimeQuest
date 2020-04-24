@@ -21,10 +21,13 @@ import com.example.timequest.Entities.User;
 import com.example.timequest.R;
 import com.example.timequest.NotesActivity;
 
+import org.w3c.dom.Text;
+
 public class ProfileFragment extends Fragment {
 
     Button notesButton;
     Button customiseButton;
+    TextView accuracy;
 
 
     public static AppDatabase db;
@@ -37,17 +40,18 @@ public class ProfileFragment extends Fragment {
 
 
 
-
         notificationsViewModel =
                 ViewModelProviders.of(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
 
         final TextView textView = root.findViewById(R.id.tvProfileName);
         final Button notesButton = root.findViewById(R.id.notesButton);
-        final ProgressBar accuracyBar = root.findViewById(R.id.accuracyBar);
+         accuracy = root.findViewById(R.id.accuracy);
         customiseButton = root.findViewById(R.id.customiseButton);
 
-//        db = AppDatabase.getInstance(getContext());
+
+        db = AppDatabase.getInstance(getContext());
+        accuracy.setText(db.userDAO().getAccuracy()+"%");
 //        //to do: get questions correct from DB, get questions total from DB
 //        Double accuracy = (questionsCorrect/questionsTotal)*100;
 //        Integer questionsCorrect = db.userDAO().changeAccuracy(accuracy);

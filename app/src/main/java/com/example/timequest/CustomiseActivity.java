@@ -59,7 +59,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         db = AppDatabase.getInstance(getApplicationContext());
         try{
             //sample test data
-            db.userDAO().insertUser(new User(1,"s", 1, 1, "headdefault", "itemdefault", "bodydefault"));
+            db.userDAO().insertUser(new User(1,"s", 1, 1, "headdefault", "itemdefault", "bodydefault",0,0));
             db.headItemsDAO().insertHeadItem(new HeadItems("headdefault"));
 //            db.headItemsDAO().insertHeadItem(new HeadItems("headspartanwarrior"));
 //            db.headItemsDAO().insertHeadItem(new HeadItems("headviking"));
