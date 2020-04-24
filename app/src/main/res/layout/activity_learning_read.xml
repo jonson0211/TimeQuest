@@ -52,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="15dp"
+                android:fontFamily="serif"
                 android:letterSpacing="0.02"
                 android:lineSpacingExtra="10dp"
                 android:paddingLeft="20dp"
@@ -60,12 +61,12 @@
                 android:text="Loading..."
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textSize="16sp"
+                android:typeface="serif"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.046"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
 
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                 android:id="@+id/youtube_player_view"
