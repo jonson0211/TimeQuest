@@ -14,10 +14,9 @@
         android:clickable="false"
         android:focusable="false"
         android:longClickable="false"
-        android:textStyle="bold"
         android:textSize="18sp"
         android:textColor="#FFFFFF"
-        android:fontFamily="@font/pokemonfont"
-        android:text="Time Quest"/>
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="T i m e  Q u e s t"/>
 
 </LinearLayout>

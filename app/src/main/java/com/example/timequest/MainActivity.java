@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionbar = getSupportActionBar();
         actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
-        //actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        //actionbar.setCustomView(R.layout.abs_layout);
+        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionbar.setCustomView(R.layout.abs_layout);
         //getSupportActionBar().setDisplayOptions(
                 //ActionBar.DISPLAY_SHOW_HOME |
                // ActionBar.DISPLAY_SHOW_TITLE |

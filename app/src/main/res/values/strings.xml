@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TimeQuest</string>
     <string name="title_adventure">Adventure</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Featured</string>
     <string name="title_profile">Profile</string>
     <string name="title_activity_question_page">QuestionPage</string>
     <!-- Strings used for fragments for navigation -->

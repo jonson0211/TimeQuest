@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginTop="61dp"
-            android:fontFamily="@font/medievalsharp"
+            android:fontFamily="@font/hyliaserifbetaregular"
             android:text="Title Text"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
@@ -100,7 +100,9 @@
             android:layout_height="35dp"
             android:layout_marginBottom="3dp"
             android:background="@color/colorBackgroundAlt"
-            android:text="Ok! Take me there"
+            android:fontFamily="@font/pokemonfont"
+            android:text="I'm ready!"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/tvWelcomeMessage"
             app:layout_constraintEnd_toEndOf="@+id/userCharacter" />
 
