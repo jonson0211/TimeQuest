@@ -24,29 +24,25 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tvYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/medievalsharp"
+            android:fontFamily="@font/hyliaserifbetaregular"
             android:text="TextView"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLearningTitle" />
-
-        <ImageView
-            android:id="@+id/userCharacter"
-            android:layout_width="137dp"
-            android:layout_height="96dp"
-            android:layout_marginBottom="3dp"
-            android:src="@android:drawable/sym_def_app_icon"
-            app:layout_constraintBottom_toTopOf="@+id/tvWelcomeMessage"
-            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/tvLearningTitle"
@@ -57,9 +53,8 @@
             android:fontFamily="@font/hyliaserifbetaregular"
             android:text="Title Text"
             android:textAlignment="center"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="60sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvYear"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,28 +62,32 @@
 
         <ImageView
             android:id="@+id/npcCharacter"
-            android:layout_width="169dp"
-            android:layout_height="166dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@android:drawable/sym_def_app_icon"
             app:layout_constraintBottom_toTopOf="@+id/tvWelcomeMessage"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:srcCompat="@drawable/npcviking" />
 
         <TextView
             android:id="@+id/tvWelcomeMessage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:alpha="0.9"
-            android:background="#9E634A"
+            android:background="@color/colorPrimaryDark"
             android:fontFamily="@font/pokemonfont"
             android:letterSpacing="0.02"
+
             android:lineSpacingExtra="10dp"
+
             android:paddingLeft="15dp"
             android:paddingTop="15dp"
             android:paddingRight="15dp"
-
             android:paddingBottom="15dp"
-
-            android:text="TextView"
+            android:text="Loading..."
             android:textColor="@color/colorPrimaryWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,23 +97,66 @@
             android:id="@+id/bContinue"
             android:layout_width="144dp"
             android:layout_height="35dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="3dp"
-            android:background="@color/colorBackgroundAlt"
+            android:background="@drawable/speechbubble"
             android:fontFamily="@font/pokemonfont"
             android:text="I'm ready!"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/tvWelcomeMessage"
-            app:layout_constraintEnd_toEndOf="@+id/userCharacter" />
+            app:layout_constraintEnd_toEndOf="@+id/constraintLayout3" />
 
         <ImageView
             android:id="@+id/scrollArrow"
             android:layout_width="30dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="5dp"
-            android:alpha="0.4"
+            android:layout_marginEnd="14dp"
+            android:alpha="0.2"
             android:src="@android:drawable/arrow_down_float"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="240dp"
+            app:layout_constraintBottom_toBottomOf="@+id/bContinue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/npcCharacter">
+
+            <ImageView
+                android:id="@+id/userBody"
+                android:layout_width="156dp"
+                android:layout_height="168dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/userHead"
+                app:srcCompat="@drawable/bodydefault" />
+
+            <ImageView
+                android:id="@+id/userHand"
+                android:layout_width="171dp"
+                android:layout_height="173dp"
+                app:layout_constraintBottom_toBottomOf="@+id/userHead"
+                app:layout_constraintEnd_toEndOf="@+id/userHead"
+                app:layout_constraintStart_toEndOf="@+id/userHead"
+                app:layout_constraintTop_toBottomOf="@+id/userHead"
+                app:srcCompat="@drawable/itemdefault" />
+
+            <ImageView
+                android:id="@+id/userHead"
+                android:layout_width="108dp"
+                android:layout_height="96dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/headdefault" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
