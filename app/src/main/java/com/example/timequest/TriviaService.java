@@ -28,8 +28,7 @@ public interface TriviaService {
     //site: https://opentdb.com/api.php?amount=1&category=23&difficulty=medium
     @GET("/api.php?amount=1&category=23&difficulty=easy&type=boolean")
     Call<Trivia> getEasyTrivia();
-    @GET("/api.php?amount=1&category=23&difficulty=difficult")
-    Call<List<Result>> getDifficultTrivia();
+
 
     //@GET("w/api.php?format=json&action=query&prop=extracts&exintro&explaintext")
     //Call<Info> getInfo(@Query("redirects") int redirect,@Query("titles") String civilisation);
