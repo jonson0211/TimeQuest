@@ -1,20 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--make it rounded-->
-    <corners
-        android:radius="20dp"
-        android:topLeftRadius="20dp"
-        android:topRightRadius="20dp" />
+    <!-- Define the background properties like color etc -->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="30dip" />
+            <gradient
+                android:startColor="@color/colorBackgroundAlt"
+                android:centerColor="@color/colorBackgroundAlt"
+                android:centerY="1.0"
+                android:endColor="#0d1522"
+                android:angle="270"
+                />
+        </shape>
 
-    <gradient
-        android:angle="0"
-        android:endColor="@color/colorPrimaryDarkOrange"
-        android:startColor="@color/colorPrimary" />
+    </item>
 
-    <!--create invisible stroke for padding-->
-    <stroke
-        android:width="6dip"
-        android:color="@android:color/transparent"/>
-
-</shape>
+    <!-- Define the progress properties like start color, end color etc -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="30dip" />
+                <gradient
+                    android:startColor="@color/colorAccent"
+                    android:centerColor="@color/colorPrimary"
+                    android:centerY="1.0"
+                    android:endColor="@color/colorPrimaryDarkOrange"
+                    android:angle="270"
+                    />
+            </shape>
+        </clip>
+    </item>
+</layer-list>
