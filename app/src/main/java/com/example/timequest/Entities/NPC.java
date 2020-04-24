@@ -25,13 +25,18 @@ public class NPC {
     //what the NPC says to the user if they fail the trial
     private String failSpeech;
 
+
+
     //what they look like
     private String npcAvatar;
 
     //VideoID for video player
     private String videoID;
 
-    public NPC(int npcID, String npcName, String searchTerm, String welcomeSpeech, String endingSpeech, String failSpeech, String npcAvatar, String videoID) {
+    //what the NPC says to the user if they fail the trial
+    private String perfectSpeech;
+
+    public NPC(int npcID, String npcName, String searchTerm, String welcomeSpeech, String endingSpeech, String failSpeech, String npcAvatar, String videoID, String perfectSpeech) {
         this.npcID = npcID;
         this.npcName = npcName;
         this.searchTerm = searchTerm;
@@ -40,6 +45,7 @@ public class NPC {
         this.failSpeech = failSpeech;
         this.npcAvatar = npcAvatar;
         this.videoID = videoID;
+        this.perfectSpeech = perfectSpeech;
     }
 
     public int getNpcID() {
@@ -54,12 +60,16 @@ public class NPC {
         return npcName;
     }
 
-    public String getSearchTerm() { return searchTerm; }
-
-    public void setSearchTerm(String searchTerm) { this.searchTerm = searchTerm; }
-
     public void setNpcName(String npcName) {
         this.npcName = npcName;
+    }
+
+    public String getSearchTerm() {
+        return searchTerm;
+    }
+
+    public void setSearchTerm(String searchTerm) {
+        this.searchTerm = searchTerm;
     }
 
     public String getWelcomeSpeech() {
@@ -94,9 +104,21 @@ public class NPC {
         this.npcAvatar = npcAvatar;
     }
 
-    public String getVideoID() { return videoID; }
+    public String getVideoID() {
+        return videoID;
+    }
 
-    public void setVideoID(String videoID) { this.videoID = videoID; }
+    public void setVideoID(String videoID) {
+        this.videoID = videoID;
+    }
+
+    public String getPerfectSpeech() {
+        return perfectSpeech;
+    }
+
+    public void setPerfectSpeech(String perfectSpeech) {
+        this.perfectSpeech = perfectSpeech;
+    }
 
     public static ArrayList<NPC> addNPCData(){
         ArrayList<NPC> npcs = new ArrayList<>();
@@ -105,14 +127,14 @@ public class NPC {
                         "I'm a Spartan! If you beat me, I'll let you join our legendary ranks...\n" +
                         "but I have to warn you...we're no common army. \n I'll leave you at the top of Mount Taygetus if you're not strong enough!",
                 "I admit defeat.\n You're truly a warror worthy of our army. Here is a token of our battle...may it bring you good fortune in your travels!",
-                "You're no match for the might of Sparta!", "npcspartan","pJJxWdJVpvU"));
+                "You're no match for the might of Sparta!", "npcspartan","pJJxWdJVpvU","pERFect"));
         npcs.add(new NPC(2, "North Sentinel Islander","sentinelese"
                 ,"Hey...what are you doing here?!\n" +
                         "Get off our island!!! \n" +
                         "...what's that? You think you can beat me? I'd like to see you try!\n" +
                         "I'll let you stay with us if you pass this test..." ,
                 "...I guess you can stay on this island.\n Here, take this. This will prove you're one of us now!",
-                "That was flimsy. Come back to me when you're ready to try again.", "npcsentinel","Xk4gunNQVec"));
+                "That was flimsy. Come back to me when you're ready to try again.", "npcsentinel","Xk4gunNQVec","pERFect"));
         npcs.add(new NPC(3, "Roman Legionary","legionary",
                 "Welcome to Rome, heart of the glorious Roman Empire.\n" +
                         "...\n" +
@@ -121,21 +143,21 @@ public class NPC {
                 "You really did it! What a turn of events!\n" +
                         "Maybe you aren't looking for trouble after all. Here, this will prove you're part of the empire now!",
                 "Did you really think you could beat an elite Roman like myself? \n" +
-                         "The Emperor will never see you at this rate. Come back when you've properly trained!", "npcroman","BIqWKPA83V0"));
+                         "The Emperor will never see you at this rate. Come back when you've properly trained!", "npcroman","BIqWKPA83V0","pERFect"));
         npcs.add(new NPC(4, "Athenian Man","Classical_Athens",
-                "Welcome wandering traveller.", "xxx","xxx", "npcathenian","ar8S6virCwM"));
+                "Welcome wandering traveller.", "xxx","xxx", "npcathenian","ar8S6virCwM","pERFect"));
         npcs.add(new NPC(5, "Norman Crusader","normans",
-                "I am Norman", "xxx","xxx", "npcnorman","Owf5Uq4oFps"));
+                "I am Norman", "xxx","xxx", "npcnorman","Owf5Uq4oFps","pERFect"));
         npcs.add(new NPC(6, "Cossack Warrior","cossacks",
-                "I am Cossack", "xxx","xxx", "npccossack","33cP54FcERA"));
+                "I am Cossack", "xxx","xxx", "npccossack","33cP54FcERA","pERFect"));
         npcs.add(new NPC(7, "Neanderthal","neanderthal",
-                "I...caveman", "xxx","xxx", "npgneanderthal","G2i2vCu9WMo"));
+                "I...caveman", "xxx","xxx", "npgneanderthal","G2i2vCu9WMo","pERFect"));
         npcs.add(new NPC(8, "Qing Eunuch","qing_dynasty",
-                "Ni hao", "xxx","xxx", "npcqing","mP5p4QbvPtc"));
+                "Ni hao", "xxx","xxx", "npcqing","mP5p4QbvPtc","pERFect"));
         npcs.add(new NPC(9, "Viking","vikings",
-                "I am a Viking!", "xxx","xxx", "npcviking","FfLYCodzaBA"));
-        npcs.add(new NPC(10, "Ancient Egyptian","ancient_egypt",
-                "I am a slave master!", "xxx","xxx", "npcegyptian","QYVZFWHKWKI&t"));
+                "I am a Viking!", "xxx","xxx", "npcviking","FfLYCodzaBA","pERFect"));
+        npcs.add(new NPC(10, "Egyptian Man","ancient_egypt",
+                "I am a slave master!", "xxx","xxx", "npcegyptian","QYVZFWHKWKI&t","pERFect"));
         return npcs;
     }
 

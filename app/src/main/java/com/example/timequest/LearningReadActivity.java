@@ -1,17 +1,13 @@
 package com.example.timequest;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.XmlRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -30,9 +26,8 @@ import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.ui.question.QuestionPage;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+
+import org.w3c.dom.Text;
 
 public class LearningReadActivity extends AppCompatActivity {
 
@@ -54,13 +49,11 @@ public class LearningReadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_read);
 
-
         Integer NPCID = getIntent().getIntExtra("LEARNING",0);
                Log.d(TAG, "on getIntent success:" + NPCID);
 
         String eraName = getIntent().getStringExtra("ERA");
         Log.d(TAG, "on getIntent success:" + eraName);
-
         //Match civilisation from intent to specific NPC array from NPC to get image and item data
         for (int i = 0; i < NPC.addNPCData().size(); i++){
 
@@ -82,7 +75,7 @@ public class LearningReadActivity extends AppCompatActivity {
             }
         }
 
-        learningText = findViewById(R.id.learningText);
+      //  learningText = findViewById(R.id.learningText);
         videoView = findViewById(R.id.videoView);
         Button takeTrial = findViewById(R.id.takeTrial);
         notesFloatingButton = findViewById(R.id.notesFloatingButton);
@@ -100,18 +93,14 @@ public class LearningReadActivity extends AppCompatActivity {
             }
         });
 
-
-
+        new GetWikiTask().execute();
+        /**
         final String wikiUrl =
                 //"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary"
                "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + mNPC.getSearchTerm()
                 ;
-
         Context context = getApplicationContext();
         final RequestQueue requestQueue = Volley.newRequestQueue(context);
-
-
-
         //Receive string, remove punctuation - wiki-specific newline characters and brackets
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -128,11 +117,9 @@ public class LearningReadActivity extends AppCompatActivity {
                 string = string.replace("2013","-");
                 learningText.setText(string);
                 System.out.println(string);
-
                 requestQueue.stop();
             }
         };
-
         //Error handling Volley
         Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
@@ -142,14 +129,10 @@ public class LearningReadActivity extends AppCompatActivity {
         };
         StringRequest stringRequest = new StringRequest(Request.Method.GET, wikiUrl, responseListener, errorListener);
         requestQueue.add(stringRequest);
-
+**/
+        /**
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player_view);
         getLifecycle().addObserver(youTubePlayerView);
-
-
-
-
-
 
         String videoID = mNPC.getVideoID();
 
@@ -158,21 +141,70 @@ public class LearningReadActivity extends AppCompatActivity {
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
                 //String videoId = "BIqWKPA83V0";
                 youTubePlayer.cueVideo(videoID, 0f);
-
             }
-
         });
-
-
+        **/
         takeTrial.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), QuestionPage.class);
             intent.putExtra("LEARNING", NPCID);
             Log.d(TAG, "on putExtra Intent success:" + NPCID);
             startActivity(intent);
         });
-
     }
+    private class GetWikiTask extends AsyncTask<Void, Void, Void> {
+/**
+        @Override
+        protected void onPreExecute() {
+            TextView learningTxt = (TextView) findViewById(R.id.learningText);
+            learningTxt.setText("Loading...");
+            super.onPreExecute();
+        }
+**/
+        @Override
+        protected Void doInBackground(Void... voids) {
+            final String wikiUrl =
+                    //"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary"
+                    "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + mNPC.getSearchTerm();
+            Context context = getApplicationContext();
+            final RequestQueue requestQueue = Volley.newRequestQueue(context);
+            Response.Listener<String> responseListener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    String string = (response.substring(response.lastIndexOf("extract") + 10, response.length() - 5));
+                    //string = string.replace("\\n", "\n\n");
+                    string = string.replace("\\n", "\n\n");
+                    string = string.replaceAll("\\(.*?\\)", "");
+                    string = string.replace("\\u", "");
+                    string = string.replace("\\", "");
+                    string = string.replace("alers, German: Neandertaler [ne02c8and0250ta02d0l0250]", "");
+                    string = string.replace("s)", "s");
+                    string = string.replace(":1202013143", "\n");
+                    string = string.replace("2013", "-");
+                    learningText.setText(string);
+                    System.out.println(string);
+                    requestQueue.stop();
+                }
+            };
+            //Error handling Volley
+            Response.ErrorListener errorListener = new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d(TAG, "onErrorResponse Volley error:");
+                }
+            };
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, wikiUrl, responseListener, errorListener);
+            requestQueue.add(stringRequest);
 
+            UpdateUi();
+            return null;
+
+        }
+        }
+
+
+    private void UpdateUi(){
+        learningText = findViewById(R.id.learningText);
+    }
 }
 
 /** VIDEO PLAYING FROM YOUTUBE DOES NOT WORK WELL USING VIDEO VIEW
