@@ -77,7 +77,7 @@ public class NotesDetail extends AppCompatActivity {
         //set onclick listener to update eraNote
 
         try{
-            db.eraDAO().insertEra(new Era("Spartan Army", "banner1", "npcathens","Incomplete","sdfsdfsdfsdfsdf ss"));
+            db.eraDAO().insertEra(new Era("Spartan Army", "banner1", "npcathens","Incomplete","sdfsdfsdfsdfsdf ss", ""));
             db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " s"));
             db.eraDAO().insertEra(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " s"));
             db.eraDAO().insertEra(new Era("Ancient Athenian", "banner4", "background4","Incomplete", " s"));
