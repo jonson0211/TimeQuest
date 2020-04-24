@@ -35,8 +35,15 @@ public class User {
     @ColumnInfo(name = "user_body_item")
     private String userBodyItem;
 
+    private double questionsCorrect;
 
-    public User(int userID, String userName, double progress, double accuracy, String userHeadItem, String userHandItem, String userBodyItem) {
+    private double questionsAnswered;
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public User(int userID, String userName, double progress, double accuracy, String userHeadItem, String userHandItem, String userBodyItem, double questionsCorrect, double questionsAnswered) {
         this.userID = userID;
         this.userName = userName;
         this.progress = progress;
@@ -44,10 +51,8 @@ public class User {
         this.userHeadItem = userHeadItem;
         this.userHandItem = userHandItem;
         this.userBodyItem = userBodyItem;
-    }
-
-    public int getUserID() {
-        return userID;
+        this.questionsCorrect = questionsCorrect;
+        this.questionsAnswered = questionsAnswered;
     }
 
     public void setUserID(int userID) {
@@ -100,5 +105,21 @@ public class User {
 
     public void setUserBodyItem(String userBodyItem) {
         this.userBodyItem = userBodyItem;
+    }
+
+    public double getQuestionsCorrect() {
+        return questionsCorrect;
+    }
+
+    public void setQuestionsCorrect(double questionsCorrect) {
+        this.questionsCorrect = questionsCorrect;
+    }
+
+    public double getQuestionsAnswered() {
+        return questionsAnswered;
+    }
+
+    public void setQuestionsAnswered(double questionsAnswered) {
+        this.questionsAnswered = questionsAnswered;
     }
 }

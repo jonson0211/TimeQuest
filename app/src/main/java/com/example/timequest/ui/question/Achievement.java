@@ -89,6 +89,9 @@ public class Achievement extends AppCompatActivity {
         String itemID;
         String prizeID = " ";
 
+        db.userDAO().updateAnswered(10);
+        db.userDAO().updateCorrect(score);
+        db.userDAO().changeAccuracy();
         //Determine if user gets prize or fails
         if(score > 7 && score < 10) {
             //outcomeTv.setText("Congratulations Adventurer!\n You passed the test. Here is something for your troubles.");
