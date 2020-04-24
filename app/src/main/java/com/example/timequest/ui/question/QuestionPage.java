@@ -1,11 +1,18 @@
 package com.example.timequest.ui.question;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
 
+import com.example.timequest.AppDatabase;
+import com.example.timequest.Entities.HeadItems;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.Entities.TrialQuestion;
 
@@ -15,13 +22,16 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.timequest.Entities.User;
 import com.example.timequest.R;
 
 import java.util.ArrayList;
@@ -68,20 +78,38 @@ public class QuestionPage extends AppCompatActivity {
     private ArrayList<TrialQuestion> questionSet;
     private TrialQuestion currentQuestion;
     private SeekBar seekbar;
+    private ProgressBar barQuestionTime;
 
     private NPC mNPC;
-
+    public static AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
 
+        db = AppDatabase.getInstance(getApplicationContext());
+
+        try {
+            //sample test data
+            db.userDAO().insertUser(new User(1, "s", 1, 1, "headdefault", "itemdefault", "bodydefault",1,1));
+            db.headItemsDAO().insertHeadItem(new HeadItems("headdefault"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //Progress bar set up - assign image icon to thumb, set progress
         SeekBar seekBar = findViewById(R.id.seekBar);
         //Drawable wbThumb = getResources().getDrawable(R.mipmap.logo);
         Drawable wbThumb = getResources().getDrawable(R.drawable.ic_chevron_right_black_24dp);
-        seekBar.setThumb(wbThumb);
+
+        //Retrieve user's head from database and manipulate sizing
+        Integer drID = getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest");
+        Drawable dr = getResources().getDrawable(drID);
+        Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();
+        // Scale it to 200 x 200
+        Drawable d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 200, 200, true));
+        // Set your new, scaled drawable as "d" and set thumb icon to drawable
+        seekBar.setThumb(d);
         seekBar.setProgress(0);
 
 
@@ -95,6 +123,12 @@ public class QuestionPage extends AppCompatActivity {
         cButton = findViewById(R.id.buttonC);
         confirmButton = findViewById(R.id.buttonConfirm);
         questionRg = findViewById(R.id.radioG);
+
+        barQuestionTime=(ProgressBar)findViewById(R.id.barQuestionTime);
+        // Get the Drawable custom_progressbar
+        Drawable draw=getResources().getDrawable(R.drawable.progressbar_shape);
+        // set the drawable as progress drawable
+        barQuestionTime.setProgressDrawable(draw);
 
         //establishing the colours of the button and counter
         defaultColourButton = aButton.getTextColors();
@@ -210,6 +244,17 @@ public class QuestionPage extends AppCompatActivity {
             countDownTimeLeftMillis = COUNTDOWN_IN_MILLIS;
 
             startCountdown();
+
+            barQuestionTime.setMax(1000);
+            ObjectAnimator progressAnimator = ObjectAnimator.ofInt(barQuestionTime, "progress", 1000, 0);
+            progressAnimator.setDuration(30000);
+            //progressAnimator.setInterpolator(new DecelerateInterpolator());
+            progressAnimator.start();
+
+
+            //barQuestionTime.setProgress((int)j);
+            //progressAnimator.start();
+
         } else{
 
             Intent rsIntent = new Intent(getApplicationContext(),Achievement.class);
@@ -249,9 +294,11 @@ public class QuestionPage extends AppCompatActivity {
 
             @Override
             public void onTick(long millisUntilFinished) {
+                long j = countDownTimeLeftMillis;
                 countDownTimeLeftMillis = millisUntilFinished;
 
                 changeCountDownText();
+
 
             }
 
@@ -259,7 +306,9 @@ public class QuestionPage extends AppCompatActivity {
             public void onFinish() {
                 countDownTimeLeftMillis = 0;
                 changeCountDownText();
-
+                barQuestionTime.setMax(100);
+                barQuestionTime.setProgress(0);
+                barQuestionTime.setProgress(100);
                 markAnswer();
 
             }
@@ -272,6 +321,7 @@ public class QuestionPage extends AppCompatActivity {
 
         String time = String.format(Locale.getDefault(), "%02d", seconds);
         countdownTV.setText(time);
+
 
         if(countDownTimeLeftMillis<10000){
             countdownTV.setTextColor(Color.RED);
