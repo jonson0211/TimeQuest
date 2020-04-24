@@ -42,6 +42,7 @@ public class LearningIntroActivity extends AppCompatActivity {
         ImageView userCharacter = findViewById(R.id.userCharacter);
 
         TextView tvWelcomeMessage = findViewById(R.id.tvWelcomeMessage);
+        TextView tvYear = findViewById(R.id.tvYear);
         TextView tvLearningTitle = findViewById(R.id.tvLearningTitle);
 
 
@@ -52,12 +53,14 @@ public class LearningIntroActivity extends AppCompatActivity {
         String civilisation = mNPC.getNpcName();
         Integer NPCID = mNPC.getNpcID();
         String eraName = mERA.getEraName();
+        String eraYear = mERA.getEraYear();
 
 
         //Set all objects based on NPC class and RV intent
         tvWelcomeMessage.setText(mNPC.getWelcomeSpeech());
         tvWelcomeMessage.setMovementMethod(new ScrollingMovementMethod()); //scrolling
         tvLearningTitle.setText(mNPC.getNpcName());
+        tvYear.setText(mERA.getEraYear());
 
 
         npcCharacter = findViewById(R.id.npcCharacter);
@@ -67,9 +70,6 @@ public class LearningIntroActivity extends AppCompatActivity {
 
 
         //to do: link user character to the other image view
-
-
-
 
         bContinue.setOnClickListener(v -> {
             launchLearningReadActivity(NPCID, eraName);
