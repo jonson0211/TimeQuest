@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,12 +20,17 @@ import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.timequest.Entities.Era;
 import com.example.timequest.R;
 import com.example.timequest.TriviaEntities.Result;
 import com.example.timequest.TriviaEntities.Trivia;
 import com.example.timequest.TriviaService;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -73,7 +77,8 @@ public class Featured extends Fragment {
     private Result currentQuestion;
     private List<Result> questionSet;
 
-    ImageView featuredIv, headIv, handIv;
+    ImageView featuredIv, headIv, handIv, bodyIv;
+    TextView civilisationTv;
 
 
     public Featured() {
@@ -93,6 +98,7 @@ public class Featured extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         new GetQuestionTask().execute();
     }
 
@@ -103,20 +109,18 @@ public class Featured extends Fragment {
         //View view = rootView.getView();
         updateUi();
 
-        difficultySw = view.findViewById(R.id.switch3);
+       // difficultySw = view.findViewById(R.id.switch3);
         buttonTrue = view.findViewById(R.id.buttonTrue);
         buttonFalse = view.findViewById(R.id.buttonFalse);
-        tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
+      //  tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
         questionTV = view.findViewById(R.id.tvWQQuestion);
         buttonFalse.setBackgroundResource(R.drawable.buttons);
         buttonTrue.setBackgroundResource(R.drawable.buttons);
         featuredIv = view.findViewById(R.id.ivNPCFeatured);
         handIv = view.findViewById(R.id.ivHand);
         headIv = view.findViewById(R.id.ivHead);
-
-
-        return view;
-    }
+        bodyIv = view.findViewById(R.id.ivBody);
+        civilisationTv = view.findViewById(R.id.tvCivilisation);
 /**
  difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -131,14 +135,21 @@ String level = "easy";
 tvSelectedMode.setText(level);
 }
 }
-});
- **/
+});**/
+showphotos();
 
+        return view;
+    }
 
+    public static String shuffleNames(){
+        String[] names = new String[]{"spartan", "qing", "athenian","cossack", "roman", "sentinel", "viking", "neanderthal"};
 
+        Collections.shuffle(Arrays.asList(names));
 
-
-
+        String name = (String) Array.get(names, 0);
+        Log.d(TAG, name);
+        return name;
+        }
 
     private class GetQuestionTask extends AsyncTask<Void, Void, List<Result>> {
 
@@ -216,41 +227,6 @@ tvSelectedMode.setText(level);
 
                 }
             });
-
-
-            /**
-             if (answer == "True") {
-             trueB.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) {
-            trueB.setBackgroundColor(Color.GREEN);
-            new GetQuestionTask().execute();
-            }
-            });
-             } else if (answer == "True") {
-             falseB.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) {
-            falseB.setBackgroundColor(Color.RED);
-            new GetQuestionTask().execute();
-            }
-            });
-             } else if (answer == "False") {
-             falseB.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) {
-            falseB.setBackgroundColor(Color.GREEN);
-            new GetQuestionTask().execute();
-            }
-            });
-             } else {
-             trueB.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) {
-            trueB.setBackgroundColor(Color.GREEN);
-            new GetQuestionTask().execute();
-            }
-            });
-
-             }**/
-
-
         }
     }
 
@@ -274,6 +250,41 @@ tvSelectedMode.setText(level);
             buttonFalse.setBackgroundColor(Color.GREEN);
         }
     }
+
+    private void showphotos(){
+        String value = shuffleNames();
+        int res1 = getResources().getIdentifier("head" + value, "drawable", "com.example.timequest");
+        Log.d(TAG, value);
+        int res2 = getResources().getIdentifier("body" + value, "drawable", "com.example.timequest");
+        Log.d(TAG, "body" +value);
+
+        int res3 = getResources().getIdentifier("item" + value, "drawable", "com.example.timequest");
+        Log.d(TAG, "item" +value);
+        int res4 = getResources().getIdentifier("npc" + value, "drawable", "com.example.timequest");
+
+
+        headIv.setImageResource(res1);
+        bodyIv.setImageResource(res2);
+        handIv.setImageResource(res3);
+        featuredIv.setImageResource(res4);
+
+        if(value.equals("roman")){
+            civilisationTv.setText("Roman");
+        } else if(value.equals("qing")){
+            civilisationTv.setText("Qing Dynasty");
+        }else if(value.equals("cossack")){
+            civilisationTv.setText("Cossack Warriors");
+        }else if(value.equals("neanderthal")){
+            civilisationTv.setText("Neanderthals");
+        }else if(value.equals("spartan")){
+            civilisationTv.setText("Spartan Warriors");
+        }else if(value.equals("viking")){
+            civilisationTv.setText("Viking");
+        }
+
+    }
+
+
 }
 
 
