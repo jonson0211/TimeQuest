@@ -22,86 +22,84 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tvWelcomeMessage"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="410dp"
-        android:alpha="0.9"
-        android:background="#9E634A"
-        android:fontFamily="@font/pokemonfont"
-        android:letterSpacing="0.02"
-        android:lineSpacingExtra="10dp"
-        android:paddingLeft="15dp"
-        android:paddingTop="15dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="15dp"
+        android:layout_height="match_parent">
 
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/npcCharacter"
+        <ImageView
+            android:id="@+id/userCharacter"
+            android:layout_width="137dp"
+            android:layout_height="96dp"
+            android:layout_marginBottom="3dp"
+            android:src="@android:drawable/sym_def_app_icon"
+            app:layout_constraintBottom_toTopOf="@+id/tvWelcomeMessage"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        />
+        <TextView
+            android:id="@+id/tvLearningTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <ImageView
-        android:id="@+id/npcCharacter"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="135dp"
-        android:src="@android:drawable/sym_def_app_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLearningTitle" />
+            android:layout_marginTop="61dp"
+            android:fontFamily="@font/medievalsharp"
+            android:text="Title Text"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvLearningTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/npcCharacter"
+            android:layout_width="169dp"
+            android:layout_height="166dp"
+            android:src="@android:drawable/sym_def_app_icon"
+            app:layout_constraintBottom_toTopOf="@+id/tvWelcomeMessage"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="110dp"
-        android:fontFamily="@font/medievalsharp"
-        android:text="Title Text"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="60sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvWelcomeMessage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:alpha="0.9"
+            android:background="#9E634A"
+            android:fontFamily="@font/pokemonfont"
+            android:letterSpacing="0.02"
+            android:lineSpacingExtra="10dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp"
 
-    <Button
-        android:id="@+id/bContinue"
-        android:layout_width="144dp"
-        android:layout_height="35dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorBackgroundAlt"
-        android:text="Ok! Take me there"
-        app:layout_constraintBottom_toTopOf="@+id/tvWelcomeMessage"
-        app:layout_constraintEnd_toEndOf="parent" />
+            android:paddingBottom="15dp"
 
-    <ImageView
-        android:id="@+id/userCharacter"
-        android:layout_width="137dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="16dp"
-        android:src="@android:drawable/sym_def_app_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLearningTitle" />
+            android:text="TextView"
+            android:textColor="@color/colorPrimaryWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/scrollArrow"
-        android:layout_width="30dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="5dp"
-        android:alpha="0.4"
-        android:src="@android:drawable/arrow_down_float"
-        app:layout_constraintBottom_toBottomOf="@+id/tvWelcomeMessage"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/bContinue"
+            android:layout_width="144dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="3dp"
+            android:background="@color/colorBackgroundAlt"
+            android:text="Ok! Take me there"
+            app:layout_constraintBottom_toTopOf="@+id/tvWelcomeMessage"
+            app:layout_constraintEnd_toEndOf="@+id/userCharacter" />
+
+        <ImageView
+            android:id="@+id/scrollArrow"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="5dp"
+            android:alpha="0.4"
+            android:src="@android:drawable/arrow_down_float"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
