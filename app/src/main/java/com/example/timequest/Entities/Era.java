@@ -80,7 +80,7 @@ public class Era {
         eras.add(new Era("Spartan Army", "banner1", "npcathens","Incomplete"," "));
         eras.add(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " "));
         eras.add(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " "));
-        eras.add(new Era("Ancient Athenian", "banner4", "background4","Incomplete", " "));
+        eras.add(new Era("Ancient Athenians", "banner4", "background4","Incomplete", " "));
         eras.add(new Era("Normans", "banner5", "background5","Incomplete", " "));
         eras.add(new Era( "Cossack Warriors", "banner6", "background6","Incomplete", " "));
         eras.add(new Era("Neanderthals", "banner7", "background7","Incomplete", " "));
