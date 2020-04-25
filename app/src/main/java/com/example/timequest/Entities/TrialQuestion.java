@@ -131,7 +131,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(9, "What were the tools used by Neanderthals to hunt?", "Bone needles and axe", "Spears and sharpened rocks", "Bow and arrows", 2, "d"));
                 trialQuiz.add(new TrialQuestion(10, "How did Neanderthals start fires?", "Using rocks and flint", "Used powder magnesium dioxide and rocks", "By keeping embers from discovering fires from natural phenomen ", 3, "d"));
 
-            case "Vikings":
+            case "Viking":
                 trialQuiz.add(new TrialQuestion(1, "What was most of our warriors life spent on doing?", "War", "Farming", "Sailing", 2, "d"));
                 trialQuiz.add(new TrialQuestion(2, "What region were we originally from before spreading into other territory?", "Russia", "Netherlands", "Scandinavia", 3, "d"));
                 trialQuiz.add(new TrialQuestion(3, "What made life hard in the Viking age? ", "The constant fighitng and desire to conquer", "The land was hard to farm on and food was difficult to produce", "There weren't many women and the viking gene pool favours men to be born, leading to a reprodction issue", 2, "d"));
