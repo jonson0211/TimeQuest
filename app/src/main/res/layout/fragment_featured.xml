@@ -110,7 +110,7 @@
                             android:id="@+id/tvWQQuestion"
                             android:layout_width="355dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="20dp"
                             android:fontFamily="@font/medievalsharp"
                             android:text="Loading..."
                             android:textAlignment="center"

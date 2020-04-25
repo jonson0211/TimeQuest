@@ -95,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         bottomNav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        HomeFragment homeFragment = new HomeFragment();
+        Featured featured = new Featured();
         FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction1.replace(R.id.fragment_container, homeFragment, "FragmentName");
+        fragmentTransaction1.replace(R.id.fragment_container, featured, "FragmentName");
         fragmentTransaction1.commit();
     }
 
