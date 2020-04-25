@@ -23,6 +23,8 @@ import com.example.timequest.NotesActivity;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
+
 public class ProfileFragment extends Fragment {
 
     Button notesButton;
@@ -51,7 +53,8 @@ public class ProfileFragment extends Fragment {
 
 
         db = AppDatabase.getInstance(getContext());
-        accuracy.setText(db.userDAO().getAccuracy()+"%");
+        DecimalFormat df = new DecimalFormat("#.##");
+        accuracy.setText(df.format(db.userDAO().getAccuracy())+"%");
 //        //to do: get questions correct from DB, get questions total from DB
 //        Double accuracy = (questionsCorrect/questionsTotal)*100;
 //        Integer questionsCorrect = db.userDAO().changeAccuracy(accuracy);

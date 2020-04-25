@@ -57,47 +57,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_customise);
 
         db = AppDatabase.getInstance(getApplicationContext());
-        try{
-            //sample test data
-            db.userDAO().insertUser(new User(1,"s", 1, 1, "headdefault", "itemdefault", "bodydefault",0,0));
-            db.headItemsDAO().insertHeadItem(new HeadItems("headdefault"));
-//            db.headItemsDAO().insertHeadItem(new HeadItems("headspartanwarrior"));
-//            db.headItemsDAO().insertHeadItem(new HeadItems("headviking"));
-//            db.headItemsDAO().insertHeadItem(new HeadItems("headromanlegion"));
-//            db.headItemsDAO().insertHeadItem(new HeadItems("headnorthsentinelislander"));
-//            db.headItemsDAO().insertHeadItem(new HeadItems("headanthenian"));
-//            db.headItemsDAO().insertHeadItem(new HeadItems("headqingeunuch"));
-//            db.headItemsDAO().insertHeadItem(new HeadItems("headnormancrusader"));
-//            db.headItemsDAO().insertHeadItem(new HeadItems("headcossackwarrior"));
 
-            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodydefault"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyspartanwarrior"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyviking"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyromanlegion"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodynorthsentinelislander"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyanthenian"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyqingeunuch"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodynormancrusader"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodycossackwarrior"));
-//            db.bodyItemsDAO().insertBodyItem(new BodyItems("bodyneanderthal"));
-
-            db.handItemsDAO().insertHandItem(new HandItems("itemdefault"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemspartanwarrior"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemviking"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemromanlegion"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemnorthsentinelislander"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemanthenian"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemqingeunuch"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemnormancrusader"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemcossackwarrior"));
-//            db.handItemsDAO().insertHandItem(new HandItems("itemneanderthal"));
-
-
-
-
-        } catch (Exception e){
-            System.out.println("!");
-        }
 
         //fill arraylists with database items
         headItems = db.headItemsDAO().getHeadItems();

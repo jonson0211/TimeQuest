@@ -82,7 +82,6 @@ public class Achievement extends AppCompatActivity {
         npcCharacter.setImageResource(npcCharacterid);
 
 
-        homeB.setOnClickListener(v -> startActivity(new Intent(Achievement.this, MainActivity.class)));
         int value1 = 1;
 
         int prize;
@@ -165,8 +164,8 @@ public class Achievement extends AppCompatActivity {
             outcomeTv.setText(mNPC.getPerfectSpeech());
 
             int prize2, prize3;
-            String prize2ID = " ";
-            String prize3ID = " ";
+            String prize2ID;
+            String prize3ID;
             String itemHead, itemBody, itemHand;
 
             switch(mNPC.getNpcName().toString()){
@@ -281,7 +280,18 @@ public class Achievement extends AppCompatActivity {
             outcomeTv.setText(mNPC.getFailSpeech());
         }
 
+        homeB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Achievement.this, MainActivity.class));
+                finish();
+
+            }
+        });
+
     }
+
+
 
 }
 
