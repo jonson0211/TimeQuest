@@ -12,6 +12,7 @@ import com.example.timequest.MainActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +29,9 @@ public class Achievement extends AppCompatActivity {
     public static final String ARG_NPC_ID = "LEARNING";
     private static final String TAG = "Message";
 
-
+    private ImageView userHead, userBody, userHand;
+    private View constraintComplete;
+    private View constraintPerfectComplete;
     private TextView outcomeTv;
     private Button homeB;
     private ImageView npcCharacter;
@@ -68,18 +71,32 @@ public class Achievement extends AppCompatActivity {
         //Integer scoreValue = Integer.valueOf(score);
         outcomeTv = findViewById(R.id.tvOutcome);
         homeB = findViewById(R.id.bHome);
+        constraintComplete = findViewById(R.id.constraintComplete);
+        constraintPerfectComplete = findViewById(R.id.constraintCompletePerfect);
+
         prizeIv = findViewById(R.id.ivPrize);
         prizeIv2 = findViewById(R.id.ivPrize2);
         prizeIv3 = findViewById(R.id.ivPrize3);
 
+        prizeIv.setVisibility(View.VISIBLE);
         prizeIv2.setVisibility(View.INVISIBLE);
         prizeIv3.setVisibility(View.INVISIBLE);
-
+        constraintPerfectComplete.setVisibility(View.INVISIBLE);
 
         int npcCharacterid = getResources().getIdentifier(NPCAvatar,"drawable","com.example.timequest");
 
         npcCharacter = findViewById(R.id.npcCharacter);
         npcCharacter.setImageResource(npcCharacterid);
+
+        userHead = findViewById(R.id.userHead);
+        userBody = findViewById(R.id.userBody);
+        userHand = findViewById(R.id.userHand);
+
+        userHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
+        userBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(),"drawable","com.example.timequest"));
+        userHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(),"drawable", "com.example.timequest"));
+
+
 
 
         int value1 = 1;
@@ -270,6 +287,8 @@ public class Achievement extends AppCompatActivity {
             prizeIv.setImageResource(prize);
             prizeIv2.setVisibility(View.VISIBLE);
             prizeIv3.setVisibility(View.VISIBLE);
+            constraintComplete.setVisibility(View.INVISIBLE);
+            constraintPerfectComplete.setVisibility(View.VISIBLE);
 
             prizeIv.setImageResource(prize);
             prizeIv2.setImageResource(prize2);
