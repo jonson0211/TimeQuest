@@ -31,6 +31,7 @@ import java.util.Timer;
 public class QuestionPage extends AppCompatActivity {
 
     //Declare string variables
+    //Declare string variables
     //Declare XML attributes
     //Declare class instances
 
