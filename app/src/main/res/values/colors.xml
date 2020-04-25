@@ -6,7 +6,12 @@
     <color name ="colorBackground">#FAEDCA</color>
     <color name ="colorBackgroundAlt">#F2C078</color>
     <color name="colorPrimaryDarkOrange">#E55A04</color>
+    <color name="colorPrimaryWhite">#FFFFFF</color>
 
+    <color name="colorAltPrimary">#FBBD75</color>
+    <color name="colorAltAccentLightOrange">#F9AB55</color>
+    <color name="colorAltAccentYellowOrange">#FFD151</color>
+    <color name="colorAltAccentRed">#DD2500</color>
 
 
 </resources>

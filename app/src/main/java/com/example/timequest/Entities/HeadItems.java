@@ -1,5 +1,6 @@
 package com.example.timequest.Entities;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -7,24 +8,14 @@ import androidx.room.PrimaryKey;
 @Entity
 public class HeadItems {
 
-    @PrimaryKey(autoGenerate = true)
-    private int headItemID;
+    @NonNull
+    @PrimaryKey
+    public String headItem;
 
-    @ColumnInfo(name = "head_item")
-    private String headItem;
-
-    public HeadItems(int headItemID, String headItem) {
-        this.headItemID = headItemID;
+    public HeadItems(String headItem) {
         this.headItem = headItem;
     }
 
-    public int getHeadItemID() {
-        return headItemID;
-    }
-
-    public void setHeadItemID(int headItemID) {
-        this.headItemID = headItemID;
-    }
 
     public String getHeadItem() {
         return headItem;

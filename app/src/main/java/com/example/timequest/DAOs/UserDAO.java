@@ -27,8 +27,13 @@ public interface UserDAO {
     public void changeProgress(double newProgress);
 
 
-    @Query("UPDATE user SET accuracy = :newAccuracy WHERE userID = 1")
-    public void changeAccuracy(double newAccuracy);
+    @Query("UPDATE user SET accuracy = 100*questionsCorrect/questionsAnswered WHERE userID = 1")
+    public void changeAccuracy();
+
+    @Query("SELECT accuracy FROM user WHERE userID = 1")
+    public double getAccuracy();
+
+
 
     @Query("SELECT user_head_item FROM user WHERE userID = 1")
     public String getHeadItem();
@@ -40,6 +45,11 @@ public interface UserDAO {
     @Query("SELECT user_hand_item FROM user WHERE userID = 1")
     public String getHandItem();
 
+    @Query("UPDATE user SET questionsAnswered = questionsAnswered + :newAnswered WHERE userID = 1")
+    public void updateAnswered(double newAnswered);
+
+    @Query("UPDATE user SET questionsCorrect = questionsCorrect + :newCorrect WHERE userID = 1")
+    public void updateCorrect(double newCorrect);
 
 
 }

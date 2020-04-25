@@ -1,6 +1,10 @@
 package com.example.timequest.ui.home;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.drawable.AnimatedStateListDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,27 +13,86 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.timequest.Adapters.EraAdapter;
+import com.example.timequest.Entities.Era;
+import com.example.timequest.LearningIntroActivity;
+import com.example.timequest.LearningReadActivity;
+import com.example.timequest.MainActivity;
 import com.example.timequest.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.ContentValues.TAG;
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import static com.example.timequest.Entities.Era.addEraData;
+import static com.example.timequest.R.menu.bottom_nav_menu;
+
 public class HomeFragment extends Fragment {
+    public static final Integer EXTRA_MESSAGE = 0;
+    private RecyclerView mRvList;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList<Era> mEraArrayList;
+    private List<Era> mEraList;
 
-    private HomeViewModel homeViewModel;
+    /**
+     * Connect to the XML layout
+     * Call the adapter
+     * What happens after the cardview is clicked on?
+     */
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+    public HomeFragment(){
+
+    }
+
+
+    public static HomeFragment newInstance() {
+        HomeFragment fragment = new HomeFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_home, container, false);
+        mRvList = v.findViewById(R.id.rvList);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(v.getContext());
+        mRvList.setLayoutManager(layoutManager);
+        EraAdapter.RecyclerViewClickListener listener = new EraAdapter.RecyclerViewClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View view, int position) {
+                launchLearningIntroActivity(position);
             }
-        });
-        return root;
+        };
+
+        EraAdapter mEraAdapter = new EraAdapter(Era.addEraData(), listener);
+        mEraAdapter.setData(Era.addEraData());
+        mRvList.setAdapter(mEraAdapter);
+
+        mRvList = v.findViewById(R.id.rvList);
+
+        return v;
+    }
+    private void launchLearningIntroActivity(int position){
+        Intent intent = new Intent(getActivity(), LearningIntroActivity.class);
+        intent.putExtra(String.valueOf(EXTRA_MESSAGE), position);
+        startActivity(intent);
     }
 }

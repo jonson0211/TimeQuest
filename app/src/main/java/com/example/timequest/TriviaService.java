@@ -1,9 +1,14 @@
 package com.example.timequest;
 
+import com.example.timequest.TriviaEntities.Result;
+import com.example.timequest.TriviaEntities.Trivia;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface InfoService {
+public interface TriviaService {
     /**
     @GET("w/api.php")
     Call<Info> getInfo(@Query("format") String json,
@@ -17,9 +22,13 @@ public interface InfoService {
                          @Query("format") String json,
                          @Query("exintro") String zero,
                          @Query("titles") String StackOverflow);
-          **/
-    //@GET("w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=Legionary")
-    //Call<Info> getInfo();
+          *
+          * @return*/
+
+    //site: https://opentdb.com/api.php?amount=1&category=23&difficulty=medium
+    @GET("/api.php?amount=1&category=23&difficulty=easy&type=boolean")
+    Call<Trivia> getEasyTrivia();
+
 
     //@GET("w/api.php?format=json&action=query&prop=extracts&exintro&explaintext")
     //Call<Info> getInfo(@Query("redirects") int redirect,@Query("titles") String civilisation);

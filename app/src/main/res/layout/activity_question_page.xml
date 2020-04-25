@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/bgquiz"
     tools:context=".ui.question.QuestionPage">
 
 
@@ -13,100 +13,262 @@
         android:id="@+id/tvTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:fontFamily="@font/medievalsharp"
-        android:text="Qing Dynasty"
-        android:textColor="#9F5A06"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="Civilisation"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/barQuestionTime" />
 
     <Button
         android:id="@+id/buttonConfirm"
-        android:layout_width="408dp"
-        android:layout_height="63dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/quiz_button"
+        android:fontFamily="serif"
         android:text="CONFIRM"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioG" />
 
     <ImageView
-        android:id="@+id/ivActor"
-        android:layout_width="91dp"
+        android:id="@+id/ivNPC"
+        android:layout_width="85dp"
         android:layout_height="85dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTopic"
-        tools:ignore="UnknownId"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/tvQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
-        android:text="tvQuestion"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/radioG"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/ivActor"
-        app:layout_constraintTop_toBottomOf="@+id/tvTopic"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/buttonConfirm"
+        tools:ignore="UnknownId"
+        tools:src="@drawable/npcspartan" />
+
+    <ProgressBar
+        android:id="@+id/barQuestionTime"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:progressDrawable="@drawable/progressbar_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvCounter"
-        android:layout_width="63dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="28dp"
-        android:text="00:30"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/radioG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="30"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/barQuestionTime"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barQuestionTime" />
 
     <RadioGroup
         android:id="@+id/radioG"
-        android:layout_width="357dp"
-        android:layout_height="288dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="225dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barQuestionTime">
 
         <RadioButton
             android:id="@+id/buttonA"
             android:layout_width="313dp"
-            android:layout_height="53dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/quiz_button"
-            android:text="RadioButton" />
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/quiz_buttons"
+            android:button="@null"
+            android:fontFamily="serif"
+            android:gravity="center|center_horizontal"
+            android:radius="15dip"
+            android:text="Option 1" />
 
         <RadioButton
             android:id="@+id/buttonB"
             android:layout_width="313dp"
             android:layout_height="53dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/quiz_button"
-            android:text="RadioButton" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/quiz_buttons"
+            android:button="@null"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:radius="15dip"
+            android:text="Option 2" />
 
         <RadioButton
             android:id="@+id/buttonC"
             android:layout_width="313dp"
             android:layout_height="53dp"
-            android:layout_margin="20dp"
-            android:background="@drawable/quiz_button"
-            android:text="RadioButton" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/quiz_buttons"
+            android:button="@null"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:radius="15dp"
+            android:text="Option 3" />
     </RadioGroup>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:clickable="false"
+        android:max="10"
+        android:progress="1"
+        android:progressDrawable="@drawable/seekbar"
+        android:thumb="@drawable/ic_chevron_right_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConfirm" />
+
+    <ImageView
+        android:id="@+id/treasureicon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seekBar"
+        app:srcCompat="@drawable/ic_treasure" />
+
+    <ImageView
+        android:id="@+id/mapicon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seekBar"
+        app:srcCompat="@drawable/ic_map" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="Question "
+        android:textColor="@color/colorAltAccentLightOrange"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
+
+    <TextView
+        android:id="@+id/tvQuestionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="1"
+        android:textColor="@color/colorAltAccentLightOrange"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="/10"
+        android:textColor="@color/colorAltAccentLightOrange"
+        app:layout_constraintStart_toEndOf="@+id/tvQuestionNumber"
+        app:layout_constraintTop_toTopOf="@+id/tvQuestionNumber" />
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="60dp"
+        android:fontFamily="serif"
+        android:text="Loading..."
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/scoreTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="Score"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/barQuestionTime"
+        app:layout_constraintTop_toTopOf="@+id/tvTopic" />
+
+    <TextView
+        android:id="@+id/tvScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="27dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="10"
+        android:textColor="@color/colorAltAccentLightOrange"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTV" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivNPC"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/userBody"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/userHead"
+            app:srcCompat="@drawable/bodydefault" />
+
+        <ImageView
+            android:id="@+id/userHand"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toBottomOf="@+id/userHead"
+            app:layout_constraintEnd_toEndOf="@+id/userHead"
+            app:layout_constraintStart_toEndOf="@+id/userHead"
+            app:layout_constraintTop_toBottomOf="@+id/userHead"
+            app:srcCompat="@drawable/itemdefault" />
+
+        <ImageView
+            android:id="@+id/userHead"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/headdefault" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

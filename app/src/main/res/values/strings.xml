@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TimeQuest</string>
     <string name="title_adventure">Adventure</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Featured</string>
     <string name="title_profile">Profile</string>
     <string name="title_activity_question_page">QuestionPage</string>
     <!-- Strings used for fragments for navigation -->
@@ -17,4 +17,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_read">ReadActivity</string>
+
+
+    <string-array name="steps">
+        <item>Beginning</item>
+        <item>Intermediate\npage</item>
+        <item>End</item>
+        <item>Post step</item>
+    </string-array>
+
+    <string name="Watch_video_for_more_info">For more information, watch the short video below!</string>
+    <string name="Take_trial">Take trial!</string>
 </resources>

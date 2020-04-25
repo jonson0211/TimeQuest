@@ -6,21 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".CustomiseActivity">
 
-    <ImageView
-        android:id="@+id/ivCharacter"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="15dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="15dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/userBody"
+            android:layout_width="156dp"
+            android:layout_height="168dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/userHead"
+            app:srcCompat="@drawable/bodydefault" />
+
+        <ImageView
+            android:id="@+id/userHand"
+            android:layout_width="171dp"
+            android:layout_height="173dp"
+            app:layout_constraintBottom_toBottomOf="@+id/userHead"
+            app:layout_constraintEnd_toEndOf="@+id/userHead"
+            app:layout_constraintStart_toEndOf="@+id/userHead"
+            app:layout_constraintTop_toBottomOf="@+id/userHead"
+            app:srcCompat="@drawable/itemdefault" />
+
+        <ImageView
+            android:id="@+id/userHead"
+            android:layout_width="108dp"
+            android:layout_height="96dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/headdefault" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="5dp"
+            android:text="Unlock more by going on adventures!"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -28,7 +62,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivCharacter">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
         <Button
             android:id="@+id/headNextButton"
@@ -61,8 +95,8 @@
             android:layout_height="70dp"
             android:layout_marginLeft="165dp"
             android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            app:srcCompat="@mipmap/ic_launcher_round" />
+            android:layout_marginBottom="1dp"
+            app:srcCompat="@drawable/headdefault" />
 
     </androidx.cardview.widget.CardView>
 
@@ -71,14 +105,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <Button
-            android:id="@+id/item1NextButton"
+            android:id="@+id/bodyNextButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="300dp"
@@ -86,7 +120,7 @@
             android:background="@drawable/ic_chevron_right_black_24dp" />
 
         <Button
-            android:id="@+id/item1BackButton"
+            android:id="@+id/bodyBackButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="20dp"
@@ -94,35 +128,35 @@
             android:background="@drawable/ic_chevron_left_black_24dp" />
 
         <TextView
-            android:id="@+id/tvItem1"
+            android:id="@+id/tvBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
-            android:text="Item 1"
+            android:text="Body"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark" />
 
         <ImageView
-            android:id="@+id/ivItem1"
+            android:id="@+id/ivBody"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="165dp"
             android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            app:srcCompat="@mipmap/ic_launcher_round" />
+            android:layout_marginBottom="1dp"
+            app:srcCompat="@drawable/bodydefault" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
         <Button
-            android:id="@+id/item2NextButton"
+            android:id="@+id/handNextButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="300dp"
@@ -130,7 +164,7 @@
             android:background="@drawable/ic_chevron_right_black_24dp" />
 
         <Button
-            android:id="@+id/item2BackButton"
+            android:id="@+id/handBackButton"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="20dp"
@@ -138,22 +172,21 @@
             android:background="@drawable/ic_chevron_left_black_24dp" />
 
         <TextView
-            android:id="@+id/tvItem2"
+            android:id="@+id/tvHand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
-            android:text="Item 2"
+            android:text="Hand"
             android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark" />
 
         <ImageView
-            android:id="@+id/ivItem2"
+            android:id="@+id/ivHand"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="165dp"
             android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            app:srcCompat="@mipmap/ic_launcher_round" />
+            app:srcCompat="@drawable/itemdefault" />
 
     </androidx.cardview.widget.CardView>
 
@@ -161,38 +194,11 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/buttons"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3" />
-
-    <ImageView
-        android:id="@+id/userHead"
-        android:layout_width="49dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/ivCharacter"
-        app:layout_constraintTop_toTopOf="@+id/ivCharacter"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-    <ImageView
-        android:id="@+id/userBody"
-        android:layout_width="52dp"
-        android:layout_height="43dp"
-        app:layout_constraintEnd_toEndOf="@+id/userHead"
-        app:layout_constraintTop_toBottomOf="@+id/userHead"
-        app:srcCompat="@drawable/amazonian" />
-
-    <ImageView
-        android:id="@+id/userHand"
-        android:layout_width="19dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toEndOf="@+id/ivCharacter"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/buttons" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

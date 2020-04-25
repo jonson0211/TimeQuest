@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -14,20 +15,32 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.timequest.AppDatabase;
 import com.example.timequest.CustomiseActivity;
-import com.example.timequest.LearningIntroActivity;
-import com.example.timequest.LearningReadActivity;
+import com.example.timequest.Entities.User;
+import com.example.timequest.Instructions;
 import com.example.timequest.R;
+import com.example.timequest.NotesActivity;
+
+import org.w3c.dom.Text;
+
+import java.text.DecimalFormat;
 
 public class ProfileFragment extends Fragment {
 
     Button notesButton;
     Button customiseButton;
+    TextView accuracy;
+    Button tutorialButton;
+
+
+    public static AppDatabase db;
 
     private ProfileViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
 
 
 
@@ -37,12 +50,21 @@ public class ProfileFragment extends Fragment {
 
         final TextView textView = root.findViewById(R.id.tvProfileName);
         final Button notesButton = root.findViewById(R.id.notesButton);
+         accuracy = root.findViewById(R.id.accuracy);
         customiseButton = root.findViewById(R.id.customiseButton);
+        tutorialButton = root.findViewById(R.id.tutorialButton);
+
+        db = AppDatabase.getInstance(getContext());
+        DecimalFormat df = new DecimalFormat("#.##");
+        accuracy.setText(df.format(db.userDAO().getAccuracy())+"%");
+//        //to do: get questions correct from DB, get questions total from DB
+//        Double accuracy = (questionsCorrect/questionsTotal)*100;
+//        Integer questionsCorrect = db.userDAO().changeAccuracy(accuracy);
 
         notesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LearningIntroActivity.class);
+                Intent intent = new Intent(getActivity(), NotesActivity.class);
                 startActivity(intent);
             }
         });
@@ -54,6 +76,15 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        tutorialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Instructions.class);
+                startActivity(intent);
+            }
+        });
+
 
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -68,4 +99,5 @@ public class ProfileFragment extends Fragment {
 
 
     }
+
 }
