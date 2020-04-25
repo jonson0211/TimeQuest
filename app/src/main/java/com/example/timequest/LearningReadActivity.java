@@ -142,6 +142,12 @@ public class LearningReadActivity extends AppCompatActivity {
                 //String videoId = "BIqWKPA83V0";
                 youTubePlayer.cueVideo(videoID, 0f);
             }
+
+        @Override
+        public void onDestroy() {
+        super.onDestroy();
+        youTubePlayerView.release();
+        }
         });
         **/
         takeTrial.setOnClickListener(v -> {
