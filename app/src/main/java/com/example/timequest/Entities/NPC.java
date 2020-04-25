@@ -127,7 +127,7 @@ public class NPC {
                         "I'm from the Spartan Army, the most feared military force in existence!\n" +
                         "Do you think you have what it takes to be a true Spartan Warrior?  \n Learn about our rigorous upbringing and undertake my trial. But I have to warn you...this is not for the faint of heart. I'll leave you at the top of Mount Taygetus if you're not strong enough!",
                 "I'm impressed! \n You have what it takes to become a true Spartan Warrior! Here's our signature red cloak we give to our men to get you started. Maybe if you complete the trial with a perfect score...you will be worthy to receive this helmet and spear too. ",
-                "You are not ready. Revise our teachings and retake the trial when you are ready to become a true Spartan. Consider this mercy.", "npcspartan","pJJxWdJVpvU","Congratulations! You have completed our trial with a perfect score! You have what it takes to join the top 300 Spartans. Accept these items as a gift from me. I will be sure to call you to join our phalanx before we take on the Persians at Thermopylae! "));
+                "You are not ready. Revise our teachings and retake the trial when you are ready to become a true Spartan. Consider this mercy.", "npcspartan","pJJxWdJVpvU","Congratulations! You have completed our trial with a perfect score! You have what it takes to join the top 300 Spartans. Accept these items as a gift from me. I will be sure to call you to join our phalanx before we take on the Persians at Thermopylae! \n Wait...what do you mean we'll lose that battle? "));
         npcs.add(new NPC(2, "Viking","vikings",
                 "Viking: Ey Hello! What brings you here?\n" +
                         "We're about to set sail to seek out foreign land and bring back some peasants to do our slave work...\n " +
@@ -198,7 +198,7 @@ public class NPC {
                 "Neanderthal: Me...hungry..." +
                         "\n", "Neanderthal: You...hungry..too? Have meat...\n" +
                 "\n","Neanderthal: Ok...me...sad\n" +
-                "\n", "npcneanderthal","G2i2vCu9WMo","Neanderthal: Me give you gifts...\n What?! You say me..extinct in future?? What...don't LEAVE!! ME WANT ANSW-- "
+                "\n", "npcneanderthal","G2i2vCu9WMo","Neanderthal: Me give you gifts...\n What?! You say me..extinct in future?? What...NO LEAVE!! ME WANT ANSW-- "
                 ));
         npcs.add(new NPC(8, "Qing Eunuch","qing_dynasty",
                 "\"Qing Eunuch: Da jia hao!\n" +
@@ -207,7 +207,7 @@ public class NPC {
                         "\n Ok, let me take you on a journey to learn about our Great Dynasty and our way of life." +
                         "\n I will be sure to award you with our traditional items and give you work if you successfully pass the test. \"\n" +
                         "\n", "Qing Eunuch: Hmm.. good try." +
-                "\nAs promised, here is a traditional robe for us Eunuchs. I have a lot more items waiting to be collected, so come back once you have revised your learnings..." +
+                "\nAs promised, here is a traditional outfit for us Eunuchs. Sorry if it's tight around the legs for you! I have a lot more items waiting to be collected, so come back once you have revised your learnings..." +
                 "\nOh I have to go now! It's the Emperors meal time. \n" +
                 "\n","Qing Eunuch: What a waste of my valuable time!" +
                 "\n I should be serving the Emperor's meal right now, but here I am being bothered by a peasant like you." +

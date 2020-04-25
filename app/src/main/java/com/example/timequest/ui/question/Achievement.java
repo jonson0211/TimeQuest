@@ -109,7 +109,7 @@ public class Achievement extends AppCompatActivity {
         db.userDAO().updateCorrect(score);
         db.userDAO().changeAccuracy();
         //Determine if user gets prize or fails
-        if(score > 7 && score < 10) {
+        if(score > 6 && score < 10) {
             //outcomeTv.setText("Congratulations Adventurer!\n You passed the test. Here is something for your troubles.");
             //outcomeTv.setText(mNPC.addNPCData().get(5).getEndingSpeech()); //change "5" to be the variable NPC civilisation
             outcomeTv.setText(mNPC.getEndingSpeech());
