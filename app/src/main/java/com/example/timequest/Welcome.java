@@ -73,7 +73,7 @@ public class Welcome extends AppCompatActivity {
 
                Toast toast = Toast.makeText(getApplicationContext(), "Name saved.", Toast.LENGTH_SHORT);
                 toast.show();
-                    startActivity(new Intent(Welcome.this, SplashActivityScreen.class));
+                    startActivity(new Intent(Welcome.this, Instructions.class));
                     finish();
 
             }
