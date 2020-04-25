@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -63,6 +64,10 @@ public class QuestionPage extends AppCompatActivity {
     private TextView questionTV, countdownTV, topicTv, tvQuestionNumber,tvScore;
     private RadioButton aButton, bButton, cButton;
     private Button confirmButton;
+    private ImageView NPCAvatar;
+    private ImageView userHead;
+    private ImageView userBody;
+    private ImageView userHand;
 
     private ColorStateList defaultColourButton, defaultColourCounter;
     private boolean answered;
@@ -126,6 +131,8 @@ public class QuestionPage extends AppCompatActivity {
         tvQuestionNumber = findViewById(R.id.tvQuestionNumber);
         tvScore = findViewById(R.id.tvScore);
         barQuestionTime=(ProgressBar)findViewById(R.id.barQuestionTime);
+        NPCAvatar = findViewById(R.id.ivNPC);
+
         // Get the Drawable custom_progressbar
         Drawable draw=getResources().getDrawable(R.drawable.progressbar_shape);
         // set the drawable as progress drawable
@@ -150,8 +157,20 @@ public class QuestionPage extends AppCompatActivity {
         }
         String testContent = mNPC.getNpcName();
 
+        int npcCharacterResource = getResources().getIdentifier(mNPC.getNpcAvatar(),"drawable", getPackageName());
+        NPCAvatar.setImageResource(npcCharacterResource);
+
+        userHead = findViewById(R.id.userHead);
+        userBody = findViewById(R.id.userBody);
+        userHand = findViewById(R.id.userHand);
+
+        userHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
+        userBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(),"drawable","com.example.timequest"));
+        userHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(),"drawable", "com.example.timequest"));
+
         System.out.println("*" + testContent);
         topicTv.setText(testContent);
+
 
         questionSet = TrialQuestion.getTrialQuiz(testContent);
         questionCountTotal = questionSet.size();
@@ -213,14 +232,10 @@ public class QuestionPage extends AppCompatActivity {
     //5. Finished the quiz - toast message
     //6. Take them to their prize or go back to home page.
     private void nextQuestion(){
-//        aButton.setTextColor(defaultColourButton);
-//        bButton.setTextColor(defaultColourButton);
-//        cButton.setTextColor(defaultColourButton);
 
         aButton.setClickable(true);
         bButton.setClickable(true);
         cButton.setClickable(true);
-
 
         //2.
         questionRg.clearCheck();
@@ -249,16 +264,11 @@ public class QuestionPage extends AppCompatActivity {
             countDownTimeLeftMillis = COUNTDOWN_IN_MILLIS;
 
             startCountdown();
-
+            //Set progress animation on time countdown bar
             barQuestionTime.setMax(1000);
             ObjectAnimator progressAnimator = ObjectAnimator.ofInt(barQuestionTime, "progress", 1000, 0);
             progressAnimator.setDuration(30000);
-            //progressAnimator.setInterpolator(new DecelerateInterpolator());
             progressAnimator.start();
-
-
-            //barQuestionTime.setProgress((int)j);
-            //progressAnimator.start();
 
         } else{
 
@@ -299,9 +309,7 @@ public class QuestionPage extends AppCompatActivity {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                long j = countDownTimeLeftMillis;
                 countDownTimeLeftMillis = millisUntilFinished;
-
                 changeCountDownText();
 
 
@@ -315,7 +323,6 @@ public class QuestionPage extends AppCompatActivity {
                 barQuestionTime.setProgress(0);
                 barQuestionTime.setProgress(100);
                 markAnswer();
-
             }
         }.start();
     }
@@ -334,11 +341,10 @@ public class QuestionPage extends AppCompatActivity {
         }else{
             countdownTV.setTextColor(defaultColourCounter);
         }
-
     }
-    //To fix once the database is setup
-    private void markAnswer(){
 
+    private void markAnswer(){
+        findViewById(R.id.barQuestionTime).clearAnimation();
         countdownTV.clearAnimation();
         answered = true;
 
