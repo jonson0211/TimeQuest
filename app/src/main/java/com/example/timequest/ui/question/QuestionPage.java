@@ -60,7 +60,7 @@ public class QuestionPage extends AppCompatActivity {
     private static final long COUNTDOWN_IN_MILLIS = 30000;
     private long countDownTimeLeftMillis;
 
-    private TextView questionTV, countdownTV, topicTv;
+    private TextView questionTV, countdownTV, topicTv, tvQuestionNumber,tvScore;
     private RadioButton aButton, bButton, cButton;
     private Button confirmButton;
 
@@ -93,7 +93,6 @@ public class QuestionPage extends AppCompatActivity {
         try {
             //sample test data
             db.userDAO().insertUser(new User(1, "s", 1, 1, "headdefault", "itemdefault", "bodydefault",1,1));
-            db.headItemsDAO().insertHeadItem(new HeadItems("headdefault"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -103,14 +102,15 @@ public class QuestionPage extends AppCompatActivity {
         Drawable wbThumb = getResources().getDrawable(R.drawable.ic_chevron_right_black_24dp);
 
         //Retrieve user's head from database and manipulate sizing
-        Integer drID = getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest");
+        Integer drID = getResources().getIdentifier(db.userDAO().getHandItem(),"drawable", "com.example.timequest");
         Drawable dr = getResources().getDrawable(drID);
         Bitmap bitmap = ((BitmapDrawable) dr).getBitmap();
         // Scale it to 200 x 200
-        Drawable d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 200, 200, true));
+        Drawable d = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 150, 150, true));
         // Set your new, scaled drawable as "d" and set thumb icon to drawable
         seekBar.setThumb(d);
         seekBar.setProgress(0);
+        seekBar.setEnabled(false);
 
 
 
@@ -123,7 +123,8 @@ public class QuestionPage extends AppCompatActivity {
         cButton = findViewById(R.id.buttonC);
         confirmButton = findViewById(R.id.buttonConfirm);
         questionRg = findViewById(R.id.radioG);
-
+        tvQuestionNumber = findViewById(R.id.tvQuestionNumber);
+        tvScore = findViewById(R.id.tvScore);
         barQuestionTime=(ProgressBar)findViewById(R.id.barQuestionTime);
         // Get the Drawable custom_progressbar
         Drawable draw=getResources().getDrawable(R.drawable.progressbar_shape);
@@ -166,6 +167,7 @@ public class QuestionPage extends AppCompatActivity {
             public void onClick(View v) {
                 if (!answered) {
                     if (aButton.isChecked() || bButton.isChecked() || cButton.isChecked()) {
+                        findViewById(R.id.barQuestionTime).clearAnimation();
                         markAnswer();
                     } else {
                         Toast.makeText(QuestionPage.this, "Please select an answer", Toast.LENGTH_SHORT).show();
@@ -181,25 +183,25 @@ public class QuestionPage extends AppCompatActivity {
         aButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                aButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                bButton.setBackgroundResource(R.drawable.buttons);
-                cButton.setBackgroundResource(R.drawable.buttons);
+                aButton.setBackgroundResource(R.drawable.quiz_buttons_selected);
+                bButton.setBackgroundResource(R.drawable.quiz_buttons);
+                cButton.setBackgroundResource(R.drawable.quiz_buttons);
             }
         });
         bButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                aButton.setBackgroundResource(R.drawable.buttons);
-                cButton.setBackgroundResource(R.drawable.buttons);
+                bButton.setBackgroundResource(R.drawable.quiz_buttons_selected);
+                aButton.setBackgroundResource(R.drawable.quiz_buttons);
+                cButton.setBackgroundResource(R.drawable.quiz_buttons);
             }
         });
         cButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                aButton.setBackgroundResource(R.drawable.buttons);
-                bButton.setBackgroundResource(R.drawable.buttons);
+                cButton.setBackgroundResource(R.drawable.quiz_buttons_selected);
+                aButton.setBackgroundResource(R.drawable.quiz_buttons);
+                bButton.setBackgroundResource(R.drawable.quiz_buttons);
             }
         });
 
@@ -211,9 +213,9 @@ public class QuestionPage extends AppCompatActivity {
     //5. Finished the quiz - toast message
     //6. Take them to their prize or go back to home page.
     private void nextQuestion(){
-        aButton.setTextColor(defaultColourButton);
-        bButton.setTextColor(defaultColourButton);
-        cButton.setTextColor(defaultColourButton);
+//        aButton.setTextColor(defaultColourButton);
+//        bButton.setTextColor(defaultColourButton);
+//        cButton.setTextColor(defaultColourButton);
 
         aButton.setClickable(true);
         bButton.setClickable(true);
@@ -222,9 +224,9 @@ public class QuestionPage extends AppCompatActivity {
 
         //2.
         questionRg.clearCheck();
-        aButton.setBackgroundResource(R.drawable.buttons);
-        bButton.setBackgroundResource(R.drawable.buttons);
-        cButton.setBackgroundResource(R.drawable.buttons);
+        aButton.setBackgroundResource(R.drawable.quiz_buttons);
+        bButton.setBackgroundResource(R.drawable.quiz_buttons);
+        cButton.setBackgroundResource(R.drawable.quiz_buttons);
 
         if(questionCount < questionCountTotal){
             //questionCounter is the integer
@@ -238,6 +240,9 @@ public class QuestionPage extends AppCompatActivity {
             cButton.setText(currentQuestion.getOption3());
 
             questionCount++;
+            tvQuestionNumber = findViewById(R.id.tvQuestionNumber);
+
+            tvQuestionNumber.setText(String.format(String.valueOf(questionCount)));
 
             answered = false;
             //3.
@@ -333,6 +338,7 @@ public class QuestionPage extends AppCompatActivity {
     }
     //To fix once the database is setup
     private void markAnswer(){
+
         countdownTV.clearAnimation();
         answered = true;
 
@@ -346,12 +352,16 @@ public class QuestionPage extends AppCompatActivity {
         SeekBar seekBar = findViewById(R.id.seekBar);
         seekBar.setProgress(questionCount);
 
+
+
         int answer = questionRg.indexOfChild(selectedAnswer) + 1;
         //if(answer == currentQuestion.getAnswerNumber()){
         System.out.println(answer);
         if(answer == currentQuestion.getAnswerNumber()){
             System.out.println(answer + "*");
             score++;
+
+            tvScore.setText(String.format(String.valueOf(score)));
             System.out.println(score);
 
         }
@@ -363,16 +373,15 @@ public class QuestionPage extends AppCompatActivity {
     }
 
     private void displaySolution(){
-        aButton.setBackgroundColor(Color.RED);
-        bButton.setBackgroundColor(Color.RED);
-        cButton.setBackgroundColor(Color.RED);
+        aButton.setBackgroundResource(R.drawable.quiz_buttons_incorrect);
+        bButton.setBackgroundResource(R.drawable.quiz_buttons_incorrect);
+        cButton.setBackgroundResource(R.drawable.quiz_buttons_incorrect);
 
     if(currentQuestion.getAnswerNumber() == 1){
-        aButton.setBackgroundColor(Color.GREEN);
+        aButton.setBackgroundResource(R.drawable.quiz_buttons_correct);
     } else if (currentQuestion.getAnswerNumber() == 2){
-        bButton.setBackgroundColor(Color.GREEN);
-
-    } else cButton.setBackgroundColor(Color.GREEN);
+        bButton.setBackgroundResource(R.drawable.quiz_buttons_correct);
+    } else  cButton.setBackgroundResource(R.drawable.quiz_buttons_correct);;
         if(questionCount < 10){
              confirmButton.setText("Next question");
         }else {

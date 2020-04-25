@@ -26,5 +26,6 @@
         <item>Post step</item>
     </string-array>
 
-
+    <string name="Watch_video_for_more_info">For more information, watch the short video below!</string>
+    <string name="Take_trial">Take trial!</string>
 </resources>

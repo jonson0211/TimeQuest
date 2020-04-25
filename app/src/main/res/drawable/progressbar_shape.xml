@@ -3,13 +3,16 @@
     <!-- Define the background properties like color etc -->
     <item android:id="@android:id/background">
         <shape>
-            <corners android:radius="30dip" />
+            <corners android:radius="15dip" />
+            <stroke android:color="@android:color/darker_gray"
+                android:width="3dip"/>
             <gradient
-                android:startColor="@color/colorBackgroundAlt"
-                android:centerColor="@color/colorBackgroundAlt"
+                android:startColor="@android:color/transparent"
+                android:centerColor="@android:color/transparent"
                 android:centerY="1.0"
                 android:endColor="#0d1522"
                 android:angle="270"
+
                 />
         </shape>
 
@@ -19,12 +22,14 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape>
-                <corners android:radius="30dip" />
+                <corners android:radius="15dip"/>
+                <stroke android:color="@android:color/darker_gray"
+                    android:width="3dip"/>
                 <gradient
-                    android:startColor="@color/colorAccent"
+                    android:startColor="@color/colorAltAccentLightOrange"
                     android:centerColor="@color/colorPrimary"
                     android:centerY="1.0"
-                    android:endColor="@color/colorPrimaryDarkOrange"
+                    android:endColor="@color/colorAltAccentRed"
                     android:angle="270"
                     />
             </shape>
