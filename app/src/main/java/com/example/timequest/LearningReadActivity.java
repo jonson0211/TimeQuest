@@ -1,5 +1,6 @@
 package com.example.timequest;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -26,6 +27,9 @@ import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.ui.question.QuestionPage;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 import org.w3c.dom.Text;
 
@@ -130,7 +134,7 @@ public class LearningReadActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, wikiUrl, responseListener, errorListener);
         requestQueue.add(stringRequest);
 **/
-        /**
+
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player_view);
         getLifecycle().addObserver(youTubePlayerView);
 
@@ -142,8 +146,12 @@ public class LearningReadActivity extends AppCompatActivity {
                 //String videoId = "BIqWKPA83V0";
                 youTubePlayer.cueVideo(videoID, 0f);
             }
+
+
         });
-        **/
+
+
+
         takeTrial.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), QuestionPage.class);
             intent.putExtra("LEARNING", NPCID);
@@ -151,6 +159,16 @@ public class LearningReadActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player_view);
+        getLifecycle().addObserver(youTubePlayerView);
+        youTubePlayerView.release();
+        Log.d(TAG, "on YT Player release success:");
+    }
+
     private class GetWikiTask extends AsyncTask<Void, Void, Void> {
 /**
         @Override
@@ -172,6 +190,10 @@ public class LearningReadActivity extends AppCompatActivity {
                 public void onResponse(String response) {
                     String string = (response.substring(response.lastIndexOf("extract") + 10, response.length() - 5));
                     //string = string.replace("\\n", "\n\n");
+//                    System.out.println(string);
+//                    if (string.endsWith("\\n\\n") || string.endsWith("\\n") ){
+//                        string.replace("\\n","");
+//                    }
                     string = string.replace("\\n", "\n\n");
                     string = string.replaceAll("\\(.*?\\)", "");
                     string = string.replace("\\u", "");
@@ -189,15 +211,13 @@ public class LearningReadActivity extends AppCompatActivity {
             Response.ErrorListener errorListener = new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d(TAG, "onErrorResponse Volley error:");
+                    Log.d(TAG, "onErrorResponse Volley Error:");
                 }
             };
             StringRequest stringRequest = new StringRequest(Request.Method.GET, wikiUrl, responseListener, errorListener);
             requestQueue.add(stringRequest);
-
             UpdateUi();
             return null;
-
         }
         }
 

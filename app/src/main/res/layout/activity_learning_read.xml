@@ -10,8 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.1"
-        android:background="@drawable/bglearn">
+        android:background="@drawable/bgread4">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -19,6 +18,7 @@
         android:id="@+id/notesFloatingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
         android:clickable="true"
         app:layout_anchor="@+id/appbar"
         app:layout_anchorGravity="end|bottom"
@@ -28,7 +28,7 @@
         android:id="@+id/appbar"
 
         android:layout_width="match_parent"
-        android:layout_height="192dp"/>
+        android:layout_height="150dp" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -41,7 +41,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             tools:context=".DetailFragment">
 
@@ -51,20 +51,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:fontFamily="serif"
                 android:letterSpacing="0.02"
                 android:lineSpacingExtra="10dp"
                 android:paddingLeft="20dp"
-                android:paddingEnd="20dp"
+                android:paddingEnd="15dp"
                 android:paddingRight="20dp"
                 android:text="Loading..."
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
                 android:typeface="serif"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.046"
 
+                app:layout_constraintHorizontal_bias="0.046"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,9 +77,12 @@
                 android:layout_marginTop="15dp"
                 app:autoPlay="false"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/learningText"
-                app:useWebUi="true" />
+                app:layout_constraintTop_toBottomOf="@+id/textView13"
+                app:useWebUi="true">
+
+            </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
 
             <VideoView
                 android:id="@+id/videoView"
@@ -89,14 +93,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/learningText" />
 
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="serif"
+                android:paddingLeft="20dp"
+                android:text="@string/Watch_video_for_more_info"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/learningText" />
+
             <Button
 
                 android:id="@+id/takeTrial"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="175dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/buttons"
-                android:text="TAKE TRIAL!"
+                android:background="@drawable/speechbubble"
+                android:fontFamily="@font/pokemonfont"
+                android:text="@string/Take_trial"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/youtube_player_view" />
