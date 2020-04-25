@@ -8,22 +8,22 @@
 
     <TextView
         android:id="@+id/instructionText"
-        android:layout_width="261dp"
-        android:layout_height="195dp"
-        android:layout_marginBottom="12dp"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/screenshot"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/screenshot"
-        android:layout_width="266dp"
-        android:layout_height="230dp"
-        android:layout_marginBottom="104dp"
+        android:layout_width="195dp"
+        android:layout_height="261dp"
+        android:layout_marginBottom="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/buttons" />
 </androidx.constraintlayout.widget.ConstraintLayout>

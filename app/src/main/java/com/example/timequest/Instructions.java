@@ -59,13 +59,13 @@ public class Instructions extends AppCompatActivity {
     }
 
     public void addDotsIndicator(int position){
-        mDots = new TextView[3];
+        mDots = new TextView[4];
         mDotLayout.removeAllViews();
 
         for(int i = 0; i < mDots.length; i++) {
             mDots[i] = new TextView(this);
             mDots[i].setText(Html.fromHtml("&#8226"));
-            mDots[i].setTextColor(getResources().getColor(R.color.colorAltAccentYellowOrange));
+            mDots[i].setTextColor(getResources().getColor(R.color.colorAltAccentLightOrange));
             mDots[i].setTextSize(35);
 
             mDotLayout.addView(mDots[i]);

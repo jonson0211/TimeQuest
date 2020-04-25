@@ -144,8 +144,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="252dp"
-        android:layout_height="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Time Quest"
         android:textColor="#9F5A06"
         android:textSize="46sp"
@@ -199,26 +199,13 @@
         app:layout_constraintStart_toStartOf="@+id/etName"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
-    <Button
-        android:id="@+id/bInstructions"
-        android:layout_width="104dp"
-        android:layout_height="28dp"
-        android:alpha="0.8"
-        android:text="Instructions"
-        android:textSize="8sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/bStart"
-        app:layout_constraintStart_toStartOf="@+id/bStart"
-        app:layout_constraintTop_toBottomOf="@+id/bStart" />
-
     <EditText
         android:id="@+id/etName"
         android:layout_width="256dp"
-        android:layout_height="39dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ems="12"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="@+id/textView2"

@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.timequest.AppDatabase;
 import com.example.timequest.CustomiseActivity;
 import com.example.timequest.Entities.User;
+import com.example.timequest.Instructions;
 import com.example.timequest.R;
 import com.example.timequest.NotesActivity;
 
@@ -30,6 +31,7 @@ public class ProfileFragment extends Fragment {
     Button notesButton;
     Button customiseButton;
     TextView accuracy;
+    Button tutorialButton;
 
 
     public static AppDatabase db;
@@ -50,7 +52,7 @@ public class ProfileFragment extends Fragment {
         final Button notesButton = root.findViewById(R.id.notesButton);
          accuracy = root.findViewById(R.id.accuracy);
         customiseButton = root.findViewById(R.id.customiseButton);
-
+        tutorialButton = root.findViewById(R.id.tutorialButton);
 
         db = AppDatabase.getInstance(getContext());
         DecimalFormat df = new DecimalFormat("#.##");
@@ -74,6 +76,15 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        tutorialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Instructions.class);
+                startActivity(intent);
+            }
+        });
+
 
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

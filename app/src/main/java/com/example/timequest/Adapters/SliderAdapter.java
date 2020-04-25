@@ -24,14 +24,16 @@ public class SliderAdapter extends PagerAdapter {
 
     public int[] slide_images = {
             R.drawable.amazonian,
+            R.drawable.amazonian,
             R.drawable.bodyancientegyptian,
             R.drawable.china
     };
 
     public String [] slide_descs = {
-            "Descas1",
-            "Desc 2",
-            "Desc 3"
+            "Welcome to TimeQuest! TimeQuest is a RPG-style history learning game. You play as a time traveller, who has the ability to travel to different points in time to learn about a variety of ancient civilisations, and undertake their trial to prove your worth.",
+            "In the Adventure screen, you can select from a list of civilisations to learn about. There will be written and video material - you will also be able to write notes. Afterwards, you will be able to undertake a trial. The trial would consist of 10 questions, and if you get 8+ correct, you will win an item drop or several.",
+            "In the Featured screen, you will be able to answer True/False questions on general history. A random civilisation will also be displayed below, along with it's associated item drops and the notes you have written for it for this specific civilisation.",
+            "In your Profile page, you will be able to customise your character and equip items that you have collected through you journey. Statistics such as your accuracy and progress are also displayed. You will also be able to access this tutorial through this screen. Best of luck in your adventures, traveller! "
     };
 
 

@@ -18,7 +18,7 @@
         <activity android:name=".LearningIntroActivity" />
         <activity android:name=".NotesActivity" />
         <activity android:name=".NotesDetail" />
-        <activity android:name=".Welcome" />
+        <activity android:name=".Welcome"  />
         <activity
             android:name=".ui.question.Achievement"
             android:label="@string/title_activity_achievement"
