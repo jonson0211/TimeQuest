@@ -54,7 +54,7 @@ public class Achievement extends AppCompatActivity {
         Log.d(TAG, "on getIntent(): SUCCESS");
 
         //Match civilisation from intent to specific NPC array from NPC to get image and item data
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < 10; i++){
             if (NPC.addNPCData().get(i).getNpcID()==(NPCID)){
                 mNPC = NPC.addNPCData().get(i);
                 System.out.println(mNPC);
@@ -297,6 +297,7 @@ public class Achievement extends AppCompatActivity {
             //outcomeTv.setText("Oh no. You did not pass the quiz. Revise the content and try again to win a prize!");
             prizeIv.setVisibility(View.INVISIBLE);
             outcomeTv.setText(mNPC.getFailSpeech());
+            constraintComplete.setVisibility(View.INVISIBLE);
         }
 
         homeB.setOnClickListener(new View.OnClickListener() {
