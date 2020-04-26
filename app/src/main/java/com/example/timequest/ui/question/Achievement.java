@@ -10,6 +10,7 @@ import com.example.timequest.Entities.HeadItems;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.MainActivity;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Layout;
@@ -46,6 +47,7 @@ public class Achievement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
+
 
         db = AppDatabase.getInstance(getApplicationContext());
 

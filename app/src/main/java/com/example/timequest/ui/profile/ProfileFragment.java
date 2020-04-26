@@ -76,9 +76,9 @@ public class ProfileFragment extends Fragment {
         String username = db.userDAO().getUserName();
         tvProfileName.setText(username);
 
-        tvComplete = root.findViewById(R.id.tvComplete);
-        tvIncomplete = root.findViewById(R.id.tvIncomplete);
-        tvPerfect = root.findViewById(R.id.tvPerfect);
+        //tvComplete = root.findViewById(R.id.tvComplete);
+        //tvIncomplete = root.findViewById(R.id.tvIncomplete);
+        //tvPerfect = root.findViewById(R.id.tvPerfect);
 
 
 

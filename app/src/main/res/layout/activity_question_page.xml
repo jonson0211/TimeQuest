@@ -89,40 +89,59 @@
         <RadioButton
             android:id="@+id/buttonA"
             android:layout_width="313dp"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/quiz_buttons"
             android:button="@null"
             android:fontFamily="serif"
             android:gravity="center|center_horizontal"
+            android:paddingStart="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
             android:radius="15dip"
             android:text="Option 1" />
 
         <RadioButton
             android:id="@+id/buttonB"
             android:layout_width="313dp"
-            android:layout_height="53dp"
+            android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:background="@drawable/quiz_buttons"
             android:button="@null"
             android:fontFamily="serif"
             android:gravity="center"
+            android:paddingStart="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
             android:radius="15dip"
             android:text="Option 2" />
 
         <RadioButton
             android:id="@+id/buttonC"
             android:layout_width="313dp"
-            android:layout_height="53dp"
+            android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dip"
             android:background="@drawable/quiz_buttons"
             android:button="@null"
             android:fontFamily="serif"
             android:gravity="center"
+            android:paddingStart="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
             android:radius="15dp"
-            android:text="Option 3" />
+            android:text="Option 3"
+            android:textSize="13sp" />
     </RadioGroup>
 
     <SeekBar
@@ -206,10 +225,15 @@
         android:text="Loading..."
         android:textColor="@color/colorPrimary"
         android:textSize="25sp"
+        app:autoSizeMaxTextSize="25sp"
+        app:autoSizeMinTextSize="18sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/radioG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/scoreTV"

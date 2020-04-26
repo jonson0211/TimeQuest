@@ -16,6 +16,7 @@ import com.example.timequest.Entities.HeadItems;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.Entities.TrialQuestion;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.CountDownTimer;
@@ -93,6 +94,7 @@ public class QuestionPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_page);
+
 
         db = AppDatabase.getInstance(getApplicationContext());
 
