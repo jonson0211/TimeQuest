@@ -47,6 +47,7 @@ public class LearningReadActivity extends AppCompatActivity {
     private MediaController mediaController;
     private FloatingActionButton notesFloatingButton;
     private Era mERA;
+    private View bannerView;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -88,6 +89,10 @@ public class LearningReadActivity extends AppCompatActivity {
         videoView = findViewById(R.id.videoView);
         Button takeTrial = findViewById(R.id.takeTrial);
         notesFloatingButton = findViewById(R.id.notesFloatingButton);
+        bannerView = findViewById(R.id.bannerView);
+
+        int bannerResource = getResources().getIdentifier(mNPC.getBannerID(),"drawable", getPackageName());
+        bannerView.setBackgroundResource(bannerResource);
 
         notesFloatingButton.setOnClickListener(new OnClickListener() {
             @Override
