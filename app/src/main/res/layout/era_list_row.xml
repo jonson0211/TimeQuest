@@ -33,30 +33,40 @@
             android:id="@+id/tvTitle"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="7dp"
             android:fontFamily="@font/hyliaserifbetaregular"
             android:text="Qing Dynasty"
             android:textColor="#FF9E500C"
             android:textSize="27sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivComplete"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.38" />
+            app:layout_constraintVertical_bias="0.253" />
 
         <TextView
             android:id="@+id/tvYear"
             android:layout_width="wrap_content"
             android:layout_height="19dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/hyliaserifbetaregular"
             android:text="100BC"
             android:textColor="@android:color/tertiary_text_light"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivComplete"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <ImageView
+            android:id="@+id/ivComplete"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@+id/tvTitle"
+            app:srcCompat="@drawable/iconcomplete" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

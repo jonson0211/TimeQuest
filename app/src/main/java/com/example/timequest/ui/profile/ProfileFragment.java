@@ -36,7 +36,7 @@ public class ProfileFragment extends Fragment {
     TextView tvProfileName;
     private User mUser;
 
-    private TextView tvIncomplete, tvComplete, tvPerfect;
+    private TextView tvIncomplete, tvComplete, tvPerfect, accuracyComment;
 
     public static AppDatabase db;
 
@@ -58,6 +58,7 @@ public class ProfileFragment extends Fragment {
         customiseButton = root.findViewById(R.id.customiseButton);
         tutorialButton = root.findViewById(R.id.tutorialButton);
         tvProfileName = root.findViewById(R.id.tvProfileName);
+        accuracyComment = root.findViewById(R.id.accuracyComment);
 
         db = AppDatabase.getInstance(getContext());
         DecimalFormat df = new DecimalFormat("#.##");
@@ -65,9 +66,12 @@ public class ProfileFragment extends Fragment {
         accuracy.setText(df.format(db.userDAO().getAccuracy())+" %");
         if(accuracyValue > 67){
             accuracy.setTextColor(getResources().getColor(R.color.holo_green_light));
+            accuracyComment.setText("Wow you're amazing!");
         }else if(accuracyValue<67 && accuracyValue > 34){
             accuracy.setTextColor(getResources().getColor(R.color.colorPrimary));
-        }else accuracy.setTextColor(getResources().getColor(R.color.colorAltAccentRed));
+            accuracyComment.setText("Not bad...");
+        }else if(accuracyValue< 34){accuracy.setTextColor(getResources().getColor(R.color.colorAltAccentRed));
+        accuracyComment.setText("Really?");}
 
         String username = db.userDAO().getUserName();
         tvProfileName.setText(username);

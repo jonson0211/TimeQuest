@@ -289,17 +289,28 @@
 
                         <TextView
                             android:id="@+id/accuracy"
-                            android:layout_width="143dp"
+                            android:layout_width="135dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="60dp"
                             android:layout_marginBottom="25dp"
                             android:fontFamily="@font/hyliaserifbetaregular"
                             android:paddingBottom="10dp"
-                            android:text="83.00%"
+                            android:text="83.00 %"
                             android:textAlignment="textStart"
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="30sp" />
+                            android:textSize="35sp" />
+
+                        <TextView
+                            android:id="@+id/accuracyComment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="Wow!"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp" />
 
                     </androidx.cardview.widget.CardView>
 
