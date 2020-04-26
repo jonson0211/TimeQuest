@@ -170,7 +170,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(7, "How did the parasytic worms enter the bodies of the Egyptians?", "Through contaminated water", "Through contaminated food ", "Through sexual transmission ", 1, "d"));
                 trialQuiz.add(new TrialQuestion(8, "How did we try to deal with our issue of obesity?", "Exerciesed more and reduced diet ", "Took laxatives 3 times a month", "Had liposuction done", 2, "d"));
                 trialQuiz.add(new TrialQuestion(9, "What was the phrase coined by us to proctologists?", "Shepherd of the Anus", "Deposit examiner", "Anus healer", 1, "d"));
-                trialQuiz.add(new TrialQuestion(10, "How did the Egyptians believe enemas came to be?", "Dcotors came up with the concept ", "Their god developed teh enema and gave it to men as a gift ", "Ancestors had left paintings depicting what an enema does", 2, "d"));
+                trialQuiz.add(new TrialQuestion(10, "How did the Egyptians believe enemas came to be?", "Doctors came up with the concept ", "Their god developed teh enema and gave it to men as a gift ", "Ancestors had left paintings depicting what an enema does", 2, "d"));
                 break;
 
             case "North Sentinel Islander":
