@@ -13,9 +13,11 @@ import java.util.List;
 public interface BodyItemsDAO {
 
 
+    //method to insert a body item
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertBodyItem(BodyItems bodyItem);
 
+    //retrieving all body items the user has
     @Query("SELECT * FROM BodyItems")
     List<String> getBodyItems();
 }

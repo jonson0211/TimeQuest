@@ -22,10 +22,11 @@ public class User {
     @ColumnInfo(name = "progress")
     private double progress;
 
-    //progress shown in profile
+    //accuracy shown in profile
     @ColumnInfo(name = "accuracy")
     private double accuracy;
 
+    //following 3 store data on what the  user is wearing
     @ColumnInfo(name = "user_head_item")
     private String userHeadItem;
 

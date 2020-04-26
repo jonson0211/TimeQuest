@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgquiz"
+    tools:context=".ui.question.QuestionPage">
+
+
+    <TextView
+        android:id="@+id/tvTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="Civilisation"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barQuestionTime" />
+
+    <Button
+        android:id="@+id/buttonConfirm"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:background="@drawable/quiz_button"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="CONFIRM"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioG" />
+
+    <ImageView
+        android:id="@+id/ivNPC"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonConfirm"
+        tools:ignore="UnknownId"
+        tools:src="@drawable/npcspartan" />
+
+    <ProgressBar
+        android:id="@+id/barQuestionTime"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:progressDrawable="@drawable/progressbar_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="30"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/barQuestionTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barQuestionTime" />
+
+    <RadioGroup
+        android:id="@+id/radioG"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="180dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barQuestionTime">
+
+        <RadioButton
+            android:id="@+id/buttonA"
+            android:layout_width="698dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/quiz_buttons"
+            android:button="@null"
+            android:fontFamily="serif"
+            android:gravity="center|center_horizontal"
+            android:paddingStart="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:radius="15dip"
+            android:text="Option 1" />
+
+        <RadioButton
+            android:id="@+id/buttonB"
+            android:layout_width="698dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/quiz_buttons"
+            android:button="@null"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:paddingStart="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:radius="15dip"
+            android:text="Option 2" />
+
+        <RadioButton
+            android:id="@+id/buttonC"
+            android:layout_width="698dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dip"
+            android:background="@drawable/quiz_buttons"
+            android:button="@null"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:paddingStart="2dp"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="2dp"
+            android:radius="15dp"
+            android:text="Option 3"
+            android:textSize="13sp" />
+    </RadioGroup>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:clickable="false"
+        android:max="10"
+        android:progress="1"
+        android:progressDrawable="@drawable/seekbar"
+        android:thumb="@drawable/ic_chevron_right_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConfirm" />
+
+    <ImageView
+        android:id="@+id/treasureicon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seekBar"
+        app:srcCompat="@drawable/ic_treasure" />
+
+    <ImageView
+        android:id="@+id/mapicon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seekBar"
+        app:srcCompat="@drawable/ic_map" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="Question "
+        android:textColor="@color/colorAltAccentLightOrange"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTopic" />
+
+    <TextView
+        android:id="@+id/tvQuestionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="1"
+        android:textColor="@color/colorAltAccentLightOrange"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="/10"
+        android:textColor="@color/colorAltAccentLightOrange"
+        app:layout_constraintStart_toEndOf="@+id/tvQuestionNumber"
+        app:layout_constraintTop_toTopOf="@+id/tvQuestionNumber" />
+
+    <TextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="659dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="serif"
+        android:text="Loading..."
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:autoSizeMaxTextSize="25sp"
+        app:autoSizeMinTextSize="18sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/radioG"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/scoreTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="Score"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="@+id/barQuestionTime"
+        app:layout_constraintTop_toTopOf="@+id/tvTopic" />
+
+    <TextView
+        android:id="@+id/tvScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="27dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="10"
+        android:textColor="@color/colorAltAccentLightOrange"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTV" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivNPC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivNPC">
+
+        <ImageView
+            android:id="@+id/userBody"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/userHead"
+            app:srcCompat="@drawable/bodydefault" />
+
+        <ImageView
+            android:id="@+id/userHand"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/userHead"
+            app:layout_constraintStart_toStartOf="@+id/userBody"
+            app:layout_constraintTop_toBottomOf="@+id/userHead"
+            app:srcCompat="@drawable/itemdefault" />
+
+        <ImageView
+            android:id="@+id/userHead"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/headdefault" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

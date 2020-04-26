@@ -91,6 +91,7 @@ public class TrialQuestion {
         this.quizBackground = quizBackground;
     }
 
+    //quiz bank data
     public static ArrayList<TrialQuestion> getTrialQuiz(String civilisation) {
         ArrayList<TrialQuestion> trialQuiz = new ArrayList<>();
         switch (civilisation) {

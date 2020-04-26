@@ -129,6 +129,8 @@ public class NPC {
         this.perfectSpeech = perfectSpeech;
     }
 
+
+    //NPC data
     public static ArrayList<NPC> addNPCData(){
         ArrayList<NPC> npcs = new ArrayList<>();
         npcs.add(new NPC(1, "Spartan Warrior",

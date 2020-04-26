@@ -29,9 +29,11 @@ public interface EraDAO {
     @Query("UPDATE era SET eraNotes = :notes WHERE eraName = :name")
     public void updateNotes(String notes, String name);
 
+    //method to get the user's notes for a specific ra
     @Query("SELECT eraNotes FROM era WHERE eraName = :name")
     public String getEraNotes(String name);
 
+    //getting all the names of each era
     @Query("SELECT eraName FROM era")
     public List<String> getEraName();
 

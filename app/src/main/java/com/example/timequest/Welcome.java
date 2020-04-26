@@ -52,6 +52,7 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //calls the validateFields method and if it passes, insert sample data into database
 
                 if (validateFields() == true) {
                     try{
@@ -95,6 +96,7 @@ public class Welcome extends AppCompatActivity {
 
     }
 
+    //method to check if the user is inputting a value at all
     private boolean validateFields() {
         int yourDesiredLength = 1;
         if (nameEt.getText().length() < yourDesiredLength) {

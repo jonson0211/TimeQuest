@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgintro6"
+    tools:context=".ui.question.Achievement">
+
+    <ImageView
+        android:id="@+id/npcCharacter"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvOutcome"
+        app:layout_constraintEnd_toStartOf="@+id/constraintLayout3"
+        tools:srcCompat="@drawable/npcspartan" />
+
+    <Button
+        android:id="@+id/bHome"
+        android:layout_width="165dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/quiz_buttons"
+        android:fontFamily="@font/pokemonfont"
+        android:text="Take me home!"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvOutcome"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bContinue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/npcCharacter">
+
+        <ImageView
+            android:id="@+id/userBody"
+            android:layout_width="156dp"
+            android:layout_height="168dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/userHead"
+            app:srcCompat="@drawable/bodydefault" />
+
+        <ImageView
+            android:id="@+id/userHead"
+            android:layout_width="108dp"
+            android:layout_height="96dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.765"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/headdefault" />
+
+        <ImageView
+            android:id="@+id/userHand"
+            android:layout_width="171dp"
+            android:layout_height="173dp"
+            app:layout_constraintBottom_toBottomOf="@+id/userHead"
+            app:layout_constraintEnd_toEndOf="@+id/userHead"
+            app:layout_constraintHorizontal_bias="0.456"
+            app:layout_constraintStart_toEndOf="@+id/userHead"
+            app:layout_constraintTop_toBottomOf="@+id/userHead"
+            app:layout_constraintVertical_bias="0.485"
+            app:srcCompat="@drawable/itemdefault" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintComplete"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textviewbg"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintCompletePerfect"
+        android:layout_width="250dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textviewbg"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
+        android:text="Sometime later..."
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivPrize"
+        android:layout_width="81dp"
+        android:layout_height="78dp"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintComplete"
+        app:layout_constraintEnd_toEndOf="@+id/constraintCompletePerfect"
+        app:layout_constraintStart_toStartOf="@+id/constraintCompletePerfect"
+        app:layout_constraintTop_toTopOf="@+id/constraintComplete"
+        app:srcCompat="@drawable/itemspartanwarrior" />
+
+    <ImageView
+        android:id="@+id/ivPrize2"
+        android:layout_width="81dp"
+        android:layout_height="78dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPrize"
+        app:layout_constraintEnd_toStartOf="@+id/ivPrize"
+        app:layout_constraintTop_toTopOf="@+id/ivPrize"
+        app:srcCompat="@drawable/iconheadspartan" />
+
+    <ImageView
+        android:id="@+id/ivPrize3"
+        android:layout_width="81dp"
+        android:layout_height="78dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPrize"
+        app:layout_constraintStart_toEndOf="@+id/ivPrize"
+        app:layout_constraintTop_toTopOf="@+id/ivPrize"
+        app:srcCompat="@drawable/iconbodyspartan" />
+
+    <TextView
+        android:id="@+id/tvOutcome"
+        android:layout_width="727dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:alpha="0.9"
+        android:background="@color/colorPrimaryDark"
+        android:fontFamily="@font/pokemonfont"
+        android:letterSpacing="0.03"
+        android:lineSpacingExtra="10dp"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
+        android:scrollbars="vertical"
+        android:text="Loading..."
+        android:textColor="@color/colorPrimaryWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
