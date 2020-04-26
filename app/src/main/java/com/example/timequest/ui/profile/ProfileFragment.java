@@ -71,14 +71,14 @@ public class ProfileFragment extends Fragment {
             accuracy.setTextColor(getResources().getColor(R.color.colorPrimary));
             accuracyComment.setText("Not bad...");
         }else if(accuracyValue< 34){accuracy.setTextColor(getResources().getColor(R.color.colorAltAccentRed));
-        accuracyComment.setText("Really?");}
+        accuracyComment.setText("Really??");}
 
         String username = db.userDAO().getUserName();
         tvProfileName.setText(username);
 
-        tvComplete = root.findViewById(R.id.tvComplete);
-        tvIncomplete = root.findViewById(R.id.tvIncomplete);
-        tvPerfect = root.findViewById(R.id.tvPerfect);
+        //tvComplete = root.findViewById(R.id.tvComplete);
+        //tvIncomplete = root.findViewById(R.id.tvIncomplete);
+        //tvPerfect = root.findViewById(R.id.tvPerfect);
 
 
 

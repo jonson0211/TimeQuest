@@ -1,5 +1,6 @@
 package com.example.timequest;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -32,6 +33,10 @@ public class NotesDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_detail);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
+        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionbar.setCustomView(R.layout.abs_layout);
 
         //Set up page elements
         noteTitle = findViewById(R.id.noteTitle2);

@@ -14,8 +14,10 @@
         android:background="@drawable/bgwelcome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:id="@+id/imageView15"
@@ -52,7 +54,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/sphinx" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -147,10 +148,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time Quest"
-        android:textColor="#9F5A06"
+        android:textColor="@color/colorPrimaryWhite"
         android:textSize="46sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/medievalsharp"
+        app:fontFamily="@font/hyliaserifbetaregular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -172,10 +172,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Enter your name:"
-        android:textColor="#491F15"
+        android:textColor="@color/colorPrimaryWhite"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/medievalsharp"
+        app:fontFamily="@font/hyliaserifbetaregular"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -187,13 +186,13 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="5dp"
-        android:background="@drawable/quiz_button"
+        android:background="@drawable/quiz_buttons"
+        android:fontFamily="@font/hyliaserifbetaregular"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="BEGIN ADVENTURE"
         android:textAlignment="center"
         android:textColor="#491F15"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/etName"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="@+id/etName"
@@ -205,7 +204,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ems="12"
+        android:fontFamily="@font/hyliaserifbetaregular"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryWhite"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="@+id/textView2"

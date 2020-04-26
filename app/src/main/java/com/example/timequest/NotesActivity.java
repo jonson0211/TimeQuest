@@ -1,5 +1,6 @@
 package com.example.timequest;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,10 @@ public class NotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notes);
         notesList = findViewById(R.id.rvListNotes);
         notesList.setHasFixedSize(true);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
+        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionbar.setCustomView(R.layout.abs_layout);
 
 
 

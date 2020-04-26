@@ -28,7 +28,15 @@
         android:id="@+id/appbar"
 
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="150dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bannerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bannerathens" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -111,9 +119,11 @@
                 android:layout_width="175dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/quiz_buttons_selected"
-                android:fontFamily="serif"
+                android:background="@drawable/quiz_buttons"
+                android:fontFamily="@font/hyliaserifbetaregular"
                 android:text="@string/Take_trial"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/youtube_player_view" />

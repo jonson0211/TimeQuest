@@ -8,22 +8,29 @@
 
     <TextView
         android:id="@+id/instructionText"
-        android:layout_width="264dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_width="310dp"
+        android:layout_height="212dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/profile_textviewbg"
+        android:fontFamily="serif"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp"
         android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14.5sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/screenshot" />
 
     <ImageView
         android:id="@+id/screenshot"
         android:layout_width="195dp"
-        android:layout_height="261dp"
-        android:layout_marginBottom="72dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/buttons" />
+        android:layout_height="190dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/instructionText"
+        app:layout_constraintStart_toStartOf="@+id/instructionText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/appscreenshotprofile" />
 </androidx.constraintlayout.widget.ConstraintLayout>

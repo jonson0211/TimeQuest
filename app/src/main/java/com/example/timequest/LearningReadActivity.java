@@ -1,6 +1,7 @@
 package com.example.timequest;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -46,12 +47,17 @@ public class LearningReadActivity extends AppCompatActivity {
     private MediaController mediaController;
     private FloatingActionButton notesFloatingButton;
     private Era mERA;
+    private View bannerView;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning_read);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
+        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionbar.setCustomView(R.layout.abs_layout);
 
         Integer NPCID = getIntent().getIntExtra("LEARNING",0);
                Log.d(TAG, "on getIntent success:" + NPCID);
@@ -83,6 +89,10 @@ public class LearningReadActivity extends AppCompatActivity {
         videoView = findViewById(R.id.videoView);
         Button takeTrial = findViewById(R.id.takeTrial);
         notesFloatingButton = findViewById(R.id.notesFloatingButton);
+        bannerView = findViewById(R.id.bannerView);
+
+        int bannerResource = getResources().getIdentifier(mNPC.getBannerID(),"drawable", getPackageName());
+        bannerView.setBackgroundResource(bannerResource);
 
         notesFloatingButton.setOnClickListener(new OnClickListener() {
             @Override

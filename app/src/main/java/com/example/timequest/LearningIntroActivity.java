@@ -34,6 +34,8 @@ public class LearningIntroActivity extends AppCompatActivity {
 
         ActionBar actionbar = getSupportActionBar();
         actionbar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient));
+        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionbar.setCustomView(R.layout.abs_layout);
 
         db = AppDatabase.getInstance(getApplicationContext());
 

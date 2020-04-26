@@ -157,13 +157,21 @@ tvSelectedMode.setText(level);
     public String shuffleNames(){
 
         mEra = db.eraDAO().getEraName();
-
+        mEra = db.eraDAO().getEraName();
+        Log.d(TAG, "getEraName success:" + db.eraDAO().getEraName().toString());
         //String[] names = new String[]{"spartan", "qing", "athenian","cossack", "roman", "sentinel", "viking", "neanderthal"};
+        String[] eraNames = new String[]{"Spartan Army", "Qing Dynasty","Cossack Warriors", "Roman Legionnaire", "North Sentinel Islanders"
+                ,"Vikings","Neanderthals","Ancient Athenians","Ancient Egyptians","Normans"};
+        List<String> nameList = Arrays.asList(eraNames);
+        Collections.shuffle(nameList);
+        String name = nameList.get(0);
 
-        Collections.shuffle(mEra);
+        //Collections.shuffle(mEra);
 
-        String name = mEra.get(0);//(String) Array.get(mEra, 0);
-        Log.d(TAG, name);
+        //String name = mEra.get(0);//(String) Array.get(mEra, 0);
+        //Log.d(TAG, name);
+        //String name = "Spartan Army";
+
         return name;
         }
 

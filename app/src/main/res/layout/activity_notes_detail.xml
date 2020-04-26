@@ -6,13 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".NotesDetail">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="@drawable/welcomebg">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <Button
         android:id="@+id/saveNotesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/buttons"
+        android:background="@drawable/quiz_buttons"
+        android:fontFamily="@font/hyliaserifbetaregular"
         android:text="Save"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="@+id/editNotes"
         app:layout_constraintStart_toStartOf="@+id/editNotes"
         app:layout_constraintTop_toBottomOf="@+id/editNotes" />
@@ -21,11 +31,11 @@
         android:id="@+id/noteTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/medievalsharp"
+        android:layout_marginStart="25dp"
+        android:fontFamily="@font/hyliaserifbetaregular"
         android:text="Note Title"
-        android:textColor="#FF9E500C"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.052"
@@ -35,12 +45,21 @@
 
     <EditText
         android:id="@+id/editNotes"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="403dp"
-        android:background="@drawable/era_list"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/profile_textviewbg"
         android:ems="10"
+        android:fontFamily="serif"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/noteTitle2"
         app:layout_constraintTop_toBottomOf="@+id/noteTitle2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
