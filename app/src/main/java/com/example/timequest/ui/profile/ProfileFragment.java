@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class ProfileFragment extends Fragment {
     private TextView tvProfileName;
     private User mUser;
     private TextView tvIncomplete, tvComplete, tvPerfect, accuracyComment;
+    private ImageView userHead, userBody, userHand;
     private static final String TAG = "ProfileFragment";
 
     public static AppDatabase db;
@@ -55,6 +57,15 @@ public class ProfileFragment extends Fragment {
         accuracyComment = root.findViewById(R.id.accuracyComment);
 
         db = AppDatabase.getInstance(getContext());
+
+
+        userHead = root.findViewById(R.id.userHead);
+        userBody = root.findViewById(R.id.userBody);
+        userHand = root.findViewById(R.id.userHand);
+
+        userHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(), "drawable", "com.example.timequest"));
+        userBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(), "drawable", "com.example.timequest"));
+        userHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(), "drawable", "com.example.timequest"));
 
         //Retrieve and display user accuracy
         DecimalFormat df = new DecimalFormat("#.##");
