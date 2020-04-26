@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 
 import com.example.timequest.Adapters.EraAdapter;
 import com.example.timequest.Entities.Era;
-import com.example.timequest.ui.Fragments.Test1;
 import com.example.timequest.ui.Fragments.Featured;
 import com.example.timequest.ui.home.HomeFragment;
 import com.example.timequest.ui.profile.ProfileFragment;

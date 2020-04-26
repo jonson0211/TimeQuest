@@ -109,20 +109,20 @@ public class TrialQuestion {
                 break;
 
             case "Roman Legionary":
-                trialQuiz.add(new TrialQuestion(1, "How big are our Legions typically?", "6000 men", "300 men","10000 men",1,"d"));
-                trialQuiz.add(new TrialQuestion(2, "Why is it beneficial to have men of similar height be in the Legionnaire?", "To make the tortoise formation more consistent, thereby more formidable", "To promote equality within the Legionnaire","To make it harder to differentiate between the soldiers, thereby confusing the enemy", 1, "d"));
-                trialQuiz.add(new TrialQuestion(3, "Which of the following is NOT true?", "A single Roman legion once faced off against a horde of 25000 Germanic barbarians and won", "You do not need to be a Roman citizen to join the Legionnaire","To join the Legionnaire, you would need to be at least 5 and a half feet tall",2,"d"));
-                trialQuiz.add(new TrialQuestion(4, "How were non-Legions repaid for their service?", "Receive pension and a plot of land after 25 years of service", "Gain Roman citizenship only","Earn a pension at the end of service and Roman citizenship",3,"d"));
-                trialQuiz.add(new TrialQuestion(5, "Why is it beneficial to have harsh penalties for Legion infrations?", "To ensure that Legions are properly operating and monitoring borders of dangerous territories", "To filter out as many underperforming Legions as possible to maintain quality","To promote equality between all Legions to ensure that motivations are consistent",1,"d"));
-                trialQuiz.add(new TrialQuestion(6, "What was the Legion scutum (body shield) made out of?", "Layered iron armour", "Canvas and Leather covering iron armour","Layered wood covered by canvas and leather",3,"d"));
-                trialQuiz.add(new TrialQuestion(7, "Which of the following is TRUE?", "Skills of Legion prior to joining military dictate the additional assigned duties ", "Legions have a rotation system so that all members experience each duty","Non-legion members perform the additional duties, allowing the Legions to focus on enhancing their physical strength",1,"d"));
-                trialQuiz.add(new TrialQuestion(8, "What made Legion attack strategy so successful?", "Limited scouting, close coordination and attacking first with light infantry ", "Heavy scouting, close coordination and attacking first with light infantry","Limited scouting, attacking first with heavy calvary and then light infantry to fight enemy wings",2,"d"));
-                trialQuiz.add(new TrialQuestion(9, "What is NOT a benefit of the Legionnaire's defensive encampments?", "Excavated ditch surrounding camp provided an obstacle for enemies to attack", "Allows Legions to get closer to the enemy camp without being seen","High vantage point of encampment towers allowed Legions to shoot arrows at enemies from above",2,"d"));
-                trialQuiz.add(new TrialQuestion(10, "Outside of fighting, what were some rules that Legions had to follow?", "All battlefield spoils were to be equally distributed amongst Legions and could be solf for personal profit", "Legions were strictly not allowed to see any outside members when at an alternate garrison","Legions were forbidden from marrying and having families unless a senior officer or general",3,"d"));
+                trialQuiz.add(new TrialQuestion(1, "How big are our Legions typically?", "6000 men", "300 men", "10000 men", 1, "d"));
+                trialQuiz.add(new TrialQuestion(2, "Why is it beneficial to have men of similar height be in the Legionnaire?", "To make the tortoise formation more consistent, thereby more formidable", "To promote equality within the Legionnaire", "To make it harder to differentiate between the soldiers, thereby confusing the enemy", 1, "d"));
+                trialQuiz.add(new TrialQuestion(3, "Which of the following is NOT true?", "A single Roman legion once faced off against a horde of 25000 Germanic barbarians and won", "You do not need to be a Roman citizen to join the Legionnaire", "To join the Legionnaire, you would need to be at least 5 and a half feet tall", 2, "d"));
+                trialQuiz.add(new TrialQuestion(4, "How were non-Legions repaid for their service?", "Receive pension and a plot of land after 25 years of service", "Gain Roman citizenship only", "Earn a pension at the end of service and Roman citizenship", 3, "d"));
+                trialQuiz.add(new TrialQuestion(5, "Why is it beneficial to have harsh penalties for Legion infrations?", "To ensure that Legions are properly operating and monitoring borders of dangerous territories", "To filter out as many underperforming Legions as possible to maintain quality", "To promote equality between all Legions to ensure that motivations are consistent", 1, "d"));
+                trialQuiz.add(new TrialQuestion(6, "What was the Legion scutum (body shield) made out of?", "Layered iron armour", "Canvas and Leather covering iron armour", "Layered wood covered by canvas and leather", 3, "d"));
+                trialQuiz.add(new TrialQuestion(7, "Which of the following is TRUE?", "Skills of Legion prior to joining military dictate the additional assigned duties ", "Legions have a rotation system so that all members experience each duty", "Non-legion members perform the additional duties, allowing the Legions to focus on enhancing their physical strength", 1, "d"));
+                trialQuiz.add(new TrialQuestion(8, "What made Legion attack strategy so successful?", "Limited scouting, close coordination and attacking first with light infantry ", "Heavy scouting, close coordination and attacking first with light infantry", "Limited scouting, attacking first with heavy calvary and then light infantry to fight enemy wings", 2, "d"));
+                trialQuiz.add(new TrialQuestion(9, "What is NOT a benefit of the Legionnaire's defensive encampments?", "Excavated ditch surrounding camp provided an obstacle for enemies to attack", "Allows Legions to get closer to the enemy camp without being seen", "High vantage point of encampment towers allowed Legions to shoot arrows at enemies from above", 2, "d"));
+                trialQuiz.add(new TrialQuestion(10, "Outside of fighting, what were some rules that Legions had to follow?", "All battlefield spoils were to be equally distributed amongst Legions and could be solf for personal profit", "Legions were strictly not allowed to see any outside members when at an alternate garrison", "Legions were forbidden from marrying and having families unless a senior officer or general", 3, "d"));
                 break;
 
             case "Neanderthal":
-                trialQuiz.add(new TrialQuestion(1,"Which of the following statements is true about Neandertals?", "Neandertals had relatively large brow ridges and nose with low sloping foreheads", "Neandertals had smaller than average brains compared to that of the modern human", "Neandertals are less intelligent than modern animals and cannot understand abstract concepts",1, "d"));
+                trialQuiz.add(new TrialQuestion(1, "Which of the following statements is true about Neandertals?", "Neandertals had relatively large brow ridges and nose with low sloping foreheads", "Neandertals had smaller than average brains compared to that of the modern human", "Neandertals are less intelligent than modern animals and cannot understand abstract concepts", 1, "d"));
                 trialQuiz.add(new TrialQuestion(2, "What did Neandertals ingest to avoid sickness?", "Mammoth meat", "Lichens and mosses", "Unpleasant fungus", 3, "d"));
                 trialQuiz.add(new TrialQuestion(3, "How did Neandertals draw and leave imprints on cave walls?", "Mixing vegetable pigment, blood and dirt", "Mixing mammoth fat with dirt and blood", "Mixing dried reed with dirt and blood", 2, "d"));
                 trialQuiz.add(new TrialQuestion(4, "Which areas did the Neanderthals inhabit?", "Between Europe's Altantic Coast and Central Asia", "The Americas", "Asia", 1, "d"));
@@ -147,7 +147,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(10, "Why were axes the preferred weapon?", "Axes were far easier to make and doubled as a farm tool", "They seemed more manly than other weapons", "You could throw axes but not weapons such as a sword", 1, "d"));
                 break;
 
-            case"Qing Eunuch":
+            case "Qing Eunuch":
                 trialQuiz.add(new TrialQuestion(1, "At what age did Emperor Qing come into power?", "6", "13", "18", 2, "d"));
                 trialQuiz.add(new TrialQuestion(2, "What was the primary purpose in having the terracotta warriors built?", "Because the Qin Dynasty loved arts and crafts", "It was a tradition passed through generations", "Emperor Qin wanted an army to accompany him into his next life so he can continue ruling", 3, "d"));
                 trialQuiz.add(new TrialQuestion(3, "What did the empty 4th chamber of the necropolis suggest?", "Emperor Qin used an empty room for meditating", "Emperor Qin died before the completion of the project", "It was for his wives", 2, "d"));
@@ -173,7 +173,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(10, "How did the Egyptians believe enemas came to be?", "Dcotors came up with the concept ", "Their god developed teh enema and gave it to men as a gift ", "Ancestors had left paintings depicting what an enema does", 2, "d"));
                 break;
 
-            case"North Sentinel Islander":
+            case "North Sentinel Islander":
                 trialQuiz.add(new TrialQuestion(1, "Where is the North Sentinel Island located?", "West of the other Andaman Islands", "East of the other Andaman Islands", "North of the other Andaman Islands", 1, "d"));
                 trialQuiz.add(new TrialQuestion(2, "Around how long have we been isolated from the rest of the world?", "1000 years", "15000 years", "60000 years", 2, "d"));
                 trialQuiz.add(new TrialQuestion(3, "What are we experts at?", "Making fire", "Agriculture", "Hunting", 3, "d"));
@@ -225,149 +225,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(10, "You are an Ancient Athenian citizen if:", "You're a native born male with foreign parents", "Your father is Athenian, your mother can be foreign or Athenian", "You are a male with Athenian parents", 3, "d"));
                 break;
         }
-                return trialQuiz;
+        return trialQuiz;
 
     }
 }
-
-
-    /**
-    public static ArrayList<TrialQuestion> spartanTrial(){
-        ArrayList<TrialQuestion> spartanQuestions = new ArrayList<>();
-        spartanQuestions.add(new TrialQuestion(1, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(2, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(3, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(4, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(5, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(6, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(7, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(8, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(9, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        spartanQuestions.add(new TrialQuestion(10, "Spartan Army", "banner1", "background1","Incomplete",1,"d"));
-        return spartanQuestions;
-    }
-
-    public static ArrayList<TrialQuestion> nslTrial(){
-        ArrayList<TrialQuestion> nslQuestions = new ArrayList<>();
-        nslQuestions.add(new TrialQuestion(1, "NSL", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(2, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(3, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(4, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(5, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(6, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(7, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(8, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(9, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        nslQuestions.add(new TrialQuestion(10, "NSL Army", "banner1", "background1","Incomplete",1,"d"));
-        return nslQuestions;
-    }
-
-    public static ArrayList<TrialQuestion> romanTrial(){
-        ArrayList<TrialQuestion> romanQuestions = new ArrayList<>();
-        romanQuestions.add(new TrialQuestion(1, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(2, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(3, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(4, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(5, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(6, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(7, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(8, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(9, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        romanQuestions.add(new TrialQuestion(10, "Roman Army", "banner1", "background1","Incomplete",1,"d"));
-        return romanQuestions;
-    }
-
-    public static ArrayList<TrialQuestion> athenianTrial(){
-        ArrayList<TrialQuestion> athenianQuestions = new ArrayList<>();
-        athenianQuestions.add(new TrialQuestion(1, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(2, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(3, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(4, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(5, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(6, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(7, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(8, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(9, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        athenianQuestions.add(new TrialQuestion(10, "Athenian Army", "banner1", "background1","Incomplete",1,"d"));
-        return athenianQuestions;
-    }
-
-    public static ArrayList<TrialQuestion> normanTrial(){
-        ArrayList<TrialQuestion> normanQuestions = new ArrayList<>();
-        normanQuestions.add(new TrialQuestion(1, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(2, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(3, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(4, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(5, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(6, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(7, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(8, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(9, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        normanQuestions.add(new TrialQuestion(10, "Norman Army", "banner1", "background1","Incomplete",1,"d"));
-        return normanQuestions;
-    }
-
-    public static ArrayList<TrialQuestion> cossackTrial(){
-        ArrayList<TrialQuestion> cossackQuestions = new ArrayList<>();
-        cossackQuestions.add(new TrialQuestion(1, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(2, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(3, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(4, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(5, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(6, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(7, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(8, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(9, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        cossackQuestions.add(new TrialQuestion(10, "Cossack Army", "banner1", "background1","Incomplete",1,"d"));
-        return cossackQuestions;
-    }
-
-    public static ArrayList<TrialQuestion> neanderthalTrial(){
-        ArrayList<TrialQuestion> neanderthalQuestions = new ArrayList<>();
-        neanderthalQuestions.add(new TrialQuestion(1, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(2, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(3, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(4, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(5, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(6, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(7, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(8, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(9, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        neanderthalQuestions.add(new TrialQuestion(10, "neanderthal Army", "banner1", "background1","Incomplete",1,"d"));
-        return neanderthalQuestions;
-    }
-
-    public static ArrayList<TrialQuestion> qingTrial(){
-        ArrayList<TrialQuestion> qingQuestions = new ArrayList<>();
-        qingQuestions.add(new TrialQuestion(1, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(2, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(3, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(4, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(5, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(6, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(7, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(8, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(9, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        qingQuestions.add(new TrialQuestion(10, "Qing Army", "banner1", "background1","Incomplete",1,"d"));
-        return qingQuestions;
-    }
-
-    public static ArrayList<TrialQuestion> vikingTrial(){
-        ArrayList<TrialQuestion> vikingQuestions = new ArrayList<>();
-        vikingQuestions.add(new TrialQuestion(1, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(2, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(3, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(4, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(5, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(6, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(7, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(8, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(9, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        vikingQuestions.add(new TrialQuestion(10, "Viking Army", "banner1", "background1","Incomplete",1,"d"));
-        return vikingQuestions;
-    }
-
-
-
-
-} **/

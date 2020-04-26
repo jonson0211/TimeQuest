@@ -1,11 +1,12 @@
 package com.example.timequest.TriviaEntities;
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Result {
-
+    //Trivia entities have been converted into Java classes using http://www.jsonschema2pojo.org/
     @SerializedName("category")
     @Expose
     private String category;
