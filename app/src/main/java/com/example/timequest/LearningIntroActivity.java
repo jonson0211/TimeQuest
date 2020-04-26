@@ -42,8 +42,8 @@ public class LearningIntroActivity extends AppCompatActivity {
         Intent intent = getIntent();
         //Position is going to equal to the value derived from the recyclerview list (integer)
         int position = intent.getIntExtra(String.valueOf(HomeFragment.EXTRA_MESSAGE), 0);
+        Log.d(TAG, "on getIntent success:" + position);
 
-        Log.d(TAG, "on getIntent success:"  +position);
         Button bContinue = findViewById(R.id.bContinue);
         ImageView npcCharacter = findViewById(R.id.npcCharacter);
         ImageView userHead = findViewById(R.id.userHead);
@@ -54,13 +54,12 @@ public class LearningIntroActivity extends AppCompatActivity {
         TextView tvYear = findViewById(R.id.tvYear);
         TextView tvLearningTitle = findViewById(R.id.tvLearningTitle);
 
-        userHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
-        userBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(),"drawable","com.example.timequest"));
-        userHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(),"drawable", "com.example.timequest"));
+        userHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(), "drawable", "com.example.timequest"));
+        userBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(), "drawable", "com.example.timequest"));
+        userHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(), "drawable", "com.example.timequest"));
 
 
         //This grabs the civilisation from RV and retrieves from our NPC class.
-        // Change hardcoded "0" to variable position based on recyclerview
         mERA = Era.addEraData().get(position);
         mNPC = NPC.addNPCData().get(position);
         String civilisation = mNPC.getNpcName();
@@ -68,42 +67,30 @@ public class LearningIntroActivity extends AppCompatActivity {
         String eraName = mERA.getEraName();
         String eraYear = mERA.getEraYear();
 
-
         //Set all objects based on NPC class and RV intent
         tvWelcomeMessage.setText(mNPC.getWelcomeSpeech());
         tvWelcomeMessage.setMovementMethod(new ScrollingMovementMethod()); //scrolling
         tvLearningTitle.setText(mERA.getEraName());
         tvYear.setText(mERA.getEraYear());
 
-
         npcCharacter = findViewById(R.id.npcCharacter);
 
-        int npcCharacterResource = getResources().getIdentifier(mNPC.getNpcAvatar(),"drawable", getPackageName());
+        int npcCharacterResource = getResources().getIdentifier(mNPC.getNpcAvatar(), "drawable", getPackageName());
         npcCharacter.setImageResource(npcCharacterResource);
-
-
-        //to do: link user character to the other image view
 
         bContinue.setOnClickListener(v -> {
             launchLearningReadActivity(NPCID, eraName);
             Log.d(TAG, "on launch activity success:" + NPCID);
-
         });
-
     }
 
-    private void launchLearningReadActivity(Integer NPCID, String eraName){
+    private void launchLearningReadActivity(Integer NPCID, String eraName) {
         Intent intent1 = new Intent(this, LearningReadActivity.class);
         intent1.putExtra("LEARNING", NPCID);
-
         Intent intent2 = new Intent(this, LearningReadActivity.class);
         intent1.putExtra("ERA", eraName);
 
-        Log.d(TAG, "on putExtra Learning success:"  + NPCID);
+        Log.d(TAG, "on putExtra Learning success:" + NPCID);
         startActivity(intent1);
-        Log.d(TAG, "on startRead activity success:"  + intent1);
-
-
-
     }
 }

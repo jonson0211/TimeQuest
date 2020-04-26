@@ -19,7 +19,6 @@ import java.util.List;
 
 public class CustomiseActivity extends AppCompatActivity implements View.OnClickListener {
 
-   // private ImageView ivCharacter;
     private ImageView ivHead;
     private ImageView ivBody;
     private ImageView ivHand;
@@ -32,13 +31,11 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
     private Button bodyBackButton;
     private Button handNextButton;
     private Button handBackButton;
-
     private Button saveButton;
 
     public List<String> headItems;
     public List<String> bodyItems;
     public List<String> handItems;
-
 
     int headCounter = 0;
     int bodyCounter = 0;
@@ -47,10 +44,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
     List<Integer> bodyIDList = new ArrayList<Integer>();
     List<Integer> handIDList = new ArrayList<Integer>();
 
-
     public static AppDatabase db;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +57,10 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
 
         db = AppDatabase.getInstance(getApplicationContext());
 
-
         //fill arraylists with database items
         headItems = db.headItemsDAO().getHeadItems();
         bodyItems = db.bodyItemsDAO().getBodyItems();
         handItems = db.handItemsDAO().getHandItems();
-
 
         //ivCharacter = findViewById(R.id.ivCharacter);
         ivHead = findViewById(R.id.ivHead);
@@ -80,14 +72,12 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
         userHand = findViewById(R.id.userHand);
 
         //set images based on what user is currently wearing
-        userHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
-        userBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(),"drawable","com.example.timequest"));
-        userHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(),"drawable", "com.example.timequest"));
-        ivHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(),"drawable", "com.example.timequest"));
-        ivBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(),"drawable","com.example.timequest"));
-        ivHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(),"drawable", "com.example.timequest"));
-
-
+        userHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(), "drawable", "com.example.timequest"));
+        userBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(), "drawable", "com.example.timequest"));
+        userHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(), "drawable", "com.example.timequest"));
+        ivHead.setImageResource(getResources().getIdentifier(db.userDAO().getHeadItem(), "drawable", "com.example.timequest"));
+        ivBody.setImageResource(getResources().getIdentifier(db.userDAO().getBodyItem(), "drawable", "com.example.timequest"));
+        ivHand.setImageResource(getResources().getIdentifier(db.userDAO().getHandItem(), "drawable", "com.example.timequest"));
 
         headNextButton = findViewById(R.id.headNextButton);
         headNextButton.setOnClickListener(this);
@@ -112,45 +102,36 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-
         //fill arraylists of identifiers
-        for(int i = 0; i < headItems.size(); i++)
-        {
+        for (int i = 0; i < headItems.size(); i++) {
             int headID = getResources().getIdentifier(String.valueOf(headItems.get(i)), "drawable", getPackageName());
             headIDList.add(headID);
         }
-
-        for(int i = 0; i < bodyItems.size(); i++)
-        {
+        for (int i = 0; i < bodyItems.size(); i++) {
             int bodyID = getResources().getIdentifier(String.valueOf(bodyItems.get(i)), "drawable", getPackageName());
             bodyIDList.add(bodyID);
         }
 
-        for(int i = 0; i < handItems.size(); i++)
-        {
+        for (int i = 0; i < handItems.size(); i++) {
             int handID = getResources().getIdentifier(String.valueOf(handItems.get(i)), "drawable", getPackageName());
             handIDList.add(handID);
         }
 
 
-
     }
 
-
-
+    //Switch block to efficiently handle so many buttons (6) at once, without the need to put onClick listeners for all.
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
-
             case R.id.headNextButton:
 
-                if(headCounter < headItems.size()-1) {
+                if (headCounter < headItems.size() - 1) {
                     headCounter++;
-                }else if
-               (headCounter == headItems.size()-1){
+                } else if
+                (headCounter == headItems.size() - 1) {
                     headCounter = 0;
-            }
+                }
 
                 //set images
                 ivHead.setImageResource(headIDList.get(headCounter));
@@ -162,21 +143,21 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
 
             case R.id.headBackButton:
 
-                if(headCounter > 0) {
+                if (headCounter > 0) {
                     headCounter--;
-                }else if(headCounter == 0) {
-                    headCounter = headIDList.size()-1;
-        }
+                } else if (headCounter == 0) {
+                    headCounter = headIDList.size() - 1;
+                }
                 ivHead.setImageResource(headIDList.get(headCounter));
                 userHead.setImageResource(headIDList.get(headCounter));
                 db.userDAO().changeHeadItem(String.valueOf(headIDList.get(headCounter)));
                 break;
 
             case R.id.bodyNextButton:
-                if(bodyCounter < bodyIDList.size()-1) {
+                if (bodyCounter < bodyIDList.size() - 1) {
                     bodyCounter++;
-                }else if
-                (bodyCounter == bodyIDList.size()-1){
+                } else if
+                (bodyCounter == bodyIDList.size() - 1) {
                     bodyCounter = 0;
                 }
                 ivBody.setImageResource(bodyIDList.get(bodyCounter));
@@ -185,10 +166,10 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.bodyBackButton:
-                if(bodyCounter > 0) {
+                if (bodyCounter > 0) {
                     bodyCounter--;
-                }else if(bodyCounter == 0) {
-                    bodyCounter= bodyIDList.size()-1;
+                } else if (bodyCounter == 0) {
+                    bodyCounter = bodyIDList.size() - 1;
                 }
                 ivBody.setImageResource(bodyIDList.get(bodyCounter));
                 userBody.setImageResource(bodyIDList.get(bodyCounter));
@@ -196,10 +177,10 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.handNextButton:
-                if(handCounter < handIDList.size()-1) {
+                if (handCounter < handIDList.size() - 1) {
                     handCounter++;
-                }else if
-                (handCounter == handIDList.size()-1){
+                } else if
+                (handCounter == handIDList.size() - 1) {
                     handCounter = 0;
                 }
                 ivHand.setImageResource(handIDList.get(handCounter));
@@ -208,10 +189,10 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
                 break;
 
             case R.id.handBackButton:
-                if(handCounter > 0) {
+                if (handCounter > 0) {
                     handCounter--;
-                }else if(handCounter == 0) {
-                    handCounter = handIDList.size()-1;
+                } else if (handCounter == 0) {
+                    handCounter = handIDList.size() - 1;
                 }
                 ivHand.setImageResource(handIDList.get(handCounter));
                 userHand.setImageResource(handIDList.get(handCounter));
