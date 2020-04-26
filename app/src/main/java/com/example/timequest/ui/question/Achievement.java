@@ -174,7 +174,7 @@ public class Achievement extends AppCompatActivity {
 
             prize = getResources().getIdentifier(prizeID, "drawable", "com.example.timequest");
             prizeIv.setImageResource(prize);
-            db.eraDAO().updateToCompleted();
+           // db.eraDAO().updateToCompleted();
             //to do: immediately add item to user's collection in database
         } else if(score == 10){
 
@@ -279,7 +279,7 @@ public class Achievement extends AppCompatActivity {
             db.headItemsDAO().insertHeadItem(new HeadItems(itemHead));
             db.bodyItemsDAO().insertBodyItem(new BodyItems(itemBody));
 
-            db.eraDAO().updateToPerfect();
+            //db.eraDAO().updateToPerfect();
 
             prize = getResources().getIdentifier(prizeID, "drawable", "com.example.timequest");
             prize2 = getResources().getIdentifier(prize2ID, "drawable", "com.example.timequest");

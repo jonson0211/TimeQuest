@@ -65,7 +65,6 @@ public class Welcome extends AppCompatActivity {
                         db.eraDAO().insertEra(new Era( "Cossack Warriors", "banner6", "background6","Incomplete", " ","1676 AD - Present"));
                         db.eraDAO().insertEra(new Era("Neanderthals", "banner7", "background7","Incomplete", " ","400 000 BC - 40 000 BC"));
                         db.eraDAO().insertEra(new Era("Qing Dynasty", "banner8", "background8","Incomplete", " ","1636 AD- 1912 AD"));
-
                         db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", " ", "60 000 BC - Present"));
                         db.eraDAO().insertEra(new Era("Ancient Egyptians", "banner10", "background10","Incomplete", " ","3100 BC - 30 BC"));
 
