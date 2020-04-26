@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.example.timequest.AppDatabase;
 import com.example.timequest.Entities.Era;
+import com.example.timequest.Entities.NPC;
 import com.example.timequest.R;
 import com.example.timequest.TriviaEntities.Result;
 import com.example.timequest.TriviaEntities.Trivia;
@@ -81,10 +82,13 @@ public class Featured extends Fragment {
     ImageView featuredIv, headIv, handIv, bodyIv;
     TextView civilisationTv, featuredNotes;
 
+    private NPC mNPC;
 
     public static AppDatabase db;
     private List<String> mEra;
 
+    String npcCharacter;
+    String iconCharacter;
 
     public Featured() {
         // Required empty public constructor
@@ -126,9 +130,6 @@ public class Featured extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
-
 
         View view = inflater.inflate(R.layout.fragment_featured, container, false);
         //View view = rootView.getView();
@@ -186,7 +187,8 @@ tvSelectedMode.setText(level);
         protected List<Result> doInBackground(Void... voids) {
 
 
-            Retrofit retrofit = new Retrofit.Builder().baseUrl("https://opentdb.com").addConverterFactory(GsonConverterFactory.create()).build();
+            Retrofit retrofit = new Retrofit.Builder().baseUrl("https://opentdb.com")
+                    .addConverterFactory(GsonConverterFactory.create()).build();
             TriviaService triviaService = retrofit.create(TriviaService.class);
             Call<Trivia> triviasCall = triviaService.getEasyTrivia();
             try {
@@ -220,8 +222,8 @@ tvSelectedMode.setText(level);
             ((TextView) rootview.findViewById(R.id.tvWQQuestion)).setText(mResult.getQuestion());
             Log.d(TAG, "UPDATE UI: DONE");
 
-            buttonFalse.setBackgroundResource(R.drawable.buttons);
-            buttonTrue.setBackgroundResource(R.drawable.buttons);
+            buttonFalse.setBackgroundResource(R.drawable.quiz_buttons);
+            buttonTrue.setBackgroundResource(R.drawable.quiz_buttons);
             String answer = mResult.getCorrectAnswer();
 
             Log.d(TAG, "ANSWER: " + mResult.getCorrectAnswer());
@@ -233,9 +235,9 @@ tvSelectedMode.setText(level);
                 public void onClick(View view) {
                     Log.d(TAG, "TRUE CLICKED");
                     String answer = mResult.getCorrectAnswer();
-                    buttonTrue.setBackgroundResource(R.drawable.buttons);
-                    buttonTrue.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                    buttonFalse.setBackgroundResource(R.drawable.buttons);
+                    buttonTrue.setBackgroundResource(R.drawable.quiz_buttons_selected);
+                    buttonTrue.setClickable(false);
+                    buttonFalse.setClickable(false);
 
                     displaySolution();
                     new GetQuestionTask().execute();
@@ -247,9 +249,9 @@ tvSelectedMode.setText(level);
                 public void onClick(View view) {
                     Log.d(TAG, "FALSE CLICKED");
                     String answer = mResult.getCorrectAnswer();
-                    buttonFalse.setBackgroundResource(R.drawable.buttons);
-                    buttonFalse.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                    buttonFalse.setBackgroundResource(R.drawable.buttons);
+                    buttonFalse.setBackgroundResource(R.drawable.quiz_buttons_selected);
+                    buttonTrue.setClickable(false);
+                    buttonFalse.setClickable(false);
 
                     displaySolution();
                     new GetQuestionTask().execute();
@@ -260,8 +262,10 @@ tvSelectedMode.setText(level);
     }
 
     private void nextQuestion() {
-        buttonTrue.setBackgroundColor(R.drawable.quiz_button);
-        buttonFalse.setBackgroundColor(R.drawable.quiz_button);
+        buttonTrue.setBackgroundResource(R.drawable.quiz_buttons);
+        buttonFalse.setBackgroundResource(R.drawable.quiz_buttons);
+        buttonTrue.setClickable(true);
+        buttonFalse.setClickable(true);
 
         new GetQuestionTask().execute();
 
@@ -272,11 +276,11 @@ tvSelectedMode.setText(level);
         Log.d(TAG, "Gets correct answer string " + answer);
 
         if(buttonTrue.getText().equals(answer)) {
-            buttonTrue.setBackgroundColor(Color.GREEN);
-            buttonFalse.setBackgroundColor(Color.RED);
+            buttonTrue.setBackgroundResource(R.drawable.quiz_buttons_correct);
+            buttonFalse.setBackgroundResource(R.drawable.quiz_buttons_incorrect);
         }else if(buttonFalse.getText().equals(answer)){
-            buttonTrue.setBackgroundColor(Color.RED);
-            buttonFalse.setBackgroundColor(Color.GREEN);
+            buttonTrue.setBackgroundResource(R.drawable.quiz_buttons_incorrect);
+            buttonFalse.setBackgroundResource(R.drawable.quiz_buttons_correct);
         }
     }
 
@@ -301,21 +305,59 @@ tvSelectedMode.setText(level);
       civilisationTv.setText(value);
       featuredNotes.setText(db.eraDAO().getEraNotes(value));
 
+      switch(value){
+          case "Spartan Army":
+              npcCharacter = "spartan";
+              iconCharacter = "spartanwarrior";
+              break;
+          case "Cossack Warriors":
+               npcCharacter = "cossack";
+              iconCharacter = "cossackwarrior";
+              break;
+          case "Qing Dynasty":
+               npcCharacter = "qing";
+              iconCharacter = "qingeunuch";
+              break;
+          case "Normans":
+               npcCharacter = "norman";
+              iconCharacter = "normancrusader";
+              break;
+          case "Ancient Athenians":
+              npcCharacter = "athenian";
+              iconCharacter = "athenianman";
+              break;
+          case "Neanderthals":
+              npcCharacter = "neanderthal";
+              iconCharacter = "neanderthal";
+              break;
+          case "Vikings":
+              npcCharacter = "viking";
+              iconCharacter = "viking";
+              break;
+          case "North Sentinel Islanders":
+              npcCharacter = "sentinel";
+              iconCharacter = "northsentinelislander";
+              break;
+          case "Ancient Egyptians":
+              npcCharacter = "egyptian";
+              iconCharacter = "ancientegyptian";
+              break;
+          case "Roman Legionnaire":
+              npcCharacter = "roman";
+              iconCharacter = "romanlegion";
+              break;
+      }
+        featuredIv.setImageResource(getResources().getIdentifier("npc" + npcCharacter, "drawable", "com.example.timequest"));
+//        int headResource = getResources().getIdentifier("iconhead" + value.toLowerCase().replaceAll("\\s",""), "drawable", "com.example.timequest");
+//        int bodyResource = getResources().getIdentifier("iconbody" + value.toLowerCase().replaceAll("\\s",""), "drawable", "com.example.timequest");
+//        int handResource = getResources().getIdentifier("item" + value.toLowerCase().replaceAll("\\s",""), "drawable", "com.example.timequest");
 
-
-       /* if(value.equals("roman")){
-            civilisationTv.setText("Roman");
-        } else if(value.equals("qing")){
-            civilisationTv.setText("Qing Dynasty");
-        }else if(value.equals("cossack")){
-            civilisationTv.setText("Cossack Warriors");
-        }else if(value.equals("neanderthal")){
-            civilisationTv.setText("Neanderthals");
-        }else if(value.equals("spartan")){
-            civilisationTv.setText("Spartan Warriors");
-        }else if(value.equals("viking")){
-            civilisationTv.setText("Viking");
-        }*/
+        headIv.setImageResource(getResources().getIdentifier("iconhead" + npcCharacter, "drawable", "com.example.timequest"));
+        bodyIv.setImageResource(getResources().getIdentifier("iconbody" + npcCharacter, "drawable", "com.example.timequest"));
+        handIv.setImageResource(getResources().getIdentifier("item" + iconCharacter, "drawable", "com.example.timequest"));
+//        bodyIv.setImageResource(bodyResource);
+//        headIv.setImageResource(headResource);
+//        handIv.setImageResource(handResource);
 
     }
 

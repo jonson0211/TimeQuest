@@ -33,6 +33,10 @@ public class ProfileFragment extends Fragment {
     TextView accuracy;
     Button tutorialButton;
 
+    TextView tvProfileName;
+    private User mUser;
+
+    private TextView tvIncomplete, tvComplete, tvPerfect;
 
     public static AppDatabase db;
 
@@ -53,10 +57,27 @@ public class ProfileFragment extends Fragment {
          accuracy = root.findViewById(R.id.accuracy);
         customiseButton = root.findViewById(R.id.customiseButton);
         tutorialButton = root.findViewById(R.id.tutorialButton);
+        tvProfileName = root.findViewById(R.id.tvProfileName);
 
         db = AppDatabase.getInstance(getContext());
         DecimalFormat df = new DecimalFormat("#.##");
-        accuracy.setText(df.format(db.userDAO().getAccuracy())+"%");
+        Double accuracyValue = db.userDAO().getAccuracy();
+        accuracy.setText(df.format(db.userDAO().getAccuracy())+" %");
+        if(accuracyValue > 67){
+            accuracy.setTextColor(getResources().getColor(R.color.holo_green_light));
+        }else if(accuracyValue<67 && accuracyValue > 34){
+            accuracy.setTextColor(getResources().getColor(R.color.colorPrimary));
+        }else accuracy.setTextColor(getResources().getColor(R.color.colorAltAccentRed));
+
+        String username = db.userDAO().getUserName();
+        tvProfileName.setText(username);
+
+        tvComplete = root.findViewById(R.id.tvComplete);
+        tvIncomplete = root.findViewById(R.id.tvIncomplete);
+        tvPerfect = root.findViewById(R.id.tvPerfect);
+
+
+
 //        //to do: get questions correct from DB, get questions total from DB
 //        Double accuracy = (questionsCorrect/questionsTotal)*100;
 //        Integer questionsCorrect = db.userDAO().changeAccuracy(accuracy);

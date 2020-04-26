@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="800dp"
                 android:alpha="0.8"
-                android:background="@drawable/bgwelcome">
+                android:background="@drawable/welcomebg">
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -44,11 +44,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:alpha="1.5"
-                    android:fontFamily="@font/medievalsharp"
-                    android:text="TimeQuest"
+                    android:fontFamily="@font/hyliaserifbetaregular"
+                    android:text="Featured"
                     android:textColor="#FFFFFF"
                     android:textSize="38sp"
-                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                     app:layout_constraintEnd_toEndOf="@+id/imageView6"
                     app:layout_constraintStart_toStartOf="@+id/imageView6"
@@ -59,7 +58,10 @@
                     android:layout_width="391dp"
                     android:layout_height="184dp"
                     android:foregroundGravity="center_vertical|center_horizontal"
-                    app:cardBackgroundColor="@color/colorBackground"
+
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="7dp"
+                    app:cardElevation="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView6">
@@ -67,7 +69,9 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+
+                        android:background="@drawable/cardviewbg3">
 
                         <TextView
                             android:id="@+id/textView3"
@@ -75,11 +79,13 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
-                            android:fontFamily="@font/medievalsharp"
+                            android:alpha="1.5"
+                            android:fontFamily="@font/hyliaserifbetaregular"
                             android:text="General History Trivia"
-                            android:textColor="#131212"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="22sp"
-                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,33 +93,40 @@
                             android:id="@+id/buttonFalse"
                             android:layout_width="76dp"
                             android:layout_height="38dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginEnd="116dp"
-                            android:layout_marginBottom="8dp"
-                            android:fontFamily="@font/medievalsharp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/quiz_buttons"
+                            android:fontFamily="@font/hyliaserifbetaregular"
                             android:text="False"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent" />
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvWQQuestion" />
 
                         <Button
                             android:id="@+id/buttonTrue"
                             android:layout_width="76dp"
                             android:layout_height="38dp"
                             android:layout_marginStart="114dp"
-                            android:layout_marginBottom="8dp"
-                            android:fontFamily="@font/medievalsharp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/quiz_buttons"
+                            android:fontFamily="@font/hyliaserifbetaregular"
                             android:text="True"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/buttonFalse"
-                            app:layout_constraintStart_toStartOf="parent" />
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvWQQuestion" />
 
                         <TextView
                             android:id="@+id/tvWQQuestion"
                             android:layout_width="355dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="0dp"
                             android:layout_marginTop="20dp"
-                            android:fontFamily="@font/medievalsharp"
+                            android:fontFamily="serif"
                             android:text="Loading..."
                             android:textAlignment="center"
+                            app:layout_constraintBottom_toTopOf="@+id/buttonTrue"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -132,12 +145,15 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.526"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView4">
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    app:cardCornerRadius="7dp"
+                    app:cardElevation="10dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout3"
                         android:layout_width="match_parent"
-                        android:layout_height="398dp">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cardviewbg2">
 
                         <TextView
                             android:id="@+id/textView10"
@@ -145,11 +161,13 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
-                            android:fontFamily="@font/medievalsharp"
-                            android:text="Today's Featured Civilisation"
-                            android:textColor="#131212"
+                            android:alpha="1.5"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="Featured Civilisation"
+                            android:textColor="@color/colorPrimaryDark"
                             android:textSize="22sp"
-                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -166,13 +184,14 @@
                             android:id="@+id/tvCivilisation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/medievalsharp"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
                             android:text="Qing Dynasty"
                             android:textSize="16sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="@+id/textView10"
-                            app:layout_constraintStart_toEndOf="@+id/textView12"
+                            app:layout_constraintHorizontal_bias="0.037"
+                            app:layout_constraintStart_toEndOf="@+id/ivNPCFeatured"
                             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
                         <ImageView
@@ -211,9 +230,10 @@
                             android:id="@+id/scrollView2"
                             android:layout_width="237dp"
                             android:layout_height="168dp"
-                            android:layout_marginStart="4dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:paddingEnd="20dp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toEndOf="@+id/ivNPCFeatured"
                             app:layout_constraintTop_toBottomOf="@+id/textView12">
 
@@ -226,8 +246,8 @@
                                     android:id="@+id/featuredNotes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/medievalsharp"
-                                    android:text="TextView" />
+                                    android:fontFamily="serif"
+                                    android:text="Loading..." />
                             </LinearLayout>
                         </ScrollView>
 
@@ -237,7 +257,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="8dp"
-                            android:fontFamily="@font/medievalsharp"
+                            android:fontFamily="serif"
                             android:text="Your Notes:"
                             app:layout_constraintStart_toEndOf="@+id/ivNPCFeatured"
                             app:layout_constraintTop_toBottomOf="@+id/tvCivilisation" />

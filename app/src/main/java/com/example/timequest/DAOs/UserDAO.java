@@ -14,6 +14,9 @@ public interface UserDAO {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     public void insertUser(User user);
 
+    @Query("SELECT user_name FROM user WHERE userID = 1")
+    public String getUserName();
+
     @Query("UPDATE user SET user_hand_item = :handItemName WHERE userID = 1")
     public void changeHandItem(String handItemName);
 

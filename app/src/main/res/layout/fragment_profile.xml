@@ -3,133 +3,310 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:alpha="0.8"
+    android:background="@drawable/welcomebg">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="125dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="136dp"
-        android:src="@drawable/romananimation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="23dp"
-        app:layout_constraintBottom_toTopOf="@+id/customiseButton"
-        app:layout_constraintStart_toStartOf="@+id/customiseButton"
-        android:src="@mipmap/ic_launcher" />
-
-    <Button
-        android:id="@+id/customiseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginBottom="21dp"
-        android:text="Customise"
-        app:layout_constraintBottom_toTopOf="@+id/tvProfileName"
-        app:layout_constraintStart_toStartOf="@+id/tvProfileName" />
-
-    <TextView
-        android:id="@+id/tvProfileName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="53dp"
-        android:text="Username"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvProgress"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar" />
-
-    <TextView
-        android:id="@+id/tvProgress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginRight="26dp"
-        android:layout_marginBottom="318dp"
-        android:text="Progress:"
-        android:textSize="18sp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/progressBar"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvAccuracy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="30dp"
-        android:text="Accuracy"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvProgress" />
-
-    <TextView
-        android:id="@+id/tvLearnings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
-        android:text="Learnings:"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/notesButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAccuracy" />
-
-    <Button
-        android:id="@+id/notesButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="123dp"
-        android:text="NOTES"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvLearnings"
-        app:layout_constraintTop_toTopOf="@+id/tvLearnings" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="122dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvProgress"
-        app:layout_constraintTop_toBottomOf="@+id/tvProfileName" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
 
-    <TextView
-        android:id="@+id/accuracy"
-        android:layout_width="132dp"
-        android:layout_height="33dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar"
-        app:layout_constraintStart_toStartOf="@+id/progressBar"
-        app:layout_constraintTop_toTopOf="@+id/tvAccuracy" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp">
 
-    <Button
-        android:id="@+id/tutorialButton"
-        android:layout_width="135dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:text="TUTORIAL"
-        app:layout_constraintEnd_toEndOf="@+id/notesButton"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/notesButton"
-        app:layout_constraintTop_toBottomOf="@+id/notesButton" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout3"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/circle_shape"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/userBody"
+                        android:layout_width="156dp"
+                        android:layout_height="168dp"
+                        android:layout_marginTop="28dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/userHead"
+                        app:srcCompat="@drawable/bodydefault" />
+
+                    <ImageView
+                        android:id="@+id/userHand"
+                        android:layout_width="171dp"
+                        android:layout_height="173dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/userHead"
+                        app:layout_constraintEnd_toEndOf="@+id/userHead"
+                        app:layout_constraintStart_toEndOf="@+id/userHead"
+                        app:layout_constraintTop_toBottomOf="@+id/userHead"
+                        app:srcCompat="@drawable/itemdefault" />
+
+                    <ImageView
+                        android:id="@+id/userHead"
+                        android:layout_width="108dp"
+                        android:layout_height="96dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/headdefault" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/customiseButton"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_buttons"
+                    android:fontFamily="@font/hyliaserifbetaregular"
+                    android:text="Customise"
+                    app:layout_constraintEnd_toEndOf="@+id/tvProfileName"
+                    app:layout_constraintStart_toStartOf="@+id/tvProfileName"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                <TextView
+                    android:id="@+id/tvProfileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/hyliaserifbetaregular"
+                    android:text="Username"
+                    android:textColor="@color/colorPrimaryWhite"
+                    android:textSize="40sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/hyliaserifbetaregular"
+                    android:text="Adventurer"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryWhite"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfileName" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:paddingBottom="35dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/customiseButton">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView5"
+                        android:layout_width="165dp"
+                        android:layout_height="140dp"
+                        android:layout_marginStart="10dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvProgress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="Progress"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="75dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="Complete" />
+
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="105dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="Perfect" />
+
+                        <TextView
+                            android:id="@+id/tvComplete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="90dp"
+                            android:layout_marginTop="75dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tvPerfect"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="90dp"
+                            android:layout_marginTop="105dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/tvIncomplete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="90dp"
+                            android:layout_marginTop="45dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="TextView" />
+
+                        <TextView
+                            android:id="@+id/incompletetv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="45dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="Incomplete" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <Button
+                        android:id="@+id/tutorialButton"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/quiz_buttons"
+                        android:fontFamily="@font/hyliaserifbetaregular"
+                        android:text="TUTORIAL"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.505"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView8" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView8"
+                        android:layout_width="350dp"
+                        android:layout_height="140dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView5">
+
+                        <TextView
+                            android:id="@+id/tvLearnings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="Learnings"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/notesButton"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/quiz_buttons"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="NOTES" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="306dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="40dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:paddingLeft="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="It's important to revise what you've learnt, so click the NOTES button below to refresh your memory!"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="12sp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView7"
+                        android:layout_width="165dp"
+                        android:layout_height="140dp"
+                        android:layout_marginEnd="10dp"
+                        app:cardCornerRadius="7dp"
+                        app:cardElevation="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/tvAccuracy"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:text="Quiz accuracy (all time)"
+                            android:textAlignment="center"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/accuracy"
+                            android:layout_width="143dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="60dp"
+                            android:layout_marginBottom="25dp"
+                            android:fontFamily="@font/hyliaserifbetaregular"
+                            android:paddingBottom="10dp"
+                            android:text="83.00%"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="30sp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
