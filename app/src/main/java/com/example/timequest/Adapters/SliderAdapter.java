@@ -32,7 +32,7 @@ public class SliderAdapter extends PagerAdapter {
 
     public String [] slide_descs = {
             "Welcome to TimeQuest! \n\nTimeQuest is a RPG-style history learning game. \n\nYou are a time traveller who has the ability to travel to different points in humanity's history to learn about a variety of ancient civilisations and undertake their trials to prove your worth!",
-            "On the Adventure page, explore the different civilisations available to you through written and visual material - you will also be able to write notes. \n\nWhen you're ready, take the trial, which consist of 10 questions. If you get 7+ correct, you will win an item drop (or several).",
+            "On the Adventure page, explore the different civilisations available to you through written and visual material - you will also be able to write notes. \n\nWhen you're ready, take the trial! The trial consist of 10 questions. If you get 7+ correct, you will win an item drop (or several).",
             "On the Featured page, you will be able to answer some quickfire True or False questions on general history. \n\nA random civilisation will also be displayed below, along with its item drops and the notes you have written for the specific civilisation.",
             "On your Profile page, customise your character and equip items that you have collected throughout your journey. \n\nSome information such as your quiz accuracy and a shortcut to all your written notes will also be available. \n\nBest of luck in your adventures, traveller! "
     };
