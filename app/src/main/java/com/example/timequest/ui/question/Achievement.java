@@ -14,6 +14,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Layout;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -72,6 +73,7 @@ public class Achievement extends AppCompatActivity {
         System.out.println("Score intent from quiz is: " + score);
         //Integer scoreValue = Integer.valueOf(score);
         outcomeTv = findViewById(R.id.tvOutcome);
+        outcomeTv.setMovementMethod(new ScrollingMovementMethod());
         homeB = findViewById(R.id.bHome);
         constraintComplete = findViewById(R.id.constraintComplete);
         constraintPerfectComplete = findViewById(R.id.constraintCompletePerfect);
