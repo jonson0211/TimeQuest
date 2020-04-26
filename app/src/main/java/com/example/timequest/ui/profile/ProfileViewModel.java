@@ -11,7 +11,7 @@ public class ProfileViewModel extends ViewModel {
 
     public ProfileViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Jonny Sins");
+        //mText.setValue("Jonny Sins");
     }
 
     public LiveData<String> getText() {

@@ -239,6 +239,7 @@ public class QuestionPage extends AppCompatActivity {
         aButton.setClickable(true);
         bButton.setClickable(true);
         cButton.setClickable(true);
+        NPCAvatar.clearAnimation();
 
         //2.
         questionRg.clearCheck();
@@ -373,10 +374,11 @@ public class QuestionPage extends AppCompatActivity {
             tvScore.setText(String.format(String.valueOf(score)));
             System.out.println(score);
 
-        }
+        }else{NPCAvatar.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake));};
         //else { - change image to red X for wrong answers
         //Drawable wbThumb = getResources().getDrawable(R.drawable.ic_close);
         //seekBar.setThumb(wbThumb);}
+
         displaySolution();
         System.out.println("Current score: " + score);
     }
@@ -385,6 +387,7 @@ public class QuestionPage extends AppCompatActivity {
         aButton.setBackgroundResource(R.drawable.quiz_buttons_incorrect);
         bButton.setBackgroundResource(R.drawable.quiz_buttons_incorrect);
         cButton.setBackgroundResource(R.drawable.quiz_buttons_incorrect);
+
 
     if(currentQuestion.getAnswerNumber() == 1){
         aButton.setBackgroundResource(R.drawable.quiz_buttons_correct);

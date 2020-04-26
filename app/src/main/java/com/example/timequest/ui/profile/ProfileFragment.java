@@ -71,7 +71,7 @@ public class ProfileFragment extends Fragment {
             accuracy.setTextColor(getResources().getColor(R.color.colorPrimary));
             accuracyComment.setText("Not bad...");
         }else if(accuracyValue< 34){accuracy.setTextColor(getResources().getColor(R.color.colorAltAccentRed));
-        accuracyComment.setText("Really?");}
+        accuracyComment.setText("Really??");}
 
         String username = db.userDAO().getUserName();
         tvProfileName.setText(username);

@@ -6,6 +6,18 @@
 
     android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:background="@drawable/welcomebg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
@@ -23,9 +35,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout5"
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
-                android:alpha="0.8"
-                android:background="@drawable/welcomebg">
+                android:layout_height="800dp">
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -142,12 +152,12 @@
                     android:layout_marginTop="8dp"
                     android:foregroundGravity="center"
                     app:cardBackgroundColor="@color/colorPrimaryWhite"
+                    app:cardCornerRadius="7dp"
+                    app:cardElevation="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.526"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
-                    app:cardCornerRadius="7dp"
-                    app:cardElevation="10dp">
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout3"
