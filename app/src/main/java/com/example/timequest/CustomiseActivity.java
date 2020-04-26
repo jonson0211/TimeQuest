@@ -3,6 +3,7 @@ package com.example.timequest;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import com.example.timequest.Entities.BodyItems;
 import com.example.timequest.Entities.HandItems;
 import com.example.timequest.Entities.HeadItems;
 import com.example.timequest.Entities.User;
+import com.example.timequest.ui.profile.ProfileFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,7 +99,7 @@ public class CustomiseActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View v) {
                 finish();
-                Toast toast = Toast.makeText(getApplicationContext(), "Items equipped.", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "Items equipped. Refresh your profile!", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });

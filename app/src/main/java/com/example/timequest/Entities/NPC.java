@@ -317,7 +317,7 @@ public class NPC {
                 "Were you even paying attention?! " +
                 "\nI have foregone my valuable hours of building the Great Pyramid for our Pharaoh to teach you, and you dare to fail this challenge!" +
                 "\nFind me once you've revised your content!\n" +
-                "\n", "npcegyptian", "QYVZFWHKWKI&t", "banneregypt",
+                "\n", "npcegyptian", "QYVZFWHKWKI", "banneregypt",
                 "Egyptian: \n" +
                         "Our Pharaoh would be so happy to know that a foreigner appreciates the greatness he has created." +
                         "\nThank you so much for coming." +
