@@ -58,7 +58,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
     }
 
     public static class EraViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
+//Connect to XML elements - of the cardview holder.
         public TextView titleTv;
         public ImageView iconIv;
         public TextView tvYear;
@@ -158,7 +158,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
 //            case "Viking":
 //                holder.iconIv.setImageResource(R.drawable.npcviking);
 
-
+//Corresponding NPCs to be displayed with the title - use if statements, call the drawable resources, and then populate the XML.
 
         if(eraAtPosition.getEraName().contentEquals("Spartan Army")){
             holder.iconIv.setImageResource(R.drawable.npcspartan);

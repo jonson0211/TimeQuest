@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private androidx.fragment.app.FragmentTransaction FragmentTransaction;
     private FrameLayout containerfragment;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        //Navigation icons should change the fragment on the screen
+        //Use fragment manager and replace
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//change launching page depending on whether the user has already made an acc
         SharedPreferences prefs = getSharedPreferences("prefs",MODE_PRIVATE);
         boolean firstStart = prefs.getBoolean("firstStart",true);
 
@@ -94,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         bottomNav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+//Default fragment to be shown is the featured page
         Featured featured = new Featured();
         FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
         fragmentTransaction1.replace(R.id.fragment_container, featured, "FragmentName");

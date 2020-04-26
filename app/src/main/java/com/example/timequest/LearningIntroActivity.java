@@ -91,6 +91,7 @@ public class LearningIntroActivity extends AppCompatActivity {
         });
 
     }
+    //User clicks to go to reding screen - need intent that picks up the topic selected and NPC
 
     private void launchLearningReadActivity(Integer NPCID, String eraName){
         Intent intent1 = new Intent(this, LearningReadActivity.class);
