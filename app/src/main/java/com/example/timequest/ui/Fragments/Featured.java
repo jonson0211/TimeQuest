@@ -109,21 +109,7 @@ public class Featured extends Fragment {
         new GetQuestionTask().execute();
 
         db = AppDatabase.getInstance(getContext());
-        try{
-            db.eraDAO().insertEra(new Era("Spartan Army", "banner1", "npcathens","Incomplete","Spartan Notes","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("North Sentinel Islanders", "banner2", "background2","Incomplete", "NSL Notes","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", "Roman Notes","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("Ancient Athenian", "banner4", "background4","Incomplete", "Athens Notes","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("Normans", "banner5", "background5","Incomplete", "Norman","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("Cossack Warriors", "banner6", "background6","Incomplete", "Cossack Notes","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("Neanderthals", "banner7", "background7","Incomplete", "Neanderthal Notes","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("Qing Dynasty", "banner8", "background8","Incomplete", "Qing Notes","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("Vikings", "banner9", "background9","Incomplete", "Viking Notes","431 - 371 BC"));
-            db.eraDAO().insertEra(new Era("Ancient Egyptians", "banner9", "background9","Incomplete", "Egypt Notes","431 - 371 BC"));
 
-        } catch (Exception e){
-            System.out.println("!");
-        }
 
 
     }

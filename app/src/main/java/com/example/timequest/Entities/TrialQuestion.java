@@ -118,6 +118,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "What made Legion attack strategy so successful?", "Limited scouting, close coordination and attacking first with light infantry ", "Heavy scouting, close coordination and attacking first with light infantry","Limited scouting, attacking first with heavy calvary and then light infantry to fight enemy wings",2,"d"));
                 trialQuiz.add(new TrialQuestion(9, "What is NOT a benefit of the Legionnaire's defensive encampments?", "Excavated ditch surrounding camp provided an obstacle for enemies to attack", "Allows Legions to get closer to the enemy camp without being seen","High vantage point of encampment towers allowed Legions to shoot arrows at enemies from above",2,"d"));
                 trialQuiz.add(new TrialQuestion(10, "Outside of fighting, what were some rules that Legions had to follow?", "All battlefield spoils were to be equally distributed amongst Legions and could be solf for personal profit", "Legions were strictly not allowed to see any outside members when at an alternate garrison","Legions were forbidden from marrying and having families unless a senior officer or general",3,"d"));
+                break;
 
             case "Neanderthal":
                 trialQuiz.add(new TrialQuestion(1,"Which of the following statements is true about Neandertals?", "Neandertals had relatively large brow ridges and nose with low sloping foreheads", "Neandertals had smaller than average brains compared to that of the modern human", "Neandertals are less intelligent than modern animals and cannot understand abstract concepts",1, "d"));
@@ -130,6 +131,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "Why were mammoths the preferred prey for Neanderthals?", "Tools used were designed for throwing at mammoths", "Lack of speed made it easier to attack and kill", "Mammoth meat lasts longer than other meats", 2, "d"));
                 trialQuiz.add(new TrialQuestion(9, "What were the tools used by Neanderthals to hunt?", "Bone needles and axe", "Spears and sharpened rocks", "Bow and arrows", 2, "d"));
                 trialQuiz.add(new TrialQuestion(10, "How did Neanderthals start fires?", "Using rocks and flint", "Used powder magnesium dioxide and rocks", "By keeping embers from discovering fires from natural phenomen ", 3, "d"));
+                break;
 
             case "Viking":
                 trialQuiz.add(new TrialQuestion(1, "What was most of our warriors life spent on doing?", "War", "Farming", "Sailing", 2, "d"));
@@ -142,6 +144,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "What was one way someone could identify your statuts in viking society? ", "How beautiful your wife is", "The type of weapon and armour that you are wearing ", "How luscious and long your beard and hair is", 2, "d"));
                 trialQuiz.add(new TrialQuestion(9, "What were the main weapons that our warriors wielded?", "Spears, shields and axes", "Guns and grenades", "Swords", 1, "d"));
                 trialQuiz.add(new TrialQuestion(10, "Why were axes the preferred weapon?", "Axes were far easier to make and doubled as a farm tool", "They seemed more manly than other weapons", "You could throw axes but not weapons such as a sword", 1, "d"));
+                break;
 
             case"Qing Eunuch":
                 trialQuiz.add(new TrialQuestion(1, "At what age did Emperor Qing come into power?", "6", "13", "18", 2, "d"));
@@ -154,6 +157,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "How long did the Qing mutlicultural dynasty last? ", "Three centuries", "Four centuries", "Five centuries", 1, "d"));
                 trialQuiz.add(new TrialQuestion(9, "What was NOT one of the challenges the dynasty faced in the late 18th century?", "Not enough population growth", "Corruption ", "Internal revolts", 1, "d"));
                 trialQuiz.add(new TrialQuestion(10, "Why hasn't Emperor Qin's tomb been excavated?", "It is impossible to access because of the formidable terracotta warriors guarding it", "There is no way to expose it without damaging the tombs integrity ", "Excavators haven't been bothered to and it is not a priority", 2, "d"));
+                break;
 
             case "Egyptian Man":
                 trialQuiz.add(new TrialQuestion(1, "What shape of structure were we famous for constructing?", "Cylinders", "Cubes", "Pyramids", 3, "d"));
@@ -166,6 +170,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "How did we try to deal with our issue of obesity?", "Exerciesed more and reduced diet ", "Took laxatives 3 times a month", "Had liposuction done", 2, "d"));
                 trialQuiz.add(new TrialQuestion(9, "What was the phrase coined by us to proctologists?", "Shepherd of the Anus", "Deposit examiner", "Anus healer", 1, "d"));
                 trialQuiz.add(new TrialQuestion(10, "How did the Egyptians believe enemas came to be?", "Dcotors came up with the concept ", "Their god developed teh enema and gave it to men as a gift ", "Ancestors had left paintings depicting what an enema does", 2, "d"));
+                break;
 
             case"North Sentinel Islander":
                 trialQuiz.add(new TrialQuestion(1, "Where is the North Sentinel Island located?", "West of the other Andaman Islands", "East of the other Andaman Islands", "North of the other Andaman Islands", 1, "d"));
@@ -178,6 +183,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "What happened to the fishermen who came close to our island in 2006?", "We killed them", "I would rather not know....", "They joined our tribe", 1, "d"));
                 trialQuiz.add(new TrialQuestion(9, "The India government declared travel within ____ miles within our island as prohibited.", "3", "5", "9", 1, "d"));
                 trialQuiz.add(new TrialQuestion(10, "How large is our tribe?", "15 people", "500 people", "There isn't a clear answer", 3, "d"));
+                break;
 
             case "Cossack Warrior":
                 trialQuiz.add(new TrialQuestion(1, "Which treaty ended hostilities between Polish-Lithuanian Commonwealth and the Ottoman Empire", "Treaty of Scandanavia", "Treaty of Zurawno", "Treaty of Mylitene", 2, "d"));
@@ -190,6 +196,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "Who was Ivan Sirko planning his first attack on?", "Polish forces", "Ottoman Empire forces", "Russian forces", 2, "d"));
                 trialQuiz.add(new TrialQuestion(9, "Stepan's 180 men Cossack Batallion consisted of..", "Strictly Orthodox Christians that speak Slavic languages", "Orthodox Christians, Greeks, Tatars and Mongolian Kalmyks", "Greeks, Russians and Polish forces", 2, "d"));
                 trialQuiz.add(new TrialQuestion(10, "What was the aim of the 1659 Treaty of Hadiach?", "To repair alliance between Polish and Cossack forces and create a Polish - Lithuanian - Rutenian Commonwealth", "To overcome the Russian-Polish differences and establish a treaty that freed Cossacks from Polish influence under the protection of the Russian Tsar", "To create the Russian-Polish alliance that recognised Cossacks as rebels against Runethian property and land", 1, "d"));
+                break;
 
             case "Norman Crusader":
                 trialQuiz.add(new TrialQuestion(1, "In what year did the Normans sail towards England with intent to conquer", "1102", "1066", "1041", 2, "d"));
@@ -202,6 +209,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "Which kingdom did Normans form in 1130?", "Kingdom of Sicily", "Kingdom of Morocco", "Kingdom of Macedonia", 1, "d"));
                 trialQuiz.add(new TrialQuestion(9, "What is the name of the tapestry which shows the story of the Norman conquest?", "The Bayeux Tapestry", "The Hastings Tapestry", "The Norman Tapestry", 1, "d"));
                 trialQuiz.add(new TrialQuestion(10, "Who was the King of England before the Norman Conquest?", "William of Normandy", "Edward the Confessor", "Harold Godwinson", 3, "d"));
+                break;
 
             case "Athenian Man":
                 trialQuiz.add(new TrialQuestion(1, "Athenian male's roles and responsibilities do NOT include:", "Attending the meeting of the Ekklėsia to make political decisions", "Purchase food and wine", "Teach children domestic skills", 3, "d"));
@@ -214,6 +222,7 @@ public class TrialQuestion {
                 trialQuiz.add(new TrialQuestion(8, "How do heralds purify the Pynx Hill?", "Sprinkle pig's blood", "Sprinkle vinegar on everyone", "Pour Holy Water down the hill", 1, "d"));
                 trialQuiz.add(new TrialQuestion(9, "Which city led a revolt against Athens in 427 BCE", "Troy", "Thrace", "Mytilene", 3, "d"));
                 trialQuiz.add(new TrialQuestion(10, "You are an Ancient Athenian citizen if:", "You're a native born male with foreign parents", "Your father is Athenian, your mother can be foreign or Athenian", "You are a male with Athenian parents", 3, "d"));
+                break;
         }
                 return trialQuiz;
 

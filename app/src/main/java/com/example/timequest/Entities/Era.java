@@ -88,7 +88,6 @@ public class Era {
         ArrayList<Era> eras = new ArrayList<>();
         eras.add(new Era("Spartan Army", "banner1", "npcathens","Incomplete"," ", "750 BC - 146 BC"));
         eras.add(new Era("Vikings", "banner9", "background9","Incomplete", " ","793 AD - 1066 AD"));
-
         eras.add(new Era("Roman Legionnaire", "banner3", "background3","Incomplete", " ", "150 BC - 120 BC "));
         eras.add(new Era("Ancient Athenians", "banner4", "background4","Incomplete", " ","508 BC - 322 BC "));
         eras.add(new Era("Normans", "banner5", "background5","Incomplete", " ","911 AD - 1167 AD"));
