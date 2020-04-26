@@ -16,9 +16,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.timequest.AppDatabase;
 import com.example.timequest.Entities.Era;
 import com.example.timequest.Entities.NPC;
 import com.example.timequest.LearningReadActivity;
+import com.example.timequest.MainActivity;
 import com.example.timequest.R;
 import com.example.timequest.ui.home.HomeFragment;
 
@@ -30,12 +32,19 @@ import static android.content.ContentValues.TAG;
 
 public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
 
-    private List<Era> mEraSet;
+
     private Era mEra;
     private RecyclerViewClickListener mListener;
     private int[] images;
     private NPC mNPC;
     //private Context context;
+    private ImageView ivComplete;
+    AppDatabase db;
+    String name;
+
+
+    private List<Era> mEraSet;
+
 
     public EraAdapter(ArrayList<Era> eras, RecyclerViewClickListener listener){
         mEraSet = eras;
@@ -54,6 +63,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
         public ImageView iconIv;
         public TextView tvYear;
         public View view;
+        public ImageView ivComplete;
         private RecyclerViewClickListener mListener;
 
 
@@ -65,6 +75,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
             titleTv = v.findViewById(R.id.tvTitle);
             iconIv = v.findViewById(R.id.ivIcon);
             tvYear = v.findViewById(R.id.tvYear);
+            ivComplete = v.findViewById(R.id.ivComplete);
         }
 
         @Override
@@ -83,6 +94,7 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
     public EraAdapter.EraViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.d(TAG, "onCreateViewHolder: done");
         //Declare view elements
+        //db = AppDatabase.getInstance(getApplicationContext());
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.era_list_row, parent, false);
         Log.d(TAG, "Inflater: done");
@@ -99,8 +111,12 @@ public class EraAdapter extends RecyclerView.Adapter<EraAdapter.EraViewHolder>{
         Log.d(TAG, "eraPosition: done");
         holder.titleTv.setText(String.valueOf(eraAtPosition.getEraName()));
         holder.tvYear.setText(String.valueOf(eraAtPosition.getEraYear()));
+
+
         Log.d(TAG, "setTitle: done");
+         //db.eraDAO().getEraCompleteness(String.valueOf(eraAtPosition.getEraName()));
 /**
+ *
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

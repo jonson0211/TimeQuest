@@ -82,6 +82,8 @@ public class Achievement extends AppCompatActivity {
         prizeIv2 = findViewById(R.id.ivPrize2);
         prizeIv3 = findViewById(R.id.ivPrize3);
 
+
+        //setting the other 2 prizes as invisible until the user gets a perfect score
         prizeIv.setVisibility(View.VISIBLE);
         prizeIv2.setVisibility(View.INVISIBLE);
         prizeIv3.setVisibility(View.INVISIBLE);
@@ -109,13 +111,13 @@ public class Achievement extends AppCompatActivity {
         String itemID;
         String prizeID = " ";
 
+        //update the user's accuracy
         db.userDAO().updateAnswered(10);
         db.userDAO().updateCorrect(score);
         db.userDAO().changeAccuracy();
-        //Determine if user gets prize or fails
+        //Determine if user gets prize or fails, depending on how many questions they get correct
         if(score > 6 && score < 10) {
-            //outcomeTv.setText("Congratulations Adventurer!\n You passed the test. Here is something for your troubles.");
-            //outcomeTv.setText(mNPC.addNPCData().get(5).getEndingSpeech()); //change "5" to be the variable NPC civilisation
+
             outcomeTv.setText(mNPC.getEndingSpeech());
 
 
@@ -178,9 +180,10 @@ public class Achievement extends AppCompatActivity {
 
             prize = getResources().getIdentifier(prizeID, "drawable", "com.example.timequest");
             prizeIv.setImageResource(prize);
-            db.eraDAO().updateToCompleted();
-            //to do: immediately add item to user's collection in database
-        } else if(score == 10){
+
+        }
+        //when user gets 10 correct, they get all items
+        else if(score == 10){
 
             outcomeTv.setText(mNPC.getPerfectSpeech());
 
@@ -279,11 +282,11 @@ public class Achievement extends AppCompatActivity {
                     throw new IllegalStateException("Unexpected value: " + mNPC.getNpcName().toString());
             }
 
+            //updating the entities
             db.handItemsDAO().insertHandItem(new HandItems(itemHand));
             db.headItemsDAO().insertHeadItem(new HeadItems(itemHead));
             db.bodyItemsDAO().insertBodyItem(new BodyItems(itemBody));
 
-            db.eraDAO().updateToPerfect();
 
             prize = getResources().getIdentifier(prizeID, "drawable", "com.example.timequest");
             prize2 = getResources().getIdentifier(prize2ID, "drawable", "com.example.timequest");

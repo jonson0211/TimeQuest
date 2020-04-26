@@ -14,9 +14,11 @@ public interface UserDAO {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     public void insertUser(User user);
 
+    //gets the user's name
     @Query("SELECT user_name FROM user WHERE userID = 1")
     public String getUserName();
 
+    //the following 3 methods update the user's CURRENT handitem, headitem and bodyitem respectively
     @Query("UPDATE user SET user_hand_item = :handItemName WHERE userID = 1")
     public void changeHandItem(String handItemName);
 
@@ -26,18 +28,19 @@ public interface UserDAO {
     @Query("UPDATE user SET user_body_item = :bodyItemName WHERE userID = 1")
     public void changeBodyItem(String bodyItemName);
 
-    @Query("UPDATE user SET progress = :newProgress WHERE userID = 1")
-    public void changeProgress(double newProgress);
 
 
+    //method to calculate the user's accuracy in answering questions
     @Query("UPDATE user SET accuracy = 100*questionsCorrect/questionsAnswered WHERE userID = 1")
     public void changeAccuracy();
 
+    //getting the user's accuracy
     @Query("SELECT accuracy FROM user WHERE userID = 1")
     public double getAccuracy();
 
 
 
+    //getting the user's items
     @Query("SELECT user_head_item FROM user WHERE userID = 1")
     public String getHeadItem();
 
@@ -48,6 +51,8 @@ public interface UserDAO {
     @Query("SELECT user_hand_item FROM user WHERE userID = 1")
     public String getHandItem();
 
+
+    //these methods track the amount of questions the user answered and has gotten correct, needed to calculate their accuracy
     @Query("UPDATE user SET questionsAnswered = questionsAnswered + :newAnswered WHERE userID = 1")
     public void updateAnswered(double newAnswered);
 

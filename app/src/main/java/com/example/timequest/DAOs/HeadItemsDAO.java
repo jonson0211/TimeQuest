@@ -13,9 +13,11 @@ import java.util.List;
 @Dao
 public interface HeadItemsDAO {
 
+    //method to insert head item
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertHeadItem(HeadItems headItem);
 
+    //method to get all user head items
     @Query("SELECT * FROM HeadItems")
     List<String> getHeadItems();
 
