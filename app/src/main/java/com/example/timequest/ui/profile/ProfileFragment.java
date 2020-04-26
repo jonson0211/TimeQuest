@@ -2,6 +2,7 @@ package com.example.timequest.ui.profile;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,68 +30,56 @@ import java.text.DecimalFormat;
 public class ProfileFragment extends Fragment {
 
     Button notesButton;
-    Button customiseButton;
-    TextView accuracy;
-    Button tutorialButton;
-
-    TextView tvProfileName;
+    private Button customiseButton;
+    private TextView accuracy;
+    private Button tutorialButton;
+    private TextView tvProfileName;
     private User mUser;
-
     private TextView tvIncomplete, tvComplete, tvPerfect, accuracyComment;
+    private static final String TAG = "ProfileFragment";
 
     public static AppDatabase db;
-
-    private ProfileViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-
-
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        final TextView textView = root.findViewById(R.id.tvProfileName);
+
         final Button notesButton = root.findViewById(R.id.notesButton);
-         accuracy = root.findViewById(R.id.accuracy);
+        accuracy = root.findViewById(R.id.accuracy);
         customiseButton = root.findViewById(R.id.customiseButton);
         tutorialButton = root.findViewById(R.id.tutorialButton);
         tvProfileName = root.findViewById(R.id.tvProfileName);
         accuracyComment = root.findViewById(R.id.accuracyComment);
 
         db = AppDatabase.getInstance(getContext());
+
+        //Retrieve and display user accuracy
         DecimalFormat df = new DecimalFormat("#.##");
         Double accuracyValue = db.userDAO().getAccuracy();
-        accuracy.setText(df.format(db.userDAO().getAccuracy())+" %");
-        if(accuracyValue > 67){
+        accuracy.setText(df.format(db.userDAO().getAccuracy()) + " %");
+        if (accuracyValue > 67) {
             accuracy.setTextColor(getResources().getColor(R.color.holo_green_light));
             accuracyComment.setText("Wow you're amazing!");
-        }else if(accuracyValue<67 && accuracyValue > 34){
+        } else if (accuracyValue < 67 && accuracyValue > 34) {
             accuracy.setTextColor(getResources().getColor(R.color.colorPrimary));
             accuracyComment.setText("Not bad...");
-        }else if(accuracyValue< 34){accuracy.setTextColor(getResources().getColor(R.color.colorAltAccentRed));
-        accuracyComment.setText("Really??");}
+        } else if (accuracyValue < 34) {
+            accuracy.setTextColor(getResources().getColor(R.color.colorAltAccentRed));
+            accuracyComment.setText("Really??");
+        }
 
         String username = db.userDAO().getUserName();
         tvProfileName.setText(username);
-
-        //tvComplete = root.findViewById(R.id.tvComplete);
-        //tvIncomplete = root.findViewById(R.id.tvIncomplete);
-        //tvPerfect = root.findViewById(R.id.tvPerfect);
-
-
-
-//        //to do: get questions correct from DB, get questions total from DB
-//        Double accuracy = (questionsCorrect/questionsTotal)*100;
-//        Integer questionsCorrect = db.userDAO().changeAccuracy(accuracy);
 
         notesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), NotesActivity.class);
                 startActivity(intent);
+                Log.d(TAG, "on startActivity(): SUCCESS");
             }
         });
 
@@ -99,6 +88,7 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), CustomiseActivity.class);
                 startActivity(intent);
+                Log.d(TAG, "on start Customise Activity(): SUCCESS");
             }
         });
 
@@ -107,21 +97,11 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Instructions.class);
                 startActivity(intent);
+                Log.d(TAG, "on start Tutorial: SUCCESS");
             }
         });
 
-
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
-
-
-
-
 
     }
 

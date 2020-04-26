@@ -55,8 +55,7 @@ public class HomeFragment extends Fragment {
      * 3. Adapter!
      */
 
-    public HomeFragment(){
-
+    public HomeFragment() {
     }
 
 
@@ -66,11 +65,13 @@ public class HomeFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-//Inflate the fragment, and talk to the Adapter that consists of the cardview to be populated
+
+    //Inflate the fragment, and talk to the Adapter that consists of the cardview to be populated
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
@@ -93,8 +94,9 @@ public class HomeFragment extends Fragment {
 
         return v;
     }
+
     //Intent to launch the proceeding screen
-    private void launchLearningIntroActivity(int position){
+    private void launchLearningIntroActivity(int position) {
         Intent intent = new Intent(getActivity(), LearningIntroActivity.class);
         intent.putExtra(String.valueOf(EXTRA_MESSAGE), position);
         startActivity(intent);
