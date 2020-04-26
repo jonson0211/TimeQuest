@@ -65,7 +65,6 @@ public class Achievement extends AppCompatActivity {
                 break;
             }
         }
-
         String civilisation = mNPC.getNpcName();
         String NPCAvatar = mNPC.getNpcAvatar();
 
@@ -94,6 +93,7 @@ public class Achievement extends AppCompatActivity {
         npcCharacter = findViewById(R.id.npcCharacter);
         npcCharacter.setImageResource(npcCharacterid);
 
+        //Display the users current customisation
         userHead = findViewById(R.id.userHead);
         userBody = findViewById(R.id.userBody);
         userHand = findViewById(R.id.userHand);

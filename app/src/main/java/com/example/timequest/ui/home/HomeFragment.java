@@ -49,7 +49,10 @@ public class HomeFragment extends Fragment {
     /**
      * Connect to the XML layout
      * Call the adapter
-     * What happens after the cardview is clicked on?
+     * What happens after the cardview is clicked on.
+     * 1. Cardview needs to be inflated into the recyclerview
+     * 2. intent to listen to what topic is being clicked on, that will transfer the user to the activity
+     * 3. Adapter!
      */
 
     public HomeFragment(){
@@ -67,7 +70,7 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
     }
-
+//Inflate the fragment, and talk to the Adapter that consists of the cardview to be populated
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
@@ -90,6 +93,7 @@ public class HomeFragment extends Fragment {
 
         return v;
     }
+    //Intent to launch the proceeding screen
     private void launchLearningIntroActivity(int position){
         Intent intent = new Intent(getActivity(), LearningIntroActivity.class);
         intent.putExtra(String.valueOf(EXTRA_MESSAGE), position);

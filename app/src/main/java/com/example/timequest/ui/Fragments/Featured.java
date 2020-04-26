@@ -71,7 +71,6 @@ public class Featured extends Fragment {
     private boolean answered;
     private RadioGroup questionRg;
     private CountDownTimer countDownTimer;
-    //private int questionCount, questionCountTotal, score;
 
     private int questionCount = 0;
     private int questionCountTotal = 0;
@@ -121,7 +120,6 @@ public class Featured extends Fragment {
         //View view = rootView.getView();
         updateUi();
 
-       // difficultySw = view.findViewById(R.id.switch3);
         buttonTrue = view.findViewById(R.id.buttonTrue);
         buttonFalse = view.findViewById(R.id.buttonFalse);
       //  tvSelectedMode = view.findViewById(R.id.tvSelectedMode);
@@ -134,21 +132,7 @@ public class Featured extends Fragment {
         bodyIv = view.findViewById(R.id.ivBody);
         civilisationTv = view.findViewById(R.id.tvCivilisation);
         featuredNotes = view.findViewById(R.id.featuredNotes);
-/**
- difficultySw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-@Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-if (isChecked) {
-//Talk to json file to get difficulty
-String level = "difficult";
-tvSelectedMode.setText(level);
 
-} else {
-//Talk to json file to get easy
-String level = "easy";
-tvSelectedMode.setText(level);
-}
-}
-});**/
             showphotos();
 
         return view;
@@ -175,12 +159,11 @@ tvSelectedMode.setText(level);
         return name;
         }
 
+        // Too much work on main thread, need Async Task to get the opentrivia api questions.
     private class GetQuestionTask extends AsyncTask<Void, Void, List<Result>> {
 
         @Override
         protected List<Result> doInBackground(Void... voids) {
-
-
             Retrofit retrofit = new Retrofit.Builder().baseUrl("https://opentdb.com")
                     .addConverterFactory(GsonConverterFactory.create()).build();
             TriviaService triviaService = retrofit.create(TriviaService.class);
@@ -206,7 +189,7 @@ tvSelectedMode.setText(level);
             }
         }
     }
-
+//OnPostExecute, the questions and answers retrieved from the database will be populated into the Ui.
     private void updateUi() {
         View rootview = getView();
         Log.d(TAG, "UPDATE UI: DONE");
@@ -265,6 +248,7 @@ tvSelectedMode.setText(level);
 
     }
 
+    //The changing colours - need to register the users answers, compare with databse. Use if statements.
     private void displaySolution() {
         String answer = mResult.getCorrectAnswer();
         Log.d(TAG, "Gets correct answer string " + answer);
@@ -295,7 +279,7 @@ tvSelectedMode.setText(level);
         handIv.setImageResource(res3);
         featuredIv.setImageResource(res4);*/
 
-
+//Featured civilisations based on the shuffled names.
       civilisationTv.setText(value);
       featuredNotes.setText(db.eraDAO().getEraNotes(value));
 
